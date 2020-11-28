@@ -1,0 +1,57 @@
+<h3>Pintar plantas</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laPintaPlantas</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laPlantsPaint.png" alt="Pintar plantas"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#ObjectsToolbar">Objetos de Lands</a>: </div>
+	<div class="value toolbar"><img src="../images/Toolbar/Plant Toolbar.png" alt="Comandos de plantas" usemap ="#PlantToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetación &gt; Pintar plantas</div>
+</div>
+
+
+<p>El Comando Pintar plantas permite insertar varias plantas dispuestas en una matriz triangular (equilátera) en la trayectoria por donde se pasa el puntero del ratón.</p>
+
+
+<h3>Insertar una planta en modo Pintar:</h3>
+<p>Cuando ejecute el comando <strong>laPintaPlantas</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de plantas. Este diálogo muestra las opciones básicas del objeto Planta en dos fichas diferentes.</p>
+<ul>
+<li><a href="Commands_laPlant.html#Plant">Planta</a>: Especies, Calibre, Modo de presentación y Dimensiones en el dibujo.</li>
+<li><a href="Commands_laPlant.html#Format">Formato</a>: formato de la especie de planta.</li>
+<li><a href="Commands_laPlant.html#Render">Render</a>: parámetros que definen cómo se mostrará el objeto de planta en una vista en modo renderizado.</li>
+</ul>
+
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione una <strong>especie de planta</strong> de la lista, debajo de la ficha Planta. Haga clic en el botón 
+	<strong>Examinar...</strong> para seleccionar otra desde la <a href="Commands_laPlantDatabase.html">Base de datos de plantas</a>.</li>
+	<li>Seleccione el resto de <strong>parámetros de inserción</strong> (Calibre, Modo de presentación y Cotas en el dibujo) y haga clic en Aceptar para cerrar el cuadro de diálogo.</li>
+	<li>Haga clic con el botón izquierdo en el modelo para insertar la primera planta. Las siguientes plantas se insertarán en la trayectoria por donde pasa el puntero del ratón creando una matriz triangular (equilátera), de acuerdo con el tamaño de la planta.</li>
+	<li>Vuelva a hacer clic con el botón izquierdo para dejar de insertar plantas y elija otra ubicación para continuar insertando plantas en el modo Pintar.</li>
+	<li>Pulse Intro, Esc o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p><strong>Borrar plantas en modo Pintar</strong></p>
+
+<ol>
+	<li>Mientras ejecute el comando laPintaPlantas, seleccione la opción <strong>Borrar</strong> en la <em>línea de comandos</em>.</li>
+	<li>Haga clic con el botón izquierdo para empezar a borrar plantas. Las plantas situadas en la trayectoria por donde pasa el puntero del ratón se eliminarán.</li>
+	<li>Vuelva a hacer clic con el botón izquierdo para dejar de borrar plantas y elija otra ubicación para continuar borrando plantas en el modo Pintar.</li>
+	<li>Pulse Intro, Esc o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p><strong>Nota</strong>: seleccione las opciones<em>Borrar</em> o <em>Pintar</em> en la línea de comandos para cambiar del modo Pintar al modo Borrar alternativamente mientras ejecuta el comando laPintaPlantas.</p>
+<p class="figureWithDescription"><img src="../images/commands/Plant/Plant Paint 2D.png" alt="Comando Pintar plantas."/><br/>
+Plantas en 2D mientras se ejecuta el comando Pintar plantas.
+</p><br/>
+<br clear="all" />
+<h3><strong>Variación natural</strong></h3>
+
+<p>Cuando está activada, esta opción define una variación de altura aleatoria a las especies de plantas insertadas. El valor máximo (100%) crea especies de plantas que van del 50% al 150% de su tamaño.</p>

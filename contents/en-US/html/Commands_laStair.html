@@ -1,0 +1,163 @@
+<h3>Stair</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laStair</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laStair.png" alt="Stair"/> left click
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Toolbar: Lands Objects</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Civil Work commands" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Civil Work &gt; Stair</div>
+</div>
+
+
+<p>The Stair object defines the vertical circulation in a project.</p>
+
+<ul>
+	<li><a href="Commands_laStair.html#Insert">Insert a stair</a></li>
+	<li><a href="Commands_laStair.html#ControlPoints">Control points</a></li>
+	<li><a href="Commands_laStair.html#Parameters">Insert options and parameters</a></li>
+	<li><a href="Commands_laStair.html#Edit">Edit options</a></li>
+	<li><a href="Commands_laStair.html#Display">Graphical display</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insert a stair:</h3>
+<p>After running the <strong>laStair</strong> command, the Stair <a href="Interface_Dialog.html">insert dialog box</a> will appear. This dialog shows the basic options of the Stair object in two tabs.</p>
+<ul>
+<li><a href="Commands_lasStair.html#Stair">Stair</a>: stair parameters.</li>
+<li><a href="Commands_laStair.html#Material">Material</a>: material settings for the stair object.</li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol>
+	<li>Select the <strong>Stair parameters</strong>. Click <em>OK</em> to close the dialog.</li>
+	<li>Pick an existing <strong>curve</strong> in the model to define the stair path, or select a different option in the command line.
+		<ul>
+			<li><strong>Polyline</strong>: the stair will be created as if you were drawing a polyline.</li>
+			<li><strong>Spline</strong>: the stair will be created as if you were drawing a spline.</li>
+			<li><strong>Circle</strong>: the stair will be created as if you were drawing a circle. The first click determines the 
+			center of the circle, and the second click determines the radius.</li>
+			<li><strong>Arc</strong>: the stair will be created as if you were drawing an arc. The first click determines the insert point. 
+			The second click determines a middle point in the arc. The third and last click determines where the arc ends.</li>
+			<li><strong>Rectangle</strong>: the stair will be created as if you were drawing a rectangle. The first click determines one corner of the rectangle and the second click determines the opposite corner.</li>
+		</ul>
+	</li>
+	<li>Press <em>ENTER, ESC</em> or right-click to end the command.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Stair/Stair Insert Dialog.png" alt="Insert dialog box for the Stair."/><br/>
+Insert dialog box for the Stair object.
+</p><br/>
+<br clear="all" />
+ <div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair Examples.jpg" alt="Stair examples created from different types of curves" /><br/>
+Stair examples created from different types of curves.</div>
+
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Control points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>The Stair object has the same <em>control points</em> as the curves used to generate it.</p>
+<p>In addition, it has a Move control arrow, to move the whole object.</p>
+<p>Stair control points are automatically enabled when selecting stairs one by one. To turn one or more Stair object control points on, just select the stairs and run the <strong>PointsOn</strong> command (or press F10). To turn the points off, press 
+the Esc button or run the <strong>PointsOff</strong> command.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair Control Points.jpg" alt="Control points on Stairs" /><br/>
+Control points on Stair objects</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Insert options and parameters</h3>
+<p>The Stair object insert options and parameters are divided in different tabs, and are available from different dialogs:</p>
+<ul>
+	<li>Stair <a href="Interface_Dialog.html">insert dialog box</a> (only available when inserting new 
+	stairs).</li>
+	<li>Stair properties section, in the <a href="Interface_Panel.html">Lands 
+	Design Edit panel</a>.</li>
+	<li><a href="Interface_Properties.html">Object Properties dialog</a>.</li>
+	<li><a href="Commands_laEdit.html">Properties Explorer dialog</a>.</li>
+</ul>
+
+<h4>General</h4> 
+<p>General attributes for the Stair object: <em>Name</em>, <em>Color</em>, <em>Layer</em>, and <em>Transparency</em>  (only visible in Conceptual display mode).</p>
+
+<a name="Stair" />
+<h4>Stair</h4> 
+<ul>
+<li><strong>Tread</strong>: determines the longitudinal distance between two consecutive slabs.</li>
+<li><strong>Riser</strong>: determines the vertical distance between two consecutive slabs.</li>
+<li><strong>Slab</strong>: The slabs are the steps of the stair. You can set the following slab dimensions:</li>
+	<ul>
+		<li><strong>Length</strong>: stair slab length.</li>
+		<li><strong>Height</strong>: stair slab height.</li>
+		<li><strong>Width</strong>: the width applies to the whole stair object. You can define a constant width or a variable width, from the start to the end of the stair object.</li>
+		<li><strong>Justification</strong>: there are three options to align the stair (Left, Middle or Right), depending on its position based on the direction of its path curve.</li>
+	</ul>
+</ul>
+
+	
+<a name="Material" />
+<h4>Material</h4>
+<p>This tab lets you change the textured image assigned to this element and define the image size, reflectivity and transparency.</p>
+
+
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the stair object, available in the <a href="Interface_Panel.html#Edit">
+Edit area of the Edit panel</a>:</p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Update</a></li>
+	<li><img alt="Convert to 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Convert to 2D</a>. Displays the object in 2D 
+	display.</li>
+	<li><img alt="Convert to 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Convert to 3D</a>. Displays the object in 3D 
+	display.</li>
+	<li><a href="Commands_laConvertTo.html">Show 2D and 3D</a>: <em>Turns the object 2D and 3D 
+	display on simultaneously.</em> </li>
+
+
+	<li><a href="Commands_laCopyFrom.html">Copy properties from another object</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copy to another curve</a></li>
+	<li><a href="Commands_laReverseCurve.html">Invert curve</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extract curve</a></li>
+	<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+	
+</ul>
+
+<a name="Display"></a>
+<h3>Stair graphical display:</h3>
+<p>The Stair object offers a simultaneous 2D and 3D display on the drawing.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair 2D.jpg" alt="2D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair 3D.jpg" alt="3D display"/>
+                </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2D</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

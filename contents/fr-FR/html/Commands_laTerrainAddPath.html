@@ -1,0 +1,62 @@
+<h3>Ajouter un chemin dans un terrain</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laTerrainAjouterChemin</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainAddPath.png" alt="Terrain Ajouter un chemin"/> clic gauche
+
+	</div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Modélisation de terrain &gt; Terrain &gt; Ajouter un chemin</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panneau d'édition </a>: </div>
+	<div class="value menu">Sélectionner un terrain &gt; Zone d'édition du panneau d'édition &gt; Terrain &gt; Ajouter un chemin</div>
+</div>
+
+
+<p>Cette commande modifie la géométrie du terrain afin de placer un chemin dessus.</p>
+<p>Cette opération entraîne également une division du terrain à partir de la même courbe fermée et de la même largeur, comme si vous utilisiez la commande <a href="Commands_laTerrainDivide.html">laTerrainDiviser</a>.</p>
+
+<p><strong>Étapes :</strong></p>
+
+<ol>
+	<li>Sélectionnez un <strong>terrain</strong>. Appuyez sur Entrée ou cliquez avec le bouton droit une fois terminé.</li>
+	<li>Indiquez la <strong>largeur du chemin</strong>.</li>
+	<li>Définissez l'<strong>angle</strong> de pente entre 5 et 85 degrés.</li>
+    <li>Sélectionnez une <strong>courbe</strong> pour définir l'itinéraire du chemin.</li>
+</ol>
+
+<p>Le volume de terre ajouté ou retiré du terrain sera calculé en fonction de la position de la courbe et de l'angle de pente.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Path 1.jpg" alt="Terrain avant l'ajout du chemin"/><br/>
+Terrain avant l'ajout du chemin.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Path 2.jpg" alt="Terrain après l'ajout du chemin"/><br/>
+Terrain après l'ajout du chemin.
+</p>
+
+<a name="Parameters" />
+<h3>Paramètres</h3>
+
+<p>Les paramètres du chemin peuvent être modifiés à partir de l'onglet <em>Données de départ</em> (dans la <a href="Interface_Panel.html#Properties">zone de propriétés du panneau d'édition</a> ou la <a href="Interface_Properties.html">boîte de dialogue des propriétés</a>), dans la liste <em>Terrassements</em>.</p>
+<ul>
+	<li><strong>Points de contrôle </strong>: option pour activer et désactiver les points de contrôle de la zone du chemin  (et de la subdivision). </li>
+	<li><strong>Largeur du chemin </strong>: la largeur du chemin est centrée sur la courbe définissant ce dernier.</li>
+	<li><strong>Angle de pente</strong> : angle avec le terrain appliqué au niveau du contour du chemin.</li>
+</ul>
+
+<p>Les options et paramètres d'édition de la subdivision du terrain générée par cette commande sont les mêmes que pour la commande <a href="Commands_laTerrainDivide.html">laTerrainDiviser</a>.</p>
+
+
+<a name="ControlPoints" />
+<h3>Points de contrôle <img alt="Points de contrôle" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Les points de contrôle du chemin permettent de modifier son élévation et son itinéraire. Ce sont les mêmes que ceux des courbes utilisées pour l'opération. Les chemins disposent également d'une flèche de contrôle du déplacement afin de déplacer la position du chemin dans son ensemble.</p>
+<p>Ces points de contrôle sont intégrés dans le terrain et sont visibles lorsque les points de contrôle du terrain sont activés.</p>
+<p>Ils peuvent être désactivés à partir de l'onglet <em>Données de départ</em> (dans la <a href="Interface_Panel.html#Properties">zone de propriétés du panneau d'édition</a> ou la <a href="Interface_Properties.html">boîte de dialogue des propriétés</a>), après avoir sélectionné le chemin, dans la liste <em>Terrassements</em>.</p>
+
+
+<p><strong>Remarque </strong>: les points de contrôle de la subdivision créée par un chemin dépendent des points de contrôle du chemin, qu'ils soient activés ou non dans les paramètres de subdivision.</p>

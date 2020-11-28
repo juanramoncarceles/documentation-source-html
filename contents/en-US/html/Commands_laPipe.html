@@ -1,0 +1,117 @@
+<h3>Pipe</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laPipe</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laPipe.png" alt="Pipe"/> left click
+
+	</div>
+	
+	<div class="field">Toolbar: <a href="Interface_Toolbars.html#WateringToolbar">Lands Documentation</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Irrigation commands in Documentation toolbar" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Irrigation system &gt; Pipe</div>
+</div>
+
+
+<p>Pipes are essential elements in the watering installation in a landscape project.</p>
+
+<ul>
+	<li><a href="Commands_laPipe.html#Insert">Insert a pipe</a></li>
+	<li><a href="Commands_laPipe.html#ControlPoints">Control points</a></li>
+	<li><a href="Commands_laPipe.html#Parameters">Insert options and parameters</a></li>
+	<li><a href="Commands_laPipe.html#Edit">Edit options</a></li>
+	<li><a href="Commands_laPipe.html#Display">Graphical display</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insert a pipe</h3>
+<p>After running the <strong>laPipe</strong> command, the Pipe <a href="Interface_Dialog.html">insert dialog box</a> will appear. This dialog shows the basic options in a single tab.</p>
+
+<ul>
+<li><a href="Commands_laPipe.html#Pipe">Pipe</a>: pipe parameters.</li>
+
+</ul>
+<p><strong>Steps:</strong></p>
+<ol>
+	<li>Select the <strong>Pipe</strong> parameters. Click <em>OK</em> to close the dialog.</li>
+	<li>Select one of the two options in the command line:
+		<ul>
+			<li><strong>New</strong>: create a new pipe choosing one of these options in the command line:
+				<ul>
+					<li><strong>Pick a sprinkler</strong>: the pipe will be constructed passing through a sprinkler insert point and will be linked to its position. If the sprinkler is moved, the pipe path will update.</li>
+					<li><strong>Point</strong>: the pipe will be constructed defining points in the model, as if you were drawing a polyline.</li>
+					<li><strong>Undo</strong>: the last sprinkler or point designed is unselected for the pipe path.</li>
+				</ul>
+						
+			</li>
+			<li><strong>Existing</strong>: you will be prompt to select an existing polyline in the model, that will be converted into a pipe.</li>
+		</ul>
+	</li>
+	<li>Press <em>ENTER, ESC</em> or right-click to end the command.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Watering/Pipes Insert Dialog.png" alt="Insert dialog box for the Pipe object."/><br/>
+Insert dialog box for the Pipe object.
+</p><br/>
+
+<br clear="all" />
+
+<a name="ControlPoints" />
+<h3>Control points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>The Pipe object has as many <em>control points</em> as the curves used to generate it.</p>
+<p>To turn a Pipe object control point on run the <strong>PointsOn</strong> command (or press F10) and select the Pipe object. To turn its points off, press Esc or run the <strong>PointsOff</strong> command.</p>
+
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Insert options and parameters</h3>
+<p>The Pipe object insert options and parameters are divided in different tabs, and are available from different dialogs:</p>
+<ul>
+	<li>Pipe <a href="Interface_Dialog.html">insert dialog box</a> (only available when inserting 
+	a new Pipe).</li>
+	<li>Pipe properties section, in the <a href="Interface_Panel.html">Lands 
+	Design Edit panel</a>.</li>
+	<li><a href="Interface_Properties.html">Object Properties dialog</a>.</li>
+	<li><a href="Commands_laEdit.html">Properties Explorer dialog</a>.</li>
+</ul>
+
+<h4>General</h4> 
+<p>General attributes for the Pipe object: <em>Name</em>, <em>Color</em>, <em>Layer</em>, and <em>Transparency</em>  (only visible in Conceptual display mode).</p>
+
+<a name="Pipe" />
+<h4>Pipe</h4> 
+	<ul>
+		<li><strong>Section (diameter)</strong>: pipe diameter dimension.</li>
+		<li><strong>Pressure</strong>: water pressure inside pipes measured in atm.</li>
+		<li><strong>Material</strong>: field to specify the pipe material.</li>
+		<li><strong>Description</strong>: field aimed to add notes about pipes.</li>
+	</ul>
+	
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the pipe object, available in the <a href="Interface_Panel.html#Edit">Edit area of the Edit 
+panel</a>:</p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Update</a></li>
+	
+	<li>Copy properties from another object.</li>
+	<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+		
+</ul>
+	
+<a name="Display" />
+<h3>Pipe graphical display</h3>
+<p>Pipes are represented as 2D lines both in the 3D and the 2D representation modes.</p>

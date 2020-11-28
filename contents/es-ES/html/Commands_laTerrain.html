@@ -1,0 +1,186 @@
+<h3>Terreno</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laTerreno</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laTerrain.png" alt="Terreno"/> clic izquierdo [<a href="Interface_Toolbars.html#TerrainToolbar" title="Barra de herramientas Terreno [">clic largo</a>]
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#ObjectsToolbar">Objetos de Lands</a> / <a href="Interface_Toolbars.html#TerrainToolbar">Terreno de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandos de terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design > Modelado de terreno > Insertar terreno</div>
+</div>
+
+
+<p>Los terrenos de Lands Design son mallas topográficas creadas levantando una superficie a partir de <strong>curvas 3D</strong>, <strong>curvas de nivel</strong> o <strong>nubes de puntos</strong>.</p>
+
+<ul>
+	<li><a href="Commands_laTerrain.html#Insert">Insertar un terreno</a></li>
+	<li><a href="Commands_laTerrain.html#ControlPoints">Puntos de control</a></li>
+	<li><a href="Commands_laTerrain.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laTerrain.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laTerrain.html#Display">Representación gráfica</a></li>
+
+</ul>
+<a name="Insert" />
+
+<h3>Insertar un terreno:</h3>
+<p>Cuando ejecute el comando <strong>laTerreno</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de terrenos. Este diálogo muestra las opciones básicas del objeto Terreno en dos fichas.</p>
+
+<ul>
+<li><a href="Commands_laTerrain.html#Terrain">Terreno</a>: parámetros de terreno.</li>
+<li><a href="Commands_laTerrain.html#Material">Material</a>: opciones de material para el objeto Terreno.</li>
+</ul>
+
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione el resto de <a href="Commands_laTerrain.html#Parameters"><b>parámetros de inserción de terreno</b></a> y haga clic en <em>Aceptar</em> para cerrar el cuadro de diálogo.</li>
+	<li>Seleccione los <b>datos de entrada del terreno</b>, que pueden ser curvas o puntos. Pulse <em>Intro</em> para finalizar el comando.</li>
+</ol>
+
+<p>El terreno se generará en el modelo.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Insert Dialog.png" alt="Cuadro de inserción del objeto Terreno."/><br/>
+Cuadro de inserción del objeto Terreno.
+</p><br/>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Input data.jpg" alt="Datos de entrada de terreno: curvas. "/><br/>
+Los terrenos se pueden generar a partir de diferentes tipos de datos de entrada.
+</p>
+
+
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Los terrenos tienen los mismos <em>puntos de control</em> que las curvas usadas para generarlos, y las curvas usadas para realizar operaciones en terrenos (tales como el comando <a href="Commands_laTerrainAddHole.html">Añadir hueco en terreno</a>, el comando <a href="Commands_laTerrainAddCutAndFill.html">Añadir desmonte en terreno</a>, etc.). Además, aparece una flecha de control de movimiento junto a cada una las curvas para mover toda la curva.</p>
+
+<p>Los puntos de control de los terrenos se activan automáticamente al seleccionar los terrenos uno por uno. Para activar uno o más puntos de control del objeto Terreno, seleccione los terrenos y ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10). Para desactivar los puntos de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+<p>Los puntos de control de geometría usados para generar el terreno se pueden desactivar individualmente desde la ficha <em>Datos de entrada</em>, en el área de Propiedades del Panel de edición.</p>
+
+<div class="figureWithDescription block"><img src="../images/Commands/Terrain/Terrain Control points.jpg" alt="Puntos de control de terrenos" /><br/>
+Puntos de control de terrenos.</div>
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Opciones y parámetros de inserción</h3>
+<p>Los parámetros y las opciones de inserción de Terreno se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Cuadro de diálogo de inserción</a> de Terreno (solo disponible al insertar nuevos Terrenos).</li>
+	<li>Sección de propiedades de Terreno, en el <a href="Interface_Panel.html">Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> de Terreno.</li>
+</ul>
+
+<h4>General</h4> 
+<p>Atributos generales del objeto Terreno: <em>Nombre</em>, <em>Color</em>, <em>
+Código</em> y <em>Palabras clave</em>.</p>
+<a name="Terrain" />
+<h4>Terreno</h4>
+
+	
+<p><strong>Generación</strong>: Lands Design utiliza el método <em>Triangulación de Delaunay</em> para generar terrenos. Se trata de un popular algoritmo de generación de terrenos basado en realizar una triangulación óptima con los puntos cuyo valor de elevación es conocido.</p>
+<p>Los terrenos se pueden crear empleando directamente las caras de la triangulación o ajustando una rejilla a la forma obtenida tras la triangulación con el fin de obtener una superficie suavizada.</p>
+	
+<p><strong>Rejilla rectangular amoldada a la triangulación</strong>: cuando esta opción está activada, puede controlar los siguientes parámetros:</p>
+	<ul>
+		<li>Tamaño de celda</li>
+		<li>Rotación</li>
+		<li>Suavizar</li>
+		<li>Simplificar</li>
+		<li>Utilizar la rejilla para moldear agujeros y desmontes</li>
+	</ul>
+
+<p><b>Altura de la base</b>: </p>
+
+<h4>Datos de entrada</h4>
+<p>Esta ficha se divide en dos áreas. El área izquierda muestra la lista de datos de entrada (curvas o puntos) usados para generar el terreno y las operaciones utilizadas para modificar el terreno. El área derecha muestra los parámetros disponibles para cada selección.</p>
+
+<p>Cada curva u operación se puede seleccionar y eliminar de la lista individualmente, y el terreno se volverá a calcular.</p>
+<a name="Contours" />
+<h4>Curvas de nivel</h4>
+<p><strong>Equidistancia</strong>: hay dos opciones disponibles para generar las curvas de nivel del terreno para su representación 2D:</p>
+	<ul>
+		<li><strong>Número de curvas de nivel</strong>: divide la altura del terreno en un número fijo de curvas.</li>
+		<li><strong>Distancia entre curvas</strong>: crea curvas de nivel de terreno cada cierta distancia entre ellas.</li>
+	</ul>
+	
+<p><strong>Apariencia</strong>: opciones de representación 2D para las curvas de nivel del terreno. Puede definir curvas de nivel indexadas cada "X" número de curvas de nivel, añadir textos y asignarles diferentes propiedades.</p>	
+	
+
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición del objeto de terreno, disponibles en el <a href="Interface_Panel.html#Edit">
+área de edición del Panel de edición</a>:</p>
+
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualizar </a></li>
+	<li><img alt="Convertir a 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir a 2D</a>. Muestra el objeto en representación 2D.</li>
+	<li><img alt="Convertir a 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir a 3D</a>. Muestra el objeto en representación 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Mostrar 2D y 3D</a>: <em>Activa la representación 2D y 3D del objeto simultáneamente.</em> </li>
+
+	<li><a href="Commands_laCopyFrom.html">Copiar propiedades de otro objeto</a></li>
+	
+	<li>Ajustar
+		<ul>
+			<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+			<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		</ul>
+	</li>
+	<li>Terreno
+	<ul> 
+		<li><a href="Commands_laTerrainBoundary.html"><img src="../images/Icon/laTerrainBoundary.png" alt="Contorno del terreno"/> <em>Añadir contorno</em></a> </li>
+		<li><a href="Commands_laTerrainRemoveBoundary.html"><img src="../images/Icon/laTerrainRemoveBoundary.png" alt="Quitar contorno de terreno"/> <em>Quitar contorno</em></a>. <em>(Este comando aparece solamente cuando se añade un nuevo contorno al terreno</em>.</li>
+		<li><a href="Commands_laTerrainAddContour.html"><img src="../images/Icon/laTerrainAddContour.png" alt="Añadir curva de nivel de terreno"/> <em>
+		Añadir curva de nivel de terreno</em></a></li>
+		<li><a href="Commands_laTerrainAddHole.html"><img src="../images/Icon/laTerrainAddHole.png" alt="Añadir hueco en terreno"/> <em>
+		Añadir hueco</em></a></li>
+		<li><a href="Commands_laTerrainAddCutAndFill.html"><img src="../images/Icon/laTerrainAddCutAndFill.png" alt="Añadir desmonte en terreno"/> <em>Añadir desmonte</em></a></li>
+		<li><a href="Commands_laTerrainAddCutAndFill.html"><img src="../images/Icon/laTerrainAddPath.png" alt="Añadir camino en terreno"/> <em>
+		Añadir camino</em></a></li>
+		<li><a href="Commands_laTerrainDivide.html"><img src="../images/Icon/laTerrainDivide.png" alt="Dividir terreno"/> <em>Dividir</em></a></li>
+		<li><a href="Commands_laTerrainInfo.html"><img src="../images/Icon/laTerrainInfo.png" alt="Volumen de movimiento de tierras"/> <em>
+		Volumen de movimiento de tierras</em></a></li>
+		
+	</ul>
+	</li>
+		
+</ul>
+
+<p>Todos los comandos para generar, editar y realizar operaciones en terrenos se encuentran en la <a href="Interface_Toolbars.html#TerrainToolbar">barra de herramientas de Terreno de Lands</a>.</p>
+
+<div class="figureWithDescription block">
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandos de terreno" usemap ="#TerrainToolbarMap" /><br/>
+	Barra de herramientas Terreno de Lands Design</div>
+	</div>
+
+	<br clear="all" />
+<a name="Display" />
+<h3>Representación gráfica de terreno:</h3>
+<p>Lands Design ofrece diferentes representaciones en 2D y 3D simultáneas de terrenos en el dibujo. El número de curvas de nivel en la representación 2D depende de las <a href="Commands_laTerrain.html#Contours">opciones de Curvas de nivel</a>.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Terrain/Terrain 2D.jpg" alt="Representación 2D de terreno"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Terrain/Terrain.jpg" alt="Representación 3D de terreno"/>
+ </div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="center" width="200px">Representación gráfica 2D de terreno</td>
+		<td align="center" width="200px">Representación gráfica 3D de terreno</td>
+	</tr>
+</tbody>
+</table>
+		

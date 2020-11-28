@@ -1,0 +1,55 @@
+<h3>Earth Scan</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laEarthScan</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laEarthScan.png" alt="Earth Scan"/> left click
+
+	</div>
+	
+	<div class="field">Toolbar: <a href="Interface_Toolbars.html#TerrainToolbar">Lands Terrain</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Terrain commands" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Terrain Modeling &gt; Import Earth's Elevation Data</div>
+</div>
+
+<p>This command scans a terrain from the cloud and imports it as a textured mesh or a terrain object.</p>
+
+<p>After running the <strong>laEarthScan</strong> command, the <strong>Import Earth's 
+elevation data </strong>dialog will appear.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/EarthScanDialog.png" alt="Import Earth Elevation Data Dialog"/><br/>
+Import Earth's elevation data dialog.
+</p>
+
+<p>This dialog is divided into two parts. A navigation area over the Earth and the Import settings.</p>
+<p> In the navigation area, click on the left upper button to switch among 4 different map modes (Streets, Outdoors, Satellite and Satellite Streets) or use the <em>Search</em> field to find a specific location in the world.</p>
+<p>The settings can be collapsed with the <em>Arrow</em> button at the bottom part of the settings.</p>
+
+
+<p><strong>Steps:</strong></p>
+<ol>
+<li><b>Navigate over the Earth area</b> you wish to import. The area behind the settings is also included. Use + and - buttons to zoom in and out, and the arrows to scroll the map exactly one frame next to the other at the same altitude.</li>
+<li>Define the <b>area</b> to import by clicking on the Frame button <img src="../images/Frame.png" alt="Frame button"/> and defining the area on the map. Click on the Delete button <img src="../images/DeleteFrame.png" alt="Delete selection button"/> to clear the selection and import the whole terrain displayed in the dialog. The area is limited to 10 Km extension along each side of the selected area, otherwise the elevation data can't be imported.</li>
+<li>Select one of the <b>Create on Import</b> options:
+	<ul>
+		<li><b>Create mesh</b>: a textured mesh tagged as a terrain with the picture of the scanned area will be created.</li>
+		<li><b>Create terrain</b>: a terrain will be automatically created with the scanned elevation data.</li>
+	</ul>
+</li>
+<li><strong>Geolacalize</strong> the document. 
+In the first import, the center of the image will be located at the (0,0,0) document coordinates. It will correspond to the model's position in latitude, longitude, and elevation. In a second import, you can choose whether maintaining the document origin coordinates of the first import or overriding it with the new imported map's center.
+</li>
+
+
+<li>Choose the <b>Elevation data</b>: select the accuracy of the samples to scan by a range of values (0-100) or by a specific distance among samples. The selected values will calculate the number of samples required in the import, which is limited to 50.000 per import.</li>
+				
+<li>Click on the the <kbd>Import</kbd> button to import the selected data. (Click 
+on the the <kbd>Reset</kbd> button to restart the initial settings).</li>
+</ol>
+
+<p><b>NOTE 1</b>: The data provided from the cloud has an overall accuracy of nearly one sample every 30 meters. If you specify a smaller value in the Elevation data settings, Lands will generate the interpolated samples automatically.</p>
+<p><b>NOTE 2</b>: If you choose the Create mesh option, once you import it, turn the Rendered Display mode on to see the image on the imported mesh.</p>

@@ -1,0 +1,47 @@
+<h3>Sélectionner la frontière d'un terrain</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laTerrainFrontière</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainBoundary.png" alt="Terrain Sélectionner une frontière"/> clic gauche
+
+	</div>
+	
+	<div class="field">Barre d'outils : <a href="Interface_Toolbars.html#TerrainToolbar">Terrain de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Commandes de terrains" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Modélisation de terrain &gt; Terrain &gt; Sélectionner une frontière</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panneau d'édition </a>: </div>
+	<div class="value menu">Sélectionner un terrain &gt; Zone d'édition du panneau d'édition &gt; Terrain &gt; Sélectionner une frontière</div>
+</div>
+
+<p>Permet de sélectionner une courbe fermée pour définir la frontière d'un terrain.</p>
+<p>Lorsque l'algorithme de triangulation de Delaunay est utilisé sans grille, les limites de la surface du terrain correspondent à celles de la triangulation obtenue.<br/>
+
+Lorsque le terrain est généré avec une grille de points, les limites de la surface du terrain sont déterminées par le rectangle minimum qui contient la projection plane de toutes les courbes et tous les points de départ.</p>
+
+<p><strong>Étapes :</strong></p>
+
+<ol>
+ <li>Sélectionnez un terrain.</li>
+ <li>Sélectionnez une <strong>courbe fermée</strong> pour définir le nouveau contour du terrain. </li>
+</ol>
+
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour.jpg" alt="Terrain existant"/><br/>
+Terrain existant et courbe pour définir la nouvelle frontière.
+</p>
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour 2.jpg" alt="Nouvelle frontière du terrain"/><br/>
+Terrain avec la nouvelle frontière dans la fenêtre Dessus.
+</p>
+<br clear="all" />
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour 3.jpg" alt="Nouveau contour du terrain"/><br/>
+Terrain avec la nouvelle frontière dans la fenêtre Perspective.
+</p>
+
+<p>La nouvelle frontière peut être supprimée en utilisant la commande <a href="Commands_laTerrainRemoveBoundary.html"><img src="../images/Icon/laTerrainRemoveBoundary.png" alt="Terrain - Supprimer une frontière"/>laTerrainSupprimerFrontière</a> ou dans la zone d'édition du terrain du <a href="Interface_Panel.html"><strong>panneau d'édition</strong></a> et dans la <a href="Interface_Properties.html"><strong>boîte de dialogue des propriétés</strong></a> sous l'onglet <em>Données de départ</em> après avoir sélectionné le terrain.</p>

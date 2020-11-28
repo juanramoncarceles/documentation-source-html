@@ -1,0 +1,124 @@
+<h3>Arroseur</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laArroseur</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laSprinkler.png" alt="Arroseur"/>  (clic gauche)
+
+	</div>
+	
+	<div class="field">Barre d'outils : <a href="Interface_Toolbars.html#DocumentationToolbar">Documentation de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Commandes d'arrosage dans la barre d'outils Documentation" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Système d'arrosage &gt; Arroseur</div>
+</div>
+
+
+<p>Les arroseurs sont des éléments essentiels de l'installation d'arrosage dans un projet d'aménagement paysager.</p>
+
+<ul>
+	<li><a href="Commands_laSprinkler.html#Insert">Insère un arroseur</a></li>
+	<li><a href="Commands_laSprinkler.html#ControlPoints">Points de contrôle</a></li>
+	<li><a href="Commands_laSprinkler.html#Parameters">Paramètres et options d'insertion</a></li>
+	<li><a href="Commands_laSprinkler.html#Edit">Options d'édition</a></li>
+	<li><a href="Commands_laSprinkler.html#Display">Affichage</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insérer un arroseur</h3>
+<p>Lorsque vous lancez la commande <strong>laArroseur</strong>, la <a href="Interface_Dialog.html">boîte de dialogue d'insertion</a> d'un arroseur apparaît. Cette boîte de dialogue présente les options de base dans un onglet unique.</p>
+<ul>
+<li><a href="Commands_laSprinkler.html#Sprinkler">Arroseur </a>: paramètres de l'arroseur.</li>
+
+</ul>
+
+
+<p><strong>Étapes :</strong></p>
+<ol>
+	<li>Définissez les paramètres de l'<strong>arroseur</strong>. Cliquez sur Accepter pour fermer la boîte de dialogue.</li>
+	<li>Sélectionnez le point d'insertion de l'arroseur en cliquant sur le point désiré dans le modèle. </li>
+	<li>Ensuite, indiquez l'orientation de l'arroseur manuellement avec le curseur. Cliquez à nouveau pour insérer un autre arroseur ou...</li>
+	<li>Appuyez sur Entrée, Échap ou cliquez avec le bouton droit pour terminer la commande.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Watering/Sprinkler Insert Dialog.png" alt="Boîte de dialogue d'insertion d'un arroseur."/><br/>
+Boîte de dialogue d'insertion d'un arroseur.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Points de contrôle <img alt="Points de contrôle" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>L'objet représentant l'arroseur possède un seul <em>point de contrôle</em> en son centre.</p>
+<p>Pour activer le point de contrôle d'un arroseur, lancez la commande <strong>ActiverPoints</strong> (ou appuyez sur F10) et sélectionnez l'arroseur. Pour désactiver le point de contrôle, appuyez sur Échap ou lancez la commande <strong>DésactiverPoints</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Watering/Sprinkler Control Points.jpg" alt="Point de contrôle activé sur un arroseur" /><br/>
+Point de contrôle activé sur un arroseur</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Paramètres et options d'insertion</h3>
+<p>Les paramètres et options d'insertion des arroseurs se trouvent dans différents onglets de plusieurs boîtes de dialogue.</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Boîte de dialogue d'insertion d'un arroseur</a> (uniquement disponible lors de l'insertion de nouveaux arroseurs).</li>
+	<li>Section propriétés des arroseurs, dans le <a href="Interface_Panel.html">
+	panneau d'édition de Lands Design</a>.</li>
+	<li>Boîte de dialogue des <a href="Interface_Properties.html">propriétés objet</a> d'un arroseur.</li>
+</ul>
+
+<h4>Général</h4> 
+<p>Attributs généraux de l'arroseur : <em>Nom</em>, <em>Couleur</em>, <em>Calque</em>, <em>Code</em> et <em>Mots clé</em>.</p>
+
+<a name="Sprinkler" />
+<h4>Arroseur</h4> 
+	<ul>
+		<li><strong>Type </strong>: il existe quatre types d'arroseur :
+			<ul>
+				<li><img src="../images/Commands/Watering/Sprinkler icon.jpg" alt="Arroseurs"/> <strong>Arroseurs </strong>: les arroseurs ont une portée de 6 m, ce qui signifie qu'ils peuvent envoyer de l'eau jusqu'à 6 m devant eux, en fonction du niveau de pression ou du type de buse utilisé.</li>
+				<li><img src="../images/Commands/Watering/Diffuser icon.jpg" alt="Arroseur"/> <strong>Diffuseurs </strong>: les diffuseurs sont similaires aux arroseurs mais sont plus petits. Ils ont une portée de 2 à 5 m, en fonction de la pression et de la buse. Ils sont utilisés pour arroser des zones plus étroites.</li>
+				<li><img src="../images/Commands/Watering/Turbines icon.jpg" alt="Arroseur"/> <strong>Turbines </strong>: conviennent aux zones de taille moyenne longues et étroites. </li>
+				<li><img src="../images/Commands/Watering/Nozzle icon.jpg" alt="Arroseur"/> <strong>Buse d'arrosage </strong>: point d'eau vissé dans le sol</li>
+			</ul>
+		</li>
+		<li><strong>Description </strong>: champ pour ajouter des notes sur les arroseurs.</li>
+		<li><strong>Symbole </strong>: dessin 2D utilisé pour représenter les arroseurs dans la zone de la matrice. Cliquez sur le bouton <em>Parcourir...</em> pour charger un bloc 2D de la bibliothèque de Lands Design ou depuis un répertoire de votre ordinateur.</li>
+		<li><strong>Rayon</strong></li>
+		<li><strong>Angle de balayage</strong></li>
+	</ul>
+	
+	
+<a name="Edit" />
+<h3>Options d'édition</h3>
+<p>Options d'édition des arroseurs, disponibles dans la <a href="Interface_Panel.html#Edit">zone d'édition du panneau d'édition</a> :</p>
+<ul>
+	<li><img alt="Actualiser" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualiser</a></li>
+	
+	<li><a href="Commands_laCopyFrom.html">Copier les propriétés d'un autre objet</a></li>
+	<li>Ajuster
+		<ul>
+		<li><img alt="laElever" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Élévation</a></li>
+		<li><img alt="laEleverAZéro" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">À l'élévation zéro</a></li>
+		<li><img alt="laEleverSurTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		Au terrain</a></li>
+		</ul>
+	</li>
+	<li>Ne pas ajuster au terrain</li>
+	<li>Arroseur
+		<ul>
+			<li>Réorienter : changer la direction de l'arroseur </li>
+		</ul>
+	</li>
+</ul>
+
+
+
+<a name="Display" />
+<h3>Affichage des arroseurs :</h3>
+<p>Les arroseurs sont représentés sous forme de références de blocs 2D. Des blocs sont disponibles dans la bibliothèque de Lands Design : C:\ProgramData\AsuniCAD\Lands\Rhinoceros (64-bit)\Blocks\Sprinklers\.</p>
+<p>Pour créer un <strong>affichage personnalisé</strong> pour la représentation des arroseurs, créez le dessin dans un document vide en plaçant sont point central à l'origine des coordonnées. Enregistrez le fichier. </p>
+

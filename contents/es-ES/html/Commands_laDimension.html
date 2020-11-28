@@ -1,0 +1,117 @@
+<h3>Objetos de cota</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laAcota</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laDimension.png" alt="Objetos de cota"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas : <a href="Interface_Toolbars.html#DocumentationToolbar">Documentación de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Comandos de documentación" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Documentación &gt; Cota &gt; Cota</div>
+</div>
+
+<p>El comando <strong>laAcota</strong> permite acotar plantas, elementos civiles y otras entidades desde un punto de origen de coordenadas específico en el plano.</p>
+
+<p>El comando inserta un punto de origen de coordenadas y genera objetos de cota para acotar entidades en relación con el origen de las coordenadas. El punto de origen de coordenadas se muestra como objeto de Lands, mientras que las cotas son objetos de cota de Rhino normales.</p>
+
+<p>Lista de objetos acotables mediante Lands Design y la información obtenida:</p>
+<ul>
+	<li><strong>Plantas</strong>: coordenadas del punto de plantación.</li>
+	<li><strong>Arbustos, parterres, elementos estructurales (muretes, escaleras, vallas, etc.) y terrenos</strong>: acotación de curvas de control.</li>
+	<li><strong>Mobiliario urbano</strong>: coordenadas del punto de inserción.</li>
+	<li><strong>Aspersores</strong>: coordenadas de la posición del aspersor.</li>
+	<li><strong>Tuberías</strong>: coordenadas de vértices.</li>
+	<li><strong>Curvas 2D</strong>: coordenadas de puntos singulares, radio de círculo y arco, y radio de los segmentos arqueados de una polilínea.</li>
+</ul>
+
+<ul>
+	<li><a href="Commands_laDimension.html#Insert">Insertar una cota</a></li>
+	<li><a href="Commands_laDimension.html#ControlPoints">Puntos de control de cota</a></li>
+	<li><a href="Commands_laDimension.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laDimension.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laDimension.html#Display">Representación gráfica</a></li>
+
+</ul>
+<a name="Insert" />
+<h3>Insertar una cota</h3>
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Inserte un nuevo<strong> punto de origen de coordenadas</strong> o seleccionar uno existente.</li>
+	<li>Especifique el <strong>tipo de cota</strong> a insertar: lineal u ordenada.</li>
+	<li>Designe las <strong>entidades</strong> para asociar con el punto de origen de coordenadas.</li>
+</ol>
+
+<p>Las cotas creadas permanecerán vinculadas a la posición de las entidades seleccionadas.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Dimension/Linear.png" alt="Origen de coordenadas y cotas lineales" /><br/>
+Origen de coordenadas y cotas lineales</div>
+
+<div class="figureWithDescription block"><img src="../images/Commands/Dimension/Ordinate.png" alt="Origen de coordenadas y cotas ordenadaes" /><br/>
+Origen de coordenadas y cotas ordenadas</div>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>El objeto de origen de coordenadas tiene un único punto de control en su centro.</p> 
+<p>Los cotas tienen el mismo número de puntos de control que las curvas desde las que se crearon.</p>
+<p>Para activar un objeto de origen de coordenadas o de cota, ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10) y seleccione los objetos. Para desactivar los puntos de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Parámetros</h3>
+<p>Los parámetros de Origen de coordenadas y Objetos de cota se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	
+	<li>Sección de propiedades de Origen de coordenadas, en el <a href="Interface_Panel.html">Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> de Origen de coordenadas.</li>
+</ul>
+<h4>General</h4> 
+<p>Atributos generales del objeto Origen de coordenadas y Cota: <em>Nombre</em>, <em>Color</em>, <em>Capa</em>, <em>Código</em> y <em>Palabras clave</em>.</p>
+
+<h4>Origen de coordenadas:</h4>
+<ul> 
+	<li><strong>Rango de los ejes</strong>: longitud y parámetros de los ejes de Abscisas (X) y Ordenada (Y).</li>
+	<li><strong>Etiquetas de los ejes</strong>: atributos y fuente de texto.</li>
+</ul>
+
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición de los objetos de cotas y origen de coordenadas, disponibles en el <a href="Interface_Panel.html#Edit">área de edición del Panel de edición</a>:</p>
+<p><strong>Opciones comunes:</strong></p>
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Actualizar</a></li>
+	<li>Copiar propiedades de otro objeto.</li>
+	<li>Ajustar
+		<ul>
+		<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+		<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreno</a></li>
+		</ul>
+	</li>
+	<li>Dejar de ajustar a terrenos</li>
+</ul>
+<p><strong>Acotar </strong></p>
+<ul>
+	<li><strong>Cambiar origen</strong>: cambia  el objeto de coordenada de origen asociado a esta cota.</li>
+</ul>
+
+<p><strong>Origen de coordenadas</strong></p>
+<ul>
+	<li><strong>Establecer como principal</strong>: seleccione un objeto origen de coordenadas para definirlo como principal.</li>
+	<li><strong>Cota</strong>: designe nuevas entidades para acotar (alineadas u ordenadas) referenciadas en el origen de coordenadas seleccionado.</li>
+</ul>
+
+<a name="Display" />
+<h3>Representación gráfica del origen de coordenadas:</h3>
+<p>El origen de coordenadas y los objetos de cota solo tienen una representación 2D y se pueden ver en cualquier modo de visualización.</p>
+

@@ -1,0 +1,175 @@
+<h3>Cubresuelos</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laParterre</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laGroundcover.png" alt="Parterre"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#ObjectsToolbar">Objetos de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Vegetation Toolbar.png" alt="Comandos de vegetación" usemap ="#VegetationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetación &gt; Parterre</div>
+</div>
+
+
+<p>Los parterres de Lands Design son áreas de vegetación llenas de especies de plantas según parámetros de densidad y se representan con un patrón de sombreado para la visualización en 2D.</p>
+
+<ul>
+	<li><a href="Commands_laGroundcover.html#Insert">Insertar un parterre</a></li>
+	<li><a href="Commands_laGroundcover.html#ControlPoints">Puntos de control</a></li>
+	<li><a href="Commands_laGroundcover.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laGroundcover.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laGroundcover.html#Display">Representación gráfica</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insertar un parterre:</h3>
+<p>Cuando ejecute el comando <strong>laParterre</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de parterre. Este diálogo muestra las opciones básicas y los parámetros del objeto Parterre en una sola ficha.</p>
+
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione una <strong>especie de parterre</strong> de la lista. Haga clic en el botón <em>Examinar...</em> para seleccionar otra desde la <a href="Commands_laPlantDatabase.html">Base de datos de plantas</a>.</li>
+	<li>Seleccione el resto de <strong>parámetros de inserción</strong> (modo de presentación, patrón de sombreado y archivo de planta de nXT) y pulse <em>Aceptar</em> para cerrar el diálogo.</li>
+	<li>Designe una <strong>curva</strong> existente en el modelo para definir un contorno de parterre, o seleccione una opción diferente en la línea de comandos.
+		<ul>
+			<li><strong>Polilínea</strong>: el parterre se creará como si dibujara una polilínea.</li>
+			<li><strong>Spline</strong>: el parterre se creará como si dibujara una spline.</li>
+			<li><strong>Círculo</strong>: el parterre se creará como si dibujara un círculo. El primer clic determina el centro del círculo y el segundo clic determina el radio.</li>
+			<li><strong>Arco</strong>: el parterre se creará como si estuviera dibujando un arco. El primero clic determina el punto de inserción. El segundo determina el clic determina un punto medio en el arco. El tercer clic determina dónde termina el arco.</li>
+			<li><strong>Rectángulo</strong>: el parterre se creará como si dibujara un rectángulo. El primer clic determina una esquina del rectángulo y el segundo clic determina la esquina opuesta.</li>
+		</ul>
+	</li>
+	<li>Pulse <em>Intro</em>, <em>Esc</em> o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Groundcover/Groundcover Insert Dialog.png" alt="Cuadro de inserción del objeto Parterre."/><br/>
+Cuadro de inserción del objeto Parterre.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Los parterres tienen el mismo número de <em>puntos de control</em> que las curvas utilizadas para generarlos.</p>
+<p>Además, tienen una flecha de control de movimiento para mover todo el objeto de parterre.</p>
+<p>Los puntos de control de los parterres se activan automáticamente al seleccionar los parterres uno por uno. Para activar uno o más puntos de control del objeto Parterre, seleccione los parterres y ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10). Para desactivar los puntos de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover Control points.jpg" alt="Puntos de control de parterres" /><br/>
+Puntos de control de parterres</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Opciones y parámetros de inserción</h3>
+<p>Los parámetros y las opciones de inserción de Parterre se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Cuadro de diálogo de inserción</a> de Planta (solo disponible al insertar nuevas plantas).</li>
+	<li>Sección de propiedades de Planta, en el <a href="Interface_Panel.html">Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> Planta.</li>
+</ul>
+
+<h4>General</h4> 
+<p>Atributos generales del objeto Parterre: <em>Nombre</em>, <em>Color</em>, 
+<em>Código</em> y <em>Palabras clave</em>.</p>
+
+<h4>Cubresuelos</h4> 
+
+	<ul>
+		<li><strong>Especie</strong>: nombre del parterre o de la especie de planta seleccionada. El cuadro combinado muestra una lista de las diferentes especies de vegetación que ya se han insertado en el modelo actual. Puede seleccionar una especie de planta de la lista o hacer clic en el botón <em>Examinar...</em> para seleccionar una nueva especie de la Base de datos de plantas.</li>
+		<li><strong>Modo de presentación</strong>: hay tres tipos de modos de presentación disponibles, pero se pueden crear nuevos.
+			<ul>
+				<li>Raíz desnuda</li>
+				<li>Cepellón</li>
+				<li>Contenedor</li>
+			</ul>
+		</li>
+		<li><strong>Densidad</strong>: indica la cantidad de muestras de vegetación en unidades/m2 dentro de la curva de contorno.</li>
+		<li><strong>Patrón de sombreado</strong>: parámetros para la representación 2D del parterre.</li>
+		<li><strong>Archivo de planta de nXT</strong>: los parterres usan archivos de parterre (".ArGroundcoverX") para sus representaciones en 3D.</li>
+	</ul>
+
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición del objeto de parterre, disponibles en el <a href="Interface_Panel.html#Edit">área de edición del Panel de edición</a>:</p>
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Actualizar</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copiar propiedades de otro objeto</a></li>
+	<li><a href="Commands_laRandomize.html">Aleatoriza</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extraer curvas</a></li>
+	<li>Ajustar
+		<ul>
+		<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+		<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreno</a></li>
+		</ul>
+	</li>
+	<li>Dejar de ajustar a terrenos</li>
+	<li>Parterre 
+		<ul>
+		    <li><img alt="laEtiquetaPlantas" height="24" src="../images/Icon/laPlantLabel.png" width="24" /> <a href="Commands_laPlantLabel.html">Etiquetar</a> <em>(este comando aparece solamente cuando el parterre no tiene ninguna etiqueta asignada)</em></li>
+			<li><img alt="laPlantaSeleccionaEtiqueta" height="24" src="../images/Icon/laPlantSelectLabel.png" width="24" /> <a href="Commands_laplantSelectLabel.html">
+			Identificar etiqueta</a> <em>(este comando aparece solamente cuando hay una <a href="Commands_laPlantLabel.html">etiqueta de plantas</a> que hace referencia al parterre en el modelo)</em></li>
+			<li><img alt="laFotoPlanta" height="24" src="../images/Icon/laPlantPhoto.png" width="24" /> <a href="Commands_laPlantPhoto.html">Insertar foto</a></li>
+			<li>Añadir hueco: este comando sustrae un contorno de un parterre.</li>
+		</ul>
+	</li>
+</ul>
+	
+<a name="Display"></a>
+<h3>Representación gráfica de parterre:</h3>
+<p>Lands Design ofrece diferentes representaciones simultáneas en 2D y 3D de los parterres en el dibujo, con el fin de manejar las plantas desde tres niveles conceptuales distintos. La visualización de la representación del Parterre se puede cambiar en <a href="Interface_DocumentProperties.html">Propiedades de documento</a>.</p>
+<p><strong>Representación 2D de parterre</strong></p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 2D.jpg" alt="Representación 2D de parterre"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 2D Detail.jpg" alt="Detalle de esquina 2D del parterre"/>
+ </div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="center" width="200px">Representaciones de símbolos de copa y plano de replanteo</td>
+		<td align="center" width="200px">Detalle de esquina 2D</td>
+	</tr>
+</tbody>
+</table>
+
+<br clear="all" />
+<p><strong>Representación 3D de parterre</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 3D Realistic.jpg" alt="Representación 3D realista"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 3D Detailed.jpg" alt="Representación 3D detallada"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 3D Conceptual.jpg" alt="Representación 3D conceptual"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">Realista</td>
+		<td align="center" width="200px">Detallada</td>
+		<td align="center" width="200px">Conceptual</td>
+	</tr>
+</tbody>
+ </table>

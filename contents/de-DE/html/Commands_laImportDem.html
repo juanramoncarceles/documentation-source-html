@@ -1,0 +1,37 @@
+<h3>DEM-Datei importieren</h3>
+<div class="comDescr">
+	<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">laDemImportieren</div>
+		
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Lands Design &gt; Gel&#xE4;ndemodellierung &gt; DEM importieren</div>
+</div>
+
+<p>Mit diesem Befehl k&#xF6;nnen Sie ein Gel&#xE4;nde aus einer DEM-Datei erzeugen.</p>
+<p>Eine <strong>DEM</strong>-Datei (Digital Elevation Model) ist ein einfaches, in regelm&#xE4;&#xDF;igen Abst&#xE4;nden gehaltenes Raster von H&#xF6;henwerten.</p>
+
+<p>Durch Ausf&#xFC;hren des Befehls <strong>laDemImportieren</strong> wird das Dialogfenster f&#xFC;r <strong>DEM importieren</strong> ge&#xF6;ffnet.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/DEM_File.png" alt="Dialog DEM importieren"/><br/>
+Dialog DEM importieren.
+</p>
+
+<p>Dieser Dialog ist in zwei Teile geteilt. Ein Bereich zum Navigieren &#xFC;ber dem aus der .dem-Datei erzeugten Bild und die Import-Einstellungen.</p>
+
+<p><strong>Vorgehen:</strong></p>
+<ol>
+<li>Klicken Sie auf die Schaltfl&#xE4;che <strong>DEM-Datei...</strong> und durchsuchen Sie Ihren PC nach einer DEM-Datei mit einem kompatiblen Format (<em>*.tif</em>, <em>*.tiff</em>, <em>*.png</em>, <em>*.txt</em> oder <em>*.asc</em>). Die Datei wird als Schwarzwei&#xDF;-Bild importiert, dessen Pixel unterschiedliche H&#xF6;henwerte repr&#xE4;sentieren.</li>
+<li><b>Zeichnen Sie ein Rechteck</b> auf das Bild, und zwar um den Bereich herum, den Sie importieren m&#xF6;chten.</li>
+<li>Geben Sie die <b>Importeinstellungen</b> an:
+	
+	<ul>
+		<li><b>Kurven</b>: importiert die vom Bild gescannten Schnitt-Konturkurven. Sie k&#xF6;nnen die f&#xFC;r Ihre Erzeugung gew&#xFC;nschte Ebene und Farbe ausw&#xE4;hlen. Diese Kurven k&#xF6;nnen sp&#xE4;ter dazu verwendet werden, das Gel&#xE4;nde mit dem Befehl <a href="Commands_laTerrain.html">laGel&#xE4;nde</a> zu erzeugen.</li>
+		<li><b>Polygonnetz</b>: ein Polygonnetz, das mit den H&#xF6;hepunkten als Gel&#xE4;nde etikettiert ist, wird erzeugt. Sie k&#xF6;nnen die f&#xFC;r seine Erzeugung gew&#xFC;nschte Ebene und Farbe ausw&#xE4;hlen.</li>
+		<li><b>Gel&#xE4;nde</b>: mit den gescannten H&#xF6;hedaten wird automatisch ein Gel&#xE4;nde erzeugt.</li>
+	</ul>
+</li>
+
+			
+<li>Klicken Sie auf die Schaltfl&#xE4;che <kbd>Importieren</kbd> um den ausgew&#xE4;hlten Bereich zu importieren.</li>
+</ol>

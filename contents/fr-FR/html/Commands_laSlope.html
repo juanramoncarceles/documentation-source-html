@@ -1,0 +1,106 @@
+<h3>Pente</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laPente</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laSlope.png" alt="Pente"/> clic
+
+	</div>
+	
+	<div class="field">Barre d'outils : <a href="Interface_Toolbars.html#DocumentationToolbar">Documentation de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Commandes de documentation" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Documentation &gt; Pente</div>
+</div>
+
+<p>La commande <strong>laPente</strong> dessine une ligne de d'annotation avec une pointe de flèche et un texte indiquant la pente du chemin sélectionné. La pente est calculée à partir de la longueur du chemin et de la différence en hauteur entre le point de départ et le point final du chemin.</p>
+
+<ul>
+	<li><a href="Commands_laSlope.html#Insert">Insérer une pente</a></li>
+	<li><a href="Commands_laSlope.html#ControlPoints">Points de contrôle d'une pente</a></li>
+	<li><a href="Commands_laSlope.html#Parameters">Options et paramètres d'insertion</a></li>
+	<li><a href="Commands_laSlope.html#Edit">Options d'édition</a></li>
+	<li><a href="Commands_laSlope.html#Display">Affichage</a></li>
+</ul>
+
+
+<a name="Insert" />
+<h3>Insérer une pente</h3>
+<p><strong>Étapes :</strong></p>
+<ol>
+<li>Sélectionnez une <strong>courbe</strong> du modèle pour définir la pente ou sélectionnez une option dans la ligne de commande.
+		<ul>
+			<li><strong>Polyligne</strong> : la pente sera créée comme si vous dessiniez une polyligne.</li>
+			<li><strong>Spline </strong>: la pente sera créée comme si vous dessiniez une spline.</li>
+			<li><strong>Arc</strong> : la pente sera créée comme si vous dessiniez un arc. Le premier clic définit le point d'insertion. Le deuxième indique le point central de l'arc. Le troisième et le dernier déterminent les extrémités de l'arc.</li>
+		</ul>
+	</li>
+	<li>Appuyez sur <em>Entrée</em>, <em>Échap</em> ou cliquez avec le bouton droit pour terminer la commande.</li>
+</ol>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Points de contrôle <img alt="Points de contrôle" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Les pentes possèdent autant de points de contrôle que la courbe à partir de laquelle elles ont été créées.</p>
+<p>Elles disposent d'une flèche de contrôle du déplacement afin de déplacer l'objet dans son ensemble.</p> 
+
+<p>Les points de contrôle des pentes sont automatiquement activés lorsqu'une pente est sélectionnée. Pour activer les points de contrôle sur une ou plusieurs pentes, sélectionnez-les et lancez la commande <strong>ActiverPoints</strong>  (ou appuyez sur <em>F10</em>). Pour désactiver les points de contrôle, appuyez sur <em>Échap</em> ou lancez la commande  <strong>DésactiverPoints</strong>.
+</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Slope/SlopeControlPoints.png" alt="Points de contrôle d'une pente" /><br/>
+Points de contrôle d'une pente</div>
+
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Paramètres</h3>
+<p>Les paramètres des pentes se trouvent dans différents onglets de plusieurs boîtes de dialogue :</p>
+<ul>
+	
+	<li>Section propriétés des pentes, dans le <a href="Interface_Panel.html">panneau d'édition de Lands Design</a>.</li>
+	<li>Boîte de dialogue des <a href="Interface_Properties.html">propriétés objet</a> d'une pente.</li>
+</ul>
+<h4>Général</h4> 
+<p>Attributs généraux pour l'objet de cotation et d'origine des coordonnées : <em>Nom</em>, <em>Couleur</em>, <em>Calque</em>, <em>Code</em> et <em>Mots clé</em>.</p>
+
+<h4>Pente</h4>
+<p>Cet onglet affiche les paramètres de la pente :</p>
+<ul>
+	
+	<li><strong>Police </strong>: attributs et paramètres du texte.</li>
+	<li><strong>Fin </strong>: options d'affichage de la pointe de flèche et du point de départ de la pente.</li>
+	
+</ul>
+
+<p><strong>Remarque </strong>: Le nombre de chiffres après la virgule affichés dans le texte peut être défini et modifié dans le menu <em>Outils &gt; Options &gt; Propriétés du document &gt; Unités &gt; Précision d'affichage</em>.</p>
+
+<a name="Edit" />
+<h3>Options d'édition</h3>
+<p>Options d'édition de la pente, disponibles dans la <a href="Interface_Panel.html#Edit">zone d'édition du panneau d'édition</a> :</p>
+<p><strong>Options communes :</strong></p>
+<ul>
+	<li><img alt="Actualiser" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Actualiser</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copier les propriétés d'un autre objet</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copier sur une autre courbe</a></li>
+	<li><a href="Commands_laReverseCurve.html">Inverser la courbe</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extraire une courbe</a></li>
+	<li>Ajuster
+		<ul>
+		<li><img alt="laElever" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Élévation</a></li>
+		<li><img alt="laEleverAZéro" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">À l'élévation zéro</a></li>
+		<li><img alt="laEleverSurTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		Au terrain</a></li>
+		</ul>
+	</li>
+	<li>Ne pas ajuster au terrain</li>
+</ul>
+
+
+<a name="Display" />
+<h3>Affichage des pentes :</h3>
+<p>Les pentes ont uniquement une représentation 2D qui est visible dans tous les modes d'affichage.</p>
+

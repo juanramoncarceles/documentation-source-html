@@ -1,0 +1,154 @@
+<h3>Escalera</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laEscalera</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laStair.png" alt="Escalera"/> clic izquierdo 
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Barra de herramientas: Objetos de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Comandos de Obra civil" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Obra civil &gt; Escalera</div>
+</div>
+
+
+<p>La escalera define la circulación vertical en un proyecto.</p>
+
+<ul>
+	<li><a href="Commands_laStair.html#Insert">Insertar una escalera</a></li>
+	<li><a href="Commands_laStair.html#ControlPoints">Puntos de control</a></li>
+	<li><a href="Commands_laStair.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laStair.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laStair.html#Display">Representación gráfica</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insertar una escalera:</h3>
+<p>Cuando ejecute el comando <strong>laEscalera</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de escaleras. Este diálogo muestra las opciones básicas del objeto Escalera en dos fichas.</p>
+<ul>
+<li><a href="Commands_lasStair.html#Stair">Escalera</a>: parámetros de escalera.</li>
+<li><a href="Commands_laStair.html#Material">Material</a>: opciones de material para el objeto Escalera.</li>
+</ul>
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione los parámetros de <strong>Escalera</strong>. Pulse Aceptar para cerrar el diálogo.</li>
+	<li>Designe una <strong>curva</strong> existente en el modelo para definir la trayectoria de la escalera, o seleccione una opción diferente en la línea de comandos.
+		<ul>
+			<li><strong>Polilínea</strong>: la escalera se creará como si dibujara una polilínea.</li>
+			<li><strong>Spline</strong>: la escalera se creará como si dibujara una spline.</li>
+			<li><strong>Círculo</strong>: la escalera se creará como si dibujara un círculo. El primer clic determina el centro del círculo y el segundo clic determina el radio.</li>
+			<li><strong>Arco</strong>: la escalera se creará como si estuviera dibujando un arco. El primero clic determina el punto de inserción. El segundo determina el clic determina un punto medio en el arco. El tercer clic determina dónde termina el arco.</li>
+			<li><strong>Rectángulo</strong>: la escalera se creará como si dibujara un rectángulo. El primer clic determina una esquina del rectángulo y el segundo clic determina la esquina opuesta.</li>
+		</ul>
+	</li>
+	<li>Pulse Intro, Esc o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Stair/Stair Insert Dialog.png" alt="Cuadro de inserción del objeto Escalera."/><br/>
+Cuadro de inserción del objeto Escalera.
+</p><br/>
+<br clear="all" />
+ <div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair Examples.jpg" alt="Ejemplos de escaleras creados a partir de diferentes tipos de curvas." /><br/>
+Ejemplos de escaleras creados a partir de diferentes tipos de curvas.</div>
+
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Las escaleras tienen el mismo número de <em>puntos de control</em> que las curvas utilizadas para generarlas.</p>
+<p>Además, tiene una flecha de control de movimiento para mover todo el objeto.</p>
+<p>Los puntos de control de las escaleras se activan automáticamente al seleccionar las escaleras una por una. Para activar uno o más puntos de control del objeto Escalera, seleccione las escaleras y ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10). Para desactivar los puntos de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair Control Points.jpg" alt="Puntos de control de escaleras" /><br/>
+Puntos de control de escaleras</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Opciones y parámetros de inserción</h3>
+<p>Los parámetros y las opciones de inserción de Escalera se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Cuadro de diálogo de inserción</a> de Escalera (solo disponible al insertar nuevas escaleras).</li>
+	<li>Sección de propiedades de Escalera, en el <a href="Interface_Panel.html">Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> de Escalera.</li>
+</ul>
+
+<h4>General</h4> 
+<p>Atributos generales del objeto Escalera: <em>Nombre</em>, <em>Color</em>, <em>Código</em> y <em>Palabras clave</em>.</p>
+
+<a name="Stair" />
+<h4>Escalera</h4> 
+<ul>
+<li><strong>Huella</strong>: determina la distancia longitudinal entre dos losas consecutivas.</li>
+<li><strong>Contrahuella</strong>: determina la distancia vertical entre dos losas consecutivas.</li>
+<li><strong>Losa</strong>: las losas son los peldaños de la escalera. Puede establecer las siguientes dimensiones de losa:</li>
+	<ul>
+		<li><strong>Longitud</strong>: longitud de la losa de escalera.</li>
+		<li><strong>Altura</strong>: altura de la losa de escalera.</li>
+		<li><strong>Anchura</strong>: la anchura se aplica a todo el objeto de escalera. Puede definir una anchura constante o variable, desde el inicio hasta el final del objeto de escalera.</li>
+		<li><strong>Justificación</strong>: existen tres opciones para alinear la escalera (Izquierda, Medio, Derecha), según su posición relativa a la dirección de su curva de trayectoria.</li>
+	</ul>
+</ul>
+
+	
+<a name="Material" />
+<h4>Material</h4>
+<p>Esta ficha permite cambiar la imagen texturizada asignada a este elemento y definir el tamaño de la imagen, la reflectividad y la transparencia.</p>
+
+
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición del objeto de escalera, disponibles en el <a href="Interface_Panel.html#Edit">
+área de edición del Panel de edición</a>:</p>
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualizar </a></li>
+	<li><img alt="Convertir a 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir a 2D</a>. Muestra el objeto en representación 2D.</li>
+	<li><img alt="Convertir a 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir a 3D</a>. Muestra el objeto en representación 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Mostrar 2D y 3D</a>: Activa la representación 2D y 3D del objeto simultáneamente. </li>
+
+
+	<li><a href="Commands_laCopyFrom.html">Copiar propiedades de otro objeto</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copiar en otra curva</a></li>
+	<li><a href="Commands_laReverseCurve.html">Invertir curva</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extraer curva</a></li>
+	<li>Ajustar
+		<ul>
+		<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+		<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreno</a></li>
+		</ul>
+	</li>
+	<li>Dejar de ajustar a terrenos</li>
+	
+</ul>
+
+<a name="Display"></a>
+<h3>Representación gráfica de escalera:</h3>
+<p>El objeto Escalera ofrece una representación en 2D y 3D simultánea en el dibujo.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair 2D.jpg" alt="Representación 2D"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Stair/Stair 3D.jpg" alt="Representación 3D"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2D</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

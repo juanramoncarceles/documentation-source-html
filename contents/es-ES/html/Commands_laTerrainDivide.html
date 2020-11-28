@@ -1,0 +1,69 @@
+<h3>Dividir terreno</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laTerrenoDivide</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainDivide.png" alt="Dividir"/> clic izquierdo
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#TerrainToolbar">Barra de herramientas</a>: </div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandos de terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Modelado de terreno &gt; Terreno &gt; Dividir</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panel de edición</a>: </div>
+	<div class="value menu">Seleccione un terreno &gt; Área planta del Panel de edición &gt; Terreno &gt; Dividir</div>
+</div>
+
+<p>Este comando divide el terreno en dos partes usando una curva cerrada y genera una zona en el terreno. La nueva división o región puede tener un color y un material diferente al resto del terreno.</p>
+
+<p><strong>Pasos:</strong></p>
+
+<ol>
+ <li>Designe un <strong>terreno</strong>. Pulse Intro o haga un clic derecho cuando termine.</li>
+  <li>Seleccione una <strong>curva cerrada</strong>.</li>
+</ol>
+
+<p>La división se crea en el terreno.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Divide 1.jpg" alt="Terreno y la curva seleccionada para crear el hueco"/><br/>
+Terreno y la curva seleccionada para crear la división.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Divide 2.jpg" alt="Terreno dividido"/><br/>
+Terreno dividido en dos áreas.
+</p>
+
+
+<a name="Parameters" />
+<h3>Parámetros</h3>
+
+<p>Los parámetros de división se pueden editar desde la ficha <em>Datos de entrada</em> (en el <a href="Interface_Panel.html#Properties">área Propiedades del Panel de edición</a> o el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>), debajo de la lista <em>Divisiones</em>.</p>
+<ul>
+<li><strong>Puntos de control</strong>: opción para activar o desactivar los puntos de control del área de subdivisión.</li>
+<li><strong>Zona</strong>: genera un objeto de zona en la misma área. Las opciones son las mismas que las de una zona creada con el comando <a href="Commands_laZonify.html">laZonifica</a> y se pueden editar desde la ficha <em>Zona</em> en el <a href="Interface_Panel.html#Properties">área de propiedades del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>, después de seleccionar la subdivisión en la <a href="Interface_Panel.html#List">Lista de selección de objetos del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>.</li>
+</ul>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Division Input Data.png" alt="Atributos de división de terreno"/><br/>
+Atributos de división de terreno.
+</p>
+
+
+<h3>Atributos de división</h3>
+<p>El color y el material del área dividida toma por defecto los atributos del terreno, pero se pueden editar en la ficha <em>Material</em> en el <a href="Interface_Panel.html#Properties">área de propiedades del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>, después de seleccionar la subdivisión en la <a href="Interface_Panel.html#List">Lista de selección de objetos del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>.</p>
+ 
+ <p class="figureWithDescription"><img src="../images/commands/Terrain/TerrainSubdivisionMaterial.png" alt="Ficha Material de la subdivisión de terreno en el Panel de edición."/><br/>
+Atributos de división de terreno.
+</p>
+
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Los puntos de control de la división del terreno permiten modificar la curva de nivel de la subdivisión. Son los mismos que los de las curvas utilizadas para esta operación. Además, tiene una flecha de control de movimiento para mover la posición de la subdivisión.</p>
+<p>Estos puntos de control están integrados en el terreno y son visibles cuando se activan los puntos de control del terreno.</p>
+<p>Se pueden desactivar desde la ficha <em>Datos de entrada</em> (en el <a href="Interface_Panel.html#Properties">área de propiedades del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>), después de seleccionar la subdivisión en la lista <em>Divisiones</em>.</p>
+
+

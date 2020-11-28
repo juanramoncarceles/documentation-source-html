@@ -1,0 +1,181 @@
+<h3>File</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laFile</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laRow.png" alt="File"/>  (clic gauche)
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Barre d'outils : Objets de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Commandes pour les éléments de structure" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Éléments de structure &gt; File</div>
+</div>
+
+<p>Les files permettent de créer des éléments de Lands ou d'autres objets le long d'une courbe. </p>
+
+<ul>
+	<li><a href="Commands_laRow.html#Insert">Insérer une file</a></li>
+	<li><a href="Commands_laRow.html#ControlPoints">Points de contrôle</a></li>
+	<li><a href="Commands_laRow.html#Parameters">Options et paramètres d'insertion</a></li>
+	<li><a href="Commands_laRow.html#Edit">Options d'édition</a></li>
+	<li><a href="Commands_laRow.html#Display">Affichage</a></li>
+
+</ul>
+<a name="Insert" />
+<h3>Insérer une file :</h3>
+<p>Lorsque vous lancez la commande <strong>laFile</strong>, la <a href="Interface_Dialog.html">boîte de dialogue d'insertion</a> d'une file apparaît. Cette boîte de dialogue présente les options de base de la file dans deux onglets :</p>
+<ul>
+<li><a href="Commands_laRow.html#Sample">Exemple </a>: paramètres des éléments de la file.</li>
+<li><a href="Commands_laRow.html#Row">File </a>: paramètres de la file.</li>
+</ul> 
+ 
+<p><strong>Étapes :</strong></p>
+
+<ol>
+
+<li>Sélectionnez les <strong>éléments de la file</strong> dans l'onglet <em>Exemple</em>. Ces éléments peuvent être définis de trois façons différentes :
+<ul>
+	<li><img src="../images/BlockLibraryButton.png" alt="Sélectionner à partir d'une bibliothèque de blocs"/> Un bloc dans la bibliothèque de blocs.</li>
+	<li><img src="../images/BrowseButton.png" alt="Sélectionner à partir du PC"/> Un fichier de votre PC.</li>
+	<li><img src="../images/SelectButton.png" alt="Sélectionner dans le modèle"/> Un objet existant dans le modèle.</li>
+</ul>
+Après la sélection, un aperçu de l'objet apparaîtra dans la boîte de dialogue.</li>
+	<li>Sélectionnez les <a href="Commands_laRow.html#Parameters"><strong>Paramètres de la file</strong></a> dans l'onglet File. Cliquez sur Accepter pour fermer la boîte de dialogue.</li>
+	<li>Sélectionnez une <strong>courbe</strong> du modèle pour définir la file ou sélectionnez une option dans la ligne de commande.
+		<ul>
+			<li><strong>Polyligne</strong> : la file sera créée comme si vous dessiniez une polyligne.</li>
+			<li><strong>Spline </strong>: la file sera créée comme si vous dessiniez une spline.</li>
+			<li><strong>Cercle</strong> : la file sera créée comme si vous dessiniez un cercle. Le premier clic définit le centre du cercle et le deuxième indique le rayon.</li>
+			<li><strong>Arc</strong> : la file sera créée comme si vous dessiniez un arc. Le premier clic définit le point d'insertion. Le deuxième indique le point central de l'arc. Le troisième et le dernier déterminent les extrémités de l'arc.</li>
+			<li><strong>Rectangle </strong>: la file sera créée comme si vous dessiniez un rectangle. Le premier clic définit un sommet du rectangle et le deuxième le sommet opposé.</li>
+		</ul>
+	</li>
+	<li>Appuyez sur Entrée, Échap ou cliquez avec le bouton droit pour terminer la commande.</li>
+</ol>
+
+<p>Les paramètres de la file peuvent être modifiés lors de l'insertion et après, à partir du <a href="Interface_Panel.html">panneau d'édition de Lands Design</a>, dans la section Propriétés, sous l'onglet File.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Row/Row Insert Dialog.png" alt="Boîte de dialogue d'insertion d'une file"/><br/>
+Boîte de dialogue d'insertion d'une file.
+</p><br/>
+<p><b>Remarque </b>: La file peut contenir n'importe quel élément sauf une plante. Pour créer des files de plantes, utilisez la commande <a href="Commands_laPlantRow.html">laFilePlantes</a>.</p>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Points de contrôle <img alt="Points de contrôle" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Les files ont les mêmes <em>points de contrôle</em> que les courbes à partir desquelles elles ont été créées.</p>
+<p>Elles disposent d'une flèche de contrôle du déplacement afin de déplacer tout l'objet dans son ensemble.</p>
+<p>Les points de contrôle des files sont automatiquement activés lorsqu'une file est sélectionnée. Pour activer les points de contrôle sur une ou plusieurs files, sélectionnez-les et lancez la commande <strong>ActiverPoints</strong>  (ou appuyez sur F10). Pour désactiver les points de contrôle, appuyez sur Échap ou lancez la commande <strong>DésactiverPoints</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Row/Row Control Points.jpg" alt="Points de contrôle activés sur une file" /><br/>
+Points de contrôle activés sur une file</div>
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Paramètres et options d'insertion</h3>
+<p>Les paramètres et options d'insertion des files se trouvent dans différents onglets de plusieurs boîtes de dialogue.</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Boîte de dialogue d'insertion d'une file</a> (uniquement disponible lors de l'insertion de nouvelles files).</li>
+	<li>Section propriétés des files, dans le <a href="Interface_Panel.html">panneau d'édition de Lands Design</a>.</li>
+	<li>Boîte de dialogue des <a href="Interface_Properties.html">propriétés objet</a> d'une file.</li>
+</ul>
+
+<h4>Général</h4> 
+<p>Attributs généraux pour la file : <em>Nom</em>, <em>Couleur</em>, <em>Calque</em>, <em>Code</em> et <em>Mots clé</em>.</p>
+
+<a name="Sample" />
+<h4>Exemple</h4> 
+<p>Paramètres des éléments de la file :</p>
+<ul>
+	<li><strong>Exemple </strong>: éléments composant la file. Vous pouvez le choisir dans la bibliothèque de blocs, dans un dossier de votre ordinateur ou en sélectionnant un objet dans le modèle.</li>
+	<li><strong>Rotation </strong>: angle de rotation de chaque élément à partir de son propre point d'insertion.</li>
+	<li><strong>Orientation </strong>: quatre options sont disponibles pour orienter les éléments de la file par rapport à la courbe définissant la file.
+		<ul>
+			<li>Tangent à l'axe</li>
+			<li>Perpendiculaire à l'axe</li>
+			<li>Vers un point : cliquez sur le bouton Indiquer le point pour choisir un point directement dans le modèle</li>
+			<li>Angle donné</li>
+		</ul>
+		La case <strong>Inverser</strong> fait tourner l'orientation de chaque élément de 180 degrés. Cette option est uniquement disponible lorsque les options d'orientation <em>Tangent à l'axe</em> et <em>Perpendiculaire à l'axe</em> sont sélectionnées.
+	</li>
+</ul>
+
+<p>Lorsque les files sont composées de différents éléments, les paramètres de chacun sont disponibles après avoir sélectionné les éléments désirés dans la <a href="Interface_Panel.html#List">Liste de sélections d'objets</a> du <a href="Interface_Panel.html">Panneau d'édition de Lands</a>. </p>
+
+<a name="Row" />
+<h4>File</h4> 
+<p>Deux options sont disponibles pour distribuer les éléments dans des files :</p>
+<ul>
+	<li><strong>Nombre d'unités </strong>: définit le nombre total d'unités le long de la courbe de l'axe de la file.</li>
+	<li><strong>Séparation </strong>: place les éléments de file à une certaine distance entre eux, en respectant un alignement sur la courbe de l'axe (au début, centré ou à la fin).</li>
+	<li><strong>Distance de l'axe </strong>: déplace la position des éléments par rapport à la courbe. </li>
+</ul>
+<p>Les files peuvent être composées de plusieurs exemples d'éléments :</p>
+
+<ul>
+	<li><strong>Nb d'éléments </strong>: tapez le nombre d'exemples différents. La liste des différents éléments apparaîtra dans la <a href="Interface_Panel.html#List">Liste de sélection d'objets</a> du <a href="Interface_Panel.html">Panneau d'édition de Lands</a>, d'où vous pouvez les sélectionner pour modifier leurs paramètres.</li>
+	<li><strong>Distribution </strong>: options pour distribuer les éléments d'une file lorsqu'il y a plusieurs types d'éléments.</li>
+</ul>
+
+<p>Unités insérées : affiche le nombre exact d'unités dans la file.</p>
+<a name="Material" />
+<h4>Matériau</h4>
+<p>Cet onglet permet de changer l'image de texture assignée à cet élément et de définir la taille et la réflectivité de l'image.</p>
+
+
+<a name="Edit" />
+<h3>Options d'édition</h3>
+<p>Options d'édition de la file, disponibles dans la <a href="Interface_Panel.html#Edit">zone d'édition du panneau d'édition</a> :</p>
+<ul>
+	<li><img alt="Actualiser" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualiser</a></li>
+	<li><img alt="Convertir en 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir en 2D</a>. Affiche l'objet avec un affichage 2D.</li>
+	<li><img alt="Convertir en 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir en 3D</a>. Affiche l'objet avec un affichage 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Afficher en 2D et 3D </a>: <em>Active les représentations 2D et 3D de l'objet simultanément.</em></li>
+
+
+	<li><a href="Commands_laCopyFrom.html">Copier les propriétés d'un autre objet</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copier sur une autre courbe</a></li>
+	<li><a href="Commands_laReverseCurve.html">Inverser la courbe</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extraire une courbe</a></li>
+	<li>Ajuster
+		<ul>
+		<li><img alt="laElever" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Élévation</a></li>
+		<li><img alt="laEleverAZéro" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">À l'élévation zéro</a></li>
+		<li><img alt="laEleverSurTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">Au terrain</a></li>
+		</ul>
+	</li>
+	<li>Ne pas ajuster au terrain</li>
+	
+</ul>	
+	
+
+
+
+<a name="Display" />
+<h3>Affichage des files :</h3>
+<p>Les files peuvent être affichées simultanément en 2D et 3D dans le dessin, en fonction de l'entité sélectionnée. Si l'élément de la file est choisi dans la bibliothèque de blocs, il possède un affichage 2D et un 3D. Si l'élément est choisi dans le modèle, il n'aura qu'un affichage 3D. </p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Row/Row 2D.jpg" alt="Affichage 2D d'une file"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Row/Row 3D.jpg" alt="Affichage 3D d'une file"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2D</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

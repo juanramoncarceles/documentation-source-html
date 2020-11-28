@@ -1,0 +1,189 @@
+<h3>Bosque</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laBosque</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laForest.png" alt="Bosque"/> clic izquierdo</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#ObjectsToolbar">Objetos de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Vegetation Toolbar.png" alt="Comandos de vegetación" usemap ="#VegetationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetación &gt; Bosque</div>
+</div>
+
+<p>Los bosques organizan los elementos de Lands Design dentro de una curva delimitadora.</p>
+
+<ul>
+	<li><a href="Commands_laForest.html#Insert">Insertar un bosque</a></li>
+	<li><a href="Commands_laForest.html#ControlPoints">Puntos de control</a></li>
+	<li><a href="Commands_laForest.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laForest.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laForest.html#Display">Representación gráfica</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insertar un bosque:</h3>
+<p>Cuando ejecute el comando <strong>laBosque</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de bosque. Este diálogo muestra las opciones básicas del objeto Bosque en cuatro fichas:</p>
+<ul>
+
+<li><a href="Commands_laForest.html#Forest">Bosque</a>: parámetros del bosque.</li>
+<li><a href="Commands_laForest.html#Plant">Planta</a>: parámetros de las especies de plantas del bosque.</li>
+<li><a href="Commands_laForest.html#Format">Formato</a>: formato de las especies de plantas del bosque.</li>
+<li><a href="Commands_laForest.html#Render">Render</a>: parámetros que definen cómo se mostrarán las especies de plantas y los bosques en las vistas en modo renderizado.</li>
+</ul>
+
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione una <strong>especie de planta</strong> de la lista, debajo de la ficha Planta. Haga clic en el botón 
+	<strong>Examinar...</strong> para seleccionar otra desde la <a href="Commands_laPlantDatabase.html">Base de datos de plantas</a>. Seleccione el resto de parámetros de planta.</li>
+	<li>Cambie a la pestaña <strong>Bosque</strong> y seleccione los <strong>parámetros de bosque</strong>. Pulse Aceptar para cerrar el diálogo.</li>
+	<li>Especifique una opción en la línea de comandos para crear el bosque:
+		<ul>
+			<li><strong>Límites</strong>: seleccione una <strong>Curva</strong> o varias curvas que se utilizarán para definir los los límites del bosque. Las curvas deben ser curvas cerradas.</li>
+			<li><strong>PrimerPunto</strong>: haga un clic izquierdo en el modelo para definir la curva de contorno del bosque, como si estuviera trazando una polilínea. Haga clic con el botón derecho para finalizar el comando. Si el último punto de inserción no termina en el primer punto, se añadirá un segmento al contorno automáticamente para cerrarlo.</li>
+			<li><strong>PuntoInterior</strong>: (opción no disponible en la versión WIP de Lands Design).</li>
+		</ul>
+	</li>
+	<li>Pulse Intro, Esc o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p>Los parámetros de bosque se pueden editar mientras se insertan y después de finalizar el comando, desde el  <a href="Interface_Panel.html">Panel de edición de Lands Design</a>, en la sección Propiedades, debajo de la ficha Bosque.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Forest/Forest insert dialog.png" alt="Cuadro de inserción del objeto Bosque."/><br/>
+Cuadro de inserción del objeto Bosque.
+</p><br/>
+
+<br clear="all" />
+
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Los bosques tienen el mismo número de <em>puntos de control</em>  que las curvas utilizadas para generarlos, independientemente del número de elementos de plantas o su posición.</p>
+<p>Además, tienen una flecha de control de movimiento para mover todo el objeto de bosque.</p>
+<p>Los puntos de control de los bosques se activan automáticamente al seleccionar los bosques uno por uno. Para activar uno o más puntos de control del objeto Bosque, seleccione los bosques y ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10). Para desactivar los puntos de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Forest/Forest control points.jpg" alt="Puntos de control de bosques" /><br/>
+Puntos de control de bosques</div>
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Opciones y parámetros de inserción</h3>
+<p>Los parámetros y las opciones de inserción de Bosques se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Cuadro de diálogo de inserción</a> de Bosque (solo disponible al insertar nuevos bosques).</li>
+	<li>Sección de propiedades de Bosque, en el <a href="Interface_Panel.html">Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> de Bosque.</li>
+</ul>
+
+<h4>General</h4> 
+<p>Atributos generales del objeto Bosque: <em>Nombre</em>, <em>Color</em>, <em>
+Código</em> y <em>Palabras clave</em>.</p>
+
+<a name="Forest" />
+<h4>Bosque</h4> 
+<p>Hay dos opciones para distribuir las plantas en bosques:</p>
+<ul>
+	<li><strong>Número de unidades</strong>: distribuye aleatoriamente un número total de elementos de plantas dentro de la curva de contorno. Puede especificar la <strong>Distancia mínima</strong> entre elementos de plantas. Puede cambiar la distribución aleatoria desde la sección Editar en el Panel de control: Bosque &gt; Redistribuir. </li>
+	<li><strong>Matriz</strong>: distribuye las especies de plantas espaciadas en columnas y filas.
+	<ul>
+		<li>Espaciado: cuadrado, rectangular, triángulo equilátero e isósceles.</li>
+		<li>Rotación: el objeto de bosque gira desde su punto central.</li>
+		<li>Dispersión: desplaza las especies de plantas desde los puntos de la rejilla de la matriz.</li>
+	</ul></li>
+	
+</ul>
+
+<p>Los bosques pueden combinar diferente especies de plantas:</p>
+
+<ul>
+	<li><strong>Nº de elementos</strong>: escriba el número de especies de plantas diferentes. El listado de las diferentes especies aparecerá en el <a href="Interface_Panel.html#List">Listado de selección de objetos</a> en el <a href="Interface_Panel.html">
+	Panel de edición de Lands</a>, desde donde se pueden seleccionar para editar sus parámetros.</li>
+	<li><strong>Distribución</strong>: opciones para distribuir las especies de plantas cuando hay más de un tipo.</li>
+</ul>
+
+<p>Unidades insertadas: muestra el número exacto de unidades de elementos en el bosque. Cuando el bosque se organiza en el modo <em>Número de unidades</em>, la cantidad total de unidades de plantas dependerá de la distancia mínima entre ellas.</p>
+
+<a name="Plant" />
+<h4>Planta</h4> 
+	<ul>
+		<li><strong>Especie</strong>: nombre de la especie de planta seleccionada. El cuadro combinado muestra una lista de las diferentes especies de plantas que ya se han insertado en el modelo actual. Puede seleccionar una especie de planta de la lista o hacer clic en el botón <em>Examinar...</em> para seleccionar una nueva especie de la Base de datos de plantas.</li>
+		<li><strong>Cotas en el dibujo</strong>:
+			<ul>
+				<li>Diámetro de copa</li>
+				<li>Altura aproximada</li>
+				<li>Edad</li>
+			</ul>
+		</li>
+		<li><strong>Variación natural</strong>: cuando está activada, esta opción define una variación de altura aleatoria a las especies de plantas del bosque. El valor máximo (100%) crea especies de plantas que van del 50% al 150% de su tamaño.</li>
+		<li><strong>Rotación aleatoria</strong>: cuando está activada (opción predeterminada), esta opción establece una rotación aleatoria de las plantas. Cuando la opción está desactivada, puede indicar un ángulo de rotación específico para cada planta. El ángulo de rotación se calcula a partir del eje vertical de la planta.</li>
+
+	
+	</ul>
+<p>Los valores mínimos y máximos de altura de la planta (edad de la planta) se definen mediante las propiedades de cada especie de planta y pueden editarse desde el 
+diálogo<a href="Commands_laPlantDataBase.html#Properties"> Propiedades de especies de plantas</a>, disponible en la Base de datos de plantas.</p>
+
+<a name="Format" />
+<h4>Formato</h4> 
+
+<li><strong>Calibre</strong>: dimensiones de la corteza de la especie de planta. Hay un intervalo de valores disponibles que oscila entre 10 y 130 mm, pero puede introducir cualquier otro valor.</li>
+<li><strong>Modo de presentación</strong>: hay tres tipos de modos de presentación disponibles, pero se pueden crear nuevos.
+			<ul>
+				<li>Raíz desnuda</li>
+				<li>Cepellón</li>
+				<li>Contenedor</li>
+			</ul>
+</li>
+
+
+<a name="Render" />
+<h4>Render</h4> 
+<p>Esta ficha determina cómo se mostrarán las especies de plantas en una vista renderizada. Esta ficha solo es visible cuando la representación 3D de las plantas está definida como Realista en las propiedades de documento.</p>
+
+<ul>
+	<li><strong>Estación</strong>: cuando se activa la casilla Ignorar estación global, el usuario puede elegir en qué estación se renderizarán las plantas de entre las 7 opciones disponibles: Inicio de primavera, Primavera, Final de primavera, Verano, Final de verano, Otoño e Invierno.</li>
+	<li><strong>Densidad de follaje</strong>: Flamingo nXt generará más o menos hojas según el nivel elegido.</li>
+</ul>
+
+
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición del objeto de bosque, disponibles en el <a href="Interface_Panel.html#Edit">área de edición del Panel de edición</a>:</p>
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Actualizar</a></li>
+	<li><img alt="laDesagrupa" height="24" src="../images/Icon/laUngroup.png" width="24" /> <a href="Commands_laUngroup.html">Desagrupar</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copiar propiedades de otro objeto</a>.</li>
+		
+	<li>Ajustar
+		<ul>
+		<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+		<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreno</a></li>
+		</ul>
+	</li>
+	<li>Dejar de ajustar a terrenos</li>
+	<li>Bosque
+		<ul>
+		    <li>Redistribuir</li>
+			<li>Añadir hueco: comando para sustraer un contorno de un bosque.</li>
+			<li><a href="Commands_laRandomize.html">Aleatorizar</a></li>
+		</ul>
+	</li>
+	<li>Planta
+		<ul>
+			<li><img alt="laPlantaEditaEspecie" height="24" src="../images/Icon/laEdit.png" width="24" /> <a href="Commands_laPlantEditSpecies.html">Editar especie</a></li>
+		    <li><img alt="laEtiquetaPlantas" height="24" src="../images/Icon/laPlantLabel.png" width="24" /> <a href="Commands_laPlantLabel.html">Etiquetar</a> <em>(este comando aparece solamente cuando las plantas del bosque no tienen ninguna etiqueta asignada).</em></li> 
+			<li><img alt="laPlantaSeleccionaEtiqueta" height="24" src="../images/Icon/laPlantSelectLabel.png" width="24" /> <a href="Commands_laplantSelectLabel.html">
+			Identificar etiqueta</a> <em>(este comando solo aparece cuando hay una <a href="Commands_laPlantLabel.html">etiqueta de planta</a> que referencia a la especie de planta en el objeto de bosque)</em></li>
+			<li><img alt="laFotoPlanta" height="24" src="../images/Icon/laPlantPhoto.png" width="24" /> <a href="Commands_laPlantPhoto.html">Insertar foto</a></li>
+		</ul>
+	</li>
+</ul>
+
+<a name="Display" />
+<h3>Representación gráfica de los bosques:</h3>
+<p>Las especies de plantas de los bosques tienen la <a href="Commands_laPlant.html#Display">misma representación gráfica que las especies de plantas</a> insertadas individualmente. La representación gráfica de las especies de plantas en los bosques se puede cambiar en <a href="Interface_DocumentProperties.html">Propiedades de documento</a>.</p>

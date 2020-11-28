@@ -1,0 +1,51 @@
+<h3>Escaneado terrestre</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laEscaneaTierra</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laEarthScan.png" alt="Escaneado terrestre"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#TerrainToolbar">Terreno de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandos de terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Modelado de terreno &gt; Importar datos de elevación de la Tierra</div>
+</div>
+
+<p>Este comando escanea un terreno de la nube y lo importa como malla texturizada u objeto de terreno.</p>
+
+<p>Cuando ejecute el comando <strong>laEscaneaTierra</strong>, aparecerá el cuadro de diálogo <strong>Importar datos de elevación de la Tierra</strong>.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/EarthScanDialog.png" alt="Diálogo Importar datos de elevación de la Tierra"/><br/>
+Diálogo Importar datos de elevación de la Tierra.
+</p>
+
+<p>Este diálogo se divide en dos partes. Área de navegación sobre la Tierra y opciones de importación.</p>
+<p> En el área de navegación, haga clic en el botón superior izquierdo para cambiar entre los 4 modos de navegación (Calles, Exterior, Satelital y Calles satelitales) o utilice el campo <em>Buscar</em> para encontrar una ubicación específica en el mundo.</p>
+<p>Puede contraer la configuración con el botón de <em>Flecha</em> en la parte inferior de la configuración.</p>
+
+
+<p><strong>Pasos:</strong></p>
+<ol>
+<li><b>Vaya a la zona de la Tierra</b> que desee importar. También se incluye el área detrás de la configuración. Utilice las flechas para desplazar el mapa exactamente un fotograma al lado del otro en la misma altitud. El área está limitada a una extensión de 10 km a cada lado del área de navegación; de lo contrario, no se pueden importar los datos de navegación.</li>
+<li>En la importación, seleccione <b>Creación de geometría</b>.
+	<ul>
+		<li><b>Crear malla</b>: se creará una malla texturizada etiquetada como terreno con la foto del área escaneada.</li>
+		<li><b>Crear terreno</b>: se creará un terreno automáticamente con los datos de elevación escaneados.</li>
+	</ul>
+</li>
+<li><strong>Geolocalice</strong> el documento. En la primera importación, el centro de la imagen se colocará en las coordenadas del documento (0,0,0). Corresponde a la posición del modelo en latitud, longitud y elevación. En la segunda importación, puede elegir si mantener las coordenadas de origen del documento de la primera importación o anularlas con el nuevo centro del mapa importado.
+</li>
+
+
+<li>Elija los <b>Datos de elevación</b>: seleccione la precisión de las muestras para escanearlas según un rango de valores (0-100) o una distancia específica entre muestras. Los valores seleccionados calcularán el número de muestras requeridas en la importación, que está limitado a 50.000 por importación.</li>
+				
+<li>Haga clic en el botón <kbd>Importar</kbd>  para importar los datos seleccionados. (Haga clic en el botón <kbd>Restablecer</kbd>  para restablecer la configuración inicial).</li>
+</ol>
+
+<p><b>NOTA 1</b>: los datos proporcionados desde la nube tienen una precisión general de casi una muestra cada 30 metros. Si especifica un valor menor en la configuración de datos de elevación, Lands generará automáticamente las muestras interpoladas.</p>
+<p><b>NOTA 2</b>: cuando importe el terreno, active la visualización en modo Renderizado para ver la imagen en la malla importada.</p>

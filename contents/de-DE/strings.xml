@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ANSI" ?>
+<Strings>
+    <string name="concepto" value="Konzept" />
+    <string name="procedimiento" value="Prozedur" />
+    <string name="barraDeHerramientas" value="Werkzeugleiste" />
+    <string name="barraDeMenu" value="Menüleiste" />
+    <string name="menuContextualDeSeleccion" value="Kontextmenü der Auswahl" />
+    <string name="menuContextualDeDibujo" value="Kontextmenü der Zeichnung" />
+    <string name="comando" value="Befehl" />
+    <string name="temasEnEsteApartado" value="Themen in diesem Abschnitt" />
+    <string name="architecturalToolsText" value="Architectural Tools for Rhino" />
+</Strings>

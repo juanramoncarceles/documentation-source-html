@@ -1,0 +1,117 @@
+<h3>Bema&#xDF;ungsobjekte</h3>
+<div class="comDescr">
+	<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">laBema&#xDF;ung</div>
+	
+	<div class="field">Symbol: </div>
+	<div class="value icon"><img src="../images/Icon/laDimension.png" alt="Bema&#xDF;ungsobjekte"/> Linksklick
+
+	</div>
+	
+	<div class="field">Werkzeugleiste: <a href="Interface_Toolbars.html#DocumentationToolbar">Lands-Dokumentation</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Dokumentationsbefehle" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Lands Design &gt; Dokumentation &gt; Bema&#xDF;ung &gt; Bema&#xDF;ung</div>
+</div>
+
+<p>Der Befehl <strong>laBema&#xDF;ung</strong> erm&#xF6;glicht die Bema&#xDF;ung von Pflanzen, Bauelementen und anderen Einheiten von einem bestimmten Koordinatenursprungspunkt auf dem Plan aus.</p>
+
+<p>Der Befehl f&#xFC;gt einen Koordinatenursprungspunkt ein und erzeugt Bema&#xDF;ungsobjekte zum Bema&#xDF;en von Einheiten hinsichtlich des Koordinatenursprungs. Der Koordinatenursprungspunkt wird als Lands-Objekt angezeigt, w&#xE4;hrend die Bema&#xDF;ungen normale Rhino-Bema&#xDF;ungsobjekte sind.</p>
+
+<p>Auflistung der Objekte, die mit Lands bema&#xDF;t werden k&#xF6;nnen, und die erhaltenen Informationen:</p>
+<ul>
+	<li><strong>Pflanzen</strong>: Koordinaten des Pflanzungspunkts.</li>
+	<li><strong>B&#xFC;sche, Bodendecker, Bauelemente (Teilerw&#xE4;nde, Treppen, Z&#xE4;une usw.) und Gel&#xE4;nde</strong>: Bema&#xDF;ung der Kontrollkurven.</li>
+	<li><strong>Stadtm&#xF6;bel</strong>: Koordinaten des Einf&#xFC;gungspunkts.</li>
+	<li><strong>Sprinkler</strong>: Koordinaten der Sprinklerposition.</li>
+	<li><strong>Rohre</strong>: Koordinaten der Scheitelpunkte.</li>
+	<li><strong>2D-Kurven</strong>: Koordinaten der einzelnen Punkte, Kreis- und Bogenradius und Radius der bogenf&#xF6;rmigen Segmente einer Polylinie.</li>
+</ul>
+
+<ul>
+	<li><a href="Commands_laDimension.html#Insert">Eine Bema&#xDF;ung einsetzen</a></li>
+	<li><a href="Commands_laDimension.html#ControlPoints">Bema&#xDF;ungskontrollpunkte</a></li>
+	<li><a href="Commands_laDimension.html#Parameters">Einf&#xFC;gungsoptionen und -parameter</a></li>
+	<li><a href="Commands_laDimension.html#Edit">Bearbeitungsoptionen</a></li>
+	<li><a href="Commands_laDimension.html#Display">Graphische Darstellung</a></li>
+
+</ul>
+<a name="Insert" />
+<h3>Eine Bema&#xDF;ung einsetzen</h3>
+<p><strong>Vorgehen:</strong></p>
+<ol>
+	<li>F&#xFC;gen Sie einen neuen <strong>Koordinatenursprungspunkt</strong> ein oder w&#xE4;hlen Sie einen bereits vorhandenen aus.</li>
+	<li><strong>Bema&#xDF;ungsart</strong> zum Einf&#xFC;gen definieren: Linear oder Ordinate.</li>
+	<li>W&#xE4;hlen Sie die <strong>Einheiten</strong> zum Verkn&#xFC;pfen mit dem Koordinatenursprungspunkt aus.</li>
+</ol>
+
+<p>Die erzeugten Bema&#xDF;ungen bleiben mit der Position der ausgew&#xE4;hlten Einheiten verkn&#xFC;pft.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Dimension/Linear.png" alt="Koordinatenursprung und Linearbema&#xDF;ungen" /><br/>
+Koordinatenursprung und Linearbema&#xDF;ungen</div>
+
+<div class="figureWithDescription block"><img src="../images/Commands/Dimension/Ordinate.png" alt="Koordinatenursprung und Ordinatenbema&#xDF;ungen" /><br/>
+Koordinatenursprung und Ordinatenbema&#xDF;ungen</div>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Kontrollpunkte <img alt="Kontrollpunkte" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Das Koordinatenursprungsobjekt verf&#xFC;gt &#xFC;ber einen einzigen Kontrollpunkt in seiner Mitte.</p> 
+<p>Die Bema&#xDF;ungen haben genau so viele Kontrollpunkte wie Rhino-Bema&#xDF;ungsobjekte.</p>
+<p>Um den Kontrollpunkt eines Koordinatenursprungsobjekts oder Bema&#xDF;ungsobjekts zu aktivieren, f&#xFC;hren Sie den Befehl <strong>PunkteEin</strong> aus (oder dr&#xFC;cken Sie F10) und w&#xE4;hlen Sie die Objekte aus. Um ihre Punkte zu deaktivieren, dr&#xFC;cken Sie ESC oder starten Sie den Befehl <strong>PunkteAus</strong>.</p>
+
+
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Parameter</h3>
+<p>Die Koordinatenursprungs- und Bema&#xDF;ungsobjektparameter sind in unterschiedliche Reiter aufgeteilt und &#xFC;ber verschiedene Dialoge abrufbar:</p>
+<ul>
+	
+	<li>Abschnitt der Koordinatenursprungs-Eigenschaften im <a href="Interface_Panel.html">Lands-Design-Bearbeitungspanel</a>.</li>
+	<li>Koordinatenursprung <a href="Interface_Properties.html">Objekteigenschaftendialog</a>.</li>
+</ul>
+<h4>Allgemein</h4> 
+<p>Allgemeine Attribute f&#xFC;r die Koordinatenursprungs- und Bema&#xDF;ungsobjekte: <em>Name</em>, <em>Farbe</em>, <em>Ebene</em>, <em>Code</em> und <em>Stichw&#xF6;rter</em>.</p>
+
+<h4>Koordinatenursprung:</h4>
+<ul> 
+	<li><strong>Achsenbereich</strong>: L&#xE4;nge und Parameter der Abszissen- (X) und Ordinaten- (Y) Achse.</li>
+	<li><strong>Achsenbeschriftung</strong>: Schriftart und Attribute.</li>
+</ul>
+
+<a name="Edit" />
+<h3>Bearbeitungsoptionen</h3>
+<p>Dies sind die Bearbeitungsoptionen f&#xFC;r die Bema&#xDF;ungen und die Koordinatenursprungsobjekte, verf&#xFC;gbar im <a href="Interface_Panel.html#Edit">Bearbeitungsbereich des Bearbeitungspanels</a>:</p>
+<p><strong>Allgemeine Optionen:</strong></p>
+<ul>
+	<li><img alt="Aktualisieren" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Aktualisieren</a></li>
+	<li>Eigenschaften von einem anderen Objekt kopieren.</li>
+	<li>Anpassen
+		<ul>
+		<li><img alt="laErh&#xF6;hen" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Erh&#xF6;hung</a></li>
+		<li><img alt="laAufNullErh&#xF6;hen" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">Auf Nullh&#xF6;he</a></li>
+		<li><img alt="AufGel&#xE4;ndeErh&#xF6;hen" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		An Gel&#xE4;nde</a></li>
+		</ul>
+	</li>
+	<li>Nicht an Gel&#xE4;nde anpassen</li>
+</ul>
+<p><strong>Bema&#xDF;ung</strong></p>
+<ul>
+	<li><strong>Ursprung &#xE4;ndern</strong>: &#xE4;ndert das mit dieser Bema&#xDF;ung verkn&#xFC;pfte Ursprungskoordinatenobjekt.</li>
+</ul>
+
+<p><strong>Koordinatenursprung</strong></p>
+<ul>
+	<li><strong>Definieren als Haupt</strong>: w&#xE4;hlen Sie ein Koordinatenursprungsobjekt um es als Haupt- festzulegen.</li>
+	<li><strong>Bema&#xDF;ung</strong>: w&#xE4;hlen Sie neue Einheiten zum Bema&#xDF;en (ausgerichtet oder Ordinate), die auf den ausgew&#xE4;hlten Koordinatenursprung referenziert sind.</li>
+</ul>
+
+<a name="Display" />
+<h3>Grafische Anzeige des Koordinatenursprungs:</h3>
+<p>Die Koordinatenursprungs- und Bema&#xDF;ungsobjekte verf&#xFC;gen nur &#xFC;ber eine 2D-Darstellung und sind in jeglichem Anzeigemodus sichtbar.</p>
+

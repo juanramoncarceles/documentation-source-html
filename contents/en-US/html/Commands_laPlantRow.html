@@ -1,0 +1,155 @@
+<h3>Plant Row</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laPlantRow</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laPlantRow.png" alt="Plant Row"/> left click
+	</div>
+	
+	<div class="field">Toolbar: <a href="Interface_Toolbars.html#ObjectsToolbar">Lands Objects</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Vegetation Toolbar.png" alt="Vegetation commands" usemap ="#VegetationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetation &gt; Plant Row</div>
+</div>
+
+<p>Plant rows arrange Lands Design plant elements along a path curve.</p>
+
+
+<ul>
+	<li><a href="Commands_laPlantRow.html#Insert">Insert a plant row</a></li>
+	<li><a href="Commands_laPlantRow.html#ControlPoints">Control points</a></li>
+	<li><a href="Commands_laPlantRow.html#Parameters">Insert options and parameters</a></li>
+	<li><a href="Commands_laPlantRow.html#Edit">Edit options</a></li>
+	<li><a href="Commands_laPlantRow.html#Display">Graphical display</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insert a plant row</h3>
+<p>After running the <strong>laPlantRow</strong> command, the Plant Row <a href="Interface_Dialog.html">insert dialog box</a> will appear. This dialog shows the basic options of the 
+plant row object in different tabs:</p>
+<ul>
+
+<li><a href="Commands_laPlantRow.html#Row">Row</a>: parameters of the plant row.</li>
+<li><a href="Commands_laPlant.html#Plant">Plant</a>: parameters of the plant species items in the plant row.</li>
+<li><a href="Commands_laPlant.html#Format">Format</a>: format of the plant species in the row.</li>
+<li><a href="Commands_laPlant.html#Render">Render</a>: parameters that will define how plant species in plant rows will look like in render views.</li>
+</ul>
+
+<p><strong>Steps:</strong></p>
+<ol>
+	<li>Select a <strong>plant species</strong> from the list, under the Plant tab. Click on the 
+	<strong>Browse...</strong> button to select a new one from the <a href="Commands_laPlantDatabase.html">Plant Database</a>. Select the rest of the <strong>plant parameters</strong>.</li>
+	<li>Select the <strong>Row parameters</strong> under the Row tab. Click <em>OK</em> to close the dialog.</li>
+	<li>Pick an existing <strong>curve</strong> in the model to define the plant row path, or draw it through any of these options in the command line:
+		<ul>
+			<li><strong>Polyline</strong>: the row will be created as if you were drawing a polyline.</li>
+			<li><strong>Spline</strong>: the row will be created as if you were drawing a spline.</li>
+			<li><strong>Circle</strong>: the row will be created as if you were drawing a circle. The first click determines the 
+			center of the circle, and the second click determines the Radius.</li>
+			<li><strong>Arc</strong>: the row will be created as if you were drawing an arc. The first click determines the insert point. Second click determines a middle point in the arc. The 
+			third and last click determines where the arc ends.</li>
+			<li><strong>Rectangle</strong>: the row will be created as if you were drawing a rectangle. The first click determines one corner of the rectangle and the second click determines the opposite corner.</li>
+		</ul>
+	</li>
+	<li>Press <em>ENTER</em>, <em>ESC</em> or right-click to end the command.</li>
+</ol>
+
+<p>The row parameters can be edited while they are being inserted and after finishing the command, from the <a href="Interface_Panel.html">Lands Design Edit 
+panel</a>, in the Properties section, under the Row tab.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Plant Row/Plant Row Insert Dialog.jpg" alt="Insert dialog box for the Plant Row."/><br/>
+Insert dialog box for the plant row object.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Control Points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Plant rows have the same <em>control points</em> as the curves used to generate them, regardless of the number of plant items or their position.</p>
+<p>In addition, they have a Move control arrow, to move the whole object.</p>
+
+<p>Plant row control points are automatically enabled when selecting plant rows one by one. To turn one ore more 
+plant row object control points on, just select the plant rows and run the <strong>PointsOn</strong> command (or press F10). To turn the points off, press <em>ESC</em> or run the <strong>PointsOff</strong> command.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Plant Row/Plant row control points 450.jpg" alt="Control points on plant rows" /><br/>
+Control points on plant rows</div>
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Insert options and parameters</h3>
+<p>The plant row insert options and parameters are divided in different tabs, and are available from different dialogs:</p>
+<ul>
+	<li>Plant row <a href="Interface_Dialog.html">insert dialog box</a> (only available when inserting new plant rows).</li>
+	<li>Plant row properties section, in the <a href="Interface_Panel.html">
+	Lands Design Edit panel</a>.</li>
+	<li><a href="Interface_Properties.html">Object Properties dialog</a>.</li>
+	<li><a href="Commands_laEdit.html">Properties Explorer dialog</a>.</li>
+</ul>
+
+<p>The <strong>General</strong>, <strong>Format</strong>, <strong>Render</strong> and <strong>Plant</strong> tabs are common to the <a href="Commands_laPlant.html#Parameters">Plant object</a>.</p>
+
+
+<a name="Row" />
+<h4>Row</h4> 
+<p>There are two options to place plants in rows:</p>
+<ul>
+	<li><strong>Number of units</strong>: sets the total number of plant items along the row path curve.</li>
+	<li><strong>Separation</strong>: places the plant items at a certain distance among them, according to an alignment on the row path curve (at the beginning, centered or at the end).</li>
+	
+</ul>
+
+<p>Plant rows can combine different plant species:</p>
+
+<ul>
+	<li><strong># of elements</strong>: type the number of different plant species. The list of different species will appear in the <a href="Interface_Panel.html#List">Object Selection List</a> in the <a href="Interface_Panel.html">
+	Lands Edit panel</a>, from where they can be selected to edit their parameters.</li>
+	<li><strong>Distribution</strong>: options to distribute the plant species when there are more than one type.</li>
+</ul>
+<p><strong>Inserted units</strong>: displays the exact number of element units in the plant row.</p>
+
+
+
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the plant row object, available in the <a href="Interface_Panel.html#Edit">Edit area of the Edit 
+panel</a>:</p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Update</a></li>
+	<li><img alt="laUngroup" height="24" src="../images/Icon/laUngroup.png" width="24" /> <a href="Commands_laUngroup.html">Ungroup</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copy properties from another object</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copy to another curve</a></li>
+	<li><a href="Commands_laRandomize.html">Randomize</a></li>
+	<li><a href="Commands_laReverseCurve.html">Invert curve</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extract curves</a></li>
+	<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+	<li>Plant
+		<ul>
+			<li><img alt="laEditPlantSpecies" height="24" src="../images/Icon/laEdit.png" width="24" /> <a href="Commands_laPlantEditSpecies.html">Edit species</a></li>
+		    <li><img alt="laPlantLabel" height="24" src="../images/Icon/laplantLabel.png" width="24" /> <a href="Commands_laPlantLabel.html">Tag</a> <em>
+			(this command only appears when plants in the row have no tag assigned)</em></li>
+		    <li><img alt="laPlantLabelLinking" height="24" src="../images/Icon/laplantLabelLinking.png" width="24" /> <a href="Commands_laplantLabelLinking.html">Tag linking</a>.</li>
+			<li><img alt="laPlantSelectLabel" height="24" src="../images/Icon/laPlantSelectLabel.png" width="24" /> <a href="Commands_laplantSelectLabel.html">
+			Identify label</a> <em>(this command only appears when there is a <a href="Commands_laPlantLabel.html">plant label</a> referencing the plant species in the plant row object)</em></li>
+			<li><img alt="laPlantPhoto" height="24" src="../images/Icon/laPlantPhoto.png" width="24" /> <a href="Commands_laPlantPhoto.html">Insert photo</a></li>
+		</ul>
+	</li>
+</ul>
+
+
+<a name="Display" />
+<h3>Plant row graphical display</h3>
+
+<p>Plant species in rows have the <a href="Commands_laPlant.html#Display">same graphical display as 
+the plants species</a> inserted individually. The plant species graphical display in rows can be changed in the <a href="Interface_DocumentProperties.html">Document properties</a>.</p>

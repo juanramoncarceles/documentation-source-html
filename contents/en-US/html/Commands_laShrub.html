@@ -1,0 +1,277 @@
+<h3>Shrub</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laShrub</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laShrub.png" alt="Shrub"/> left click</div>
+	
+	<div class="field">Toolbar: <a href="Interface_Toolbars.html#ObjectsToolbar">Lands Objects</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Vegetation Toolbar.png" alt="Vegetation commands" usemap ="#VegetationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetation &gt; Shrub</div>
+</div>
+
+
+<p>The shrub is a woody vegetal element measuring less than 5m high, without a weighty trunk, which branches from the base. Shrubs less than 1m high are known as hedges or subshrubs.</p>
+
+<ul>
+	<li><a href="Commands_laShrub.html#Insert">Insert a shrub</a></li>
+	<li><a href="Commands_laShrub.html#ControlPoints">Control points</a></li>
+	<li><a href="Commands_laShrub.html#Parameters">Insert options and parameters</a></li>
+	<li><a href="Commands_laShrub.html#Edit">Edit options</a></li>
+	<li><a href="Commands_laShrub.html#Display">Graphical display</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insert a shrub:</h3>
+<p>After running the <strong>laShrub</strong> command, the Shrub <a href="Interface_Dialog.html">insert dialog box</a> will appear. This dialog shows the basic shrub options in different tabs:</p>
+<ul>
+
+<li><a href="Commands_laShrub.html#Shrub">Shrub</a>: parameters of the shrub.</li>
+<li><a href="Commands_laPlant.html#Plant">Plant</a>: parameters of the plant species in the shrub.</li>
+<li><a href="Commands_laPlant.html#Format">Format</a>: format of the plant species in the shrub.</li>
+<li><a href="Commands_laPlant.html#Render">Render</a>: parameters that will define how plant species in shrubs will look like in render views.</li>
+</ul>
+
+<p><strong>Steps:</strong></p>
+<ol>
+	<li>Select a <strong>plant species</strong> from the list, under the Plant tab. Click on the <strong>Browse...</strong> button to select a new one from the <a href="Commands_laPlantDatabase.html">Plant Database</a>. Select the rest of the <strong>plant parameters</strong>.</li>
+	<li>Select the <strong>Shrub parameters</strong> from the shrub tab. Click <em>OK</em> to close the dialog.</li>
+	<li>Pick an existing <strong>curve</strong> in the model to define the shrub path, or draw it through any of these options in the command line:
+		<ul>
+			<li><strong>Polyline</strong>: the shrub will be created as if you were drawing a polyline.</li>
+			<li><strong>Spline</strong>: the shrub will be created as if you were drawing a spline.</li>
+			<li><strong>Circle</strong>: the shrub will be created as if you were drawing a circle. The first click determines the center of the circle, and the second click 
+			determines the radius.</li>
+			<li><strong>Arc</strong>: the shrub will be created as if you were drawing an arc. The first click determines the insert point. 
+			The second click determines a middle point in the arc. The third and last click determines where the arc ends.</li>
+			<li><strong>Rectangle</strong>: the shrub will be created as if you were drawing a rectangle. The first click determines one corner of the rectangle and the second click determines the opposite corner.</li>
+		</ul>
+	</li>
+	<li>Press <em>ENTER</em>, <em>ESC</em> or right-click to end the command.</li>
+</ol>
+
+<p>The Shrub parameters can be edited while they are being inserted and after finishing the command, from the <a href="Interface_Panel.html">
+Lands Design Edit panel</a>, in the Properties section, under the Shrub tab.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Shrub/Shrub insert dialog.png" alt="Insert dialog box for the Shrub."/><br/>
+Insert dialog box for the Shrub object.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Control points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Shrubs have the same <em>control points</em> as the curves used to generate them, regardless of the number of plant items or their position.</p>
+<p>In addition, they have a Move control arrow, to move the whole Shrub object.</p>
+<p>Shrub control points are automatically enabled when selecting shrubs one by one. To turn one ore more Shrub object control points on, just select the shrubs and run the <strong>PointsOn</strong> command (or press F10). To turn the points off, press 
+the Esc button or run the <strong>PointsOff</strong> command.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub Control Points.jpg" alt="Control points on Shrubs" /><br/>
+Control points on shrubs</div>
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Insert options and parameters</h3>
+<p>The Shrub insert options and parameters are divided in different tabs, and are available from different dialogs:</p>
+<ul>
+	<li>Shrub<a href="Interface_Dialog.html"> insert dialog box</a> (only available when inserting a new shrub).</li>
+	<li>Shrub properties section, in the <a href="Interface_Panel.html">Lands 
+	Design Edit panel</a>.</li>
+	<li><a href="Interface_Properties.html">Object Properties dialog</a>.</li>
+	<li><a href="Commands_laEdit.html">Properties Explorer dialog</a>.</li>
+</ul>
+
+<p>The <strong>General</strong>, <strong>Format</strong>, <strong>Render</strong> and <strong>Plant</strong> tabs are common to the <a href="Commands_laPlant.html#Parameters">Plant object</a>.</p>
+
+
+<a name="Shrub" />
+<h4>Shrub</h4> 
+
+<p><strong>Distribution</strong>: there are three options to distribute shrubs along a curve:</p>
+<ul>
+	<li><strong>Per linear meter</strong>: distributes the plant species along the path curve according to a density value (units/m).</li>
+	<li><strong>Per square meter</strong>: distributes randomly a certain number of plant items inside the curve according to a density value (units/m2). If the original curve was an open curve, a segment is added to enclose it.</li>
+	
+	<li><strong>Forest or specimen array</strong>: there are two options to arrange plants in forests:
+	<ul>
+		<li><strong>Number of units</strong>: distributes randomly a total number of plant items inside the curve, as if it was a forest. When choosing this option, a new tab "Forest" appears, with the forest parameters. You can specify the <strong>Minimum distance</strong> among plant items. Unlike the forest object, it is not possible to change the random distribution.</li>
+	
+		<li><strong>Array</strong>: arranges the plant species spaced in columns and rows.
+			<ul>
+				<li><strong>Spacing</strong>: square, rectangular, triangular equilateral, and isosceles.</li>
+				<li><strong>Rotation</strong>: the whole Shrub object rotates from its central point.</li>
+				<li><strong>Scatter</strong>: displaces the plant species from the array grid points.</li>
+			</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+<p><strong>Hatch:</strong> hatch pattern parameters for the shrub 2D display.</p>
+
+
+<p>(<strong>Note</strong>: The total number of plant units displayed in shrubs when they are distributed as forests will depend on the minimum distance among them.)</p>
+
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the shrub object, available in the <a href="Interface_Panel.html#Edit">
+Edit area of the Edit panel</a>:</p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Update</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copy properties from another object</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copy to another curve</a></li>
+	<li><a href="Commands_laReverseCurve.html">Invert curve</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extract curve</a></li>
+	<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+	<li>Shrub
+		<ul>
+			<li><img alt="laEditPlantSpecies" height="24" src="../images/Icon/laEdit.png" width="24" /> <a href="Commands_laPlantEditSpecies.html">Edit species</a>.</li>
+		    <li><img alt="laPlantLabel" height="24" src="../images/Icon/laPlantLabel.png" width="24" /> <a href="Commands_laPlantLabel.html">Tag</a> <em>(this command only appears when the shrub has no tag assigned)</em></li>
+			<li><img alt="laPlantSelectLabel" height="24" src="../images/Icon/laPlantSelectLabel.png" width="24" /> <a href="Commands_laplantSelectLabel.html">Identify 
+			label</a> <em>(this command only appears when there is a <a href="Commands_laPlantLabel.html">plant label</a> referencing the plant species in the shrub object)</em></li>
+			<li><img alt="laPlantPhoto" height="24" src="../images/Icon/laPlantPhoto.png" width="24" /> <a href="Commands_laPlantPhoto.html">Insert photo</a></li>
+		</ul>
+	</li>
+</ul>
+
+
+<a name="Display" />
+<h3>Shrubs graphical display:</h3>
+<p>Shrubs have the same <a href="Commands_laPlant.html#PlantRepresentation">3D graphical display as plants species</a>. But their 2D display depends on the shrub distribution. <br/>The plant species graphical display in Shrubs can be changed in the <a href="Interface_DocumentProperties.html">Document properties</a>.</p>
+
+
+<p><strong>Shrub 2D display when it is distributed by linear meter:</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 2D Linear Crown.jpg" alt="Crown 2D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 2D Linear Setting Out.jpg" alt="Setting out symbol 2D display"/>
+                </div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="center" width="200px">Crown drawing</td>
+		<td align="center" width="200px">Setting out symbol</td>
+	</tr>
+</tbody>
+</table>
+<br clear="all" />
+<p><strong>Shrub 2D display when it is distributed by square meter or as a forest or specimen array:</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 2D Forest Crown.jpg" alt="Crown 2D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 2D m2 Setting Out.jpg" alt="Setting out symbol 2D display"/>
+                </div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="center" width="200px">Crown drawing</td>
+		<td align="center" width="200px">Setting out symbol</td>
+	</tr>
+</tbody>
+</table>
+<br clear="all" />
+
+
+<p><strong>Shrub 3D display when it is distributed by linear meter:</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D Linear Realistic.jpg" alt="Realistic 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D Linear Detailed.jpg" alt="Detailed 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D Linear Conceptual.jpg" alt="Conceptual 3D display"/>
+                </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">Realistic</td>
+		<td align="center" width="200px">Detailed</td>
+		<td align="center" width="200px">Conceptual</td>
+	</tr>
+</tbody>
+</table>
+
+<br clear="all" />
+
+<p><strong>Shrub 3D display when it is distributed by square meter:</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D m2 Realistic.jpg" alt="Realistic 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D m2 Detailed.jpg" alt="Detailed 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D m2 Conceptual.jpg" alt="Conceptual 3D display"/>
+                </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">Realistic</td>
+		<td align="center" width="200px">Detailed</td>
+		<td align="center" width="200px">Conceptual</td>
+	</tr>
+</tbody>
+</table>
+<br clear="all" />
+
+<p><strong>Shrub 3D display with a forest distribution</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D Forest Realistic.jpg" alt="Realistic 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D Forest Detailed.jpg" alt="Detailed 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Shrub/Shrub 3D Forest Conceptual.jpg" alt="Conceptual 3D display"/>
+                </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">Realistic</td>
+		<td align="center" width="200px">Detailed</td>
+		<td align="center" width="200px">Conceptual</td>
+	</tr>
+</tbody>
+</table>
+
+

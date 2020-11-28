@@ -1,0 +1,94 @@
+<h3>Pflanzenetikett</h3>
+<div class="comDescr">
+	<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">laPflanzenetikett</div>
+	
+	<div class="field">Symbol: </div>
+	<div class="value icon"><img src="../images/Icon/laPlantLabel.png" alt="Pflanzenetikett"/> Linksklick [<a href="Plant Label tools.html" title="Pflanzenetikett-Werkzeugleiste">Langer Klick</a>]
+
+	</div>
+	
+	<div class="field">Werkzeugleiste: <a href="Interface_Toolbars.html#PlantLabelToolbar">Lands-Pflanzenetikett</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Plant Label Toolbar.png" alt="Pflanzenetikett-Befehle" usemap ="#PlantLabelToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Lands Design &gt; Dokumentation &gt; Pflanzenetikett &gt; Gruppenetikett</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Bearbeitungspanel</a>: </div>
+	<div class="value menu">Eine Pflanze ausw&#xE4;hlen &gt; Bearbeitungsbereich im Bearbeitungspanel &gt; Pflanze &gt; Markieren</div>
+</div>
+
+<p>Mit dem Befehl <strong>laPflanzenetikett</strong> wird ein 2D-Etikett mit der Information &#xFC;ber eine im Modell vorhandene Pflanzenart eingef&#xFC;gt (Artenmenge und ID der Pflanzenart).</p>
+<p>Zum Einf&#xFC;gen von Pflanzenetiketten wird eine <a href="Commands_laListPlants.html">Pflanzenliste</a> ben&#xF6;tigt.</p>
+
+
+<ul>
+	<li><a href="Commands_laPlantLabel.html#Insert">Pflanzenetikett einf&#xFC;gen</a></li>
+	<li><a href="Commands_laPlantLabel.html#ControlPoints">Kontrollpunkte</a></li>
+	<li><a href="Commands_laPlantLabel.html#Parameters">Einf&#xFC;gungsoptionen und -parameter</a></li>
+	<li><a href="Commands_laPlantLabel.html#Edit">Bearbeitungsoptionen</a></li>
+	
+
+</ul>
+<a name="Insert" />
+<h3>Pflanzenetikett einf&#xFC;gen:</h3>
+
+<p><strong>Vorgehen:</strong></p>
+<ol>
+ <li>W&#xE4;hlen Sie die zu etikettierende <strong>Pflanzenart</strong> aus.</li>
+  <li>Bestimmen Sie den <strong>Einf&#xFC;gungspunkt</strong> f&#xFC;r das Pflanzenetikett. Sie werden so viele Etiketten einf&#xFC;gen m&#xFC;ssen, wie Pflanzenarten ausgew&#xE4;hlt sind.</li>
+</ol>
+
+<p>Das Pflanzenetikett zeigt zwei Werte an:
+<ul>
+<li><strong>Linker Wert</strong>: Zahl der zur selben Pflanzenart geh&#xF6;renden Einheiten.</li>
+<li><strong>Rechter Wert</strong> Pflanzenart-Identifikationscode (ID) in &#xDC;bereinstimmung mit der Pflanzenliste. Dieser ID kann mit den Namensinitialien der Pflanzenart, durch Aktivierung der Option 
+<strong>Initialen verwenden</strong> in den Pflanzenlisteneigenschaften, ersetzt werden.</li>
+</ul>
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Plant Label/Tags.jpg" alt="Pflanzenetiketten"/><br/>
+Pflanzenetiketten.
+</p>
+
+<a name="Parameters" />
+<h3>Pflanzenetikett-Parameter</h3>
+
+<p>Die Pflanzenetikett-Parameter sind in unterschiedliche Reiter aufgeteilt und &#xFC;ber verschiedene Dialoge abrufbar:</p>
+<ul>
+	<li>Abschnitt der Pflanzenetikett-Eigenschaften, im <a href="Interface_Panel.html">Lands-Design-Bearbeitungspanel</a>.</li>
+	<li>Pflanzenetikett-<a href="Interface_Properties.html">Objekteigenschaftendialog</a>.</li>
+</ul>
+
+<h4>Allgemein, Etikett und Anmerkungspfeil</h4>
+<p><a href="Plant Label tools.html">Pflanzenetikett-Parameter</a> zur Definierung der Etikettenform, des Formats und der Merkmale.</p>
+
+<a name="ControlPoints" />
+<h3>Kontrollpunkte</h3>
+<p>Pflanzenetikette verf&#xFC;gen &#xFC;ber einen einzigen Kontrollpunkt, der im Zentrum der Etikett-Umrandung gelegen ist.</p>
+<br clear="all" />
+
+<a name="Edit" />
+<h3>Bearbeitungsoptionen</h3>
+<p>Dies sind die Bearbeitungsoptionen f&#xFC;r das Pflanzenetikett-Objekt, verf&#xFC;gbar im <a href="Interface_Panel.html#Edit">
+Bearbeitungsbereich des Bearbeitungsfensters</a>:</p>
+<ul>
+	<li><img alt="Aktualisieren" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aktualisieren</a></li>
+	<li><a href="Commands_laCopyFrom.html">Eigenschaften von einem anderen Objekt kopieren</a></li>
+		<li>Anpassen
+		<ul>
+		<li><img alt="laErh&#xF6;hen" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Erh&#xF6;hung</a></li>
+		<li><img alt="laAufNullErh&#xF6;hen" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">Auf Nullh&#xF6;he</a></li>
+		<li><img alt="AufGel&#xE4;ndeErh&#xF6;hen" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		An Gel&#xE4;nde</a></li>
+		</ul>
+	</li>
+	<li>Nicht an Gel&#xE4;nde anpassen</li>
+	<li>Pflanzenetikett
+	<ul>
+		<li><img src="../images/Icon/laPlantLabelSelectPlants.png" alt="Pflanzenetikett Pflanzen ausw&#xE4;hlen"/> <a href="Commands_laPlantLabelSelectPlants.html">Pflanzen erkennen</a></li>
+		<li><img src="../images/Icon/laPlantLabelAddRemovePlants.png" alt="Pflanzen hinzuf&#xFC;gen oder entfernen"/> <a href="Commands_laPlantLabelAddRemovePlants.html">Einem Etikett Pflanzen hinzuf&#xFC;gen oder sie davon entfernen</a></li>
+	</ul></li>
+</ul>
+

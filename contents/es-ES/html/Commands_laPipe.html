@@ -1,0 +1,106 @@
+<h3>Tubería</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laTubería</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laPipe.png" alt="Tubería"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas : <a href="Interface_Toolbars.html#WateringToolbar">Documentación de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Comandos de riego en la barra de herramientas Documentación" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Sistema de riego &gt; Tubería</div>
+</div>
+
+
+<p>Las tuberías son elementos fundamentales de la instalación de riego en un proyecto de paisajismo.</p>
+
+<ul>
+	<li><a href="Commands_laPipe.html#Insert">Insertar una tubería</a></li>
+	<li><a href="Commands_laPipe.html#ControlPoints">Puntos de control</a></li>
+	<li><a href="Commands_laPipe.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laPipe.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laPipe.html#Display">Representación gráfica</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insertar una tubería</h3>
+<p>Cuando ejecute el comando <strong>laTubería</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de tuberías. Este diálogo muestra las opciones básicas en una sola ficha.</p>
+
+<ul>
+<li><a href="Commands_laPipe.html#Pipe">Tubería</a>: parámetros de tubería.</li>
+
+</ul>
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione los parámetros de <strong>Tubería</strong>. Pulse Aceptar para cerrar el diálogo.</li>
+	<li>Seleccione una de las dos opciones de la línea de comandos:
+		<ul>
+			<li>Nueva</li>
+			<li>Existente</li>
+		</ul>
+	</li>
+	<li>Pulse Intro, Esc o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Watering/Pipes Insert Dialog.png" alt="Cuadro de inserción del objeto Tubería."/><br/>
+Cuadro de inserción del objeto Tubería.
+</p><br/>
+
+<br clear="all" />
+
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>El objeto Tubería tienen el mismo número de <em>puntos de control</em>  que las curvas utilizadas para generarlo.</p>
+<p>Para activar los puntos de control de una tubería, ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10) y seleccione la tubería. Para desactivar los puntos de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Opciones y parámetros de inserción</h3>
+<p>Los parámetros y las opciones de inserción de Tubería se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Cuadro de diálogo de inserción</a> de Tubería (solo disponible al insertar nuevas tuberías).</li>
+	<li>Sección de propiedades de Tubería, en el <a href="Interface_Panel.html">Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> de Tubería.</li>
+</ul>
+
+<h4>General</h4> 
+<p>Atributos generales del objeto Tubería: <em>Nombre</em>, <em>Color</em>, <em>Capa</em>, <em>Código</em> y <em>Palabras clave</em>.</p>
+
+<a name="Pipe" />
+<h4>Tubería</h4> 
+	<ul>
+		<li><strong>Sección (diámetro)</strong>: cota de diámetro de la tubería.</li>
+		<li><strong>Presión</strong>: presión del agua dentro de las tuberías calculada en atm.</li>
+		<li><strong>Material</strong>: campo para especificar el material de la tubería.</li>
+		<li><strong>Description</strong>: campo para añadir notas sobre las tuberías.</li>
+	</ul>
+	
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición del objeto de tubería, disponibles en el <a href="Interface_Panel.html#Edit">área de edición del Panel de edición</a>:</p>
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualizar </a></li>
+	
+	<li>Copiar propiedades de otro objeto.</li>
+	<li>Ajustar
+		<ul>
+		<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+		<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreno</a></li>
+		</ul>
+	</li>
+	<li>Dejar de ajustar a terrenos</li>
+		
+</ul>
+	
+<a name="Display" />
+<h3>Representación gráfica de tubería</h3>
+<p>Las tuberías se representan como líneas 2D en los modos de representación 2D y 3D.</p>

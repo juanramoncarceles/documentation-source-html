@@ -1,0 +1,47 @@
+<h3>Designar contorno de terreno</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laTerrenoContorno</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainBoundary.png" alt="Designar contorno en terreno"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#TerrainToolbar">Terreno de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandos de terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Modelado de terreno &gt; Terreno &gt; Designar contorno</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panel de edición</a>: </div>
+	<div class="value menu">Seleccione un terreno &gt; Área planta del panel de edición &gt; Terreno &gt; Designar contorno</div>
+</div>
+
+<p>Especifica una curva cerrada para definir el contorno del terreno.</p>
+<p>Cuando se emplea el algoritmo de triangulación de Delaunay sin rejilla, los límites de la superficie del terreno se corresponden a los de la triangulación obtenida.<br/>
+
+Cuando el terreno se genera levantando los puntos de una rejilla, los límites de la superficie del terreno los determina el mínimo rectángulo que contiene la proyección en planta de todos los puntos y las curvas de entrada.</p>
+
+<p><strong>Pasos:</strong></p>
+
+<ol>
+ <li>Designe un terreno.</li>
+ <li>Seleccione una <strong>curva cerrada</strong> para definir la nueva curva de nivel del terreno.</li>
+</ol>
+
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour.jpg" alt="Terreno existente"/><br/>
+Terreno existente con la curva para definir como nuevo contorno.
+</p>
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour 2.jpg" alt="Nuevo contorno de terreno"/><br/>
+Terreno con el nuevo contorno en la vista Superior.
+</p>
+<br clear="all" />
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour 3.jpg" alt="Nueva curva de nivel de terreno"/><br/>
+Terreno con el nuevo contorno en la vista Perspectiva.
+</p>
+
+<p>El nuevo hueco se puede eliminar utilizando el comando <a href="Commands_laTerrainRemoveBoundary.html"><img src="../images/Icon/laTerrainRemoveBoundary.png" alt="Eliminar contorno de terreno"/> laTerrenoQuitaContorno</a> o desde el área de edición del terreno del <a href="Interface_Panel.html"><strong>Panel de edición</strong></a> y el <a href="Interface_Properties.html"><strong>diálogo Propiedades</strong></a>, debajo de la ficha <em>Datos de entrada</em>, después de seleccionar el terreno.</p>

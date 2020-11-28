@@ -1,0 +1,154 @@
+<h3>Muro</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laMuro</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro su <img src="../images/Icon/laWall.png" alt="Muro"/>
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Barra degli strumenti: Oggetti di Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Comandi di ingegneria civile" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Elementi strutturali &gt; Muro</div>
+</div>
+
+
+<p>I muri vengono utilizzati per dividere giardini o parchi in settori da destinare a diversi usi.</p>
+
+<ul>
+	<li><a href="Commands_laWall.html#Insert">Inserire un muro.</a></li>
+	<li><a href="Commands_laWall.html#ControlPoints">Punti di controllo.</a></li>
+	<li><a href="Commands_laWall.html#Parameters">Inserire opzioni e parametri.</a></li>
+	<li><a href="Commands_laWall.html#Edit">Opzioni di modifica.</a></li>
+	<li><a href="Commands_laWall.html#Display">Visualizzazione grafica.</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Inserire un muro</h3>
+<p>Dopo aver eseguito il comando <strong>laMuro</strong>, appare la <a href="Interface_Dialog.html">finestra di dialogo di inserimento</a> del muro. Questa finestra mostra le opzioni di base dell'oggetto muro in due pannelli.
+</p>
+<ul>
+<li><a href="Commands_laWall.html#Wall">Muro</a>: parametri relativi al muro.</li>
+<li><a href="Commands_laWall.html#Material">Materiale</a>: impostazioni del materiale per l'oggetto muro.</li>
+</ul>
+
+<p><strong>Procedimento:</strong></p>
+<ol>
+	<li>Selezionare i <strong>parametri del muro</strong>. Fare clic su <em>OK</em> per chiudere la finestra di dialogo.</li>
+	<li>Selezionare una <strong>curva</strong> esistente nel modello per definire il percorso del muro o selezionare un'altra opzione sulla linea di comando.
+		<ul>
+			<li><strong>Polilinea</strong>: il muro viene creato come se fosse stata disegnata una polilinea.</li>
+			<li><strong>Spline</strong>: il muro viene creato come se fosse stata disegnata una spline.</li>
+			<li><strong>Cerchio</strong>: il muro viene creato come se fosse stato disegnato un cerchio. Il primo clic stabilisce il centro del cerchio mentre il secondo il raggio.</li>
+			<li><strong>Arco</strong>: il muro viene creato come se fosse stato disegnato un arco. Il primo clic stabilisce il punto di inserimento, il secondo stabilisce un punto intermedio nell'arco e il terzo clic specifica il punto di fine dell'arco.</li>
+			<li><strong>Rettangolo</strong>: il muro viene creato come se fosse stato disegnato un rettangolo. Il primo clic stabilisce un angolo del rettangolo e il secondo l'angolo opposto.</li>
+		</ul>
+	</li>
+	<li>Premere <em>Invio o Esc</em> oppure fare clic con il tasto destro del mouse per terminare il comando.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Partition/Partition Insert Dialog.png" alt="Finestra di dialogo di inserimento del muro."/><br/>
+Finestra di dialogo di inserimento dell'oggetto muro.
+</p><br/>
+
+<br clear="all" />
+
+<a name="ControlPoints" />
+<h3>Punti di controllo <img alt="Punti di controllo" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Gli oggetti muro presentano gli stessi <em>punti di controllo</em> delle curve usate per crearli.</p>
+<p>Inoltre, presentano una freccia di controllo dello spostamento per spostare l'intero oggetto.</p>
+<p>I punti di controllo del muro vengono attivati automaticamente durante la selezione individuale dei muri. Per attivare uno o pi&#xF9; punti di controllo dell'oggetto muro, basta selezionare i muri ed eseguire il comando <strong>PuntiOn</strong> o premere il tasto F10. Per disattivare i punti dell'oggetto muro, premere il tasto ESC o eseguire il comando <em>PuntiOff</em> <strong></strong> .</p>
+
+
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Partition/Partition Control Points.jpg" alt="Punti di controllo sulle parti" /><br/>
+Punti di controllo sugli oggetti muro</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Inserire opzioni e parametri</h3>
+<p>Le opzioni e i parametri di inserimento dell'oggetto muro vengono divisi in vari pannelli e sono disponibili da diverse finestre di dialogo:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Finestra di dialogo di inserimento</a> del muro (disponibile solo durante l'inserimento di nuovi muri).</li>
+	<li>Sezione sulle propriet&#xE0; del muro, sul <a href="Interface_Panel.html">pannello di modifica di Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Finestra di dialogo delle propriet&#xE0; dell'oggetto</a> muro.</li>
+</ul>
+
+<h4>Generali</h4> 
+<p>Attributi generali per l'oggetto muro: <em>Nome</em>, <em>Colore</em>, <em>Codice</em> e <em>Parola chiave</em>.</p>
+<a name="Wall" />
+<h4>Muro</h4> 
+	<ul>
+		<li><strong>Spessore</strong>: spessore costante lungo il percorso del muro.</li>
+		<li><strong>Altezza</strong>: altezza costante lungo il percorso del muro.</li>
+		<li><strong>Morbidezza</strong>: precisione secondo cui viene suddiviso l'oggetto lungo la curva di un'asse per adattarsi al percorso. Questo parametro &#xE8; importante solo quando l'oggetto Muro &#xE8; stata creato da una curva.</li>
+		<li><strong>Giustificazione</strong>: indica la posizione dell'asse rispetto alla struttura. Tre sono le possibili giustificazioni: <ul>
+				<li>Sinistra: la curva di percorso rimane a sinistra del muro.</li>
+				<li>Centro: il muro viene creato distribuendo la met&#xE0; dello spessore su ciascun lato della curva di percorso.</li>
+				<li>Destra: la curva di percorso rimane a destra del muro.</li>
+			</ul>
+		</li>
+	</ul>
+
+<a name="Material" />
+<h4>Materiale</h4>
+<p>Questo pannello consente di cambiare l'immagine della texture assegnato a questo elemento e definirne le dimensioni, la riflettivit&#xE0; e la trasparenza.</p>
+
+
+<a name="Edit" />
+<h3>Opzioni di modifica</h3>
+<p>Esistono opzioni di modifica per l'oggetto muro, disponibili nel <a href="Interface_Panel.html#Edit">
+pannello di modifica</a>:</p>
+<ul>
+	<li><img alt="Aggiorna" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aggiorna</a></li>
+	<li><img alt="Converti in 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 2D</a>. Visualizza l'oggetto in rappresentazione 2D.</li>
+	<li><img alt="Converti in 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 3D</a>. Visualizza l'oggetto in rappresentazione 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Mostra in 2D e 3D</a>: <em>attiva simultaneamente la rappresentazione 2D e 3D dell'oggetto.</em> </li>
+
+	<li><a href="Commands_laCopyFrom.html">Copia le propriet&#xE0; da un altro progetto</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copia su un'altra curva</a></li>
+	<li><a href="Commands_laReverseCurve.html">Inverti curva</a></li>
+	<li><a href="Commands_laExtractCurves.html">Estrai curva</a></li>
+
+	<li>Regola
+		<ul>
+		<li><img alt="laEleva" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevazione</a></li>
+		<li><img alt="laElevaAZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A quota zero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreni</a></li>
+		</ul>
+	</li>
+	<li>Non regolare pi&#xF9; rispetto ai terreni</li>
+	
+</ul>
+
+<a name="Display"></a>
+<h3>Visualizzazione grafica del muro</h3>
+<p>L'oggetto muro offre rappresentazioni 2D e 3D simultanee sul modello.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Partition/Partition 2D display.jpg" alt="Rappresentazione 2D"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Partition/Partition 3D display.jpg" alt="Rappresentazione 3D realistica"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2D</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

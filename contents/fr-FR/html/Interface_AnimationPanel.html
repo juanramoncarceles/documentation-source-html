@@ -1,0 +1,112 @@
+<h3>Panneau d'animation</h3>
+
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laPanneauAnimation</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laAnimationPanel.png" alt="Panneau d'animation"/> clic gauche
+
+	</div>
+	
+	<div class="field">Barre d'outils : <a href="Interface_Toolbars.html#ToolsToolbar">Outils de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Tools Toolbar.png" alt="Outils" usemap ="#ToolsToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Panneau d'animation</div>
+</div>
+
+
+<p>L'animation est également utile pour réaliser des études sur le mouvement du soleil dans le paysage, y compris la simulation des modifications au niveau de la végétation au fil des ans ou des saisons.
+</p>
+
+
+<p>Le <strong>Panneau d'animation de Lands</strong> permet de créer, jouer et calculer le rendu d'animations dans le projet.</p>
+<p>Dans le panneau d'animation de Lands, vous pouvez :</p>
+<ul>
+	<li>Réaliser des études sur le mouvement du soleil dans le paysage. </li>
+	<li>Réaliser des études sur les changements subis par la végétation au fil des ans et des saisons. </li>
+	<li>Jouer des animations dans le projet. </li>
+	<li>Enregistrer des vidéos en utilisant des rendus photoréalistes ou des captures d'écran. </li>
+</ul>
+
+<p>Le panneau d'animation de Lands est divisé en trois parties :</p>
+<ol>
+	<li><a href="Interface_AnimationPanel.html#Playback">Contrôles de lecture</a></li>
+	<li><a href="Interface_AnimationPanel.html#Animation">Paramètres d'animation</a></li>
+	<li><a href="Interface_AnimationPanel.html#Render">Paramètres du rendu</a></li>
+	
+</ol>
+
+
+<p class="figureWithDescription"><img src="../images/AnimationPanel.png" alt="Panneau d'animation de Lands Design"/><br/>
+Panneau d'animation de Lands.</p>
+
+<a name="Playback" />
+<h3>1. Contrôles de lecture</h3>
+
+<p>Les contrôles de lecture vous permettent de voir un aperçu de l'animation avant de lancer le rendu. Les fonctions disponibles sont celles de tous les lecteurs de média : Lecture pour lancer / redémarrer l'animation, Arrêt pour arrêter et revenir au début et Pause pour arrêter et geler l'image.</p>
+<p>Vous devez définir le chemin de la caméra afin d'activer les contrôles de lecture. Le lecteur respectera le mode d'affichage de la fenêtre.</p>
+<p></p>
+
+<a name="Animation" />
+<h3>2. Paramètres d'animation</h3>
+<p>Cette partie montre les paramètres de l'animation regroupés sous trois onglets, ainsi que les paramètres généraux d'animation.</p>
+
+<h4>Général</h4>
+
+<ul>
+<li><strong>Enregistrer </strong>: entrez le nom sous lequel vous voulez enregistrer les paramètres actuels ou sélectionnez un nom déjà utilisé pour le rétablir.</li>
+<li><strong>Image/s </strong>: définit le nombre d'images par seconde contenues dans l'animation. Plus le nombre d'images est important, plus le mouvement sera lisse (mais, bien sûr, plus le temps de rendu sera long).</li>
+<li><strong>Durée </strong>: indique la durée de toute l'animation. Si cette case est désactivée, la durée est calculée automatiquement à partir du paramètre Image/s.</li>
+</ul>
+<p>La combinaison entre le nombre d'images par seconde et la durée (exprimée ou calculée) donnera un certain nombre d'images à rendre. Le nombre d'images et la durée, calculés en fonction des valeurs, sont affichés en bas de cette zone.</p>
+
+<h4><img src="../images/Camera.png" alt="Caméra"/>Caméra</h4>
+
+<ul>
+<li><strong>Position </strong>:
+	<ul>
+		<li><strong>Point fixe </strong>: la caméra restera dans la même position pendant l'animation. Cliquez sur le bouton au-dessus pour choisir un point dans le modèle.</li>
+		<li><strong>Courbe </strong>: la caméra se déplacera le long d’une courbe qui définira la trajectoire d'animation. Cliquez sur le bouton au-dessus pour choisir un chemin dans le modèle.</li>
+		
+	</ul>
+</li>
+
+<li><strong>Cible </strong>:
+	<ul>
+		<li><strong>Point fixe </strong>: la caméra regardera un point fixe pendant toute l'animation. Cliquez sur le bouton au-dessus pour choisir un point cible dans le modèle.</li>
+		<li><strong>Courbe </strong>: la caméra regardera une courbe pendant toute l'animation. Cliquez sur le bouton au-dessus pour choisir une courbe cible dans le modèle.</li>
+		<li><strong>Regarder devant </strong>: la caméra regardera devant le long de la courbe.</li>
+	</ul>
+</li>
+
+<li><strong>Vitesse </strong>: définit la vitesse à laquelle la caméra se déplacera, en kilomètres par heure. Ce paramètre ne peut pas être modifié lorsque la durée de l'animation est expressément définie. Dans ce cas, Lands calculera la vitesse de la caméra nécessaire pour terminer la trajectoire dans le temps imparti.</li>
+<li><strong>Distance focale </strong>: contrôle l'angle d'ouverture de la caméra, en millimètres. Plus la distance focale est courte, plus le champ de vision est grand. Plus la distance focale est grande, plus le champ de vision est réduit et plus le zoom sur la cible est important.</li>
+<li><strong>Lacet, tangage et roulis </strong>: définit les angles de rotation de la caméra le long des axes X, Y et Z respectivement. Lorsque l'option <em>Regarder devant</em> est sélectionnée, l'utilisateur peut modifier librement les trois angles puisqu'il n'existe pas de cible définissant la vue. En revanche, si la cible est définie, seul le Roulis peut être appliqué car c'est la seule rotation qui ne modifie pas la direction de la cible de la caméra.</li>
+</ul>
+
+
+<h4><img src="../images/Daylight.png" alt="Lumière du jour"/>Lumière du jour</h4>
+<p>Cet onglet permet d'appliquer un déplacement du soleil pendant l'animation. Cliquez sur le bouton <strong>Activer le mouvement du soleil</strong> pour définir un jour et une heure au début et à la fin de l'animation. </p>
+
+<h4><img src="../images/Plants.png" alt="Plante"/>Plante</h4>
+<p>Cet onglet permet d'appliquer une simulation de changement de saison, de croissance des plantes et de vent pendant l'animation. </p>
+<ul>
+	<li><strong>Activer le changement de saison </strong>: la représentation de la plante changement d'une saison à l'autre au cours de l'animation. </li>
+	<li><strong>Activer la croissance des plantes </strong>: les glisseurs représentent un pourcentage des valeurs de hauteur minimum et maximum de chaque espèce. L'animation montrera la croissance des plantes en fonction de ces pourcentages. </li>
+	<li><strong>Activer le vent </strong>: définit la vitesse de l'effet du vent pendant l'animation.</li>
+</ul>
+
+<a name="Render" />
+<h3>3. Paramètres du rendu</h3>
+<p>Dans cette zone vous pouvez enregistrer les images rendues de l'animation et les utiliser pour créer une vidéo.
+	<ul>
+		<li><strong>Bouton Rendu</strong> : cliquez sur ce bouton pour jouer et enregistrer l'animation. Donnez un nom à l'animation dans les <a href="Interface_AnimationPanel.html#Animation">Paramètres généraux d'animation</a> et indiquez un dossier où enregistrer les images rendues. </li>
+		<li><strong>Moteur de rendu </strong>: choisissez entre le mode d'affichage actuellement défini dans la fenêtre ou le moteur de rendu défini dans Rhino. </li>
+		<li><strong>Enregistrer dans </strong>: choisissez le dossier où seront enregistrées les images rendues et la vidéo (au format <em>.avi</em>).</li>
+		<li><strong>Intervalle d'images </strong>: sélectionnez <em>Tout</em> pour rendre toute l'animation et indiquez un intervalle d'images. </li>
+	</ul>
+</p>
+<p><img src="../images/Icon/laImageFilters.png" alt="Filtres d'image"/> <strong>Filtres d'image</strong> : ce bouton lance l'<a href="Commands_laImageFilters.html">application des filtres d'image</a> où vous pouvez ajouter un ou plusieurs filtres au résultat de l'animation vidéo. </p>

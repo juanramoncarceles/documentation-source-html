@@ -1,0 +1,158 @@
+<h3>Camino</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laCamino</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laPath.png" alt="Camino"/> clic izquierdo
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Barra de herramientas: Objetos de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Comandos de Obra civil" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Obra civil &gt; Camino</div>
+</div>
+
+
+<p>Un camino en Lands Design consiste en un perfil extruido a lo largo de un eje.</p>
+
+<ul>
+	<li><a href="Commands_laPath.html#Insert">Insertar un camino</a></li>
+	<li><a href="Commands_laPath.html#ControlPoints">Puntos de control</a></li>
+	<li><a href="Commands_laPath.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laPath.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laPath.html#Display">Representación gráfica</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insertar un camino:</h3>
+<p>Cuando ejecute el comando <strong>laCamino</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de caminos. Este diálogo muestra las opciones básicas del objeto Camino en dos fichas.</p>
+<ul>
+<li><a href="Commands_lasPath.html#Path">Camino</a>: parámetros de camino.</li>
+<li><a href="Commands_laPath.html#Material">Material</a>: opciones de material para el objeto Camino.</li>
+</ul>
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione el <strong>perfil de sección</strong> del camino. Ya se ha asignado un perfil rectangular (de 3 x 0,2 metros) de forma predeterminada. También puede seleccionar una curva existente en el modelo (opción <em>Seleccionar</em>) o dibujarla en el modelo (opción <em>Designar punto a punto</em>).</li>
+	<li>Seleccione el resto de <strong>parámetros de Camino</strong>. Pulse Aceptar para cerrar diálogo.</li>
+	<li>Designe una <strong>curva</strong> existente en el modelo para crear el camino, o seleccione una opción diferente en la línea de comandos.
+		<ul>
+			<li><strong>Polilínea</strong>: el camino se creará como si dibujara una polilínea.</li>
+			<li><strong>Spline</strong>: el camino se creará como si dibujara una spline.</li>
+			<li><strong>Círculo</strong>: el camino se creará como si dibujara un círculo. El primer clic determina el centro del círculo y el segundo clic determina el radio.</li>
+			<li><strong>Arco</strong>: el camino se creará como si estuviera dibujando un arco. El primero clic determina el punto de inserción. El segundo clic determina un punto medio en el arco. El tercer y último clic determina dónde termina el arco.</li>
+			<li><strong>Rectángulo</strong>: el camino se creará como si dibujara un rectángulo. El primer clic determina una esquina del rectángulo y el segundo clic determina la esquina opuesta.</li>
+		</ul>
+	</li>
+	<li>Pulse Intro, Esc o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p><strong>Nota</strong>: asegúrese de que la curva seleccionada como perfil de transversal del camino esté alineada con el eje XY.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Path/Path Insert Dialog.png" alt="Cuadro de inserción del objeto Camino."/><br/>
+Cuadro de inserción del objeto Camino.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Los objetos de Camino tienen tres tipos diferentes de <em>puntos de control</em>:</p>
+<ol>
+	<li><strong>Puntos de control del eje del camino</strong>: son los mismos puntos de control que los de las curvas utilizadas para generar los caminos.</li>
+	<li><strong>Flecha de control de movimiento</strong>: flecha situada al principio del objeto camino, que se utiliza para mover todo el objeto.</li>
+	<li><strong>Puntos de control del perfil transversal</strong>: estos puntos de control se usan para modificar el perfil transversal del camino. Son los mismos puntos de control que los de las curvas utilizadas para definir el perfil de sección del camino. Se encuentran al inicio del objeto de camino.</li>
+</ol>
+<p>Los puntos de control de los caminos se activan automáticamente al seleccionar los caminos uno por uno. Para activar uno o más puntos de control del objeto Camino, seleccione los caminos y ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10). Para desactivar los puntos de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Path/Path Control Points.jpg" alt="Puntos de control de caminos" /><br/>
+Puntos de control de caminos</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Opciones y parámetros de inserción</h3>
+<p>Los parámetros y las opciones de inserción de Camino se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Cuadro de diálogo de inserción</a> de Camino (solo disponible al insertar nuevos caminos).</li>
+	<li>Sección de propiedades de Camino, en el <a href="Interface_Panel.html">Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> de Camino.</li>
+</ul>
+
+<h4>General</h4> 
+<p>Atributos generales del objeto Camino: <em>Nombre</em>, <em>Color</em>, <em>Capa</em>, <em>Código</em> y <em>Palabras clave</em>.</p>
+
+<a name="Path" />
+<h4>Camino</h4> 
+	<ul>
+		<li><strong>Perfil de sección</strong>: curva usada para definir el perfil de sección del Camino.</li>
+		<li><strong>Suavidad</strong>: precisión en la que el objeto Camino se subdivide a lo largo de la curva del eje para ajustarse a su trayectoria. Este parámetro solo es relevante cuando el objecto Camino se ha creado desde una curva curvada.</li>
+		<li><strong>Justificación</strong>: marca la posición del perfil de sección del camino desde el que se extruirá a lo largo de la curva de eje del camino. Hay nueve justificaciones posibles. La justificación <strong>Ninguna</strong> mantiene la alineación de la trayectoria a lo largo del eje del camino, aunque modifique el perfil de sección del camino.</li>
+		
+	</ul>
+	
+	
+<a name="Material" />
+<h4>Material</h4>
+<p>Esta ficha permite cambiar la imagen texturizada asignada a este elemento y definir el tamaño de la imagen y la reflectividad.</p>
+
+
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición del objeto de camino, disponibles en el <a href="Interface_Panel.html#Edit">área de edición del Panel de edición</a>:</p>
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualizar </a></li>
+	<li><img alt="Convertir a 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir a 2D</a>. Muestra el objeto en representación 2D.</li>
+	<li><img alt="Convertir a 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Convertir a 3D</a>. Muestra el objeto en representación 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Mostrar 2D y 3D</a>: Activa la representación 2D y 3D del objeto simultáneamente. </li>
+
+	<li><a href="Commands_laCopyFrom.html">Copiar propiedades de otro objeto</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copiar en otra curva</a></li>
+	<li><a href="Commands_laReverseCurve.html">Invertir curva</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extraer curva</a></li>
+	<li>Ajustar
+		<ul>
+		<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+		<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">A terreno</a></li>
+		</ul>
+	</li>
+	<li>Dejar de ajustar a terrenos</li>
+	<li>Camino
+		<ul>
+			<li>Editar perfil de sección: este comando coloca un plano de construcción alineado con el perfil de sección del camino al inicio del objeto. Facilita la edición del perfil del camino a través de sus puntos de control. Ejecute el comando <em>PlanoC</em> (y seleccione <em>Universal &gt; Superior</em>) en la línea de comandos para restablecer la posición del plano construcción.</li>
+		</ul>
+	</li>
+	
+</ul>	
+	
+	
+<a name="Display" />
+<h3>Representación gráfica del camino:</h3>
+<p>El objeto Camino ofrece una representación en 2D y 3D simultánea en el dibujo.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Path/Path 2D.jpg" alt="Representación 2D del camino"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Path/Path 3D.jpg" alt="Representación 3D del camino"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2d</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

@@ -1,0 +1,78 @@
+
+<h3>Paramètres</h3>
+
+
+<p>Paramètres utilisés pour ajouter des informations aux objets de la géométrie. Ces objets peuvent être des éléments de Lands Design (plantes, clôtures, chemins, terrains, etc.) ou des éléments de Rhino (points, courbes, surfaces, polysurfaces, extrusions, maillages et blocs).</p>
+
+<p>Les paramètres peuvent être créés et modifiés de deux manières différentes :</p>
+<ul>
+<li><a href="Interface_Parameters.html#Document"><b><em>Par document</em></b></a></li>
+<li><a href="Interface_Parameters.html#Object"><b><em>Par objet</em></b></a> individuellement</li>
+</ul>
+
+
+<p>Les paramètres existants sont visibles pour chaque entité d'objet dans le panneau Propriétés de Rhino 
+<img alt="icône des propriétés de Rhino" src="../images/Rhino Properties.jpg" />, sous l'icône Paramètres <img alt="icône des paramètres" src="../images/Parameters.png" />, où il est possible d'ajouter les valeurs.</p> 
+
+<div class="figureWithDescription blockInline"><img src="../images/Commands/Parameter/Parameter in Properties Panel.png" alt="Paramètres dans le panneau Propriétés" /><br/>
+	Paramètres dans le panneau Propriétés</div>
+	<br clear="all" />
+
+<a name="Document" />
+<h3>Paramètres définis par document</h3>
+<div class="comDescr">
+<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">PropriétésDocument</div>
+
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Outils &gt; Options &gt; Propriétés du document &gt; Paramètres</div>
+	
+</div>
+
+<p>Les paramètres du document sont gérés dans la section Paramètres de la boîte de dialogue Propriétés du document de Rhino. Ces paramètres sont disponibles pour chaque objet de géométrie présent dans le modèle.</p>
+
+<p>Les paramètres existants sont affichés dans une liste avec leur <em>Catégorie</em>  et leur <em>Type</em> de valeur.</p>
+
+<div class="figureWithDescription blockInline"><img src="../images/Commands/Parameter/Document Properties Parameters.png" alt="Section Paramètres des propriétés du document de Rhino" /><br/>
+	Section Paramètres des propriétés du document de Rhino</div>
+	<br clear="all" />
+	
+<ul>
+	<li><b>Ajouter </b>: ouvre la boîte de dialogue des <a href="Interface_Parameters.html#Dialog">propriétés de paramètre</a> afin de créer un nouveau paramètre.</li>
+	<li><b>Modifier </b>: ouvre la <a href="Interface_Parameters.html#Dialog">boîte de dialogue des propriétés de paramètre</a> afin de modifier un paramètre sélectionné dans la liste.</li>
+	<li><b>Supprimer </b>: supprime un paramètre sélectionné dans la liste.</li>
+</ul>
+
+<p>Les informations sur les paramètres personnalisés ajoutées par document aux éléments de Lands Design peuvent être listées avec les <a href="Listing tools.html">outils de liste</a> de Lands Design.</p>
+
+<a name="Object" />
+<h3>Paramètres par objet</h3>
+<p>Les paramètres définis par objet sont ceux gérés pour un seul objet individuellement. Ils peuvent être créés, modifiés et supprimés à partir du panneau Propriétés de Rhino
+<img alt="icône des propriétés de Rhino" src="../images/Rhino Properties.jpg" />, avec l'icône des paramètres <img alt="icône des paramètres" src="../images/Parameters.png" /> après avoir sélectionné un objet.</p>
+<p>
+<ul>
+	<li><img alt="icône Ajouter un paramètre" src="../images/Parameter Add.png" /> Ouvre la <a href="Interface_Parameters.html#Dialog">boîte de dialogue des propriétés de paramètre</a> afin de créer un nouveau paramètre.</li> 
+	<li><img alt="icône Modifier un paramètre" src="../images/Parameter Edit.png" /> Ouvre la <a href="Interface_Parameters.html#Dialog">boîte de dialogue des propriétés de paramètre</a> afin de modifier le paramètre. Vous devez sélectionner le nom du paramètre pour activer ce bouton.</li> 
+	<li><img alt="icône Supprimer le paramètre" src="../images/Parameter Delete.png" /> Supprime un paramètre existant. Vous devez sélectionner le nom du paramètre pour activer ce bouton.</li> 	
+</ul>
+</p>
+<p><b>Remarque </b>: Le <em>nom</em> et la <em>description</em> sont des paramètres natifs et ne peuvent pas être modifiés.</p>
+
+
+<a name="Dialog" />
+<h3>Boîte de dialogue des propriétés du paramètre</h3>
+
+<div class="figureWithDescription blockInline"><img src="../images/Commands/Parameter/Create Parameter Dialog.png" alt="Boîte de dialogue des propriétés du paramètre" /><br/>
+	Boîte de dialogue des propriétés du paramètre</div>
+	<br clear="all" />
+	
+<ul>
+	<li><b>Nom </b>: nom du paramètre.</li>
+	<li><b>Catégorie </b>: section où sera visible le paramètre. Vous pouvez soit taper une nouvelle catégorie, soit sélectionner une des catégories existantes (<em>Général, Affichage, Géométrie et Position)</em>, en plus des nouvelles catégories qui auraient pu déjà être créées.</li>
+	<li><b>Type de donnée </b>: indique le format de la valeur. Sélectionnez une des options de la liste. </li>
+	<li><b>Description </b>: champ pour ajouter des notes sur le paramètre. </li>
+</ul>
+

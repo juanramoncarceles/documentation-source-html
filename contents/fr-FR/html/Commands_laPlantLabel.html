@@ -1,0 +1,94 @@
+<h3>Étiquette de plante</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laPlanteÉtiquette</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laPlantLabel.png" alt="Étiquette de plante"/> clic gauche [<a href="Plant Label tools.html" title="Barre d'outils Étiquettes des plantes">clic long</a>]
+
+	</div>
+	
+	<div class="field">Barre d'outils : <a href="Interface_Toolbars.html#PlantLabelToolbar">Étiquette de plantes de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Plant Label Toolbar.png" alt="Commandes pour les étiquettes de plantes" usemap ="#PlantLabelToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Documentation &gt; Étiquette de plante &gt; Définir une étiquette</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panneau d'édition </a>: </div>
+	<div class="value menu">Sélectionner une plante &gt; Zone d'édition du panneau d'édition &gt; Plante &gt; Étiquette</div>
+</div>
+
+<p>La commande <strong>laPlanteÉtiquette</strong> insère un tableau 2D contenant les informations sur les espèces de plantes présentes dans le modèle (quantité de spécimens et ID des espèces de plantes).</p>
+<p>Une <a href="Commands_laListPlants.html">liste de plante</a> est nécessaire pour insérer des étiquettes de plantes. </p>
+
+
+<ul>
+	<li><a href="Commands_laPlantLabel.html#Insert">Insérer une étiquette de plante</a></li>
+	<li><a href="Commands_laPlantLabel.html#ControlPoints">Points de contrôle</a></li>
+	<li><a href="Commands_laPlantLabel.html#Parameters">Options et paramètres d'insertion</a></li>
+	<li><a href="Commands_laPlantLabel.html#Edit">Options d'édition</a></li>
+	
+
+</ul>
+<a name="Insert" />
+<h3>Insérer une étiquette de plante :</h3>
+
+<p><strong>Étapes :</strong></p>
+<ol>
+ <li>Sélectionnez l'<strong>espèce de plante</strong> à étiqueter.</li>
+  <li>Indiquez le <strong>point d'insertion</strong> où placer l'étiquette de plante. Vous devrez insérer autant d'étiquettes que d'espèces sélectionnées. </li>
+</ol>
+
+<p>L'étiquette affiche deux valeurs :
+<ul>
+<li><strong>Valeur de gauche </strong>: quantité d'unités appartenant à la même espèce de plantes. </li>
+<li><strong>Valeur de droite</strong> : code d'identification de l'espèce de plante (ID) conformément à la liste de plantes. Cet ID peut être remplacé par les initiales du nom de l'espèce de plantes en cochant l'option 
+<strong>Utiliser les initiales</strong> dans les propriétés de la liste de plantes.</li>
+</ul>
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Plant Label/Tags.jpg" alt="Étiquettes de plantes"/><br/>
+Étiquettes de plantes.
+</p>
+
+<a name="Parameters" />
+<h3>Paramètres des étiquettes de plantes</h3>
+
+<p>Les paramètres des étiquettes de plantes se trouvent dans différents onglets de plusieurs boîtes de dialogue :</p>
+<ul>
+	<li>Section propriétés des étiquettes de plantes, dans le <a href="Interface_Panel.html">panneau d'édition de Lands Design</a>.</li>
+	<li>Boîte de dialogue des <a href="Interface_Properties.html">propriétés objet</a> d'une étiquette de plante.</li>
+</ul>
+
+<h4>Général, Étiquette et Ligne de repère</h4>
+<p><a href="Plant Label tools.html">Paramètres des étiquettes de plantes</a> qui définissent la forme, le format et les attributs de l'étiquette. </p>
+
+<a name="ControlPoints" />
+<h3>Points de contrôle</h3>
+<p>Les étiquettes de plantes ont un seul point de contrôle se trouvant au centre du contour de l'étiquette.</p>
+<br clear="all" />
+
+<a name="Edit" />
+<h3>Options d'édition</h3>
+<p>Options d'édition des étiquettes de plantes, disponibles dans la <a href="Interface_Panel.html#Edit">
+zone d'édition du panneau d'édition</a> :</p>
+<ul>
+	<li><img alt="Actualiser" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualiser</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copier les propriétés d'un autre objet</a></li>
+		<li>Ajuster
+		<ul>
+		<li><img alt="laElever" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Élévation</a></li>
+		<li><img alt="laEleverAZéro" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">À l'élévation zéro</a></li>
+		<li><img alt="laEleverSurTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		Au terrain</a></li>
+		</ul>
+	</li>
+	<li>Ne pas ajuster au terrain</li>
+	<li>Étiquettes des plantes
+	<ul>
+		<li><img src="../images/Icon/laPlantLabelSelectPlants.png" alt="Étiquettes des plantes"/> <a href="Commands_laPlantLabelSelectPlants.html">Identifier des plantes</a></li>
+		<li><img src="../images/Icon/laPlantLabelAddRemovePlants.png" alt="Ajouter ou supprimer des plantes"/> <a href="Commands_laPlantLabelAddRemovePlants.html">Ajouter ou supprimer des plantes dans une étiquette</a></li>
+	</ul></li>
+</ul>
+

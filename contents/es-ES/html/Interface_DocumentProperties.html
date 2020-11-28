@@ -1,0 +1,76 @@
+<h3>Propiedades de documento</h3>
+<p>Las propiedades de documento solo afectan al documento actual y se puede acceder desde dos sitios diferentes:</p>
+
+<ul>
+<li><a href="Interface_Panel.html#Edit">Área de propiedades del Panel de edición</a> (cuando no se selecciona ningún objeto)</li>
+<li>Opciones de Rhino: Herramientas &gt; Opciones  &gt; Propiedades de documento &gt; Lands Design  &gt; Capas</li>
+</ul>
+
+Las propiedades del documento se organizan en diferentes pestañas (en el Panel de edición) o secciones (en Propiedades de documento de Rhino):
+<ul>
+<li><a href="Interface_DocumentProperties.html#Document">Documento</a></li>
+<li><a href="Interface_DocumentProperties.html#Layers">Capas</a></li>
+<li><a href="Interface_DocumentProperties.html#Geolocation">Geolocalización</a></li>
+<li><a href="Interface_DocumentProperties.html#Render">Render</a></li>
+</ul>
+
+<a name="Document" />
+<h3>Documento</h3>
+
+<p>Esta sección permite elegir entre los <a href="Commands_laPlant.html#Display">modos de visualización 2D y 3D</a> en el modelo.</p>
+
+
+<p><strong>Billboard</strong></p>
+<p>Cuando la representación 3D de la planta está definida como <em>Realista</em>, las plantas 3D se reemplazan por representaciones Billboard según la distancia a la que estén desde la posición del observador La representación Billboard no tiene efecto en 
+las vistas en modo renderizado.</p>
+
+<p><strong>Estación</strong></p>
+<p>Define la estación actual para el documento. Las plantas se renderizarán de acuerdo con esta estación a menos que tengan definida otra diferente para cada elemento.</p>
+
+<p class="figureWithDescription"><img src="../images/Document Properties.png" alt="Propiedades de documento"/><br />
+	Ficha Documento del Panel de edición.</p>
+<br clear="all" />
+
+
+<a name="Layers" />
+<h3>Capas</h3>
+
+
+<p>Esta ficha muestra la lista de los diferentes tipos de elementos de Lands y la capa donde se crean cuando se insertan en el modelo. Puede cambiar la capa asignada por cualquier otra existente en el documento desde el Administrador de capas.</p>
+<p>Solo puede cambiar la capa donde se crea un elemento de Lands después de insertar este tipo de elemento por primera vez en ese documento.</p>
+<p>Cuando la capa está definida en <em>Ninguna</em>, el objeto se crea en la capa actual.</p>
+<p>El nombre de las capas donde se crea cada tipo de objeto se puede editar en la <a href="Interface_LandsDesignOptions.html#Layers">pestaña Capas 
+del cuadro de diálogo Opciones de Lands</a>. </p>
+
+<p class="figureWithDescription"><img src="../images/Layer Properties.png" alt="Propiedades de capas"/><br />
+	Ficha Capas en el Panel de edición.</p>
+<br clear="all" />
+
+
+<a name="Geolocation" />
+<h3>Geolocalización</h3>
+
+<p>Esta ficha permite definir el origen de coordenadas del dibujo (0,0,0) en latitud, longitud y elevación. También se puede editar utilizando el comando <em>PuntoDeReferenciaTerrestre</em> o bien desde <em>Propiedades de documento de Rhino &gt; Ubicación</em> (en el diálogo Opciones de Rhino).</p>
+<p>Los documentos nuevos no tienen una ubicación específica definida. Se puede obtener una al importar un terreno con el comando <a href="Commands_laEarthScan.html">laEscaneaTierra</a> o al editar los valores de geolocalización manualmente.</p>
+
+
+<p class="figureWithDescription"><img src="../images/Geolocation.png" alt="Geolocalización"/><br />
+	Ficha Geolocalización en el Panel de edición.</p>
+<br clear="all" />
+
+
+<a name="Render" />
+
+<h3>Render</h3>
+<p>Las propiedades de renderizado determinan cómo se representarán las especies de vegetación.</p>
+<ul>
+<li><strong>Generar plantas como tal y como se ven en el dibujo.</strong>: las plantas se renderizarán de acuerdo con la estación global definida en el archivo o con los elementos de vegetación del modelo.</li>
+<li><strong>Generar plantas muy detalladas para el Render</strong>: las plantas se renderizarán de acuerdo con su apariencia vinculada con la estación y la opción <em>Crecimiento</em>. El crecimiento máximo corresponde a la altura/edad actual de cada 
+ejemplar de vegetación del modelo.</li>
+</ul>
+
+<p><strong>Asignar materiales texturizados a objetos de Lands al crearlos</strong>: el objetivo es obtener un renderizado rápido de la escena.</p>
+
+<p class="figureWithDescription"><img src="../images/Render Properties.png" alt="Propiedades de renderizado"/><br />
+	Ficha Render del Panel de edición.</p>
+<br clear="all" />

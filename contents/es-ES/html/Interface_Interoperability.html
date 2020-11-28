@@ -1,0 +1,54 @@
+<h3>Interoperabilidad de Lands Design con los comandos y la interfaz de Rhino</h3>
+
+<h3>Comandos de Rhino</h3>
+
+<p>Puesto que los objetos de Lands Design son bloques de Rhino, todos aquellos comandos de Rhino que funcionan con bloques también funcionan por defecto con los objetos de Lands Design. Otros comandos han tenido que ser adaptados; un ejemplo de ello son aquellos comandos que duplican objetos (como Copiar, Matriz y Reflejar), así como algunos comandos de edición de Windows  (como Cortar, Copiar y Pegar: CTRL+X, CTRL+C, CTRL+V, respectivamente).<br />
+Cuando se ejecutan comandos de Rhino que no son compatibles con Lands Design, los objetos de Lands Design no se pueden seleccionar.</p>
+
+<p>El comando <strong>Descomponer</strong> elimina las propiedades de los objetos de Lands Design y las convierte en instancias de bloque, mallas o polisuperficies. En este caso, se puede editar como cualquier polisuperficie de Rhino. <br/>
+A diferencia de otros objetos de Lands Design, los objetos de vegetación (plantas, parterres y arbustos) no se pueden descomponer en la versión WIP de Lands Design.</p>
+
+<h3>Comportamiento de los comandos de Rhino</h3>
+
+<ul>
+	<li><strong>Repetición del último comando y de comandos recientes:</strong><br />
+		Al igual que los comandos de Rhino, la mayoría de comandos de Lands Design pueden repetirse de la siguiente manera: 
+		<ul>
+			<li>Para repetir el último comando, pulse INTRO, la barra espaciadora o el botón derecho del ratón cuando no haya ningún comando activo. </li>
+			<li>Para repetir algún comando reciente, pulse el botón derecho del ratón en cualquier parte de la línea de comandos.
+			</li>
+	</ul>
+	</li>
+	<li><strong>Seleccionar objetos:</strong><br />
+		Como en los comandos de Rhino, la mayoría de las operaciones de Lands Design solicitan que seleccione uno o más objetos. Los objetos de Lands Design se seleccionan como los objetos de Rhino:
+		<ul>
+			<li>Para seleccionar un solo objeto, haga clic en cualquier parte del objeto.</li>
+			<li>Para seleccionar varios objetos, pulse MAYÚS mientras hace clic en los objetos que desee seleccionar, o bien utilice la selección por ventana.</li>
+		</ul>
+	</li>
+	<li><strong>Ayudas de modelado y referencias a objetos:</strong><br />
+		Con los objetos de Lands Design, las ayudas de modelado (forzado a la rejilla, modo ortogonal y modo planar), así como las referencias a objetos (fin, cerca, punto, medio, centro, intersec, perp, etc.), pueden usarse tal y como se usan con objetos de Rhino. Puesto que la mayoría de objetos de Lands Design en realidad son mallas, es posible que necesite usar la referencia a objetos Vértice.</li>
+</ul>
+<h3>Puntos de control</h3>
+<div class="comDescr">
+	<div class="field">Teclado: </div>
+	<div class="value keyboardCommand">ActivarPuntos / DesactivarPuntos</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Points on.png" alt="Desactivar puntos"/> Desactivar puntos de control: clic con el botón derecho</div>
+	
+		
+	<div class="field">Menú: </div>
+	<div class="value menu">Edición &gt; Puntos de control &gt;  Activar/Desactivar puntos de control</div>
+	
+	<div class="field">Acceso directo: </div>
+	<div class="value menu">Activar puntos de control (F10), Desactivar puntos de control (F11)</div>
+
+	
+	
+</div>
+
+<p>Todos los objetos de Lands Design se pueden editar activando sus puntos de control. Para hacerlo, puede utilizar los mismos comandos que en Rhino.</p>
+<p class="figureWithDescription">
+<img src="../images/commands/Plant Row/Plant row control points 450.jpg" alt="Fila de plantas con los puntos de control activados" /><br/>
+Filas de plantas con los puntos de control activados.</p>

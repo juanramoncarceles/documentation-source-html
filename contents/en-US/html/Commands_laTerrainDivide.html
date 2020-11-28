@@ -1,0 +1,70 @@
+<h3>Divide Terrain</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laTerrainDivide</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainDivide.png" alt="Divide"/> left click
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#TerrainToolbar">Toolbar</a>: </div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Terrain commands" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Terrain Modeling &gt; Terrain &gt; Divide</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Edit Panel</a>: </div>
+	<div class="value menu">Select a terrain &gt; Edit area in Edit Panel &gt; Terrain &gt; Divide</div>
+</div>
+
+<p>This command divides the terrain into two parts using a closed curve and generates a zone on it. The new division or region can get a different color and material than the rest of the terrain.</p>
+
+<p><strong>Steps:</strong></p>
+
+<ol>
+ <li>Pick a <strong>terrain</strong>. Press Enter or right-click when done.</li>
+  <li>Select a <strong>closed curve</strong>.</li>
+</ol>
+
+<p>The division is created in the terrain.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Divide 1.jpg" alt="Terrain and the curve selected to create the division"/><br/>
+Terrain and the curve selected to create the division.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Divide 2.jpg" alt="Terrain divided"/><br/>
+Terrain divided in two areas.
+</p>
+
+
+<a name="Parameters" />
+<h3>Parameters</h3>
+
+<p>The division parameters can be edited from the <em>Input data</em> tab, (in the <a href="Interface_Panel.html#Properties">Properties area of the Edit panel</a> or <a href="Interface_Properties.html">Properties Explorer dialog</a>), under the <em>Divisions</em> list.</p>
+<ul>
+<li><strong>Control points</strong>: option to enable or disable the control points of the subdivision area.</li>
+<li><strong>Zone</strong>: generates a zone object in the same area. The settings are the same as those of a zone created with the <a href="Commands_laZonify.html">laZonify</a> command, and they can be edited from the <em>Zone</em> tab, in the <a href="Interface_Panel.html#Properties">Properties area of the Edit panel</a> or <a href="Interface_Properties.html">Properties Explorer dialog</a>,
+ after selecting the subdivision in the <a href="Interface_Panel.html#List">Object selection list of the Edit panel</a> or <a href="Interface_Properties.html">Properties Explorer dialog</a>.</li>
+</ul>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Division Input Data.png" alt="Terrain division attributes"/><br/>
+Terrain division attributes.
+</p>
+
+<h3>Division attributes</h3>
+<p>The color and material of the divided area take by default the terrain attributes but they can be edited from the <em>Material</em> tab, in the <a href="Interface_Panel.html#Properties">Properties area of the Edit panel</a> or <a href="Interface_Properties.html">Properties Explorer dialog</a>,
+ after selecting the subdivision in the <a href="Interface_Panel.html#List">Object selection list of the Edit panel</a> or <a href="Interface_Properties.html">Properties Explorer dialog</a>.</p>
+ 
+ <p class="figureWithDescription"><img src="../images/commands/Terrain/TerrainSubdivisionMaterial.png" alt="Material tab for the terrain subdivision, in the Edit panel"/><br/>
+Terrain division attributes.
+</p>
+
+<a name="ControlPoints" />
+<h3>Control points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>The control points of the terrain division let you modify the contour of the subdivision. They are the same as those of the curved used for this operation. In addition, it has a Move control arrow, to move the whole subdivision position.</p>
+<p>These control points are integrated into the terrain and are visible when activating the terrain control points.</p>
+<p>They can be disabled from the <em>Input data</em> tab, (in the <a href="Interface_Panel.html#Properties">Properties area of the Edit panel</a> or <a href="Interface_Properties.html">Properties Explorer dialog</a>), after selecting the subdivision under the <em>Divisions</em> list.</p>
+
+

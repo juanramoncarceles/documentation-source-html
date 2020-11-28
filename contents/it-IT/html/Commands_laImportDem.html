@@ -1,0 +1,37 @@
+<h3>Importa DEM</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laImportaDem</div>
+		
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Modellazione del terreno &gt; Importa DEM.</div>
+</div>
+
+<p>Questo comando consente di creare un terreno da un file DEM.</p>
+<p>Un file <strong>DEM</strong> (Digital Elevation Model) &#xE8; una semplice griglia dei dati di elevazione, con spaziatura regolare.</p>
+
+<p>Dopo aver eseguito il comando <strong>laImportaDem</strong>, appare la finestra di dialogo di <strong>importazione dei file DEM</strong>.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/DEM_File.png" alt="Finestra di dialogo di importazione di file DEM"/><br/>
+Finestra di dialogo di importazione di file DEM.
+</p>
+
+<p>Questa finestra si divide in due parti. Un'area di navigazione sull'immagine creata da un file DEM e dalle impostazioni di importazione.</p>
+
+<p><strong>Procedimento:</strong></p>
+<ol>
+<li>Fare clic sul pulsante "<strong>File DEM...</strong>" e cercare sul computer un file DEM dal formato compatibile (<em>*.tif</em>, <em>*.tiff</em>, <em>*.png</em>, <em>*.txt</em>  o <em>*.asc</em>). Il file verr&#xE0; importato come immagine in bianco e nero i cui pixel rappresentano valori di elevazione diversi.</li>
+<li><b>Disegnare un rettangolo</b> nella parte superiore dell'immagine, corrispondente all'area da importare.</li>
+<li>Specificare le <b>impostazioni di importazione</b>:
+	
+	<ul>
+		<li><b>Curve</b>: importa le curve di contorno della sezione scansionate dall'immagine. &#xC8; possibile scegliere il livello e il colore di creazione per tali curve. La curve possono essere utilizzate in un secondo momento per creare il terreno con il comando <a href="Commands_laTerrain.html">laTerreno</a>.</li>
+		<li><b>Mesh</b>: viene creata una mesh etichettata come terreno con i punti di elevazione. &#xC8; possibile scegliere il livello e il colore di creazione per la mesh.</li>
+		<li><b>Terreno</b>: viene creato automaticamente un terreno con i dati di elevazione scansionati.</li>
+	</ul>
+</li>
+
+			
+<li>Fare clic sul pulsante <kbd>Importa</kbd>  per importare l'area selezionata.</li>
+</ol>

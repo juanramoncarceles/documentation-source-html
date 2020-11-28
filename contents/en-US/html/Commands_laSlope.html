@@ -1,0 +1,107 @@
+<h3>Slope</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laSlope</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laSlope.png" alt="Slope object"/> left click
+
+	</div>
+	
+	<div class="field">Toolbar: <a href="Interface_Toolbars.html#DocumentationToolbar">Lands Documentation</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Documentation commands" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Documentation &gt; Slope</div>
+</div>
+
+<p>The <strong>laSlope</strong> command draws an annotation leader with arrowhead and attached text, displaying the slope of a selected path. The slope is calculated based on the path length and the difference in height between the the start and the end point of the slope path.</p>
+
+<ul>
+	<li><a href="Commands_laSlope.html#Insert">Insert a Slope</a></li>
+	<li><a href="Commands_laSlope.html#ControlPoints">Slope control points</a></li>
+	<li><a href="Commands_laSlope.html#Parameters">Insert options and parameters</a></li>
+	<li><a href="Commands_laSlope.html#Edit">Edit options</a></li>
+	<li><a href="Commands_laSlope.html#Display">Graphical display</a></li>
+</ul>
+
+
+<a name="Insert" />
+<h3>Insert a slope</h3>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Pick an existing <strong>curve</strong> in the model to define the Slope annotation, or select a different option in the command line.
+		<ul>
+			<li><strong>Polyline</strong>: the slope will be created as if you were drawing a polyline.</li>
+			<li><strong>Spline</strong>: the slope will be created as if you were drawing a spline.</li>
+			<li><strong>Arc</strong>: the slope will be created as if you were drawing an arc. The first click determines the insert point. Second click determines a middle point in the arc. Third and last click determines where the arc ends.</li>
+		</ul>
+	</li>
+	<li>Press <em>ENTER</em>, <em>ESC</em> or right click to end the command.</li>
+</ol>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Control points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>The slope object has as many control points as the curve it was created from.</p>
+<p>In addition, it has a Move control arrow, to move the whole object.</p> 
+
+<p>Slope control points are automatically enabled when selecting them one by one. To turn one ore more slope object control points on just select them and run the <strong>PointsOn</strong> command (or press <em>F10</em>). To turn the points off, press <em>ESC</em> button or run the <strong>PointsOff</strong> command.
+</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Slope/SlopeControlPoints.png" alt="Slope control points" /><br/>
+Slope control points</div>
+
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Parameters</h3>
+<p>The slope parameters are available from different dialogs:</p>
+<ul>
+	
+	<li>Slope properties section, in the <a href="Interface_Panel.html">Lands Design Edit Panel</a>.</li>
+	<li><a href="Interface_Properties.html">Object Properties dialog</a>.</li>
+	<li><a href="Commands_laEdit.html">Properties Explorer dialog</a>.</li>
+</ul>
+<h4>General</h4> 
+<p>General attributes for the Coordinate Origin and Dimension object: <em>Name</em>, <em>Color</em>, <em>Layer</em>, and <em>Transparency</em>  (only visible in Conceptual display mode).</p>
+
+<h4>Slope</h4>
+<p>This tab shows the slope parameters:</p>
+<ul>
+	
+	<li><strong>Font</strong>: text attributes and parameters.</li>
+	<li><strong>Arrow</strong>: graphic options for the arrowhead and the slope start point.</li>
+	
+</ul>
+
+<p><strong>Note</strong>: The number of decimals displayed in the text can be set and edited from Rhino Menu <em>Tools &gt; Options &gt; Document Properties &gt; Units &gt; Display precision</em>.</p>
+
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the slope object, available in the <a href="Interface_Panel.html#Edit">Edit area of the Edit Panel</a>:</p>
+<p><strong>Common options:</strong></p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Update</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copy properties from another object</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copy to another curve</a></li>
+	<li><a href="Commands_laReverseCurve.html">Invert curve</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extract curve</a></li>
+	<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+</ul>
+
+
+<a name="Display" />
+<h3>Slope graphical display:</h3>
+<p>The slope only has a 2D representation and it is visible with any display mode.</p>
+

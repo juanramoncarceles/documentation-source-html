@@ -1,0 +1,184 @@
+<h3>Groundcover</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laGroundcover</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laGroundcover.png" alt="Groundcover"/> left click
+
+	</div>
+	
+	<div class="field">Toolbar: <a href="Interface_Toolbars.html#ObjectsToolbar">Lands Objects</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Vegetation Toolbar.png" alt="Vegetation commands" usemap ="#VegetationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetation &gt; Groundcover</div>
+</div>
+
+
+<p>Lands Design groundcovers are vegetation areas filled with a plant species according to density parameters and represented as a hatch pattern for the 2D display.</p>
+
+<ul>
+	<li><a href="Commands_laGroundcover.html#Insert">Insert a groundcover</a></li>
+	<li><a href="Commands_laGroundcover.html#ControlPoints">Control points</a></li>
+	<li><a href="Commands_laGroundcover.html#Parameters">Insert options and parameters</a></li>
+	<li><a href="Commands_laGroundcover.html#Edit">Edit options</a></li>
+	<li><a href="Commands_laGroundcover.html#Display">Graphical display</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insert a groundcover:</h3>
+<p>After running the <strong>laGroundcover</strong> command, the Groundcover <a href="Interface_Dialog.html">insert dialog box</a> will appear. This dialog shows the basic options and parameters of the groundcover object in a single tab.</p>
+
+<p><strong>Steps:</strong></p>
+<ol>
+	<li>Select a <strong>groundcover species</strong> from the list. Click on the <em>Browse...</em> button to select a new one from the <a href="Commands_laPlantDatabase.html">Plant Database</a>.</li>
+	<li>Select the rest of <strong>insert parameters</strong> (presentation mode, density, plant scale, and hatch pattern) and click <em>OK</em> to close the dialog.</li>
+	<li>Pick an existing <strong>curve</strong> in the model to define the groundcover boundary, or draw it through any of these options in the command line:
+		<ul>
+			<li><strong>Polyline</strong>: the groundcover will be created as if you were drawing a polyline.</li>
+			<li><strong>Spline</strong>: the groundcover will be created as if you were drawing a spline.</li>
+			<li><strong>Circle</strong>: the groundcover will be created as if you were drawing a circle. The first click determines the center of the circle, and the second click 
+			determines the radius.</li>
+			<li><strong>Arc</strong>: the groundcover will be created as if you were drawing an arc. The first click determines the insert point. 
+			The second click determines a middle point in the arc. The third and last click determines where the arc ends.</li>
+			<li><strong>Rectangle</strong>: the groundcover will be created as if you were drawing a rectangle. The first click determines one corner of the rectangle and the second click determines the opposite corner.</li>
+		</ul>
+	</li>
+	<li>Press <em>ENTER</em>, <em>ESC</em> or right click to end the command.</li>
+</ol>
+
+<p>(<strong>Note</strong>: the boundary curve selected or drawn in the model doesn't need to be closed or planar).</p>
+
+
+<p class="figureWithDescription"><img src="../images/commands/Groundcover/Groundcover Insert Dialog.png" alt="Insert dialog box for the Groundcover"/><br/>
+Insert dialog box for the Groundcover object.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Control Points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Groundcovers have the same <em>control points</em> as the curves used to generate them.</p>
+<p>In addition, they have a Move control arrow to move the whole Groundcover object.</p>
+<p>Groundcover control points are automatically enabled when selecting groundcovers one by one. To turn one ore more Groundcover object control points on, just select the groundcovers and run the <strong>PointsOn</strong> command (or press F10). To turn the points off, press 
+the Esc button or run the <strong>PointsOff</strong> command.</p>
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover Control points.jpg" alt="Control points on groundcovers" /><br/>
+Control points on Groundcovers</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Insertion Options and Parameters</h3>
+<p>The groundcover insert options and parameters are divided in different tabs, and are available from different dialogs:</p>
+<ul>
+	<li>Plant <a href="Interface_Dialog.html">insert dialog box</a> (only available when inserting new plants).</li>
+	<li>Plant properties section, in the <a href="Interface_Panel.html">Lands Design Edit 
+	panel</a>.</li>
+	<li><a href="Interface_Properties.html">Object Properties dialog</a>.</li>
+	<li><a href="Commands_laEdit.html">Properties Explorer dialog</a>.</li>
+</ul>
+
+<h4>General</h4> 
+<p>General attributes for the groundcover object: <em>Name</em>, <em>Color</em>, <em>Layer</em>, and <em>Transparency</em> (only visible in Conceptual display mode).</p>
+
+
+<h4>Groundcover</h4> 
+
+	<ul>
+		<li><strong>Species</strong>: Name of the selected groundcover or plant species. The combo displays a list of the different vegetation species that have been already inserted in the current model. You can select a plant species from that list, or select a new one from the Plant Database, after clicking on the <em>Browse...</em> button.</li>
+		<li><strong>Presentation mode</strong>: there are three types of presentation modes available, but you can type new ones.
+			<ul>
+				<li>Naked root</li>
+				<li>Root ball</li>
+				<li>Container</li>
+			</ul>
+		</li>
+		<li><strong>Density</strong>: indicates the amount of vegetation specimens in units/m2 inside the boundary curve.</li>
+		<li><strong>Hatch pattern</strong>: parameters for the groundcover representation in 2D.</li>
+		<li><strong>nXT Plant file</strong>: groundcovers use groundcover files (".ArGroundcoverX") for their 3D realistic representation.</li>
+	</ul>
+
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the groundcover object, available in the <a href="Interface_Panel.html#Edit">Edit area of the Edit 
+panel</a>:</p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Update</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copy properties from another object</a></li>
+	<li><a href="Commands_laExtractCurves.html">Extract curves</a></li>
+	<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+	<li>Groundcover
+		<ul>
+			<li><img alt="laPlantEditSpecies" height="24" src="../images/Icon/laEdit.png" width="24" /> <a href="Commands_laPlantEditSpecies.html">Edit species</a></li>
+		    <li><img alt="laPlantLabel" height="24" src="../images/Icon/laPlantLabel.png" width="24" /> <a href="Commands_laPlantLabel.html">Tag</a>. <em>(This command only appears when the groundcover has no tag assigned.)</em></li>
+			<li><img alt="laPlantSelectLabel" height="24" src="../images/Icon/laPlantSelectLabel.png" width="24" /> <a href="Commands_laplantSelectLabel.html">
+			Identify label</a>. <em>(This command only appears when there is a <a href="Commands_laPlantLabel.html">plant label</a> referencing this groundcover in the model)</em></li>
+			<li><img alt="laPlantPhoto" height="24" src="../images/Icon/laPlantPhoto.png" width="24" /> <a href="Commands_laPlantPhoto.html">Insert photo</a></li>
+			<li>Add hole: this command subtracts a boundary from a groundcover</li>
+		</ul>
+	</li>
+</ul>
+	
+<a name="Display"></a>
+<h3>Groundcover graphical display:</h3>
+<p>Lands Design offers different simultaneous 2D and 3D displays of groundcovers on the drawing, with the purpose of handling plants from three different conceptual levels. The Groundcover representation display can be changed in the <a href="Interface_DocumentProperties.html">Document properties</a>.</p>
+<p><strong>Groundcover 2D display</strong></p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 2D.jpg" alt="Groundcover 2D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 2D Detail.jpg" alt="Groundcover 2D corner detail"/>
+                </div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="center" width="200px">Crown and setting out symbol representations</td>
+		<td align="center" width="200px">2D corner detail</td>
+	</tr>
+</tbody>
+</table>
+
+<br clear="all" />
+<p><strong>Groundcover 3D display</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 3D Realistic.jpg" alt="Realistic 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 3D Detailed.jpg" alt="Detailed 3D display"/>
+                </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Groundcover/Groundcover 3D Conceptual.jpg" alt="Conceptual 3D display"/>
+                </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">Realistic</td>
+		<td align="center" width="200px">Detailed</td>
+		<td align="center" width="200px">Conceptual</td>
+	</tr>
+</tbody>
+ </table>

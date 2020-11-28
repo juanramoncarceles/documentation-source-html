@@ -1,0 +1,68 @@
+<h3>Añadir hueco en terreno</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laTerrenoNuevoAgujero</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainAddHole.png" alt="Añadir hueco en terreno"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#TerrainToolbar">Terreno de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandos de terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Modelado de terreno &gt; Terreno &gt; Añadir hueco</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panel de edición</a>: </div>
+	<div class="value menu">Seleccione un terreno &gt; Área planta del Panel de edición &gt; Terreno &gt; Añadir hueco</div>
+</div>
+
+
+<p>Los huecos o agujeros son perforaciones que se realizan en el terreno para insertar una piscina, un estanque, un lago, etc. Los huecos se calculan a partir de cualquier tipo de curva cerrada, que se utilizará para delimitar el área a sustraer. La posición de elevación de la curva determinará la profundidad del hueco.</p>
+<p>Esta operación también añade una división al terreno desde la misma curva cerrada como si estuviera usando el comando <a href="Commands_laTerrainDivide.html">la TierraDivide</a>.</p>
+
+<p><strong>Pasos:</strong></p>
+
+<ol>
+ <li>Designe un <strong>terreno</strong>. Pulse Intro o haga un clic derecho cuando termine.</li>
+  <li>Seleccione una <strong>curva cerrada</strong>.</li>
+</ol>
+
+<p>De este modo se creará hueco en el terreno. </p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Hole 1.jpg" alt="Terreno y la curva seleccionada para crear el hueco"/><br/>
+Terreno y la curva seleccionada para crear el hueco.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Hole 2.jpg" alt="Terreno con el hueco creado"/><br/>
+Terreno con el hueco creado.
+</p>
+
+<p><strong>Nota</strong>: el hueco no se apreciará si la curva está situada por encima del terreno, sin intersecarlo.</p>
+
+
+
+<a name="Parameters" />
+<h3>Parámetros</h3>
+
+<p>Los parámetros de hueco se pueden editar desde la ficha <em>Datos de entrada</em> (en el <a href="Interface_Panel.html#Properties">área de propiedades del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo del Explorador de propiedades</a>), debajo de la lista <em>Movimientos de tierras</em>.</p>
+<ul>
+	<li><strong>Puntos de control</strong>: opción para activar o desactivar los puntos de control del área del 
+	hueco (y subdivisión).</li>
+</ul>
+
+<p>Las opciones y parámetros de edición de la subdivisión del terreno generadas por este comando son las mismas que las generadas con el comando <a href="Commands_laTerrainDivide.html">laDivideTerreno</a>.</p>
+
+
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Los puntos de control del hueco del terreno permiten modificar la elevación del hueco y el área inferior del contorno del hueco. Son los mismos que los de las curvas utilizadas para esta operación. Además, tiene una flecha de control de movimiento para mover la posición del hueco.</p>
+
+<p>Estos puntos de control están integrados en el terreno y son visibles cuando se activan los puntos de control del terreno.</p>
+<p>Se pueden desactivar desde la ficha <em>Datos de entrada</em> (en el <a href="Interface_Panel.html#Properties">área de propiedades del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>), después de seleccionar el hueco en la lista <em>Movimiento de tierras</em>.</p>
+
+
+<p><strong>Nota</strong>: los puntos de control de la subdivisión creada por un desmonte dependen de los puntos de control del desmonte, independientemente de si están activados o no en las opciones de subdivisión.</p>
+

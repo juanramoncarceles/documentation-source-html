@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+
+<Index title="Aide de Lands Design" language="Français">
+
+    <topic title="Introduction" file="Introduction" />
+	<topic title="Configuration requise" file="Requirements" />
+	<topic title="Caractéristiques générales" file="General specifications" />
+	
+	<topic title="Interface" file="Interface">
+		<topic title="Barres d&apos;outils" file="Interface_Toolbars" />
+		<topic title="Menu déroulant" file="Interface_Drop-down" />
+		<topic title="Menu contextuel" file="Interface_Context" />
+		<topic title="Commandes au clavier" file="Interface_Commands" />
+		<topic title="Boîtes de dialogue d&apos;insertion" file="Interface_Dialog" />
+		<topic title="Panneau d&apos;édition" file="Interface_Panel" />
+		<topic title="Panneau d&apos;animation" file="Interface_AnimationPanel" />
+		<topic title="Boîte de dialogue propriétés d’un objet" file="Interface_Properties" />
+		<topic title="Paramètres" file="Interface_Parameters" />
+		<topic title="Propriétés du document" file="Interface_DocumentProperties" />
+		<topic title="Options" file="Interface_LandsDesignOptions" />
+		<topic title="Intégration dans Rhino" file="Interface_Interoperability" />
+		<topic title="Rendu" file="Interface_Render" />
+	</topic>
+	
+	
+	<topic title="Végétation" file="Vegetation tools">
+		
+		<topic title="Plantes" file="Plant tools">
+			<topic title="laPlante" file="Commands_laPlant" />
+			<topic title="laPeindrePlantes" file="Commands_laPlantsPaint" />
+			<topic title="laPlante &gt; À partir de points" file="Commands_laPlant" />
+		</topic>
+		<topic title="laPlante" file="Commands_laPlant" />
+		<topic title="laFilePlantes" file="Commands_laPlantRow" />
+		<topic title="laForêt" file="Commands_laForest" />
+		<topic title="laArbuste" file="Commands_laShrub" />
+		<topic title="laCouvreSol" file="Commands_laGroundcover" />
+	</topic>	
+	
+	
+	
+	
+	<topic title="Éléments de structure" file="Civil Work tools">
+		<topic title="laMur" file="Commands_laWall" />
+		<topic title="laClôture" file="Commands_laFence" />
+		<topic title="laEscalier" file="Commands_laStair" />
+		<topic title="laChemin" file="Commands_laPath" />
+		<topic title="laFile" file="Commands_laRow" />
+		<topic title="Bibliothèque" file="Commands_laLibrary"></topic>
+		</topic>
+
+	
+	
+	
+	<topic title="Terrain" file="Terrain tools">
+			<topic title="laTerrain" file="Commands_laTerrain" />
+			<topic title="laTerrainFrontière" file="Commands_laTerrainBoundary" />
+			<topic title="laTerrainSupprimerFrontière" file="Commands_laTerrainRemoveBoundary" />
+			<topic title="laTerrainAjouterCourbeNiveau" file="Commands_laTerrainAddContour" />
+			<topic title="laTerrainAjouterTrou" file="Commands_laTerrainAddHole" />
+			<topic title="laTerrainAjouterDéblaiRemblai" file="Commands_laTerrainAddCutAndFill" />
+			<topic title="laTerrainAjouterChemin" file="Commands_laTerrainAddPath" />
+			<topic title="laTerrainDiviser" file="Commands_laTerrainDivide" />
+			<topic title="laTerrainInfo" file="Commands_laTerrainInfo" />
+			<topic title="laScannerTerre" file="Commands_laEarthScan" />
+			<topic title="laImporterMNT" file="Commands_laImportDem" />
+			<topic title="laEleverCourbes" file="Commands_laElevateCurves" />
+	</topic>
+
+	
+<topic title="Arrosage" file="Irrigation tools">
+		<topic title="laArroseur" file="Commands_laSprinkler" />
+		<topic title="laMatriceArroseurs" file="Commands_laSprinklerArray" />
+		<topic title="laCanalisation" file="Commands_laPipe" />
+	</topic>
+	
+<topic title="Documentation" file="Documentation tools">
+	
+		
+	<topic title="Liste" file="Listing tools">
+		<topic title="laListePlantes" file="Commands_laListPlants" />
+		<topic title="laListeBlocsBiblio" file="Commands_laListLibraryBlocks" />
+		<topic title="laListeTerrains" file="Commands_laListTerrains" />
+		<topic title="laListeArroseurs" file="Commands_laListSprinklers" />
+		<topic title="laListeCanalisations" file="Commands_laListPipes" />
+		<topic title="laListeZones" file="Commands_laListZones" />
+		<topic title="laExporterListe" file="Commands_laExportList" />
+	</topic>
+	
+	
+	
+	<topic title="Étiquette de plante" file="Plant Label tools">
+		<topic title="laPlanteÉtiquette" file="Commands_laPlantLabel" />
+		<topic title="laPlanteÉtiquetteLier" file="Commands_laPlantLabelLinking" />
+		<topic title="laPlanteÉtiquetteSélectionnerPlantes" file="Commands_laPlantLabelSelectPlants" />
+		<topic title="laPlanteSélectionnerÉtiquette" file="Commands_laPlantSelectLabel" />
+		<topic title="laPlanteÉtiquetteAjouterSupprimerPlantes" file="Commands_laPlantLabelAddRemovePlants" />
+		
+	</topic>
+
+	<topic title="laPhotoPlante" file="Commands_laPlantPhoto" />
+	<topic title="laEtiquette" file="Commands_laLabel" />
+	<topic title="laCote" file="Commands_laDimension" />
+	<topic title="laPente" file="Commands_laSlope" />
+	<topic title="laZonifier" file="Commands_laZonify" />
+	<topic title="laOmbresPlantes" file="Commands_laPlantShadows" />
+	<topic title="laRemplissageAvancé" file="Commands_laSuperhatch" />
+		
+</topic>
+
+<topic title="Outils" file="Tools">
+
+	<topic title="Panneau d&apos;édition" file="Interface_Panel" />
+	<topic title="Panneau d&apos;animation" file="Interface_AnimationPanel" />
+	<topic title="Base de données de plantes" file="Commands_laPlantDatabase"></topic>
+	<topic title="Définir le point de vue" file="Commands_laSetViewPoint"></topic>
+	<topic title="Éditeur de filtres d&apos;image" file="Commands_laImageFilters"></topic>
+	<topic title="Déambulation" file="Commands_laWalk"></topic>	
+	<topic title="Aide" file="Commands_laHelp"></topic>
+	<topic title="Données SIG" file="Commands_laImportGISData"></topic>
+	<topic title="Déployer" file="Commands_laDeploy"></topic>
+	
+</topic>
+
+	<topic title="Modifier" file="Edit tools">
+		<topic title="laModifier" file="Commands_laEdit" />
+		<topic title="laModifierEspèce" file="Commands_laPlantEditSpecies" />
+		<topic title="laActualiser" file="Commands_laUpdate" />
+		<topic title="laDégrouper" file="Commands_laUngroup" />
+		<topic title="laElever" file="Commands_laElevate" />
+		<topic title="laEleverAZéro" file="Commands_laElevateToZero" />
+		<topic title="laEleverSurTerrain" file="Commands_laElevateToTerrain" />
+		
+		<topic title="laMarquerObjetCommePlante" file="Commands_laTagObjectAsPlant" />
+		
+		<topic title="laConvertir" file="Commands_laConvertTo" />
+		<topic title="laRandomiser" file="Commands_laRandomize" />
+		<topic title="laCopierDepuis" file="Commands_laCopyFrom" />
+		<topic title="laCopierSurCourbe" file="Commands_laCopyToCurve" />
+		<topic title="laExtraireCourbes" file="Commands_laExtractCurves" />
+		<topic title="laInverserCourbe" file="Commands_laReverseCurve" />
+	</topic>
+			
+</Index>

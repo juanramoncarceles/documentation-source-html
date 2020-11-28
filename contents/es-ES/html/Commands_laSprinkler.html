@@ -1,0 +1,125 @@
+<h3>Aspersor</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laAspersor</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laSprinkler.png" alt="Aspersor"/> clic izquierdo 
+
+	</div>
+	
+	<div class="field">Barra de herramientas : <a href="Interface_Toolbars.html#DocumentationToolbar">Documentación de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Comandos de Riego en la barra de herramientas Documentación" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Sistema de riego &gt; Aspersor</div>
+</div>
+
+
+<p>Los aspersores son un elemento fundamental de la instalación de riego en un proyecto de paisajismo.</p>
+
+<ul>
+	<li><a href="Commands_laSprinkler.html#Insert">Insertar un aspersor</a></li>
+	<li><a href="Commands_laSprinkler.html#ControlPoints">Puntos de control</a></li>
+	<li><a href="Commands_laSprinkler.html#Parameters">Opciones y parámetros de inserción</a></li>
+	<li><a href="Commands_laSprinkler.html#Edit">Opciones de edición</a></li>
+	<li><a href="Commands_laSprinkler.html#Display">Representación gráfica</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Insertar un aspersor</h3>
+<p>Cuando ejecute el comando <strong>laAspersor</strong>, aparecerá el <a href="Interface_Dialog.html">cuadro de diálogo de inserción</a> de aspersores. Este diálogo muestra las opciones básicas en una sola ficha.</p>
+<ul>
+<li><a href="Commands_laSprinkler.html#Sprinkler">Aspersor</a>: parámetros del aspersor.</li>
+
+</ul>
+
+
+<p><strong>Pasos:</strong></p>
+<ol>
+	<li>Seleccione los parámetros de <strong>Aspersor</strong>. Pulse Aceptar para cerrar el diálogo.</li>
+	<li>Seleccione el punto de inserción del aspersor haciendo clic con con el botón izquierdo en el punto deseado. </li>
+	<li>Especifique la orientación del aspersor de forma manual usando el cursor. Vuelva a hacer clic para insertar un nuevo aspersor o...</li>
+	<li>Pulse Intro, Esc o haga clic con el botón derecho para finalizar el comando.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Watering/Sprinkler Insert Dialog.png" alt="Cuadro de inserción del objeto Aspersor."/><br/>
+Cuadro de inserción del objeto Aspersor.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>El objeto Aspersor tiene un único <em>punto de control</em> en el centro del objeto.</p>
+<p>Para activar el punto de control del aspersor, ejecute el comando <strong>ActivarPuntos</strong> (o pulse F10)  y seleccione el objeto Aspersor. Para desactivar 
+el punto de control, pulse Esc o ejecute el comando <strong>DesactivarPuntos</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Watering/Sprinkler Control Points.jpg" alt="Punto de control de un aspersor" /><br/>
+	Punto de control de un aspersor.</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Opciones y parámetros de inserción</h3>
+<p>Los parámetros y las opciones de inserción de Aspersor se dividen en varias fichas, que están disponibles desde diferentes diálogos:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Cuadro de diálogo de inserción</a> de Aspersor (solo disponible al insertar nuevos aspersores).</li>
+	<li>Sección de propiedades de Aspersor, en el <a href="Interface_Panel.html">
+	Panel de edición de Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Diálogo de propiedades de objeto</a> de Aspersor.</li>
+</ul>
+
+<h4>General</h4> 
+<p>Atributos generales del objeto Aspersor: <em>Nombre</em>, <em>Color</em>, <em>Capa</em>, <em>Código</em> y <em>Palabras clave</em>.</p>
+
+<a name="Sprinkler" />
+<h4>Aspersor</h4> 
+	<ul>
+		<li><strong>Tipo</strong>: existen cuatro tipos de aspersores:
+			<ul>
+				<li><img src="../images/Commands/Watering/Sprinkler icon.jpg" alt="Aspersor"/> <strong>Aspersores</strong>: los aspersores tienen un alcance superior a los 6 m., es decir, tiran el agua de 6 metros en adelante, según tengan más o menos presión y el tipo de boquilla que se emplee.</li>
+				<li><img src="../images/Commands/Watering/Diffuser icon.jpg" alt="Aspersor"/> <strong>Difusores</strong>: son parecidos a los aspersores pero más pequeños. Tiran el agua a una distancia de entre 2 y 5 metros, según la presión y la boquilla que utilicemos. Se utilizan para regar zonas más angostas.</li>
+				<li><img src="../images/Commands/Watering/Turbines icon.jpg" alt="Aspersor"/> <strong>Turbinas de agua</strong>: son adecuados para zonas de tamaño medio que sean largas y estrechas.</li>
+				<li><img src="../images/Commands/Watering/Nozzle icon.jpg" alt="Aspersor"/> <strong>Bocas de riego</strong>: punto de agua enrasado a nivel del suelo o en arqueta.</li>
+			</ul>
+		</li>
+		<li><strong>Description</strong>: campo para añadir notas sobre los aspersores.</li>
+		<li><strong>Símbolo</strong>: dibujo 2D utilizado para representar las unidades de aspersores dentro del área de la matriz. Haga clic en <em>Examinar...</em> para cargar un bloque 2D desde la librería de Lands Design o desde cualquier otro directorio.</li>
+		<li><strong>Radio</strong></li>
+		<li><strong>Ángulo de barrido</strong></li>
+	</ul>
+	
+	
+<a name="Edit" />
+<h3>Opciones de edición</h3>
+<p>Estas son las opciones de edición del objeto de aspersor, disponibles en el <a href="Interface_Panel.html#Edit">área de edición del Panel de edición</a>:</p>
+<ul>
+	<li><img alt="Actualizar" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Actualizar </a></li>
+	
+	<li><a href="Commands_laCopyFrom.html">Copiar propiedades de otro objeto</a></li>
+	<li>Ajustar
+		<ul>
+		<li><a href="Commands_laElevate.html">laEleva<img alt=" " height="24" src="../images/Icon/laElevate.png" width="24" />Elevación</a></li>
+		<li><img alt="laElevaACero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A cota cero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreno</a></li>
+		</ul>
+	</li>
+	<li>Dejar de ajustar a terrenos</li>
+	<li>Aspersor
+		<ul>
+			<li>Reorientar: cambia la dirección del aspersor.</li>
+		</ul>
+	</li>
+</ul>
+
+
+
+<a name="Display" />
+<h3>Representación gráfica del aspersor:</h3>
+<p>Los aspersores se representan como referencias de bloque 2D. La librería de Lands Design contiene algunos bloques: C:\ProgramData\AsuniCAD\Lands\Rhinoceros (64-bit)\Blocks\Sprinklers\.</p>
+<p>Para crear una <strong>visualización personalizada</strong> para la representación gráfica del aspersor, cree el dibujo personalizado en un documento vacío, ubicando el punto central en las coordenadas de origen del documento. Guarde el archivo en la ubicación deseada.</p>
+

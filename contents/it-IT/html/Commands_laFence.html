@@ -1,0 +1,217 @@
+<h3>Steccato</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laSteccato</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro del mouse su <img src="../images/Icon/laFence.png" alt="Steccato"/>
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Barra degli strumenti: Oggetti di Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Comandi di ingegneria civile" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Elementi strutturali &gt; Steccato</div>
+</div>
+
+<p>Gli steccati sono elementi usati per suddividere un giardino o un parco in vari settori destinati a usi diversi. </p>
+<p>Gli steccati vengono definiti dalla combinazione di tre componenti che possono essere aggiunti o eliminati in qualsiasi momento: <strong>pali</strong>, <strong>balaustri</strong> e <strong>traverse</strong>.</p>
+
+<ul>
+	<li><a href="Commands_laFence.html#Insert">Inserire uno steccato</a></li>
+	<li><a href="Commands_laFence.html#ControlPoints">Punti di controllo</a></li>
+	<li><a href="Commands_laFence.html#Parameters">Opzioni e parametri di inserimento</a></li>
+	<li><a href="Commands_laFence.html#Edit">Opzioni di modifica</a></li>
+	<li><a href="Commands_laFence.html#Display">Visualizzazione grafica</a></li>
+
+</ul>
+<a name="Insert" />
+<h3>Inserire uno steccato:</h3>
+<p>Dopo aver eseguito il comando <strong>laSteccato</strong>, appare la <a href="Interface_Dialog.html">finestra di dialogo</a> relativa allo steccato. Questa finestra mostra le opzioni di base dell'oggetto steccato in due pannelli.</p>
+<ul>
+<li><a href="Commands_laFence.html#Fence">Steccato</a>: parametri dello steccato.</li>
+<li><a href="Commands_laFence.html#Post">Palo</a>: parametri del componente palo.</li>
+<li><a href="Commands_laFence.html#Baluster">Balustri</a>: parametri del componente balaustri.</li>
+<li><a href="Commands_laFence.html#Material">Materiale</a>: impostazioni del materiale per l'oggetto steccato.</li>
+</ul>
+
+<p><strong>Procedimento:</strong></p>
+<ol>
+	<li>Selezionare i <strong>parametri dello steccato</strong>. Fare clic su OK per chiudere la finestra di dialogo.</li>
+	<li>Selezionare una <strong>curva</strong> esistente nel modello per definire il percorso dello steccato o selezionare un'altra opzione sulla linea di comando.
+		<ul>
+			<li><strong>Polilinea</strong>: lo steccato viene creato come se fosse stata disegnata una polilinea.</li>
+			<li><strong>Spline</strong>: lo steccato viene creato come se fosse stata disegnata una spline.</li>
+			<li><strong>Cerchio</strong>: lo steccato viene creato come se fosse stato disegnato un cerchio. Il primo clic stabilisce il centro del cerchi mentre il secondo il raggio.</li>
+			<li><strong>Arco</strong>: lo steccato viene creato come se fosse stato disegnato un arco. Il primo clic stabilisce il punto di inserimento, il secondo stabilisce un punto intermedio nell'arco e il terzo clic specifica il punto di fine dell'arco.</li>
+			<li><strong>Rettangolo</strong>: lo steccato viene creato come se fosse stato disegnato un rettangolo. Il primo clic stabilisce un angolo del rettangolo e il secondo l'angolo opposto.</li>
+		</ul>
+	</li>
+	<li>Premere Invio o Esc oppure dare clic con il tasto destro del mouse per terminare il comando.</li>
+</ol>
+<p>Lands user&#xE0; il numero di pali e balaustri necessario lungo tutto l'asse dello steccato, rispettando, nei limiti del possibile, i parametri di separazione e quantit&#xE0; descritti sopra.</p>
+
+<p><strong>Nota</strong>: per costruire uno steccato, non sempre occorre usare tutti e tre i componenti contemporaneamente. Tuttavia, gli unici elementi che non possono essere tralasciati contemporaneamente sono i pali e i balaustri.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Fence/Fence Insert Dialog.png" alt="Finestra di dialogo di inserimento per lo steccato."/><br/>
+Finestra di dialogo di inserimento per lo steccato.
+</p><br/>
+<br clear="all" />
+
+<a name="ControlPoints" />
+<h3>Punti di controllo <img alt="Punti di controllo" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>L'oggetto steccato presenta gli stessi <em>punti di controllo</em> delle curve usate per crearli.</p>
+<p>Inoltre, presenta una freccia di controllo dello spostamento per spostare l'intero oggetto.</p>
+
+<p>I punti di controllo dello steccato vengono attivati automaticamente durante la selezione individuale degli steccati. Per attivare uno o pi&#xF9; punti di controllo dell'oggetto steccato, basta selezionare gli steccati ed eseguire il comando <strong>PuntiOn</strong> o premere il tasto F10. Per disattivare i punti dell'oggetto steccato, premere il tasto ESC o eseguire il comando <strong>PuntiOff</strong>.</p>
+
+
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Fence/Fence Control Points.jpg" alt="Punti di controllo sugli steccati" /><br/>
+Punti di controllo sugli oggetti steccato</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Opzioni e parametri di inserimento</h3>
+<p>Le opzioni e i parametri relativi all'inserimento dell'oggetto steccato vengono divisi in vari pannelli e sono disponibili da diverse finestre di dialogo:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Finestra di dialogo di inserimento</a> dello steccato (disponibile solo durante l'inserimento di nuovi steccati).</li>
+	<li>Sezione sulle propriet&#xE0; dello steccato, sul <a href="Interface_Panel.html">pannello di modifica di Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Finestra di dialogo delle propriet&#xE0;</a> dello steccato.</li>
+</ul>
+
+<h4>Generali</h4> 
+<p>Attributi generali per l'oggetto steccato: <em>Nome</em>, <em>Colore</em>, livello, <em>Codice</em> e <em>Parola chiave</em>.</p>
+
+<a name="Fence" />
+<h4>Steccato</h4> 
+<p>Questo pannello consente di modificare i parametri generali dei componenti dello steccato: pali, balaustri e traverse.
+<ul>
+	<li><strong>Pali</strong>: si tratta dei principali componenti verticali di uno steccato. Sono posizionati nei punti di inizio e fine della curva di percorso dello steccato e sui punti di discontinuit&#xE0; intermedi. I pali possono essere distribuiti in due modi:
+		<ul>
+			<li><strong>Distanza tra i pali</strong>: la distanza tra i pali quando non esistono punti di discontinuit&#xE0; intermedi. Questo parametro riguarda il parametro di <em>quantit&#xE0;</em> di balaustri, che viene calcolato automaticamente.</li>
+			<li><strong>Per quantit&#xE0; di balaustri</strong>: la distanza tra i pali viene stabilita in base all'impostazione sulla quantit&#xE0; di balaustri. Questa opzione &#xE8; disponibile solo se il componente balaustro &#xE8; attivo.</li>
+
+	</ul>
+
+	</li>
+
+	<li><strong>Balaustri</strong>: elementi verticali tra i pali dello steccato.
+		<ul>
+			<li><strong>Separazione</strong>: intervallo tra i balaustri quando non esistono punti di discontinuit&#xE0; intermedi.</li>
+			<li><strong>Quantit&#xE0;</strong>: numeri di balaustri tra due pali. Questo numero potrebbe non essere effettivo nell'ultima parte dello steccato o nei segmenti dello steccato troppo corti.</li>
+			<li><strong>Elevazione</strong>: distanza tra il bordo inferiore dei balaustri e la curva di percorso dello steccato. L'opzione <strong>centrato</strong> centra i balaustri in verticale, prendendo l'altezza del palo come valore di riferimento.</li>
+		</ul>
+	</li>
+	
+	<li><strong>Traverse</strong>: elementi dello steccato orizzontali che seguono la curva di percorso dello staccato.
+		<ul>
+			<li><strong>Profilo</strong>: diversamente da pali e balaustri, le traverse possono avere solo un profilo rettangolare.</li>
+			<li><strong>Quantit&#xE0;</strong>: numero di elementi del binario nello steccato.</li>
+			<li><strong>Separazione</strong>: distanza tra le traverse. L'opzione 
+			<strong>Distribuiti equamente</strong> imposta una distanza di separazione uguale tra gli elementi del binario.</li>
+			<li><strong>Elevazione</strong>: la distanza tra l'elemento del binario pi&#xF9; basso e la curva di percorso dello steccato. L'opzione <strong>Centrato</strong> centra le traverse in verticale, prendendo l'altezza del palo come valore di riferimento.</li>
+			<li><strong>Allineamento</strong>: la posizione delle traverse (<em>sinistra, centro, destra</em>) in base al componente palo e balaustro.</li>
+		</ul>
+	</li>
+</ul>
+</p>	
+<a name="Post" />
+<h4>Palo</h4> 
+<p>Questo pannello appare quando il componente palo &#xE8; attivo sul pannello <em>Steccato</em>. &#xC8; possibile definire i seguenti parametri:
+
+	<ul>
+		<li><strong>Selezione oggetto</strong>: &#xE8; possibile selezionare la geometria per il palo in diversi modi.
+			<ul>
+				<li><img src="../images/BlockLibraryButton.png" alt="Selezionare la libreria dei blocchi "/> Un blocco dalla libreria dei blocchi.</li>
+				<li><img src="../images/BrowseButton.png" alt="Selezionare dal computer"/> Un file dal computer</li>
+				<li><img src="../images/SelectButton.png" alt="Selezionare nel modello"/> Un oggetto esistente nel modello.</li>
+			</ul>
+		</li>
+		<li><strong>Quote</strong>: le quote del palo vengono calcolate automaticamente dalla geometria selezionata (in base alle quote del parallelepipedo limite). Tali quote possono essere modificate e l'oggetto verr&#xE0; scalato di conseguenza.
+			<ul>
+				<li><em>Scala uniforme</em>: questa opzione modifica automaticamente le quote del palo durante la modifica di qualsiasi valore, in modo da conservare le proporzioni del componente.</li>
+			</ul>
+		</li>
+		
+	</ul>
+</p>
+
+<a name="Baluster" />
+<h4>Balaustro</h4> 
+<p>Questo pannello appare quando il componente Balaustro &#xE8; attivo sul pannello <em>Steccato</em>. &#xC8; possibile definire i seguenti parametri:
+<ul>
+		<li><strong>Selezione oggetto</strong>: &#xE8; possibile selezionare la geometria per il Balaustro in diversi modi.
+			<ul>
+				<li><img src="../images/BlockLibraryButton.png" alt="Selezionare la libreria dei blocchi "/> Un blocco dalla libreria dei blocchi.</li>
+				<li><img src="../images/BrowseButton.png" alt="Selezionare dal computer"/> Un file dal computer</li>
+				<li><img src="../images/SelectButton.png" alt="Selezionare nel modello"/> Un oggetto esistente nel modello.</li>
+			</ul>
+		</li>
+		<li><strong>Quote</strong>: le quote del balaustro vengono calcolate automaticamente dalla geometria selezionata (in base alle quote del parallelepipedo limite). Tali quote possono essere modificate e l'oggetto verr&#xE0; scalato di conseguenza.
+			<ul>
+				<li><em>Scala uniforme</em>: questa opzione modifica automaticamente le quote del balaustro durante la modifica di qualsiasi valore, in modo da conservare le proporzioni del componente.</li>
+			</ul>
+		</li>
+</ul>
+</p>
+
+<a name="Material" />
+<h4>Materiale</h4>
+<p>Questo pannello consente di cambiare l'immagine della texture assegnato a questo elemento e definirne le dimensioni, la riflettivit&#xE0; e la trasparenza.</p>
+<p>Pali e balaustri assumono il materiale dello steccato se il materiale delle parti costituenti &#xE8; assegnato <em>per genitore</em>.</p>
+
+<a name="Edit" />
+<h3>Opzioni di modifica</h3>
+<p>Esistono opzioni di modifica per l'oggetto Steccato, disponibili nell'<a href="Interface_Panel.html#Edit">area di modifica del pannello di modifica</a>.</p>
+<ul>
+	<li><img alt="Aggiorna" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aggiorna</a></li>
+	<li><img alt="Converti in 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 2D</a>. Mostra l'oggetto in rappresentazione 2D.</li>
+	<li><img alt="Converti in 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 3D</a>. Mostra l'oggetto in rappresentazione 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Mostra in 2D e 3D</a>: attiva simultaneamente la rappresentazione 2D e 3D dell'oggetto. </li>
+
+
+	<li><a href="Commands_laCopyFrom.html">Copia le propriet&#xE0; da un altro progetto</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copia su un'altra curva</a></li>
+	<li><a href="Commands_laReverseCurve.html">Inverti curva</a></li>
+	<li><a href="Commands_laExtractCurves.html">Estrai curva</a></li>
+	
+	<li>Regola
+		<ul>
+		<li><img alt="laEleva" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevazione</a></li>
+		<li><img alt="laElevaAZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A quota zero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreni</a></li>
+		</ul>
+	</li>
+	<li>Non regolare pi&#xF9; rispetto ai terreni</li>
+	
+</ul>
+
+<a name="Display"></a>
+<h3>Visualizzazione grafica dello steccato</h3>
+<p>L'oggetto steccato offre rappresentazioni 2D e 3D simultanee sul modello.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Fence/Fence 2D.jpg" alt="Rappresentazione 2D"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Fence/Fence 3D.jpg" alt="Rappresentazione 3D"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2D</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

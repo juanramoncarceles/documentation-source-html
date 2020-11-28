@@ -1,0 +1,235 @@
+<h3>Pianta</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laPianta</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro del mouse su <img src="../images/Icon/laPlant.png" alt="Pianta"/>
+
+	</div>
+	
+	<div class="field">Barra degli strumenti: <a href="Interface_Toolbars.html#ObjectsToolbar">Oggetti di Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Vegetation Toolbar.png" alt="Comandi relativi alla vegetazione" usemap ="#VegetationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetazione &gt; Pianta</div>
+</div>
+
+
+<p>La pianta &#xE8; l'elemento principale di un paesaggio o giardino ed &#xE8; il tipo di oggetto pi&#xF9; importante di Lands Design.</p>
+
+<ul>
+	<li><a href="Commands_laPlant.html#Insert">Inserire una pianta.</a></li>
+	<li><a href="Commands_laPlant.html#FromPoints">Inserire piante da punti.</a></li>
+	<li><a href="Commands_laPlant.html#ControlPoints">Punti di controllo.</a></li>
+	<li><a href="Commands_laPlant.html#Parameters">Opzioni e parametri di inserimento.</a></li>
+	<li><a href="Commands_laPlant.html#Edit">Opzioni di modifica.</a></li>
+	<li><a href="Commands_laPlant.html#Display">Visualizzazione grafica.</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Inserire una pianta</h3>
+<p>Dopo aver eseguito il comando <strong>laPianta</strong>, appare la <a href="Interface_Dialog.html">finestra di dialogo</a> relativa alla pianta. Questa finestra mostra le opzioni di base dell'oggetto pianta in quattro pannelli.</p>
+<ul>
+<li><a href="Commands_laPlant.html#Plant">Pianta</a>: Specie, Calibro, "Modalit&#xE0; di presentazione" e "Dimensioni nel disegno".</li>
+<li><a href="Commands_laPlant.html#Format">Formato</a>: calibro e modalit&#xE0; di presentazione delle specie di piante.</li>
+<li><a href="Commands_laPlant.html#Render">Rendering</a>: parametri che definiscono come l'oggetto pianta viene visualizzato in una vista di rendering.</li>
+</ul>
+
+<p><strong>Procedimento:</strong></p>
+<ol>
+	<li>Selezionare una <strong>specie di pianta</strong> dall'elenco, nel pannello Pianta. Fare clic su 
+	<strong>Sfoglia...</strong> per selezionare una nuova specie dal <a href="Commands_laPlantDatabase.html">database delle piante</a>.</li>
+	<li>Selezionare gli altri <strong>parametri di inserimento</strong> (Calibro, "Modalit&#xE0; di presentazione" e "Dimensioni nel disegno"), quindi fare clic su <em>OK</em>  per chiudere la finestra di dialogo.</li>
+	<li>Selezionare i <strong>punti inserimento</strong> nel modello facendo clic con il tasto sinistro del mouse. Viene inserita una nuova specie di pianta ad ogni clic. &#xC8; possibile modificare i parametri delle piante durante il loro inserimento sul <a href="Interface_Panel.html">pannello di modifica di Lands Design</a>, nella sezione relativa alle propriet&#xE0;, nel pannello Pianta.</li>
+	<li>Premere Invio o Esc oppure fare clic con il tasto destro del mouse per terminare il comando.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Plant/Plant Insert Dialog.png" alt="Finestra di dialogo di inserimento per la pianta."/><br/>
+Finestra di dialogo di inserimento per l'oggetto pianta.
+</p><br/>
+
+
+<br clear="all" />
+
+<a name="FromPoints" />
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+		
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro del mouse su <img src="../images/Icon/laPlantFromPoints.png" alt="Pianta da punti"/>
+
+	</div>
+	
+	<div class="field">Barra degli strumenti: <a href="Interface_Toolbars.html#PlantToolbar">Barra degli strumenti delle piante.</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Plant Toolbar.png" alt="Comandi relativi alle piante" usemap ="#PlantToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetazione &gt; Pianta da punti</div>
+</div>
+
+<h3>Inserire piante da punti</h3>
+<p>Dopo aver eseguito il comando <strong>laPianta</strong>, appare la <a href="Interface_Dialog.html">finestra di dialogo</a> relativa alla pianta. Questa finestra mostra le opzioni di base dell'oggetto pianta come descritto in precedenza.</p>
+
+<p><strong>Procedimento:</strong></p>
+<ol>
+	<li>Selezionare una <strong>specie di pianta</strong> dall'elenco, nel pannello Pianta. Fare clic su 
+	<strong>Sfoglia...</strong> per selezionare una nuova specie dal <a href="Commands_laPlantDatabase.html">database delle piante</a>.</li>
+	<li>Selezionare gli altri <strong>parametri di inserimento</strong> (Calibro, "Modalit&#xE0; di presentazione" e "Dimensioni nel disegno"), quindi fare clic su OK per chiudere la finestra di dialogo.</li>
+	<li>Selezionare l'opzione <strong>DaPunti</strong> sulla linea di comando.</li>
+	<li>Selezionare gli oggetti punto nella posizione in cui si desidera collocare le piante nel modello.</li>
+	<li>Premere Invio o Esc oppure fare clic con il tasto destro del mouse per terminare il comando.</li>
+</ol>
+<br clear="all" />
+
+<a name="ControlPoints" />
+<h3>Punti di controllo <img alt="Punti di controllo" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Le piante dispongono di un solo <em>punto di controllo</em>, posto sul punto centrale inferiore dell'oggetto.</p>
+
+<p>I punti di controllo delle piante vengono attivati automaticamente durante la selezione individuale delle piante. Per attivare uno o pi&#xF9; punti di controllo dell'oggetto pianta, basta selezionare le piante ed eseguire il comando <strong>PuntiOn</strong> o premere il tasto F10. Per disattivare i punti di controllo, premere il tasto Esc o eseguire il comando <strong>PuntiOff</strong>.</p>
+
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Plant/Plant Control points.jpg" alt="Punti di controllo sulle piante" /><br/>
+Punti di controllo sulle piante</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Opzioni e parametri di inserimento</h3>
+<p>Le opzioni e i parametri relativi all'inserimento della pianta vengono divisi in vari pannelli e sono disponibili da diverse finestre di dialogo:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Finestra di dialogo di inserimento</a> delle piante (disponibile solo durante l'inserimento di nuove piante).</li>
+	<li>Sezione sulle propriet&#xE0; delle piante, sul <a href="Interface_Panel.html">pannello di modifica di Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Finestra di dialogo di modifica delle propriet&#xE0;</a> di una pianta.</li>
+</ul>
+
+<h4>Generali</h4> 
+<p>Attributi generali per l'oggetto pianta: <em>Nome</em>, <em>Colore</em>, <em>Codice</em> e <em>Parola chiave</em>.</p>
+
+<a name="Plant" />
+<h4>Pianta</h4> 
+	<ul>
+		<li><strong>Specie</strong>: nome delle specie di piante selezionate. Viene visualizzato un elenco di varie specie vegetali inserite nel modello corrente. &#xC8; possibile selezionare una specie di pianta dall'elenco o selezionarne una nuova dal database delle piante, dopo aver fatto clic sul pulsante 
+		<strong>Sfoglia...</strong></li>
+		<li><strong>Dimensioni nel disegno</strong>: <ul>
+				<li>Diametro della chioma.</li>
+				<li>Altezza approssimata.</li>
+				<li>Et&#xE0;.</li>
+			</ul>
+		</li>
+		<li><strong>Variazione naturale</strong>: se attiva, questa opzione imposta una variazione di altezza casuale alle specie di piante inserite o selezionate. Il valore massimo (100%) crea specie di piante che vanno dal 50% al 150% delle loro dimensioni.</li>
+		<li><strong>Rotazione casuale</strong>: se attiva (di default), questa opzione imposta una rotazione casuale delle piante. Diversamente, &#xE8; possibile specificare un angolo di rotazione specifico per ciascuna pianta. L'angolo di rotazione viene misurato dall'asse verticale della pianta.</li>
+
+	
+	</ul>
+<p>I valori di altezza minimi e massimi di una pianta (et&#xE0; della pianta) vengono definiti in base alle propriet&#xE0; di ciascuna specie di piante e possono essere modificati sulla  <a href="Commands_laPlantDataBase.html#Properties">finestra di dialogo relativa alle propriet&#xE0; delle specie</a>, disponibile nel database delle piante.</p>
+
+<a name="Format" />
+<h4>Formato</h4>  
+<ul>
+<li><strong>Calibro</strong>: dimensioni della corteccia delle specie di piante. Esistono alcuni intervalli di valori che vanno da 10 a 130 mm, ma &#xE8; possibile inserire qualsiasi altro valore.</li>
+<li><strong>Modalit&#xE0; di presentazione</strong>: esistono tre modalit&#xE0; di presentazione disponibili, ma &#xE8; possibile inserirne altre.
+			<ul>
+				<li>A radice nuda.</li>
+				<li>Con pane di terra.</li>
+				<li>Vaso.</li>
+			</ul>
+</li>
+</ul>
+
+
+<a name="Render" />
+<h4>Rendering</h4> 
+<p>Questo pannello stabilisce il modo in cui l'oggetto pianta viene mostrato in una vista di rendering. Questo pannello &#xE8; visibile solo quando la rappresentazione 3D delle piante  &#xE8; impostata su Realistica, nelle propriet&#xE0; del documento.</p>
+
+<ul>
+	<li><strong>Stagione</strong>: quando &#xE8; attiva l'opzione "Ignora stagione globale", l'utente pu&#xF2; indicare in quale stagione dell'anno verr&#xE0; renderizzata la pianta, scegliendo tra 7 opzioni disponibili: inizio primavera, primavera, fine primavera, estate, fine estate, autunno, inverno.</li>
+	<li><strong>Densit&#xE0; del fogliame</strong>: Flamingo nXt produrr&#xE0; pi&#xF9; o meno foglie a seconda del livello scelto.</li>
+</ul>
+
+<a name="Edit" />
+<h3>Opzioni di modifica</h3>
+<p>Esistono opzioni di modifica per l'oggetto pianta, disponibili nell'<a href="Interface_Panel.html#Edit">area di modifica del pannello di modifica</a>:</p>
+<ul>
+	<li><img alt="Aggiorna" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Aggiorna</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copia le propriet&#xE0; da un altro progetto</a></li>
+	<li>Regola
+		<ul>
+		<li><img alt="laEleva" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevazione</a></li>
+		<li><img alt="laElevaAZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A quota zero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreni</a></li>
+		</ul>
+	</li>
+	<li>Non regolare pi&#xF9; rispetto ai terreni</li>
+	<li>Pianta
+		<ul>
+			<li><img alt="laSpecieModificaPiante" height="24" src="../images/Icon/laEdit.png" width="24" /> <a href="Commands_laPlantEditSpecies.html">Modifica specie</a></li>
+		    <li><img alt="laEtichettaPiante" height="24" src="../images/Icon/laPlantLabel.png" width="24" /> <a href="Commands_laPlantLabel.html">Etichetta</a> <em>Questo comando appare solo quando alla pianta non &#xE8; assegnata nessuna etichetta)</em>.</li>
+		    <li><img alt="laEtichettaPiantaCollegando" height="24" src="../images/Icon/laPlantLabelLinking.png" width="24" /> <a href="Commands_laplantLabelLinking.html">Etichetta collegando</a> <em>
+			Questo comando appare solo quando al pianta non &#xE8; assegnata nessuna etichetta</em>.</li>
+			<li><img alt="laEtichettaPianteSelezionaPiante" height="24" src="../images/Icon/laPlantSelectLabel.png" width="24" /> <a href="Commands_laplantSelectLabel.html">Identifica etichetta</a> <em>Questo comando appare solo quando esiste un'<a href="Commands_laPlantLabel.html">etichetta di pianta</a> che si riferisce a questa pianta nel modello</em>.</li>
+			<li><img alt="laFotoPianta" height="24" src="../images/Icon/laPlantPhoto.png" width="24" /> <a href="Commands_laPlantPhoto.html">Inserisci foto</a></li>
+		</ul>
+	</li>
+</ul>
+
+<a name="Display"></a>
+<h3>Visualizzazione grafica della pianta</h3>
+<p>Lands Design offre varie rappresentazioni simultanee in 2D e 3D di piante nel disegno, per consentire all'utente di gestire le piante da tre livelli concettuali diversi. La rappresentazione della pianta pu&#xF2; essere cambiata nelle <a href="Interface_DocumentProperties.html">propriet&#xE0; del documento</a>.</p>
+<p><strong>Rappresentazione 2D delle piante</strong></p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Plant/Crown.jpg" alt="Rappresentazione 2D della corona"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Plant/Setting out symbol.jpg" alt="Configurazione della rappresentazione 2D simbolica"/>
+ </div>
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="center" width="200px">Chioma</td>
+		<td align="center" width="200px">Simbolo per la distribuzione quotata</td>
+	</tr>
+</tbody>
+</table>
+
+<br clear="all" />
+<p><strong>Rappresentazione 3D delle piante</strong></p>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Plant/Realistic.jpg" alt="Rappresentazione 3D realistica"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Plant/Detailed.jpg" alt="Rappresentazione 3D dettagliata"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Plant/Conceptual.jpg" alt="Rappresentazione 3D concettuale"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Plant/Elevation.jpg" alt="Rappresentazione 3D delle elevazioni"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">Realistica</td>
+		<td align="center" width="200px">Dettagliata</td>
+		<td align="center" width="200px">Concettuale</td>
+		<td align="center" width="200px">Prospetti</td>
+	</tr>
+</tbody>
+ </table>

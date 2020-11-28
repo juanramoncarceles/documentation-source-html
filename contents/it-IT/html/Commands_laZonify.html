@@ -1,0 +1,136 @@
+<h3>Zonifica</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laZonifica</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro su <img src="../images/Icon/laZonify.png" alt="Zonifica"/>
+
+	</div>
+	
+	<div class="field">Barra degli strumenti: <a href="Interface_Toolbars.html#DocumentationToolbar">Documentazione di Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Comandi di documentazione" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Documentazione &gt; Zonifica</div>
+</div>
+
+<p>Il comando Zonifica crea un'entit&#xE0; di superficie che mostra le informazioni (nome e metri quadrati) di un'area del modello.</p>
+
+<ul>
+	<li><a href="Commands_laZonify.html#Insert">Inserire una zona</a></li>
+	<li><a href="Commands_laZonify.html#ControlPoints">Punti di controllo della zona</a></li>
+	<li><a href="Commands_laZonify.html#Parameters">Inserire opzioni e parametri</a></li>
+	<li><a href="Commands_laZonify.html#Edit">Opzioni di modifica</a></li>
+	<li><a href="Commands_laZonify.html#Display">Visualizzazione grafica</a></li>
+</ul>
+
+<a name="Insert" />
+
+<p><strong>Procedimento:</strong></p>
+<ol>
+	<li>Eseguire il comando <strong>laZonifica</strong>. Selezionare una delle seguenti opzioni sulla linea di comando per inserire l'oggetto zona:
+		<ul>
+			<li><strong>Scegliere il punto interno</strong>: fare clic all'interno del contorno chiuso delle curve 2D.</li>
+			<li><strong>Curva di contorno</strong>: selezionare una curva chiusa e planare.</li>
+		</ul>
+	</li>
+	<li>Dopo il primo passo, appare la finestra di dialogo di inserimento delle zone. Questa finestra mostra le opzioni di base dell'oggetto zona in due pannelli:
+<ul>
+<li><a href="Commands_laZonify.html#Zone">Zona</a>: parametri della zona.</li>
+<li><a href="Commands_laZonify.html#Material">Materiale</a>: impostazioni del materiale per l'oggetto zona.</li>
+</ul>
+Scegliere le opzioni di inserimento di base. Premere Invio o Esc oppure fare clic con il tasto destro del mouse per chiudere la finestra di dialogo.</li>
+	<li>Scegliere un punto per inserire l'<strong>etichetta zona</strong>.</li>
+		
+</ol>
+<p class="figureWithDescription"><img src="../images/commands/Documentation/Zonify Insert Dialog.jpg" alt="Finestra di dialogo di inserimento dell'oggetto zona."/><br/>
+Finestra di dialogo di inserimento dell'oggetto zona.
+</p><br/>
+
+<p>Una zona pu&#xF2; essere creata anche durante l'aggiunta di una divisione sul terreno, creato con i seguenti comandi:</p>
+<ul>
+<li><a href="Commands_laTerrainDivide.html">laTerrenoDividi</a></li>
+<li><a href="Commands_laTerrainAddCutAndFill.html">laTerrenoAggiungiScavoRiporto</a></li>
+<li><a href="Commands_laTerrainAddHole.html">laTerrenoAggiungiForo</a></li>
+<li><a href="Commands_laTerrainAddPath.html">laTerrenoAggiungiSentiero</a></li>
+</ul>
+
+
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Punti di controllo <img alt="Punti di controllo" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>L'oggetto zona presenta gli stessi <em>punti di controllo</em> delle curve usate per crearli.</p> 
+<p>Inoltre, presenta una freccia di controllo dello spostamento per spostare l'intero oggetto.</p>
+<p>Per attivare i punti di controllo della zona, eseguire il comando <strong>PuntiOn</strong> (o premere F10) e selezionare l'oggetto zona. Per disattivare i punti di controllo, premere il tasto Esc o eseguire il comando <strong>PuntiOff</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Documentation/Zone Control Points.jpg" alt="Punto di controllo su una zona" /><br/>
+Punti di controllo su una zona</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Inserire opzioni e parametri</h3>
+<p>Le opzioni e i parametri relativi all'inserimento dell'oggetto zona vengono divisi in vari pannelli e sono disponibili da diverse finestre di dialogo:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Finestra di dialogo di inserimento</a> delle zone (disponibile solo durante l'inserimento di nuove zone).</li>
+	<li>Sezione sulle propriet&#xE0; della zona, sul <a href="Interface_Panel.html">pannello di modifica di Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Finestra di dialogo delle propriet&#xE0; dell'oggetto</a> zona.</li>
+</ul>
+<h4>Generali</h4> 
+<p>Attributi generali per l'oggetto zona: <em>Nome</em>, <em>Colore</em>, <em>Livello</em>, <em>Codice</em> e <em>Parola chiave</em>.</p>
+
+<a name="Zone" />
+<h4>Zona</h4> 
+	<ul> <li><strong>Etichetta</strong>: mostra il testo e l'area della zona. Utilizzare la casella di spunta per mostrare o nasconderla.
+			<ul>
+				<li>Riquadro dell'etichetta: riquadro per inserire il testo in varie linee, da mostrare nell'etichetta.</li>
+				<li>Includi area: opzione per mostrare i metri quadrati nell'etichetta.</li>
+				<li>Stile testo.</li>
+				<li>Altezza: dimensioni testo.</li>
+			</ul>
+		</li>
+		<li>Attributi del <strong>modello di tratteggio</strong>:
+			<ul>
+				<li>Modello</li>
+				<li>Colore</li>
+				<li>Angolo</li>
+				<li>Scala</li>
+			</ul>
+		</li>
+	</ul>
+	
+<a name="Material" />
+<h4>Materiale</h4>
+<p>Questo pannello consente di cambiare l'immagine della texture assegnata a questo elemento e definirne le dimensioni e la riflettivit&#xE0;.</p>
+
+<a name="Edit" />
+<h3>Opzioni di modifica</h3>
+<p>Esistono opzioni di modifica per l'oggetto zona, disponibili nel <a href="Interface_Panel.html#Edit">
+pannello di modifica</a>:</p>
+<ul>
+	<li><img alt="Aggiorna" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aggiorna</a></li>
+		<li><img alt="Converti in 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 2D</a>. Visualizza l'oggetto in rappresentazione 2D.</li>
+	<li><img alt="Converti in 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 3D</a>. Visualizza l'oggetto in rappresentazione 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Mostra in 2D e 3D</a>: attiva simultaneamente la rappresentazione 2D e 3D dell'oggetto. <em></em> </li>
+
+	<li><a href="Commands_laCopyFrom.html">Copia le propriet&#xE0; da un altro progetto</a></li>
+	<li>Regola
+		<ul>
+		<li><img alt="laEleva" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevazione</a></li>
+		<li><img alt="laElevaAZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A quota zero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		A terreni</a></li>
+		</ul>
+	</li>
+	<li>Non regolare pi&#xF9; rispetto ai terreni</li>
+	
+</ul>
+
+<a name="Display" />
+<h3>Visualizzazione grafica della zona:</h3>
+<p>L'oggetto zona &#xE8; rappresentato come modello di tratteggio nella rappresentazione 2D e come superficie con texture nella rappresentazione 3D. L'etichetta con testo relativa alla zona viene mostrata allo stesso modo in entrambe le modalit&#xE0; di visualizzazione.</p>
+

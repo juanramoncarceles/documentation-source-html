@@ -1,0 +1,67 @@
+<h3>Añadir desmonte en terreno</h3>
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laTerrenoNuevoDesmonte</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainAddCutAndFill.png" alt="Añadir desmonte en terreno"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#TerrainToolbar">Terreno de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandos de terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Modelado de terreno &gt; Terreno &gt; Añadir desmonte</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panel de edición</a>: </div>
+	<div class="value menu">Seleccione un terreno &gt; Área planta del Panel de edición &gt; Terreno &gt; Añadir desmonte</div>
+</div>
+
+
+<p>Este comando genera desmontes en el terreno a partir de una curva cerrada. Un desmonte es un movimiento de tierra sobre el terreno con el fin de obtener un terraplén o estructura similar. Un ángulo de pendiente determinará la cantidad de tierra sustraída en la parte superior del desmonte y la cantidad de tierra añadida en la parte inferior.</p>
+
+<p>Esta operación también añade una división al terreno desde la misma curva cerrada como si estuviera usando el comando <a href="Commands_laTerrainDivide.html">la TierraDivide</a>.</p>
+
+<p><strong>Pasos:</strong></p>
+
+<ol>
+	<li>Designe un <strong>terreno</strong>. Pulse Intro o haga un clic derecho cuando termine.</li>
+	<li>Especifique un <strong>ángulo</strong> para la pendiente dentro del intervalo (de 5 a 85 grados).</li>
+    <li>Seleccione una <strong>curva cerrada</strong> para definir el área de desmonte. La curva se puede colocar en cualquier posición y orientación.</li>
+</ol>
+
+<p>El terreno añadirá y eliminará el volumen de suelo requerido para que coincida con la posición de la curva, de acuerdo con el ángulo de inclinación indicado.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Cut and Fill 1.jpg" alt="Terreno antes de la de la operación de desmonte"/><br/>
+Terreno antes de la de la operación de desmonte.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Cut and Fill 2.jpg" alt="Terreno después de la operación de desmonte"/><br/>
+Terreno después de la operación de desmonte.
+</p>
+
+<a name="Parameters" />
+<h3>Parámetros</h3>
+
+<p>Los parámetros de desmonte se pueden editar desde la ficha <em>Datos de entrada</em> (en el <a href="Interface_Panel.html#Properties">área de propiedades del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>), debajo de la lista <em>Movimiento de tierras</em>.</p>
+<ul>
+<li><strong>Puntos de control</strong>: opción para activar o desactivar los puntos de control del área de desmonte (y subdivisión).</li>
+<li><strong>Ángulo de inclinación</strong>: ángulo al que se ajustará el terreno alrededor del contorno de desmonte.</li>
+</ul>
+
+<p>Las opciones y los parámetros de edición de la subdivisión del terreno generadas por este comando son las mismas que las generadas con el comando <a href="Commands_laTerrainDivide.html">laDivideTerreno</a>.</p>
+
+
+
+<a name="ControlPoints" />
+<h3>Puntos de control <img alt="Puntos de control" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Los puntos de control del área de desmonte son los mismos que los de las curvas usadas para esta operación. Están integrados en el terreno y son visibles cuando se activan los puntos de control del terreno. Le permiten modificar la curva de nivel del desmonte y el área de subdivisión.</p>
+<p>Se pueden desactivar desde la ficha <em>Datos de entrada</em> (en el <a href="Interface_Panel.html#Properties">área de propiedades del Panel de edición</a> o en el <a href="Interface_Properties.html">diálogo Explorador de propiedades</a>), después de seleccionar el desmonte en la lista <em>Movimiento de tierras</em>.</p>
+
+
+<p><strong>Nota</strong>: los puntos de control de la subdivisión creada por un desmonte dependen de los puntos de control del desmonte, independientemente de si están activados o no en las opciones de subdivisión.</p>
+
+
+

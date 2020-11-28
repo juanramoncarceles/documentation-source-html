@@ -1,0 +1,158 @@
+<h3>Pfad</h3>
+<div class="comDescr">
+	<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">laPfad</div>
+	
+	<div class="field">Symbol: </div>
+	<div class="value icon"><img src="../images/Icon/laPath.png" alt="Pfad"/> Linksklick
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Werkzeugleiste: Lands-Objekte</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Bau-Befehle" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Lands Design &gt; Bau &gt; Pfad</div>
+</div>
+
+
+<p>Ein Pfad in Lands Design ist ein extrudiertes Profil entlang einer Achse.</p>
+
+<ul>
+	<li><a href="Commands_laPath.html#Insert">Einf&#xFC;gen eines Pfads</a></li>
+	<li><a href="Commands_laPath.html#ControlPoints">Kontrollpunkte</a></li>
+	<li><a href="Commands_laPath.html#Parameters">Einf&#xFC;gungsoptionen und -parameter</a></li>
+	<li><a href="Commands_laPath.html#Edit">Bearbeitungsoptionen</a></li>
+	<li><a href="Commands_laPath.html#Display">Graphische Darstellung</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Einf&#xFC;gen eines Pfads:</h3>
+<p>Durch Ausf&#xFC;hren des Befehls <strong>laPfad</strong> wird der <a href="Interface_Dialog.html">Einf&#xFC;gedialog</a> f&#xFC;r Pfad ge&#xF6;ffnet.  Dieser Dialog zeigt die grundlegenden Optionen des Pfadobjekts auf zwei Reitern an. </p>
+<ul>
+<li><a href="Commands_lasPath.html#Path">Pfad</a>: Pfadparameter.</li>
+<li><a href="Commands_laPath.html#Material">Material</a>: Materialeinstellungen f&#xFC;r das Pfadobjekt.</li>
+</ul>
+<p><strong>Vorgehen:</strong></p>
+<ol>
+	<li>W&#xE4;hlen Sie das Pfad-<strong>Schnittprofil</strong> aus. Eins standardm&#xE4;&#xDF;iges rechteckiges Profil (von 3 x 0.2 Meter) ist bereits zugewiesen. Stattdessen k&#xF6;nnen Sie auch eine im Modell vorhandene Kurve ausw&#xE4;hlen (<em>Auswahl</em>-Option) oder sie im Modell zeichnen (Option <em>Nach Punkt ausw&#xE4;hlen</em>).</li>
+	<li>W&#xE4;hlen Sie die restlichen <strong>Pfadparameter</strong> aus . Klicken Sie auf OK, um das Dialogfeld zu schlie&#xDF;en</li>
+	<li>W&#xE4;hlen Sie eine im Modell vorhandene <strong>Kurve</strong> aus, um den Pfad zu erzeugen, oder w&#xE4;hlen Sie eine unterschiedliche Option in der Befehlszeile.
+		<ul>
+			<li><strong>Polylinie</strong>: der Pfad wird so erzeugt, als ob Sie eine Polylinie zeichnen w&#xFC;rden.</li>
+			<li><strong>Spline</strong>: der Pfad wird so erzeugt, als ob Sie einen Spline zeichnen w&#xFC;rden.</li>
+			<li><strong>Kreis</strong>: der Pfad wird so erzeugt, als ob Sie einen Kreis zeichnen w&#xFC;rden. Mit dem ersten Klick wird die Kreismitte bestimmt, und mit dem zweiten Klick der Radius.</li>
+			<li><strong>Bogen</strong>: der Pfad wird so erzeugt, als ob Sie einen Bogen zeichnen w&#xFC;rden. Mit dem ersten Klick wird der Einf&#xFC;gungspunkt bestimmt. Der zweite Klick bestimmt einen Mittelpunkt im Bogen. Mit dem dritten und letzten Klick wird bestimmt, wo der Bogen endet.</li>
+			<li><strong>Rechteck</strong>: der Pfad wird so erzeugt, als ob Sie ein Rechteck zeichnen w&#xFC;rden. Mit dem ersten Klick wird eine Ecke des Rechtecks bestimmt, und mit dem zweiten Klick die gegen&#xFC;berliegende Ecke.</li>
+		</ul>
+	</li>
+	<li>Beenden Sie den Befehl durch Dr&#xFC;cken von Eingabe, Esc oder Klicken auf die rechte Maustaste.</li>
+</ol>
+
+<p><strong>Hinweis</strong>: vergewissern Sie sich, dass die als Pfad-Schnittprofil ausgew&#xE4;hlte Kurve an der XY-Achse ausgerichtet ist.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Path/Path Insert Dialog.png" alt="Einf&#xFC;gedialog f&#xFC;r den Pfad."/><br/>
+Einf&#xFC;gedialog f&#xFC;r das Pfad-Objekt.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Kontrollpunkte <img alt="Kontrollpunkte" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Pfadobjekte verf&#xFC;gen &#xFC;ber drei verschiedene Typen von <em>Kontrollpunkten</em>:</p>
+<ol>
+	<li><strong>Pfadachse aus Kontrollpunkten</strong>: dies sind die selben Kontrollpunkte wie die aus den Kurven, die zum Erzeugen der Pfade verwendet werden.</li>
+	<li><strong>Kontrollpfeil zum Verschieben</strong>: Am Anfang des Pfadobjekts befindlicher Pfeil, der zum Verschieben des gesamten Objekts verwendet wird.</li>
+	<li><strong>Schnittprofil-Kontrollpunkte</strong>: Diese Kontrollpunkte werden verwendet, um das Pfadschnittprofil zu ver&#xE4;ndern. Dies sind die selben Kontrollpunkte wie die aus den Kurven, die zum Definieren des Pfadschnittprofils verwendet werden. Sie befinden sich Am Anfang des Pfadobjekts.</li>
+</ol>
+<p>Pfad-Kontrollpunkte werden bei der Einzelauswahl von Pfaden automatisch aktiviert. Um einen oder mehrere Pfad-Kontrollpunkte zu aktivieren, w&#xE4;hlen Sie einfach die Pfade aus und starten Sie den Befehl <strong>PunkteEin</strong> (oder dr&#xFC;cken Sie F10). Um die Punkte zu deaktivieren, dr&#xFC;cken Sie ESC oder starten Sie den Befehl <strong>PunkteAus</strong>.</p>
+
+
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Path/Path Control Points.jpg" alt="Kontrollpunkte auf Pfaden" /><br/>
+Kontrollpunkte auf Pfadobjekten</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Einf&#xFC;gungsoptionen und -parameter</h3>
+<p>Die Pfadobjekt-Einf&#xFC;gungsoptionen und -Parameter sind in unterschiedliche Reiter aufgeteilt und &#xFC;ber verschiedene Dialoge abrufbar:</p>
+<ul>
+	<li>Pfad-<a href="Interface_Dialog.html">Einf&#xFC;gungsdialog</a> (nur beim Einf&#xFC;gen neuer Pfade verf&#xFC;gbar).</li>
+	<li>Abschnitt der Pfadeigenschaften, im <a href="Interface_Panel.html">Lands-Design-Bearbeitungspanel</a>.</li>
+	<li>Pfad-<a href="Interface_Properties.html">Objekteigenschaftendialog</a>.</li>
+</ul>
+
+<h4>Allgemein</h4> 
+<p>Allgemeine Attribute f&#xFC;r das Pfadobjekt: <em>Name</em>, <em>Farbe</em>, <em>Ebene</em>, <em>Code</em> und <em>Stichw&#xF6;rter</em>.</p>
+
+<a name="Path" />
+<h4>Pfad</h4> 
+	<ul>
+		<li><strong>Schnittprofil</strong>: zum Definieren des Pfadschnittprofils verwendete Kurve.</li>
+		<li><strong>Gl&#xE4;tte</strong>: Pr&#xE4;zision, mit der das Pfadobjekt entlang der Achsenkurve unterteilt ist, um mit seinem Pfad &#xFC;bereinzustimmen. Dieser Parameter ist nur dann relevant, wenn das Pfadobjekt aus einer gebogenen Kurve erzeugt wurde.</li>
+		<li><strong>Ausrichtung</strong>: markiert die Position des Pfadschnittprofils, von wo aus es entlang der Pfadachsenkurve extrudiert wird. Es sind neun Ausrichtungen m&#xF6;glich. <strong>Keine</strong> Ausrichtung beh&#xE4;lt die Ausrichtung des Pfads entlang der Pfadachse bei, selbst wenn Sie das Pfadschnittprofil &#xE4;ndern.</li>
+		
+	</ul>
+	
+	
+<a name="Material" />
+<h4>Material</h4>
+<p>Mit diesem Reiter k&#xF6;nnen Sie das diesem Element zugewiesene texturierte Bild &#xE4;ndern und Bildgr&#xF6;&#xDF;e und Reflexionsverm&#xF6;gen definieren.</p>
+
+
+<a name="Edit" />
+<h3>Bearbeitungsoptionen</h3>
+<p>Dies sind die Bearbeitungsoptionen f&#xFC;r das Pfad-Objekt, verf&#xFC;gbar im <a href="Interface_Panel.html#Edit">Bearbeitungsbereich des Bearbeitungsfensters</a>:</p>
+<ul>
+	<li><img alt="Aktualisieren" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aktualisieren</a></li>
+	<li><img alt="In 2D umwandeln" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">In 2D umwandeln</a>. Zeigt das Objekt in der 2D-Darstellung an.</li>
+	<li><img alt="In 3D umwandeln" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">In 3D umwandeln</a>. Zeigt das Objekt in der 3D-Darstellung an.</li>
+	<li><a href="Commands_laConvertTo.html">2D und 3D anzeigen</a>: <em>Aktiviert gleichzeitig die 2D- und 3D-Darstellung des Objekts. </em> </li>
+
+	<li><a href="Commands_laCopyFrom.html">Eigenschaften von einem anderen Objekt kopieren</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Auf eine andere Kurve kopieren</a></li>
+	<li><a href="Commands_laReverseCurve.html">Kurve umkehren</a></li>
+	<li><a href="Commands_laExtractCurves.html">Kurve extrahieren</a></li>
+	<li>Anpassen
+		<ul>
+		<li><img alt="laErh&#xF6;hen" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Erh&#xF6;hung</a></li>
+		<li><img alt="laAufNullErh&#xF6;hen" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">Auf Nullh&#xF6;he</a></li>
+		<li><img alt="AufGel&#xE4;ndeErh&#xF6;hen" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">An Gel&#xE4;nde</a></li>
+		</ul>
+	</li>
+	<li>Nicht an Gel&#xE4;nde anpassen</li>
+	<li>Pfad
+		<ul>
+			<li>Schnittprofil bearbeiten: der Befehl platziert eine mit dem Pfadschnittprofil ausgerichtete Konstruktionsebene am Anfang des Objekts. Durch seine Kontrollpunkte erleichtert es die Bearbeitung des Pfadprofils. F&#xFC;hren Sie den Befehl <em>KEbene</em> aus (und w&#xE4;hlen Sie <em>Welt &gt; Drauf</em> in der Befehlszeile) aus, um die Position der Konstruktionsebene wiederherzustellen.</li>
+		</ul>
+	</li>
+	
+</ul>	
+	
+	
+<a name="Display" />
+<h3>Grafische Pfad-Darstellung:</h3>
+<p>Das Pfadobjekt bietet eine gleichzeitige 2D- und 3D-Darstellung der Zeichnung.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Path/Path 2D.jpg" alt="2D-Darstellung des Pfads"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Path/Path 3D.jpg" alt="3D-Darstellung des Pfads"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2D</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

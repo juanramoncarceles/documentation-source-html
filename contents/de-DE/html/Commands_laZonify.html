@@ -1,0 +1,136 @@
+<h3>Verzonen</h3>
+<div class="comDescr">
+	<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">laVerzonen</div>
+	
+	<div class="field">Symbol: </div>
+	<div class="value icon"><img src="../images/Icon/laZonify.png" alt="Verzonen"/> Linksklick
+
+	</div>
+	
+	<div class="field">Werkzeugleiste: <a href="Interface_Toolbars.html#DocumentationToolbar">Lands-Dokumentation</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Dokumentationsbefehle" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Lands Design &gt; Dokumentation &gt; Verzonen</div>
+</div>
+
+<p>Mit dem Befehl Verzonen wird ein Fl&#xE4;chenelement erzeugt, das die Information (Name und Quadratmeter) auf einem Bereich des Modells anzeigt.</p>
+
+<ul>
+	<li><a href="Commands_laZonify.html#Insert">Einf&#xFC;gen einer Zone</a></li>
+	<li><a href="Commands_laZonify.html#ControlPoints">Zone-Kontrollpunkte</a></li>
+	<li><a href="Commands_laZonify.html#Parameters">Einf&#xFC;geoptionen und -parameter</a></li>
+	<li><a href="Commands_laZonify.html#Edit">Bearbeitungsoptionen</a></li>
+	<li><a href="Commands_laZonify.html#Display">Graphische Darstellung</a></li>
+</ul>
+
+<a name="Insert" />
+
+<p><strong>Vorgehen:</strong></p>
+<ol>
+	<li>F&#xFC;hren Sie den Befehl <strong>laVerzonen</strong> aus. W&#xE4;hlen Sie eine der beiden Optionen in der Befehlszeile aus, um das Zone-Objekt einzuf&#xFC;gen:
+		<ul>
+			<li><strong>Inneren Punkt</strong>: innerhalb einer geschlossenen Begrenzung von 2D-Kurven klicken.</li>
+			<li><strong>Begrenzungskurve</strong>: geschlossene und planare Kurve ausw&#xE4;hlen.</li>
+		</ul>
+	</li>
+	<li>Nach dem ersten Schritt erscheint der Einf&#xFC;gungsdialog f&#xFC;r Verzonen. Dieser Dialog zeigt die grundlegenden Optionen des Zone-Objekts auf zwei Reitern an:
+<ul>
+<li><a href="Commands_laZonify.html#Zone">Zone</a>: Zone-Parameter.</li>
+<li><a href="Commands_laZonify.html#Material">Material</a>: Materialeinstellungen f&#xFC;r das Zone-Objekt.</li>
+</ul>
+W&#xE4;hlen Sie die grundlegenden Einf&#xFC;gungsoptionen. Schlie&#xDF;en Sie den Dialog durch Dr&#xFC;cken von Eingabe, Esc oder Klicken auf die rechte Maustaste.</li>
+	<li>W&#xE4;hlen Sie einen Punkt zum <strong>Einf&#xFC;gen des Zone-Etiketts</strong> aus.</li>
+		
+</ol>
+<p class="figureWithDescription"><img src="../images/commands/Documentation/Zonify Insert Dialog.jpg" alt="Einf&#xFC;gedialog f&#xFC;r das Verzonungsobjekt."/><br/>
+Einf&#xFC;gedialog f&#xFC;r das Verzonungsobjekt.
+</p><br/>
+
+<p>Eine Zone kann auch beim Hinzuf&#xFC;gen einer Teilung auf einem Gel&#xE4;nde erstellt werden, welche mit den folgenden Befehlen erzeugt wird:</p>
+<ul>
+<li><a href="Commands_laTerrainDivide.html">laGel&#xE4;ndeUnterteilen</a></li>
+<li><a href="Commands_laTerrainAddCutAndFill.html">laGel&#xE4;ndeAuftragUndAbtragHinzuf&#xFC;gen</a></li>
+<li><a href="Commands_laTerrainAddHole.html">laGel&#xE4;nde&#xD6;ffnungHinzuf&#xFC;gen</a></li>
+<li><a href="Commands_laTerrainAddPath.html">laGel&#xE4;ndePfadHinzuf&#xFC;gen</a></li>
+</ul>
+
+
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Kontrollpunkte <img alt="Kontrollpunkte" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Das Zone-Objekt hat genauso viele <em>Kontrollpunkte</em> wie die Kurven, aus denen es erzeugt wurde.</p> 
+<p>Zus&#xE4;tzlich hat es einen Kontrollpfeil zum Verschieben der Zonenfl&#xE4;che sowie einen Kontrollpfeil zum Verschieben des Zone-Etiketts.</p>
+<p>Um einen Zonenobjekt-Kontrollpunkt zu aktivieren, f&#xFC;hren Sie den Befehl <strong>PunkteEin</strong> aus (oder dr&#xFC;cken Sie F10) und w&#xE4;hlen Sie das Zone-Objekt. Um seine Punkte zu deaktivieren, dr&#xFC;cken Sie ESC oder starten Sie den Befehl <strong>PunkteAus</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Documentation/Zone Control Points.jpg" alt="Kontrollpunkt auf einer Zone" /><br/>
+Kontrollpunkte auf einer Zone</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Einf&#xFC;geoptionen und -parameter</h3>
+<p>Die Zonenobjekt-Einf&#xFC;gungsoptionen und -Parameter sind in unterschiedliche Reiter aufgeteilt und &#xFC;ber verschiedene Dialoge abrufbar:</p>
+<ul>
+	<li>Verzonen-<a href="Interface_Dialog.html">Einf&#xFC;gungsdialog</a> (nur beim Einf&#xFC;gen einer neuen Zone verf&#xFC;gbar).</li>
+	<li>Abschnitt der Zone-Eigenschaften, im <a href="Interface_Panel.html">Lands-Design-Bearbeitungspanel</a>.</li>
+	<li>Zone-<a href="Interface_Properties.html">Objekteigenschaftendialog</a>.</li>
+</ul>
+<h4>Allgemein</h4> 
+<p>Allgemeine Attribute f&#xFC;r das Zone-Objekt: <em>Name</em>, <em>Farbe</em>, <em>Ebene</em>, <em>Code</em> und <em>Stichw&#xF6;rter</em>.</p>
+
+<a name="Zone" />
+<h4>Zone</h4> 
+	<ul> <li><strong>Etikett</strong>: zeigt den Text und Bereich der Zone an. Verwenden Sie das Kontrollk&#xE4;stchen, um es ein- oder auszublenden.
+			<ul>
+				<li>Etikettenbox: mehrzeilige Textk&#xE4;stchen zur Eingabe des Etikettentexts.</li>
+				<li>Fl&#xE4;cheninhalt anzeigen: Option zur Angabe der Quadratmeter im Etikett.</li>
+				<li>Textstil.</li>
+				<li>H&#xF6;he: Textgr&#xF6;&#xDF;e.</li>
+			</ul>
+		</li>
+		<li><strong>Schraffierungsattribute</strong>:
+			<ul>
+				<li>Pattern</li>
+				<li>Farbe</li>
+				<li>Winkel</li>
+				<li>Skala</li>
+			</ul>
+		</li>
+	</ul>
+	
+<a name="Material" />
+<h4>Material</h4>
+<p>Mit diesem Reiter k&#xF6;nnen Sie das diesem Element zugewiesene texturierte Bild &#xE4;ndern und Bildgr&#xF6;&#xDF;e und Reflexionsverm&#xF6;gen definieren.</p>
+
+<a name="Edit" />
+<h3>Bearbeitungsoptionen</h3>
+<p>Dies sind die Bearbeitungsoptionen f&#xFC;r das Zone-Objekt, verf&#xFC;gbar im <a href="Interface_Panel.html#Edit">
+Bearbeitungsbereich des Bearbeitungsfensters</a>:</p>
+<ul>
+	<li><img alt="Aktualisieren" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aktualisieren</a></li>
+		<li><img alt="In 2D umwandeln" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">In 2D umwandeln</a>. Zeigt das Objekt in der 2D-Darstellung an.</li>
+	<li><img alt="In 3D umwandeln" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">In 3D umwandeln</a>. Zeigt das Objekt in der 3D-Darstellung an.</li>
+	<li><a href="Commands_laConvertTo.html">2D und 3D anzeigen</a>: <em>Aktiviert gleichzeitig die 2D- und 3D-Darstellung des Objekts. </em> </li>
+
+	<li><a href="Commands_laCopyFrom.html">Eigenschaften von einem anderen Objekt kopieren</a></li>
+	<li>Anpassen
+		<ul>
+		<li><img alt="laErh&#xF6;hen" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Erh&#xF6;hung</a></li>
+		<li><img alt="laAufNullErh&#xF6;hen" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">Auf Nullh&#xF6;he</a></li>
+		<li><img alt="AufGel&#xE4;ndeErh&#xF6;hen" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		An Gel&#xE4;nde</a></li>
+		</ul>
+	</li>
+	<li>Nicht an Gel&#xE4;nde anpassen</li>
+	
+</ul>
+
+<a name="Display" />
+<h3>Grafische Zone-Darstellung:</h3>
+<p>Das Zone-Objekt wird als Schraffierungsmuster in der 2D-Darstellung und als texturierte Fl&#xE4;che in 3D angezeigt. Das Textetikett der Zone wird in beiden Anzeigemodi gleich dargestellt.</p>
+

@@ -1,0 +1,188 @@
+<h3>Pflanzenreihe</h3>
+<div class="comDescr">
+	<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">laPflanzenreihe</div>
+	
+	<div class="field">Symbol: </div>
+	<div class="value icon"><img src="../images/Icon/laPlantRow.png" alt="Pflanzenreihe("/> Linksklick
+	</div>
+	
+	<div class="field">Werkzeugleiste: <a href="Interface_Toolbars.html#ObjectsToolbar">Lands-Objekte</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Vegetation Toolbar.png" alt="Vegetationsbefehle" usemap ="#VegetationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Lands Design &gt; Vegetation &gt; Pflanzenreihe</div>
+</div>
+
+<p>Pflanzenreihen ordnen die Pflanzenelemente in Lands Design entlang einer Pfadkurve an.</p>
+
+
+<ul>
+	<li><a href="Commands_laPlantRow.html#Insert">Pflanzenreihe einf&#xFC;gen</a></li>
+	<li><a href="Commands_laPlantRow.html#ControlPoints">Kontrollpunkte</a></li>
+	<li><a href="Commands_laPlantRow.html#Parameters">Einf&#xFC;gungsoptionen und -parameter</a></li>
+	<li><a href="Commands_laPlantRow.html#Edit">Bearbeitungsoptionen</a></li>
+	<li><a href="Commands_laPlantRow.html#Display">Graphische Darstellung</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Pflanzenreihe einf&#xFC;gen</h3>
+<p>Durch Ausf&#xFC;hren des Befehls <strong>laPflanzenreihe</strong> wird der <a href="Interface_Dialog.html">Einf&#xFC;gedialog</a> f&#xFC;r Pflanzenreihe ge&#xF6;ffnet. Dieser Dialog zeigt die grundlegenden Optionen des Pflanzenreihenobjekts auf verschiedenen Reitern an:</p>
+<ul>
+
+<li><a href="Commands_laPlantRow.html#Row">Reihe</a>: Parameter der Pflanzenreihe.</li>
+<li><a href="Commands_laPlantRow.html#Plant">Pflanze</a>: Parameter der Pflanzenart-Elemente in der Pflanzenreihe.</li>
+<li><a href="Commands_laPlantRow.html#Format">Format</a>: Format der Pflanzenarten in der Reihe.</li>
+<li><a href="Commands_laPlantRow.html#Render">Rendern</a>: Parameter zur Definierung, wie Pflanzenarten in Pflanzenreihen in Renderdarstellungen aussehen.</li>
+</ul>
+
+<p><strong>Vorgehen:</strong></p>
+<ol>
+	<li>W&#xE4;hlen Sie eine <strong>Pflanzenart</strong> aus der Liste, unter dem Reiter Pflanze. Klicken Sie auf die Schaltfl&#xE4;che 
+	<strong>Durchsuchen...</strong> um eine neue aus der <a href="Commands_laPlantDatabase.html">Pflanzendatenbank</a> auszuw&#xE4;hlen. W&#xE4;hlen Sie die restlichen <strong>Pflanzenparameter</strong> aus.</li>
+	<li>W&#xE4;hlen Sie die <strong>Reihenparameter</strong> unter dem Reiter Reihe. Klicken Sie auf OK, um das Dialogfeld zu schlie&#xDF;en.</li>
+	<li>W&#xE4;hlen Sie eine im Modell vorhandene <strong>Kurve</strong> aus, um den Pflanzenreihenpfad zu definieren, oder w&#xE4;hlen Sie eine unterschiedliche Option in der Befehlszeile.
+		<ul>
+			<li><strong>Polylinie</strong>: die Reihe wird so erzeugt, als ob Sie eine Polylinie zeichnen w&#xFC;rden.</li>
+			<li><strong>Spline</strong>: die Reihe wird so erzeugt, als ob Sie einen Spline zeichnen w&#xFC;rden.</li>
+			<li><strong>Kreis</strong>: die Reihe wird so erzeugt, als ob Sie einen Kreis zeichnen w&#xFC;rden. Mit dem ersten Klick wird die Kreismitte bestimmt, und mit dem zweiten Klick der Radius.</li>
+			<li><strong>Bogen</strong>: die Reihe wird so erzeugt, als ob Sie einen Bogen zeichnen w&#xFC;rden. Mit dem ersten Klick wird der Einf&#xFC;gungspunkt bestimmt. Der zweite Klick bestimmt einen Mittelpunkt im Bogen. Mit dem dritten und letzten Klick wird bestimmt, wo der Bogen endet.</li>
+			<li><strong>Rechteck</strong>: die Reihe wird so erzeugt, als ob Sie ein Rechteck zeichnen w&#xFC;rden. Mit dem ersten Klick wird eine Ecke des Rechtecks bestimmt, und mit dem zweiten Klick die gegen&#xFC;berliegende Ecke.</li>
+		</ul>
+	</li>
+	<li>Beenden Sie den Befehl durch Dr&#xFC;cken von EINGABE, ESC oder Klicken auf die rechte Maustaste.</li>
+</ol>
+
+<p>Die Reihenparameter k&#xF6;nnen w&#xE4;hrend ihrer Einf&#xFC;gung und nach Beendigung des Befehls bearbeitet werden, und zwar im <a href="Interface_Panel.html">Lands-Design-Bearbeitungspanel</a>, im Abschnitt Eigenschaften, unter dem Reiter Reihe.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Plant Row/Plant Row Insert Dialog.jpg" alt="Einf&#xFC;gedialog f&#xFC;r die Pflanzenreihe."/><br/>
+Einf&#xFC;gedialog f&#xFC;r das Pflanzenreihenobjekt.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Kontrollpunkte <img alt="Kontrollpunkte" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Pflanzenreihen haben dieselben <em>Kontrollpunkte</em> wie die zu ihrer Erzeugung verwendeten Kurven, ungeachtet der Zahl der Pflanzenelemente oder ihrer Position.</p>
+<p>Zuz&#xFC;glich haben sie einen Kontrollpfeil zum Verschieben des gesamten Objekts.</p>
+
+<p>Pfadreihe-Kontrollpunkte werden bei der Einzelauswahl von Pflanzenreihen automatisch aktiviert. Um einen oder mehrere Pflanzenreihen-Objektkontrollpunkte zu aktivieren, w&#xE4;hlen Sie einfach die Pflanzenreihen aus und starten Sie den Befehl <strong>PunkteEin</strong> (oder dr&#xFC;cken Sie F10). Um die Punkte zu deaktivieren, dr&#xFC;cken Sie ESC oder starten Sie den Befehl <strong>PunkteAus</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Plant Row/Plant row control points 450.jpg" alt="Kontrollpunkte auf Pflanzenreihen" /><br/>
+Kontrollpunkte auf Pflanzenreihen</div>
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Einf&#xFC;geoptionen und -parameter</h3>
+<p>Die Pflanzenreihen-Einf&#xFC;gungsoptionen und -Parameter sind in unterschiedliche Reiter aufgeteilt und &#xFC;ber verschiedene Dialoge abrufbar:</p>
+<ul>
+	<li>Pflanzenreihe-<a href="Interface_Dialog.html">Einf&#xFC;gungsdialog</a> (nur beim Einf&#xFC;gen neuer Pflanzenreihen verf&#xFC;gbar).</li>
+	<li>Abschnitt der Pflanzenreihen-Eigenschaften, im <a href="Interface_Panel.html">
+	Lands-Design-Bearbeitungspanel</a>.</li>
+	<li>Pflanze-<a href="Interface_Properties.html">Objekteigenschaftendialog</a>.</li>
+</ul>
+
+<h4>Allgemein</h4> 
+<p>Allgemeine Attribute f&#xFC;r das Pflanzenobjekt: <em>Name</em>, <em>Farbe</em>, <em>Code</em> und <em>Stichw&#xF6;rter</em>.</p>
+
+<a name="Row" />
+<h4>Reihe</h4> 
+<p>Zum Platzieren der Pflanzen in Reihen sind zwei Optionen verf&#xFC;gbar:</p>
+<ul>
+	<li><strong>Anzahl Einheiten</strong>: zur Bestimmung der Gesamtmenge von Pflanzenelementen entlang der Reihen-Pfadkurve.</li>
+	<li><strong>Trennung</strong>: zur Platzierung der Pflanzenelemente in einem gewissen Abstand, gem&#xE4;&#xDF; einer Ausrichtung auf der Reihenpfadkurve (am Anfang, zentriert oder am Ende).</li>
+	
+</ul>
+
+<p>Pflanzenreihen k&#xF6;nnen verschiedene Pflanzenarten kombinieren:</p>
+
+<ul>
+	<li><strong>Anzahl Elemente</strong>: Geben Sie die Anzahl verschiedener Pflanzenarten ein. Die Liste verschiedener Arten wird in der <a href="Interface_Panel.html#List">Liste zur Objektauswahl</a> im <a href="Interface_Panel.html">
+	Lands-Bearbeitungspanel</a> erscheinen, wo sie zur Bearbeitung ihrer Parameter ausgew&#xE4;hlt werden k&#xF6;nnen.</li>
+	<li><strong>Verteilung</strong>: Optionen zum Verteilen der Pflanzenarten wenn mehr als ein Typ vorhanden ist.</li>
+</ul>
+<p>Eingef&#xFC;gte Einheiten: zeigt die genaue Anzahl von Elementeinheiten in der Pflanzenreihe an.</p>
+
+<a name="Plant" />
+<h4>Pflanze</h4> 
+	<ul>
+		<li><strong>Art</strong>: Der Name der ausgew&#xE4;hlten Pflanzenart. Die Zusammenstellung zeigt eine Liste der verschiedenen Pflanzenarten an, die bereits im aktuellen Modell eingesetzt wurden. Sie k&#xF6;nnen eine Pflanzenart aus der Liste ausw&#xE4;hlen, oder aber eine neue aus der Pflanzendatenbank, wof&#xFC;r Sie auf die Schaltfl&#xE4;che 
+		<strong>Durchsuchen...</strong> klicken.</li>
+		
+		<li><strong>Bema&#xDF;ungen in der Zeichnung</strong>:
+			<ul>
+				<li>Kronendurchmesser</li>
+				<li>Ungef&#xE4;hre H&#xF6;he</li>
+				<li>Alter</li>
+			</ul>
+		</li>
+		<li><strong>Nat&#xFC;rliche Variation</strong>: wenn sie aktiviert ist, setzt diese Option eine willk&#xFC;rliche H&#xF6;henvariation f&#xFC;r die Pflanzenart in der Reihe. Der Maximalwert (100 %) erzeugt Pflanzenarten, die von 50 % bis zu 150 % ihrer Gr&#xF6;&#xDF;e reichen.</li>
+		<li><strong>Willk&#xFC;rliche Drehung</strong>: wenn sie aktiviert ist (Standard), stellt diese Option eine willk&#xFC;rliche Drehung der Pflanzen ein. Ist sie deaktiviert, k&#xF6;nnen Sie f&#xFC;r jede Pflanze einen spezifischen Drehwinkel definieren. Der Drehwinkel wird von der vertikalen Pflanzenachse aus gemessen.</li>
+
+	
+	</ul>
+<p>Die minimalen und maximalen Werte der Pflanzenh&#xF6;he (Alter der Pflanze) werden durch die Eigenschaften jeder Pflanzenart definiert und k&#xF6;nnen im <a href="Commands_laPlantDataBase.html#Properties">Eigenschaftendialog der Pflanzenarten</a> bearbeitet werden, der in der Pflanzendatenbank verf&#xFC;gbar ist.</p>
+<p>Wenn Pflanzenreihen mehr als eine Art enthalten, sind die Parameter jeder einzelnen davon verf&#xFC;gbar, und zwar nach Auswahl der gew&#xFC;nschten Art von der <a href="Interface_Panel.html#List">Objektauswahl-Liste</a> im <a href="Interface_Panel.html">
+Lands-Bearbeitungspanel</a>. </p>
+
+<a name="Format" />
+<h4>Format</h4> 
+
+<li><strong>Kaliber</strong>: Rindenbema&#xDF;ung der Pflanzenart. Die verf&#xFC;gbaren Werte reichen von 10 bis 130 mm, Sie k&#xF6;nnen aber auch jeden sonstigen Wert eingeben.</li>
+<li><strong>Darstellungsmodus</strong>: verf&#xFC;gbar sind drei Darstellungsmodi, Sie k&#xF6;nnen aber auch neue eingaben.
+			<ul>
+				<li>Nackte Wurzel</li>
+				<li>Wurzelballen</li>
+				<li>Beh&#xE4;lter</li>
+			</ul>
+</li>
+<a name="Render" />
+<h4>Rendern</h4> 
+<p>Dieser Reiter bestimmt, wie die Pflanzenarten in Pflanzenreihen in einer Renderdarstellung aussehen. Sichtbar ist dieser Reiter nur, wenn die 3D-Darstellung der Pflanzen in den Dokumenteigenschaften auf Realistisch eingestellt ist.</p>
+
+<ul>
+	<li><strong>Jahreszeit</strong>: Wenn das K&#xE4;stchen Globale Jahreszeit ignorieren markiert ist, k&#xF6;nnen Sie ausw&#xE4;hlen, in welcher Jahreszeit die Pflanzen gerendert werden: Vorfr&#xFC;hling, Fr&#xFC;hling, Sp&#xE4;tfr&#xFC;hling, Sommer, Sp&#xE4;tsommer, Herbst, Winter...</li>
+	<li><strong>Laubdichte</strong>: Je nach Definition erzeugt Flamingo nXt mehr oder weniger Bl&#xE4;tter.</li>
+</ul>
+
+
+<a name="Edit" />
+<h3>Bearbeitungsoptionen</h3>
+<p>Dies sind die Bearbeitungsoptionen f&#xFC;r das Pflanzenreihenobjekt, verf&#xFC;gbar im <a href="Interface_Panel.html#Edit">Bearbeitungsbereich des Bearbeitungsfensters</a>:</p>
+<ul>
+	<li><img alt="Aktualisieren" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Aktualisieren</a></li>
+	<li><img alt="laGruppierungAufheben" height="24" src="../images/Icon/laUngroup.png" width="24" /> <a href="Commands_laUngroup.html">Gruppierung aufheben</a></li>
+	<li><a href="Commands_laCopyFrom.html">Eigenschaften von einem anderen Objekt kopieren</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Auf eine andere Kurve kopieren</a></li>
+	<li><a href="Commands_laRandomize.html">Zuf&#xE4;lligFestlegen</a></li>
+	<li><a href="Commands_laReverseCurve.html">Kurve umkehren</a></li>
+	<li><a href="Commands_laExtractCurves.html">Kurven extrahieren</a></li>
+	<li>Anpassen
+		<ul>
+		<li><img alt="laErh&#xF6;hen" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Erh&#xF6;hung</a></li>
+		<li><img alt="laAufNullErh&#xF6;hen" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">Auf Nullh&#xF6;he</a></li>
+		<li><img alt="AufGel&#xE4;ndeErh&#xF6;hen" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		An Gel&#xE4;nde</a></li>
+		</ul>
+	</li>
+	<li>Nicht an Gel&#xE4;nde anpassen</li>
+	<li>Pflanze
+		<ul>
+			<li><img alt="laPflanzeArtBearbeiten" height="24" src="../images/Icon/laEdit.png" width="24" /> <a href="Commands_laPlantEditSpecies.html">Art bearbeiten</a></li>
+		    <li><img alt="laPflanzenetikett" height="24" src="../images/Icon/laplantLabel.png" width="24" /> <a href="Commands_laPlantLabel.html">Etikett zuweisen</a> <em>
+			(Dieser Befehl erscheint nur, wenn den Pflanzen in der Reihe kein Etikett zugewiesen wurde)</em></li>
+		    <li><img alt="laPflanzenVerkn&#xFC;pfendEttiketieren" height="24" src="../images/Icon/laplantLabelLinking.png" width="24" /> <a href="Commands_laplantLabelLinking.html">Verkn&#xFC;pfend markieren</a>.</li>
+			<li><img alt="laPflanzenetikettAusw&#xE4;hlen" height="24" src="../images/Icon/laPlantSelectLabel.png" width="24" /> <a href="Commands_laplantSelectLabel.html">
+			Etikett erkennen</a> <em>(dieser Befehl erscheint nur, wenn es ein die Pflanzenart im Pflanzenreihenobjekt referenzierendes <a href="Commands_laPlantLabel.html">Pflanzenetikett</a> gibt)</em></li>
+			<li><img alt="laPflanzenfoto" height="24" src="../images/Icon/laPlantPhoto.png" width="24" /> <a href="Commands_laPlantPhoto.html">Foto einf&#xFC;gen</a></li>
+		</ul>
+	</li>
+</ul>
+
+
+<a name="Display" />
+<h3>Grafische Anzeige der Pflanzenreihe</h3>
+
+<p>Pflanzenarten in Reihen <a href="Commands_laPlant.html#Display">werden grafisch genauso dargestellt wie Pflanzenarten</a> die einzeln eingef&#xFC;gt wurden. Die grafische Darstellung von Pflanzenarten in Reihen kann in den <a href="Interface_DocumentProperties.html">Dokumenteigenschaften</a> ge&#xE4;ndert werden.</p>

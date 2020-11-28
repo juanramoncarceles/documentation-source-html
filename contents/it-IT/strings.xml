@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<Strings>
+    <string name="concepto" value="Concetto" />
+    <string name="procedimiento" value="Procedura" />
+    <string name="barraDeHerramientas" value="Barra degli strumenti" />
+    <string name="barraDeMenu" value="Barra menu" />
+    <string name="menuContextualDeSeleccion" value="Menu di scelta rapida di selezione" />
+    <string name="menuContextualDeDibujo" value="Menu di scelta rapida del disegno" />
+    <string name="comando" value="Comando" />
+    <string name="temasEnEsteApartado" value="Argomenti in questa sezione" />
+    <string name="architecturalToolsText" value="Strumenti architettonici per Rhino" />
+</Strings>

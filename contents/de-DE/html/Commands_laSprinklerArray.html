@@ -1,0 +1,138 @@
+<h3>Sprinkleranordnung</h3>
+<div class="comDescr">
+	<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">laSprinkleranordnung</div>
+	
+	<div class="field">Symbol: </div>
+	<div class="value icon"><img src="../images/Icon/laSprinklerArray.png" alt="SprinklerAnordnung"/> Linksklick
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#DocumentationToolbar">Werkzeugleiste</a>: </div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Bew&#xE4;sserungsbefehle in der Werkzeugleiste Dokumentation" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Lands Design &gt; Bew&#xE4;sserungssystem &gt; Sprinkleranordnung</div>
+</div>
+
+
+<p>Die Sprinkleranordnung f&#xFC;gt eine Anordnung von Sprinklern zur Abdeckung einer bestimmten Fl&#xE4;che ein. Die Fl&#xE4;che wird anhand einer beliebigen geschlossenen Kurve definiert: Polylinie, Spline, Kreis etc.</p>
+
+<ul>
+	<li><a href="Commands_laSprinklerArray.html#Insert">Einf&#xFC;gen einer Sprinkleranordnung</a></li>
+	<li><a href="Commands_laSprinklerArray.html#ControlPoints">Kontrollpunkte</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Parameters">Einf&#xFC;gungsoptionen und -parameter</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Edit">Bearbeitungsoptionen</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Display">Graphische Darstellung</a></li>
+
+</ul>
+<a name="Insert" />
+<h3>Einf&#xFC;gen einer Sprinkleranordnung</h3>
+<p>Durch Ausf&#xFC;hren des Befehls <strong>laSprinkleranordnung</strong> wird der <a href="Interface_Dialog.html">Einf&#xFC;gedialog</a> f&#xFC;r Sprinkleranordnung ge&#xF6;ffnet. Dieser Dialog zeigt die grundlegenden Optionen auf zwei verschiedenen Reitern an.</p>
+<ul>
+	<li><a href="Commands_laSprinklerArray.html#Sprinkler">Sprinkler</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Array">Anordnung</a></li>
+</ul>
+
+<p><strong>Vorgehen:</strong></p>
+<ol>
+	<li>W&#xE4;hlen Sie die <strong>Sprinkler</strong>-Parameter auf dem Reiter Sprinkler aus, und die <strong>Anordnungs</strong>-Parameter auf dem Reiter Anordnung. Klicken Sie auf OK, um das Dialogfeld zu schlie&#xDF;en.</li>
+	<li>W&#xE4;hlen Sie eine im Modell vorhandene <strong>Kurve</strong> um die Begrenzung der Sprinkleranordnung zu definieren, oder w&#xE4;hlen Sie eine andere Option in der Befehlszeile.
+		<ul>
+			<li><strong>Polylinie</strong>: die Sprinkleranordnung wird so erzeugt, als ob Sie eine Polylinie zeichnen w&#xFC;rden.</li>
+			<li><strong>Spline</strong>: die Sprinkleranordnung wird so erzeugt, als ob Sie einen Spline zeichnen w&#xFC;rden.</li>
+			<li><strong>Kreis</strong>: die Sprinkleranordnung wird so erzeugt, als ob Sie einen Kreis zeichnen w&#xFC;rden. Mit dem ersten Klick wird die Kreismitte bestimmt, und mit dem zweiten Klick der Radius.</li>
+			<li><strong>Bogen</strong>: die Sprinkleranordnung wird so erzeugt, als ob Sie einen Bogen zeichnen w&#xFC;rden. Mit dem ersten Klick wird der Einf&#xFC;gungspunkt bestimmt. Der zweite Klick bestimmt einen Mittelpunkt im Bogen. Mit dem dritten und letzten Klick wird bestimmt, wo der Bogen endet.</li>
+			<li><strong>Rechteck</strong>: die Sprinkleranordnung wird so erzeugt, als ob Sie ein Rechteck zeichnen w&#xFC;rden. Mit dem ersten Klick wird eine Ecke des Rechtecks bestimmt, und mit dem zweiten Klick die gegen&#xFC;berliegende Ecke.</li>
+		</ul>
+	</li>
+	<li>Beenden Sie den Befehl durch Dr&#xFC;cken von Eingabe, Esc oder Klicken auf die rechte Maustaste.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Watering/Sprinkler Array Insert Dialog.png" alt="Einf&#xFC;gedialog f&#xFC;r das Sprinkleranordnungs-Objekt."/><br/>
+Einf&#xFC;gedialog f&#xFC;r das Sprinkleranordnungs-Objekt.
+</p><br/>
+
+<br clear="all" />
+
+<p><strong>Hinweis</strong>: die Sprinkleranordnung wird als gruppiertes Objekt erzeugt. Jedoch k&#xF6;nnen Sie die <em>Gruppe aufl&#xF6;sen</em>, n&#xE4;mlich mit dem Befehl <a href="Commands_laUngroup.html">GruppierungAufheben</a>. In diesem Fall erhalten Sie einzelne Sprinklereinheiten und die "Anordnung"-F&#xE4;higkeiten gehen verloren.</p>
+
+<a name="ControlPoints" />
+<h3>Kontrollpunkte <img alt="Kontrollpunkte" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Das Sprinkleranordnungsobjekt hat genauso viele <em>Kontrollpunkte</em> wie die Kurve, aus der es erzeugt wurde.</p>
+<p>Zuz&#xFC;glich hat es einen Kontrollpfeil zum Verschieben des gesamten Objekts.</p>
+<p>Um die Sprinkleranordnung-Kontrollpunkte zu aktivieren, f&#xFC;hren Sie den Befehl <strong>PunkteEin</strong> aus (oder dr&#xFC;cken Sie F10) und w&#xE4;hlen Sie das Anordnungsobjekt. Um seine Punkte zu deaktivieren, dr&#xFC;cken Sie ESC oder starten Sie den Befehl <strong>PunkteAus</strong>.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Watering/Sprinkler Array Control Points.jpg" alt="Kontrollpunkte auf einer Sprinkleranordnung" /><br/>
+Kontrollpunkte auf einer Sprinkleranordnung</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Einf&#xFC;geoptionen und -parameter</h3>
+<p>Die Sprinkleranordnungsobjekt-Einf&#xFC;gungsoptionen und -Parameter sind in unterschiedliche Reiter aufgeteilt und &#xFC;ber verschiedene Dialoge abrufbar:</p>
+<ul>
+	<li>Sprinkleranordnung-<a href="Interface_Dialog.html">Einf&#xFC;gungsdialog</a> (nur beim Einf&#xFC;gen neuer Sprinkleranordnungen verf&#xFC;gbar).</li>
+	<li>Abschnitt der Sprinkleranordnung-Eigenschaften, im <a href="Interface_Panel.html">
+	Lands-Design-Bearbeitungspanel</a>.</li>
+	<li>Sprinkleranordnung-<a href="Interface_Properties.html">Objekteigenschaftendialog</a></li>
+</ul>
+
+<h4>Allgemein</h4> 
+<p>Allgemeine Attribute f&#xFC;r das Sprinkleranordnungsobjekt: <em>Name</em>, <em>Farbe</em>, <em>Ebene</em>, <em>Code</em> und <em>Stichw&#xF6;rter</em>.</p>
+
+<a name="Sprinkler" />
+<h4>Sprinkler</h4> 
+	<ul>
+		<li><strong>Typ</strong>: Es gibt vier Sprinkler-Arten:
+			<ul>
+				<li>Sprinkler</li>
+				<li>Diffusor</li>
+				<li>Wasserturbine</li>
+				<li>Bew&#xE4;sserungsd&#xFC;se</li>
+			</ul>
+		</li>
+		<li><strong>Beschreibung</strong>: Der Verwendungszweck des Felds besteht darin, Anmerkungen &#xFC;ber die Sprinkler hinzuzuf&#xFC;gen.</li>
+		<li><strong>Symbol</strong>: 2D-Zeichung zur Darstellung der Sprinklereinheiten innerhalb des Anordnungsbereichs. Klicken Sie auf die Schaltfl&#xE4;che <em>Durchsuchen...</em>, um einen 2D-Block aus der Lands-Design-Bibliothek oder sonst einem Verzeichnis zu laden.</li>
+		<li><strong>Radius</strong></li>
+		<li><strong>Pfeilung</strong></li>
+	</ul>
+	
+<a name="Array" />
+<h4>Anordnung</h4> 
+<ul>
+	<li><strong>Verteilung</strong>: die Sprinklerverteilung kann quadratisch oder dreieckig angeordnet werden.</li>
+	<li><strong>Abstand zwischen Sprinklern</strong>: als Prozentzahl des Sprinklerdurchmessers berechneter Abstand.</li>
+</ul>
+
+
+<a name="Edit" />
+<h3>Bearbeitungsoptionen</h3>
+<p>Dies sind die Bearbeitungsoptionen f&#xFC;r das Sprinkleranordnung-Objekt, verf&#xFC;gbar im <a href="Interface_Panel.html#Edit">Bearbeitungsbereich des Bearbeitungsfensters</a>:</p>
+<ul>
+	<li><img alt="Aktualisieren" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aktualisieren</a></li>
+	
+	<li>Eigenschaften von einem anderen Objekt kopieren.</li>
+	<li>Anpassen
+		<ul>
+		<li><img alt="laErh&#xF6;hen" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Erh&#xF6;hung</a></li>
+		<li><img alt="laAufNullErh&#xF6;hen" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">Auf Nullh&#xF6;he</a></li>
+		<li><img alt="AufGel&#xE4;ndeErh&#xF6;hen" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		An Gel&#xE4;nde</a></li>
+		</ul>
+	</li>
+	<li>Nicht an Gel&#xE4;nde anpassen</li>
+	<li>Sprinkleranordnung
+		<ul>
+			<li>&#xD6;ffnung hinzuf&#xFC;gen: Befehl zum Abziehen einer Begrenzung vom Bereich einer Sprinkleranordnung</li>
+		</ul>
+	</li>
+</ul>
+
+<a name="Display" />
+<h3>Grafische Darstellung der Sprinkleranordnung:</h3>
+<p>Das Sprinkleranordnung-Objekt bietet eine einzigartige 2D-Darstellung der Zeichnung.</p>
+<p>Zur Darstellung der Sprinkler sind einige Bl&#xF6;cke in der Lands-Design-Bibliothek verf&#xFC;gbar:  C:\ProgramData\AsuniCAD\Lands\Rhinoceros (64-bit)\Blocks\Sprinklers\</p>
+

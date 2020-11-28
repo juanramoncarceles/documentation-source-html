@@ -1,0 +1,73 @@
+<h3>Propriétés du document</h3>
+<p>Les propriétés du document ne concernent que le document en cours et sont disponibles depuis deux endroits différents :</p>
+
+<ul>
+<li><a href="Interface_Panel.html#Edit">Panneau d'édition &gt; Zone des propriétés</a> (quand aucun objet n'est sélectionné)</li>
+<li>Options de Rhino : Outils &gt; Options &gt; Propriétés du document &gt; Lands Design &gt; Calques</li>
+</ul>
+
+Les propriétés du document sont organisées dans différents onglets (dans le panneau d'édition) ou sections (dans les Propriétés du document de Rhino) :
+<ul>
+<li><a href="Interface_DocumentProperties.html#Document">Document</a></li>
+<li><a href="Interface_DocumentProperties.html#Layers">Calques</a></li>
+<li><a href="Interface_DocumentProperties.html#Geolocation">Géolocalisation</a></li>
+<li><a href="Interface_DocumentProperties.html#Render">Rendu</a></li>
+</ul>
+
+<a name="Document" />
+<h3>Document</h3>
+
+<p>Cette section permet de choisir les <a href="Commands_laPlant.html#Display">modes d'affichage 2D et 3D de plantes</a> dans le modèle.</p>
+
+
+<p><strong>Trompe l’œil </strong></p>
+<p>Lorsque l'affichage 3D des plantes est défini sur <em>Réaliste</em>, les plantes 3D sont remplacées par des représentations en trompe l’œil en fonction de leur distance avec la position de visionnage. La représentation avec des trompe l’œil ne produit pas de changement sur les vues rendues.</p>
+
+<p><strong>Saison</strong></p>
+<p>Définit la saison actuelle pour le document. Les plantes seront rendues en fonction de cette saison sauf si cette option est définie différemment pour des éléments individuels.</p>
+
+<p class="figureWithDescription"><img src="../images/Document Properties.png" alt="Propriétés du document"/><br />
+	Onglet Propriétés du document dans le panneau d'édition.</p>
+<br clear="all" />
+
+
+<a name="Layers" />
+<h3>Calques</h3>
+
+
+<p>Cet onglet affiche la liste des types d'éléments de Lands et le calques où ils sont créés lors de leur insertion dans le modèle. Vous pouvez modifier le calque assigné depuis le Gestionnaire des calques. </p>
+<p>Vous me pouvez changer le calque que si un élément de Lands a été créé et inséré dans le document. </p>
+<p>Lorsque le calque est défini sur <em>Aucun</em>, l'objet est créé sur le calque actuel. </p>
+<p>Le nom des calques où chaque type d'objet est créé peut être changé dans l'<a href="Interface_LandsDesignOptions.html#Layers">onglet Calques de la boîte de dialogue des Options de Lands</a>. </p>
+
+<p class="figureWithDescription"><img src="../images/Layer Properties.png" alt="Propriétés des calques"/><br />
+	Onglet Calques dans le panneau d'édition.</p>
+<br clear="all" />
+
+
+<a name="Geolocation" />
+<h3>Géolocalisation</h3>
+
+<p>Cet onglet permet de définir l'origine des coordonnées du dessin (0,0,0) en termes de latitude, longitude et altitude. Il peut également être modifié en utilisant la commande <em>PointAncrageTerre</em> ou en ouvrant les <em>Propriétés du document &gt; Position</em> (dans les options de Rhino). </p>
+<p>Aucune position n'est définie par défaut dans les nouveaux documents mais elle est ajoutée lors de l'importation d'un terrain avec la commande <a href="Commands_laEarthScan.html">laScannerTerre</a> ou de l'édition manuelle des valeurs de géolocalisation.</p>
+
+
+<p class="figureWithDescription"><img src="../images/Geolocation.png" alt="Géolocalisation"/><br />
+	Onglet Géolocalisation dans le panneau d'édition.</p>
+<br clear="all" />
+
+
+<a name="Render" />
+
+<h3>Rendu</h3>
+<p>Les propriétés de rendu déterminent la façon dont la végétation apparaîtra lors du rendu.</p>
+<ul>
+<li><strong>Rendu des plantes comme dans le dessin </strong>: les plantes seront rendues en fonction de la saison générale définie dans le fichier ou des éléments de végétation du modèle. </li>
+<li><strong>Générer des plantes très détaillées pour le rendu </strong>: les plantes seront rendues en fonction de leur apparence par rapport à la saison choisie et à l'option <em>Croissance</em>. La croissance maximum correspond à l'âge/la hauteur actuelle de chaque spécimen dans le modèle. </li>
+</ul>
+
+<p><strong>Assigner des matériaux texturés aux objets de Lands lors de leur création </strong>: ces matériaux seront utilisés pour un rendu rapide de la scène.</p>
+
+<p class="figureWithDescription"><img src="../images/Render Properties.png" alt="Propriétés de rendu"/><br />
+	Onglet Propriétés du rendu dans le panneau d'édition.</p>
+<br clear="all" />

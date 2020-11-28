@@ -1,0 +1,117 @@
+<h3>Objets de cotation</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laCote</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laDimension.png" alt="Objets de cotation"/> clic gauche
+
+	</div>
+	
+	<div class="field">Barre d'outils : <a href="Interface_Toolbars.html#DocumentationToolbar">Documentation de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Commandes de documentation" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Documentation &gt; Cotes &gt; Coter</div>
+</div>
+
+<p>La commande <strong>laCote</strong> permet de coter les plantes, les éléments de structure et toute autre entité à partir d'un point d'origine des coordonnées spécifique sur le plan. </p>
+
+<p>La commande insère le point d'origine des coordonnées puis génère les objets de cotation à partir de cette origine. Le point d'origine des coordonnées est affiché comme un objet de Lands alors que les cotes sont des objets ordinaires de Rhino. </p>
+
+<p>Liste des objets pouvant être cotés avec Lands Design et informations obtenues :</p>
+<ul>
+	<li><strong>Plantes </strong>: coordonnées du point de plantation.</li>
+	<li><strong>Arbustes, couvre-sols, éléments de structure (murs, escaliers, clôtures, etc.) et terrains</strong> : cotation des courbes de contrôle.</li>
+	<li><strong>Mobilier urbain </strong>: coordonnées du point d'insertion.</li>
+	<li><strong>Arroseurs </strong>: coordonnées de la position de l'arroseur.</li>
+	<li><strong>Canalisations </strong>: coordonnées des sommets.</li>
+	<li><strong>Courbes 2D</strong>: coordonnées des points singuliers, rayon des cercles et arcs et rayon des segments de polylignes en forme d'arc. </li>
+</ul>
+
+<ul>
+	<li><a href="Commands_laDimension.html#Insert">Insérer une cote</a></li>
+	<li><a href="Commands_laDimension.html#ControlPoints">Points de contrôle de la cote</a></li>
+	<li><a href="Commands_laDimension.html#Parameters">Options et paramètres d'insertion</a></li>
+	<li><a href="Commands_laDimension.html#Edit">Options d'édition</a></li>
+	<li><a href="Commands_laDimension.html#Display">Affichage</a></li>
+
+</ul>
+<a name="Insert" />
+<h3>Insérer une cote</h3>
+<p><strong>Étapes :</strong></p>
+<ol>
+	<li>Indiquez le <strong>point de la nouvelle origine des coordonnées</strong> ou sélectionnez l'origine existante.</li>
+	<li>Indiquez le <strong>type de cote</strong> à insérer : Linéaire ou Coordonnée. </li>
+	<li>Sélectionnez les <strong>entités</strong> à associer avec le point d'origine des coordonnées. </li>
+</ol>
+
+<p>Les cotes créées resteront liées avec la position des entités sélectionnées. </p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Dimension/Linear.png" alt="Origine des coordonnées et Cotes linéaires" /><br/>
+Origine des coordonnées et Cotes linéaires</div>
+
+<div class="figureWithDescription block"><img src="../images/Commands/Dimension/Ordinate.png" alt="Origine des coordonnées et Cotes de coordonnées" /><br/>
+Origine des coordonnées et Cotes de coordonnées</div>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Points de contrôle <img alt="Points de contrôle" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>L'objet représentant l'origine des coordonnées possède un seul point de contrôle en son centre.</p> 
+<p>Les points de contrôle des cotes sont les mêmes que ceux des objets de cotation de Rhino. </p>
+<p>Pour activer les points de contrôle de l'objet d'origine des coordonnées ou de l'objet de cotation, lancez la commande <strong>ActiverPoints</strong> (ou appuyez sur F10) et sélectionnez les objets. Pour désactiver les points de contrôle, appuyez sur Échap ou lancez la commande <strong>DésactiverPoints</strong>.</p>
+
+
+<br clear="all" />
+
+<a name="Parameters" />
+<h3>Paramètres</h3>
+<p>Les paramètres des objets de cotation et d'origine des coordonnées se trouvent dans différents onglets de plusieurs boîtes de dialogue.</p>
+<ul>
+	
+	<li>Section propriétés de l'origine des coordonnées dans le <a href="Interface_Panel.html">panneau d'édition de Lands Design</a>. </li>
+	<li><a href="Interface_Properties.html">Boîte de dialogue des propriétés</a> de l'objet Origine des coordonnées.</li>
+</ul>
+<h4>Général</h4> 
+<p>Attributs généraux pour l'objet de cotation et d'origine des coordonnées : <em>Nom</em>, <em>Couleur</em>, <em>Calque</em>, <em>Code</em> et <em>Mots clé</em>.</p>
+
+<h4>Origine des coordonnées :</h4>
+<ul> 
+	<li><strong>Étendue des axes </strong>: longueur et paramètres des axes des abscisses (x) et ordonnées (y).  </li>
+	<li><strong>Étiquettes des axes </strong>: attributs et police du texte.</li>
+</ul>
+
+<a name="Edit" />
+<h3>Options d'édition</h3>
+<p>Options d'édition des objets de cotation et d'origine des coordonnées, disponibles dans la <a href="Interface_Panel.html#Edit">zone d'édition du panneau d'édition</a> :</p>
+<p><strong>Options communes :</strong></p>
+<ul>
+	<li><img alt="Actualiser" height="24" src="../images/Icon/laUpdate.png" width="24" /><a href="Commands_laUpdate.html">Actualiser</a></li>
+	<li>Copier les propriétés d'un autre objet.</li>
+	<li>Ajuster
+		<ul>
+		<li><img alt="laElever" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Élévation</a></li>
+		<li><img alt="laEleverAZéro" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">À l'élévation zéro</a></li>
+		<li><img alt="laEleverSurTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		Au terrain</a></li>
+		</ul>
+	</li>
+	<li>Ne pas ajuster au terrain</li>
+</ul>
+<p><strong>Cotes</strong></p>
+<ul>
+	<li><strong>Changer la source </strong>: modifie l'objet d'origine des coordonnées lié à cette cote.</li>
+</ul>
+
+<p><strong>Origine des coordonnées</strong></p>
+<ul>
+	<li><strong>Définir comme principale </strong>: sélectionnez un objet d'origine des coordonnées pour le définir comme origine principale.</li>
+	<li><strong>Cotes </strong>: sélectionnez de nouvelles entités à coter (cote linéaire ou de coordonnées) par rapport à l'origine des coordonnées.</li>
+</ul>
+
+<a name="Display" />
+<h3>Affichage de l'origine des coordonnées :</h3>
+<p>Les objets de cotation et d'origine des coordonnées ont uniquement une représentation 2D et sont visibles dans tous les modes d'affichage. </p>
+

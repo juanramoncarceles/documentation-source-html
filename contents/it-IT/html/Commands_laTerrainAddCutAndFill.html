@@ -1,0 +1,67 @@
+<h3>Terreno &gt; Aggiungi scavo/riporto</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laTerrenoAggiungiScavoRiporto</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro su <img src="../images/Icon/laTerrainAddCutAndFill.png" alt="Terreno &gt; Aggiungi scavo/riporto"/>
+
+	</div>
+	
+	<div class="field">Barra degli strumenti: <a href="Interface_Toolbars.html#TerrainToolbar">Terreno di Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandi del terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Modellazione del terreno &gt; Terreno &gt; Aggiungi scavo/riporto</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Pannello di modifica</a>: </div>
+	<div class="value menu">Selezionare un terreno, l'area di modifica del pannello di modifica, quindi scegliere Terreno &gt; Aggiungi scavo/riporto</div>
+</div>
+
+
+<p>Questo comando crea scavi e riporti sul terreno da una curva chiusa. Gli scavi e i riporti sono interventi sul terreno realizzati per creare terrazzamenti, terrapieni o strutture simili. L'angolo di inclinazione richiesto determina la quantit&#xE0; di terreno rimosso nella parte superiore dello scavo/riporto e la quantit&#xE0; di terreno aggiunto nella parte inferiore.</p>
+
+<p>Questa operazione aggiunge anche una divisione al terreno dalla stessa curva chiusa, come accade con il comando <a href="Commands_laTerrainDivide.html">laTerrenoDividi</a>.</p>
+
+<p><strong>Procedimento:</strong></p>
+
+<ol>
+	<li>Scegliere un <strong>terreno</strong>. Premere Invio o fare clic con il tasto destro al termine.</li>
+	<li>Specificare un <strong>angolo</strong> di inclinazione all'interno dell'intervallo [da 5 a 85 gradi).</li>
+    <li>Selezionare la <strong>curva chiusa</strong> per definire la zona di scavo e riporto. La curva pu&#xF2; essere collocata in qualsiasi posizione e orientamento.</li>
+</ol>
+
+<p>Il terreno aggiunge e rimuove il volume del suolo necessario per coincidere con la posizione della curva, in base all'angolo di inclinazione specificato.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Cut and Fill 1.jpg" alt="Il terreno prima dell'operazione di scavo e riporto."/><br/>
+Il terreno prima dell'operazione di scavo e riporto.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Cut and Fill 2.jpg" alt="Il terreno dopo l'operazione di scavo e riporto."/><br/>
+Il terreno dopo l'operazione di scavo e riporto.
+</p>
+
+<a name="Parameters" />
+<h3>Parametri</h3>
+
+<p>I parametri di scavo e riporto possono essere modificati dal pannello <em>Dati in input</em> (nella <a href="Interface_Panel.html#Properties">sezione delle propriet&#xE0; del pannello di modifica</a> o nella <a href="Interface_Properties.html">finestra di dialogo delle propriet&#xE0;</a>), nell'elenco relativo al <em>movimento della Terra</em>.</p>
+<ul>
+<li><strong>Punti di controllo</strong>: opzione che consente di attivare o disattivare i punti di controllo della zona di scavo e riporto (e suddivisione).</li>
+<li><strong>Angolo di inclinazione</strong>: angolo in base a cui viene adattato il terreno attorno al limite di scavo e riporto.</li>
+</ul>
+
+<p>Le opzioni e i parametri di modifica relativi alla suddivisione del terreno creata da questo comando sono gli stessi di quelli creati con il comando <a href="Commands_laTerrainDivide.html">laTerrenoDividi</a>.</p>
+
+
+
+<a name="ControlPoints" />
+<h3>Punti di controllo <img alt="Punti di controllo" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>I punti di controllo dell'area di scavo e riporto sono gli stessi di quelli delle curve usate per questa operazione. I punti di controllo si integrano nel terreno e sono visibili attivandoli. Consentono di modificare il livello dell'area di scavo e riporto e dell'area di suddivisione.</p>
+<p>I punti di controllo possono essere modificati dal pannello <em>Dati in input</em> (nella <a href="Interface_Panel.html#Properties">sezione delle propriet&#xE0; del pannello di modifica</a> o nella <a href="Interface_Properties.html">finestra di dialogo delle propriet&#xE0;</a>), dopo la selezione dello scavo e del riporto, nell'elenco relativo al <em>movimento della Terra</em>.</p>
+
+
+<p><strong>Nota</strong>: i punti di controllo della suddivisione creata da scavi e riporti dipendono dai punti di controllo di tali elementi, indipendentemente dalla loro attivazione nelle impostazioni di suddivisione.</p>
+
+
+

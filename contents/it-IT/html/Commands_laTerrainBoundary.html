@@ -1,0 +1,47 @@
+<h3>Terreno &gt; Specifica contorno</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laTerrenoContorno</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro su <img src="../images/Icon/laTerrainBoundary.png" alt="Terreno &gt; Specifica contorno"/>
+
+	</div>
+	
+	<div class="field">Barra degli strumenti: <a href="Interface_Toolbars.html#TerrainToolbar">Terreno di Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Comandi del terreno" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Modellazione del terreno &gt; Terreno &gt; Specifica contorno</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Pannello di modifica</a>: </div>
+	<div class="value menu">Selezionare un terreno, l'area di modifica del pannello di modifica, quindi scegliere Terreno &gt; Specifica contorno.</div>
+</div>
+
+<p>Specificare una curva chiusa per definire il contorno del terreno.</p>
+<p>Quando si usa l'algoritmo di triangolazione di Delaunay senza griglia, i contorni della superficie del terreno corrispondono a quelli della triangolazione ottenuta.<br/>
+
+Quando il terreno si genera elevando i punti di una griglia, i limiti della superficie del terreno vengono determinati dal rettangolo minimo che contiene la proiezione in pianta di tutte le curve di input e i punti.</p>
+
+<p><strong>Procedimento:</strong></p>
+
+<ol>
+ <li>Scegliere un terreno.</li>
+ <li>Selezionare una <strong>curva chiusa</strong> per definire un nuovo contorno del terreno.</li>
+</ol>
+
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour.jpg" alt="Terreno esistente."/><br/>
+Il terreno esistente con la curva per definire il nuovo contorno.
+</p>
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour 2.jpg" alt="Il nuovo contorno del terreno."/><br/>
+Il terreno con il nuovo contorno nella vista Superiore.
+</p>
+<br clear="all" />
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Terrain Contour 3.jpg" alt="Il nuovo contorno del terreno."/><br/>
+Il terreno con il nuovo contorno nella vista Prospettica.
+</p>
+
+<p>Il nuovo contorno può essere rimosso utilizzando il comando <a href="Commands_laTerrainRemoveBoundary.html"><img src="../images/Icon/laTerrainRemoveBoundary.png" alt="Terreno &gt; Rimuovi contorno"/> laTerrenoRimuoviContorno</a> o dall'area di modifica relativa al terreno del <a href="Interface_Panel.html"><strong>pannello di modifica</strong></a> e dalla <a href="Interface_Properties.html"><strong>finestra di dialogo delle proprietà</strong></a>, nel pannello <em>Dati in input</em>, dopo la selezione del terreno.</p>

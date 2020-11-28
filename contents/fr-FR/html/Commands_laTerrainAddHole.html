@@ -1,0 +1,66 @@
+<h3>Ajouter un trou dans un terrain</h3>
+<div class="comDescr">
+	<div class="field"><strong>Où puis-je trouver cette commande ?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Clavier</a> : </div>
+	<div class="value keyboardCommand">laTerrainAjouterTrou</div>
+	
+	<div class="field">Icône : </div>
+	<div class="value icon"><img src="../images/Icon/laTerrainAddHole.png" alt="Terrain Ajouter un trou"/> clic gauche
+
+	</div>
+	
+	<div class="field">Barre d'outils : <a href="Interface_Toolbars.html#TerrainToolbar">Terrain de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Terrain Toolbar.png" alt="Commandes de terrains" usemap ="#TerrainToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu </a>: </div>
+	<div class="value menu">Lands Design &gt; Modélisation de terrain &gt; Terrain &gt; Ajouter un trou</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Panneau d'édition </a>: </div>
+	<div class="value menu">Sélectionner un terrain &gt; Zone d'édition du panneau d'édition &gt; Terrain &gt; Ajouter un trou</div>
+</div>
+
+
+<p>Les trous sont des perforations dans le terrain, utilisées pour insérer une piscine, une mare, un lac, etc. Les trous sont calculés à partir d'une courbe fermée qui est utilisée pour marquer la zone supprimée. La position d'élévation de la courbe déterminera la profondeur du trou.</p>
+<p>Cette opération entraîne également une division du terrain à partir de la même courbe fermée, comme si vous utilisiez la commande <a href="Commands_laTerrainDivide.html">laTerrainDiviser</a>.</p>
+
+<p><strong>Étapes :</strong></p>
+
+<ol>
+ <li>Sélectionnez un <strong>terrain</strong>. Appuyez sur Entrée ou cliquez avec le bouton droit une fois terminé.</li>
+  <li>Sélectionnez une <strong>courbe fermée</strong>.</li>
+</ol>
+
+<p>Le trou sera créé dans le terrain.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Hole 1.jpg" alt="Terrain et courbe sélectionnés pour créer le trou"/><br/>
+Terrain et courbe sélectionnés pour créer le trou.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Hole 2.jpg" alt="Terrain avec le nouveau trou"/><br/>
+Terrain avec le nouveau trou.
+</p>
+
+<p><strong>Remarque </strong>: Le trou ne pourra pas être calculé si la courbe se trouve au-dessus du terrain sans le couper.</p>
+
+
+
+<a name="Parameters" />
+<h3>Paramètres</h3>
+
+<p>Les paramètres du trou peuvent être modifiés à partir de l'onglet <em>Données de départ</em> (dans la <a href="Interface_Panel.html#Properties">zone de propriétés du panneau d'édition</a> ou la <a href="Interface_Properties.html">boîte de dialogue des propriétés</a>), dans la liste <em>Terrassements</em>.</p>
+<ul>
+	<li><strong>Points de contrôle </strong>: option pour activer et désactiver les points de contrôle de la zone du trou (et de la subdivision).</li>
+</ul>
+
+<p>Les options et paramètres d'édition de la subdivision du terrain générée par cette commande sont les mêmes que pour la commande <a href="Commands_laTerrainDivide.html">laTerrainDiviser</a>.</p>
+
+
+<a name="ControlPoints" />
+<h3>Points de contrôle <img alt="Points de contrôle" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Les points de contrôle du trou généré dans le terrain permettent de modifier son élévation et la zone limite inférieure. Ce sont les mêmes que ceux des courbes utilisées pour l'opération. Les trous disposent également d'une flèche de contrôle du déplacement afin de déplacer la position du trou dans son ensemble.</p>
+<p>Ces points de contrôle sont intégrés dans le terrain et sont visibles lorsque les points de contrôle du terrain sont activés.</p>
+<p>Ils peuvent être désactivés à partir de l'onglet <em>Données de départ</em> (dans la <a href="Interface_Panel.html#Properties">zone de propriétés du panneau d'édition</a> ou la <a href="Interface_Properties.html">boîte de dialogue des propriétés</a>), après avoir sélectionné le trou, dans la liste <em>Terrassements</em>.</p>
+
+
+<p><strong>Remarque </strong>: les points de contrôle de la subdivision créée par un trou dépendent des points de contrôle de ce dernier, qu'ils soient activés ou non dans les paramètres de subdivision.</p>
+

@@ -1,0 +1,112 @@
+<h3>Panel de animación</h3>
+
+<div class="comDescr">
+	<div class="field"><strong>¿Dónde puedo encontrar este comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Teclado</a>: </div>
+	<div class="value keyboardCommand">laPanelAnimación</div>
+	
+	<div class="field">Icono: </div>
+	<div class="value icon"><img src="../images/Icon/laAnimationPanel.png" alt="Panel de animación"/> clic izquierdo
+
+	</div>
+	
+	<div class="field">Barra de herramientas: <a href="Interface_Toolbars.html#ToolsToolbar">Herramientas de Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Tools Toolbar.png" alt="Herramientas" usemap ="#ToolsToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menú</a>: </div>
+	<div class="value menu">Lands Design &gt; Panel de animación</div>
+</div>
+
+
+<p>La animación también es útil para realizar estudios sobre el movimiento del sol en el paisaje, incluida la simulación de cambios en la vegetación en el transcurso de los años o las estaciones.
+</p>
+
+
+<p>El <strong>Panel de animación</strong> de Lands es un panel acoplable que permite crear, reproducir y renderizar animaciones durante todo el proyecto.</p>
+<p>En el Panel de animación de Lands, puede:</p>
+<ul>
+	<li>Realizar estudios sobre el movimiento del sol en el paisaje.</li>
+	<li>Realizar estudios sobre la simulación de cambios de vegetación a lo largo de los años y durante las estaciones.</li>
+	<li>Ejecutar animaciones en todo el proyecto.</li>
+	<li>Grabar videos utilizando renderizados fotorrealistas o capturas de pantalla.</li>
+</ul>
+
+<p>El Panel de animación de Lands se divide en tres partes:</p>
+<ol>
+	<li><a href="Interface_AnimationPanel.html#Playback">Controles de reproducción</a></li>
+	<li><a href="Interface_AnimationPanel.html#Animation">Parámetros de animación</a></li>
+	<li><a href="Interface_AnimationPanel.html#Render">Opciones de renderizado</a></li>
+	
+</ol>
+
+
+<p class="figureWithDescription"><img src="../images/AnimationPanel.png" alt="Panel de animación de Lands Design"/><br/>
+Panel de animación de Lands.</p>
+
+<a name="Playback" />
+<h3>1. Controles de reproducción</h3>
+
+<p>Los controles de reproducción permiten previsualizar la animación antes de renderizarla. Las funciones disponibles son las típicas de todos los reproductores multimedia: Reproducir para iniciar/reanudar la animación, Detener para detener y volver al principio, y Pausa para detener y congelar la imagen.</p>
+<p>Es necesario establecer una trayectoria de cámara para activar los controles de reproducción. El reproductor respetará el modo de visualización de la vista.</p>
+<p></p>
+
+<a name="Animation" />
+<h3>2. Parámetros de animación</h3>
+<p>Esta área muestra los parámetros de animación agrupados en tres fichas diferentes, así como la configuración general de la animación.</p>
+
+<h4>General</h4>
+
+<ul>
+<li><strong>Guardar</strong>: introduzca un nombre para guardar los parámetros actuales o seleccione uno anterior para restaurarlo.</li>
+<li><strong>Fotograma/s</strong>: determina el número de imágenes por segundo que contiene la animación. Cuanto mayor sea el número de imágenes, mayor será la suavidad del movimiento (pero también será mayor el tiempo necesario para renderizar la animación).</li>
+<li><strong>Duración</strong>: especifica la duración de la animación. Si esta casilla no está marcada, la duración se calcula automáticamente según la configuración de Fotograma/s.</li>
+</ul>
+<p>La combinación del número de imágenes por segundo y la duración (expresada o calculada) dará como resultado una cantidad específica de imágenes para renderizar. El número resultante de imágenes y la duración según los valores introducidos se muestran en la parte inferior de esta área.</p>
+
+<h4><img src="../images/Camera.png" alt="Cámara"/>Cámara</h4>
+
+<ul>
+<li><strong>Posición</strong>:
+	<ul>
+		<li><strong>Punto fijo</strong>: la cámara permanecerá en la misma posición durante la animación. Haga clic en el botón de arriba para designar un punto en el modelo.</li>
+		<li><strong>Curva</strong>: la cámara se moverá a lo largo de una curva que definirá la trayectoria de la animación. Haga clic en el botón de arriba para seleccionar un camino en el modelo.</li>
+		
+	</ul>
+</li>
+
+<li><strong>Objetivo</strong>:
+	<ul>
+		<li><strong>Punto fijo</strong>: la cámara mirará a un punto fijo durante toda la animación. Haga clic en el botón de arriba para designar un punto de destino en el modelo.</li>
+		<li><strong>Curva</strong>: la cámara mirará a una curva durante la animación. Haga clic en el botón de arriba para seleccionar una curva de recorrido de destino en el modelo.</li>
+		<li><strong>Mirar hacia adelante</strong>: la cámara mirará siempre hacia delante a lo largo de curva de trayectoria.</li>
+	</ul>
+</li>
+
+<li><strong>Velocidad</strong>: define la velocidad a la que se moverá la cámara, calculada en kilómetros por hora. Este parámetro no se puede editar una vez especificada la duración de la animación. En este caso, Lands calculará la velocidad de la cámara necesaria para completar la trayectoria en el tiempo especificado.</li>
+<li><strong>Distancia focal</strong>: controla el ángulo de apertura de la cámara y se especifica en milímetros. Cuanto más corta sea la distancia focal, mayor será el campo de visión. Cuanto mayor sea la distancia focal, menor será el campo de visión que requeriría un mayor "zoom" del objetivo.</li>
+<li><strong>Guiñada, cabeceo y alabeo</strong>: especifica los ángulos de la rotación de la cámara a lo largo de sus ejes Z, X y Y respectivamente. Si se marca la opción <em>Mirar hacia adelante</em>, el usuario puede modificar libremente tres ángulos puesto que no hay un objetivo de cámara sobre el que forzar la vista. Sin embargo, cuando se especifica un objetivo de cámara, solo se puede aplicar el alabeo, la única rotación que no modifica la dirección del objetivo de la cámara.</li>
+</ul>
+
+
+<h4><img src="../images/Daylight.png" alt="Luz solar"/>Luz solar</h4>
+<p>Esta ficha permite aplicar movimiento del sol durante la animación. Haga clic en el botón <strong>Activar movimiento del sol</strong> para definir un día y una hora al inicio y al final de la animación.</p>
+
+<h4><img src="../images/Plants.png" alt="Planta"/>Planta</h4>
+<p>Esta ficha permite aplicar un cambio de estación, crecimiento de las plantas y simulación de viento durante la animación.</p>
+<ul>
+	<li><strong>Activar cambio de estacionalidad</strong>: la animación cambiará la representación de la planta de una estación a otra.</li>
+	<li><strong>Activar crecimiento de las plantas</strong>: los controles deslizantes representan un porcentaje de los valores de altura mínima y máxima de cada especie. La animación mostrará el crecimiento de las plantas de acuerdo con estos porcentajes.</li>
+	<li><strong>Activar viento</strong>: determina el efecto de la velocidad del viento durante la animación.</li>
+</ul>
+
+<a name="Render" />
+<h3>3. Opciones de renderizado</h3>
+<p>En esta área puede guardar las imágenes renderizadas de la animación y crear un video a partir de las imágenes.
+	<ul>
+		<li><strong>Botón Render</strong>: haga clic en este botón para reproducir y guardar la animación. Escriba un nombre para la animación en los <a href="Interface_AnimationPanel.html#Animation">Parámetros generales de la animación</a> y especifique una carpeta para las imágenes renderizadas.</li>
+		<li><strong>Renderizador</strong>: elija entre el modo de visualización de Rhino que tiene en la vista o el motor de renderizado que tiene en Rhino.</li>
+		<li><strong>Guardar en</strong>: elija la carpeta donde se guardarán las imágenes renderizadas y el vídeo (en formato <em>.avi</em>).</li>
+		<li><strong>Intervalo de fotogramas</strong>: seleccione <em>Toda</em> para renderizar toda la animación o seleccione un intervalo determinado de fotogramas.</li>
+	</ul>
+</p>
+<p><img src="../images/Icon/laImageFilters.png" alt="Filtros de imagen"/> <strong>Filtros de imagen</strong>: este botón ejecuta la aplicación <a href="Commands_laImageFilters.html">Filtros de imagen</a>, desde la que puede añadir uno o más filtros al resultado de la animación de vídeo.</p>

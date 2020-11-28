@@ -1,0 +1,158 @@
+<h3>Sentiero</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laSentiero</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro su <img src="../images/Icon/laPath.png" alt="Sentiero"/>
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#CivilWorkToolbar">Barra degli strumenti: Oggetti di Lands</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Civil Work Toolbar.png" alt="Comandi di ingegneria civile" usemap ="#CivilWorkToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Elementi strutturali &gt; Sentiero</div>
+</div>
+
+
+<p>In Lands Design, un sentiero &#xE8; un profilo estruso lungo un'asse.</p>
+
+<ul>
+	<li><a href="Commands_laPath.html#Insert">Inserire un sentiero.</a></li>
+	<li><a href="Commands_laPath.html#ControlPoints">Punti di controllo.</a></li>
+	<li><a href="Commands_laPath.html#Parameters">Opzioni e parametri di inserimento.</a></li>
+	<li><a href="Commands_laPath.html#Edit">Opzioni di modifica.</a></li>
+	<li><a href="Commands_laPath.html#Display">Visualizzazione grafica.</a></li>
+
+</ul>
+
+<a name="Insert" />
+<h3>Inserire un sentiero:</h3>
+<p>Dopo aver eseguito il comando <strong>laSentiero</strong>, appare la <a href="Interface_Dialog.html">finestra di dialogo di inserimento</a> del sentiero. Questa finestra mostra le opzioni di base dell'oggetto sentiero in due pannelli.</p>
+<ul>
+<li><a href="Commands_lasPath.html#Path">Sentiero</a>: parametri del sentiero.</li>
+<li><a href="Commands_laPath.html#Material">Materiale</a>: impostazioni del materiale per l'oggetto sentiero.</li>
+</ul>
+<p><strong>Procedimento:</strong></p>
+<ol>
+	<li>Selezionare il <strong>profilo di sezione</strong> del sentiero. &#xC8; gi&#xE0; assegnato di default un profilo rettangolare (di 3 x 0,2 metri). In alternativa, &#xE8; possibile selezionare una curva esistente nel modello (opzione <em>Seleziona</em>) o disegnarla nel modello (opzione <em>Specifica punto per punto</em>).</li>
+	<li>Selezionare gli altri <strong>parametri del sentiero</strong>. Fare clic su OK per chiudere la finestra di dialogo.</li>
+	<li>Selezionare una <strong>curva</strong> esistente nel modello per creare un sentiero oppure selezionare un'altra opzione sulla linea di comando.
+		<ul>
+			<li><strong>Polilinea</strong>: il sentiero viene creato come se fosse stata disegnata una polilinea.</li>
+			<li><strong>Spline</strong>: il sentiero viene creato come se fosse stata disegnata una spline.</li>
+			<li><strong>Cerchio</strong>: il sentiero viene creato come se fosse stato disegnato un cerchio. Il primo clic stabilisce il centro del cerchio, mentre il secondo il raggio.</li>
+			<li><strong>Arco</strong>: il sentiero viene creato come se fosse stato disegnato un arco. Il primo clic stabilisce il punto di inserimento, il secondo stabilisce un punto intermedio nell'arco e il terzo clic specifica il punto di fine dell'arco.</li>
+			<li><strong>Rettangolo</strong>: il sentiero viene creato come se fosse stato disegnato un rettangolo. Il primo clic stabilisce un angolo del rettangolo e il secondo l'angolo opposto.</li>
+		</ul>
+	</li>
+	<li>Premere Invio o Esc oppure dare clic con il tasto destro del mouse per terminare il comando.</li>
+</ol>
+
+<p><strong>Nota</strong>: assicurarsi che la curva selezionata come profilo di sezione del sentiero sia allineata con gli assi XY.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Path/Path Insert Dialog.png" alt="Finestra di dialogo di inserimento del sentiero."/><br/>
+Finestra di dialogo di inserimento dell'oggetto sentiero.
+</p><br/>
+
+<br clear="all" />
+<a name="ControlPoints" />
+<h3>Punti di controllo <img alt="Punti di controllo" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>Gli oggetti sentieri presentano tre diversi tipi di <em>punti di controllo</em>:</p>
+<ol>
+	<li><strong>Punti di controllo dell'asse del sentiero</strong>: si tratta degli stessi punti di controllo di quelli delle curve usate per creare i sentieri.</li>
+	<li><strong>Freccia di controllo dello spostamento</strong>: questa freccia si trova all'inizio dell'oggetto sentiero e viene usata per spostare l'intero oggetto.</li>
+	<li><strong>Punti di controllo del profilo di sezione</strong>: questi punti di controllo vengono usati per modificare il profilo di sezione del sentiero. Si tratta degli stessi punti di controllo di quelli delle curve usate per definire il profilo di sezione del sentiero. Si trovano all'inizio dell'oggetto sentiero.</li>
+</ol>
+<p>I punti di controllo del sentiero vengono attivati automaticamente durante la selezione individuale dei sentieri. Per attivare uno o pi&#xF9; punti di controllo dell'oggetto sentiero, basta selezionare i sentieri ed eseguire il comando <strong>PuntiOn</strong> o premere il tasto F10. Per disattivare i punti di controllo, premere il tasto Esc o eseguire il comando <strong>PuntiOff</strong>.</p>
+
+
+
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Path/Path Control Points.jpg" alt="Punti di controllo sui sentieri" /><br/>
+Punti di controllo sugli oggetti sentiero</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Opzioni e parametri di inserimento</h3>
+<p>Le opzioni e i parametri relativi all'inserimento dell'oggetto sentiero vengono divisi in vari pannelli e sono disponibili da diverse finestre di dialogo:</p>
+<ul>
+	<li><a href="Interface_Dialog.html">Finestra di dialogo di inserimento</a> del sentiero (disponibile solo durante l'inserimento di nuove sentieri).</li>
+	<li>Sezione sulle propriet&#xE0; del sentiero, sul <a href="Interface_Panel.html">pannello di modifica di Lands Design</a>.</li>
+	<li><a href="Interface_Properties.html">Finestra di dialogo delle propriet&#xE0; dell'oggetto</a> sentiero.</li>
+</ul>
+
+<h4>Generali</h4> 
+<p>Attributi generali per l'oggetto sentiero: <em>Nome</em>, <em>Colore</em>, <em>Livello</em>, <em>Codice</em> e<em>Parola chiave</em>.</p>
+
+<a name="Path" />
+<h4>Sentiero</h4> 
+	<ul>
+		<li><strong>Profilo di sezione</strong>: curve usate per definire il profilo di sezione del sentiero.</li>
+		<li><strong>Uniformit&#xE0;</strong>: la precisione dell'oggetto sentiero lungo la curva dell'asse per adattarsi al sentiero. Questo parametro &#xE8; importante solo quando l'oggetto sentiero &#xE8; stato creato da una curva.</li>
+		<li><strong>Giustificazione</strong>: segna la posizione del profilo di sezione del sentieri da cui questo viene estruso lungo la curva dell'asse de l sentiero. Esistono tre tipi di giustificazioni. Se non &#xE8; impostata <strong>nessuna</strong> giustificazione, viene mantenuto l'allineamento del sentiero lungo l'asse anche quando si apportano modifiche al profilo di sezione del sentiero.</li>
+		
+	</ul>
+	
+	
+<a name="Material" />
+<h4>Materiale</h4>
+<p>Questo pannello consente di cambiare l'immagine della texture assegnata a questo elemento e definirne le dimensioni e la riflettivit&#xE0;.</p>
+
+
+<a name="Edit" />
+<h3>Opzioni di modifica</h3>
+<p>Esistono opzioni di modifica per l'oggetto Sentiero, disponibili nell'<a href="Interface_Panel.html#Edit">area di modifica del pannello di modifica</a>:</p>
+<ul>
+	<li><img alt="Aggiorna" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Aggiorna</a></li>
+	<li><img alt="Converti in 2D" height="24" src="../images/Icon/laConvertTo2D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 2D</a>. Mostra l'oggetto in rappresentazione 2D.</li>
+	<li><img alt="Converti in 3D" height="24" src="../images/Icon/laConvertTo3D.png" width="24" /> <a href="Commands_laConvertTo.html">Converti in 3D</a>. Mostra l'oggetto in rappresentazione 3D.</li>
+	<li><a href="Commands_laConvertTo.html">Mostra in 2D e 3D</a>: attiva simultaneamente la rappresentazione 2D e 3D dell'oggetto. <em></em> </li>
+
+	<li><a href="Commands_laCopyFrom.html">Copia le propriet&#xE0; da un altro progetto</a></li>
+	<li><a href="Commands_laCopyToCurve.html">Copia su un'altra curva</a></li>
+	<li><a href="Commands_laReverseCurve.html">Inverti curva</a></li>
+	<li><a href="Commands_laExtractCurves.html">Estrai curva</a></li>
+	<li>Regola
+		<ul>
+		<li><img alt="laEleva" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevazione</a></li>
+		<li><img alt="laElevaAZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">A quota zero</a></li>
+		<li><img alt="laElevaATerreno" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">Al terreno</a></li>
+		</ul>
+	</li>
+	<li>Non regolare pi&#xF9; rispetto ai terreni</li>
+	<li>Sentiero
+		<ul>
+			<li>Modifica il profilo di sezione: questo comando posiziona un piano di costruzione allineato con il profilo di sezione del sentiero all'inizio dell'oggetto. Questo comando semplifica la modifica del profili del sentiero mediante punti di controllo. Eseguire il comando PianoC<em></em> (e selezionare <em>Superiore assoluta</em>) dalla linea di comando per ripristinare la posizione del piano di costruzione.</li>
+		</ul>
+	</li>
+	
+</ul>	
+	
+	
+<a name="Display" />
+<h3>Visualizzazione grafica del sentiero</h3>
+<p>L'oggetto sentiero offre rappresentazioni 2D e 3D simultanee sul modello.</p>
+
+<table>
+<tbody>
+	<tr>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Path/Path 2D.jpg" alt="Rappresentazione 2D del sentiero"/>
+ </div>
+		</td>
+		<td>
+			<div class="figureWithDescription block"><img src="../images/Commands/Path/Path 3D.jpg" alt="Rappresentazione 3D del sentiero"/>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" width="200px">2D</td>
+		<td align="center" width="200px">3D</td>
+	</tr>
+</tbody>
+ </table>

@@ -1,0 +1,127 @@
+<h3>Sprinkler Array</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laSprinklerArray</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laSprinklerArray.png" alt="SprinklerArray"/> left click
+
+	</div>
+	
+	<div class="field"><a href="Interface_Toolbars.html#DocumentationToolbar">Toolbar</a>: </div>
+	<div class="value toolbar"><img src="../images/Toolbar/Documentation Toolbar.png" alt="Irrigation commands in Documentation toolbar" usemap ="#DocumentationToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Irrigation system &gt; Sprinkler Array</div>
+</div>
+
+
+<p>The sprinkler array inserts an array of sprinklers that covers a specific 
+area. The area is defined with any type of closed curve: polyline, spline, 
+circle, etc.</p>
+
+<ul>
+	<li><a href="Commands_laSprinklerArray.html#Insert">Insert a sprinkler array</a></li>
+	<li><a href="Commands_laSprinklerArray.html#ControlPoints">Control points</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Parameters">Insert options and parameters</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Edit">Edit options</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Display">Graphical display</a></li>
+
+</ul>
+<a name="Insert" />
+<h3>Insert a sprinkler array</h3>
+<p>After running the <strong>laSprinklerArray</strong> command, the Sprinkler Array <a href="Interface_Dialog.html">insert dialog box</a> will appear. This dialog shows the basic options in two different tabs.</p>
+<ul>
+	<li><a href="Commands_laSprinklerArray.html#Sprinkler">Sprinkler</a></li>
+	<li><a href="Commands_laSprinklerArray.html#Array">Array</a></li>
+</ul>
+
+<p><strong>Steps:</strong></p>
+<ol>
+	<li>Select the <strong>Sprinkler</strong> parameters from the Sprinkler tab, and the <strong>Array</strong> parameters from the Array tab. Click OK to close the dialog.</li>
+	<li>Pick an existing <strong>curve</strong> in the model to define the sprinkler array boundary, or select a different option in the command line.
+		<ul>
+			<li><strong>Polyline</strong>: the boundary will be created as if you were drawing a polyline.</li>
+			<li><strong>Spline</strong>: the boundary will be created as if you were drawing a spline.</li>
+			<li><strong>Circle</strong>: the boundary will be created as if you were drawing a circle. The first click determines the 
+			center of the circle, and the second click determines the radius.</li>
+			<li><strong>Arc</strong>: the  boundary will be created as if you were drawing an arc. The first click determines the insert point. 
+			The second click determines a middle point in the arc. The third and last click determines where the arc ends.</li>
+			<li><strong>Rectangle</strong>: the boundary will be created as if you were drawing a rectangle. The first click determines one corner of the rectangle and the second click determines the opposite corner.</li>
+		</ul>
+	</li>
+	<li>Press <em>ENTER, ESC</em> or right-click to end the command.</li>
+</ol>
+
+<p class="figureWithDescription"><img src="../images/commands/Watering/Sprinkler Array Insert Dialog.png" alt="Insert dialog box for the Sprinkler Array object."/><br/>
+Insert dialog box for the Sprinkler Array object.
+</p><br/>
+
+<br clear="all" />
+
+<p><strong>Note</strong>: the sprinkler array is built as a grouped object. However, you can <em>ungroup</em> it with the <a href="Commands_laUngroup.html">Ungroup</a> command. In this case, you will get individual sprinkler entities and the "Array" capabilities will be lost.</p>
+
+<a name="ControlPoints" />
+<h3>Control points <img alt="Control Points" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>The Sprinkler Array object has the same <em>control points</em> as the curve used to generate it.</p>
+<p>In addition, it has a Move control arrow to move the whole object.</p>
+<p>To turn the sprinkler array control points on, run the <strong>PointsOn</strong> command (or press F10) and select the Sprinkler Array object. To turn its points off, press 
+the <em>ESC</em> button or run the <strong>PointsOff</strong> command.</p>
+
+
+<div class="figureWithDescription block"><img src="../images/Commands/Watering/Sprinkler Array Control Points.jpg" alt="Control points on a Sprinkler Array" /><br/>
+Control points on a Sprinkler Array</div>
+<br clear="all" />
+
+
+<a name="Parameters" />
+<h3>Insert options and parameters</h3>
+<p>The Sprinkler Array object insert options and parameters are divided in different tabs, and are available from different dialogs:</p>
+<ul>
+	<li>Sprinkler Array <a href="Interface_Dialog.html">insert dialog box</a> (only available when inserting new Sprinkler Array).</li>
+	<li>Sprinkler Array properties section, in the <a href="Interface_Panel.html">
+	Lands Design Edit panel</a>.</li>
+	<li><a href="Interface_Properties.html">Object Properties dialog</a>.</li>
+	<li><a href="Commands_laEdit.html">Properties Explorer dialog</a>.</li>
+</ul>
+
+<p>The <strong>General</strong> and <strong>Sprinkler</strong> tabs are common to the <a href="Commands_laSprinkler.html#Parameters">Sprinkler</a> object.</p>
+
+<a name="Array" />
+<h4>Array</h4> 
+<ul>
+	<li><strong>Distribution</strong>: the sprinklers can be distributed in a square or a 
+	triangle distribution.</li>
+	<li><strong>Distance between sprinklers</strong>: distance calculated as a percentage value of the sprinkler diameter.</li>
+</ul>
+
+
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the sprinkler array object, available in the <a href="Interface_Panel.html#Edit">Edit area of the Edit 
+panel</a>:</p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Update</a></li>
+	
+	<li>Copy properties from another object.</li>
+	<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+	<li>Sprinkler array
+		<ul>
+			<li>Add hole: command to subtract a boundary from the area of a sprinkler array</li>
+		</ul>
+	</li>
+</ul>
+
+<a name="Display" />
+<h3>Sprinkler Array graphical display:</h3>
+<p>The Sprinkler Array has the same <a href="Commands_laSprinkler.html#Display">graphical display</a> as sprinklers inserted individually.</p>
+

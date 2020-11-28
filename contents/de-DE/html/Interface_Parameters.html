@@ -1,0 +1,78 @@
+
+<h3>Parameter</h3>
+
+
+<p>Parameter werden verwendet, um Geometrie-Objekten Informationen hinzuzuf&#xFC;gen. Diese Objekte k&#xF6;nnen entweder Lands-Design-Elemente sein (Pflanzen. Z&#xE4;une, Pfade, Gel&#xE4;nde etc.) oder Rhino-Elemente (Punkte, Kurven, Fl&#xE4;chen, Fl&#xE4;chenverb&#xE4;nde, Extrusionen, Polygonnetze und Bl&#xF6;cke).</p>
+
+<p>Parameter k&#xF6;nnen auf zwei verschiedene Weisen erzeugt und bearbeitet werden:</p>
+<ul>
+<li><a href="Interface_Parameters.html#Document"><b><em>Nach Dokument</em></b></a></li>
+<li><a href="Interface_Parameters.html#Object"><b><em>Nach Objekt</em></b></a> einzeln</li>
+</ul>
+
+
+<p>Die vorhandenen Parameter sind f&#xFC;r jede Objekteinheit im Rhino-Eigenschaftenpanel
+<img alt="Rhino-Eigenschaftensymbol" src="../images/Rhino Properties.jpg" /> sichtbar, unter dem Parameter-Symbol <img alt="Parameter-Symbol" src="../images/Parameters.png" />, von wo aus die Werte hinzugef&#xFC;gt werden k&#xF6;nnen.</p> 
+
+<div class="figureWithDescription blockInline"><img src="../images/Commands/Parameter/Parameter in Properties Panel.png" alt="Parameter im Eigenschaftenpanel" /><br/>
+	Parameter im Eigenschaftenpanel</div>
+	<br clear="all" />
+
+<a name="Document" />
+<h3>Parameter nach Dokument</h3>
+<div class="comDescr">
+<div class="field"><strong>Wo befindet sich dieser Befehl?</strong></div>
+
+	<div class="field"><a href="Interface_Commands.html">Tastatur</a>: </div>
+	<div class="value keyboardCommand">Dokumenteigenschaften</div>
+
+	
+	<div class="field"><a href="Interface_Drop-down.html">Men&#xFC;</a>: </div>
+	<div class="value menu">Werkzeuge &gt; Optionen &gt; Dokumenteigenschaften &gt; Parameter</div>
+	
+</div>
+
+<p>Die Dokumentparameter werden im Dialog der Rhino-Dokumenteigenschaften &gt; Abschnitt Parameter verwaltet. Diese Parameter sind f&#xFC;r jedes einzelne Geometrie-Objekt im Modell verf&#xFC;gbar.</p>
+
+<p>Die vorhandenen Parameter werden in einer Liste mit ihrer jeweiligen <em>Kategorie</em> und <em>Werttyp</em> angezeigt.</p>
+
+<div class="figureWithDescription blockInline"><img src="../images/Commands/Parameter/Document Properties Parameters.png" alt="Abschnitt Parameter in den Rhino-Dokumenteigenschaften" /><br/>
+	Abschnitt Parameter in den Rhino-Dokumenteigenschaften</div>
+	<br clear="all" />
+	
+<ul>
+	<li><b>Hinzuf&#xFC;gen</b>: &#xF6;ffnet den <a href="Interface_Parameters.html#Dialog">Parameter-Eigenschaftendialog</a> um einen neuen Parameter zu erzeugen.</li>
+	<li><b>Bearbeiten</b>: &#xF6;ffnet den <a href="Interface_Parameters.html#Dialog">Parameter-Eigenschaftendialog</a> um einen aus der Liste ausgew&#xE4;hlten Parameter zu bearbeiten.</li>
+	<li><b>Entfernen</b>: entfernt einen ausgew&#xE4;hlten Parameter von der Liste.</li>
+</ul>
+
+<p>Die Information benutzerdefinierter Parameter, die Lands-Design-Elementen nach Dokument hinzugef&#xFC;gt wurde, kann mit Lands Designs <a href="Listing tools.html">Auflistungswerkzeugen</a> aufgelistet werden.</p>
+
+<a name="Object" />
+<h3>Parameter nach Objekt</h3>
+<p>Objektparameter sind diejenigen, die f&#xFC;r ein einzelnes Objekt gesondert verwaltet werden. Ihre Erzeugung, Bearbeitung und Entfernung erfolgt im Rhino-Eigenschaftenpanel
+<img alt="Rhino-Eigenschaftensymbol" src="../images/Rhino Properties.jpg" />, unter dem Parametersymbol <img alt="Parametersymbol" src="../images/Parameters.png" /> nach Auswahl eines beliebigen Objekttyps.</p>
+<p>
+<ul>
+	<li><img alt="Symbol Parameter hinzuf&#xFC;gen" src="../images/Parameter Add.png" /> &#xD6;ffnet den <a href="Interface_Parameters.html#Dialog">Parameter-Eigenschaftendialog</a>, damit Sie einen neuen Parameter erzeugen k&#xF6;nnen.</li> 
+	<li><img alt="Symbol Parameter bearbeiten" src="../images/Parameter Edit.png" /> &#xD6;ffnet den <a href="Interface_Parameters.html#Dialog">Parameter-Eigenschaftendialog</a>, damit Sie den Parameter bearbeiten k&#xF6;nnen. Sie m&#xFC;ssen den Namen des Parameters ausw&#xE4;hlen, um diese Schaltfl&#xE4;che zu aktivieren.</li> 
+	<li><img alt="Symbol Parameter l&#xF6;schen" src="../images/Parameter Delete.png" /> L&#xF6;scht einen vorhandenen Parameter. Sie m&#xFC;ssen den Namen des Parameters ausw&#xE4;hlen, um diese Schaltfl&#xE4;che zu aktivieren.</li> 	
+</ul>
+</p>
+<p><b>Hinweis</b>: <em>Name</em> und <em>Beschreibung</em> sind native Parameter und k&#xF6;nnen nicht bearbeitet werden.</p>
+
+
+<a name="Dialog" />
+<h3>Parameter-Eigenschaftendialog</h3>
+
+<div class="figureWithDescription blockInline"><img src="../images/Commands/Parameter/Create Parameter Dialog.png" alt="Parameter-Eigenschaftendialog" /><br/>
+	Parameter-Eigenschaftendialog</div>
+	<br clear="all" />
+	
+<ul>
+	<li><b>Name</b>: Name des Parameters.</li>
+	<li><b>Kategorie</b>: der Abschnitt, in dem die Parameter zu sehen sein werden. Sie k&#xF6;nnen entweder eine neue Kategorie eingeben oder eine der vorhandenen Kategorien ausw&#xE4;hlen (<em>Allgemein, Anzeige, Geometrie und Standort)</em>, zuz&#xFC;glich zu den eventuell erstellten neuen Kategorien.</li>
+	<li><b>Datentyp</b>: zeigt das Wertformat an. W&#xE4;hlen Sie eine der Optionen in der Liste aus.</li>
+	<li><b>Beschreibung</b>: Feld zum Hinzuf&#xFC;gen von Anmerkungen &#xFC;ber den Parameter.</li>
+</ul>
+

@@ -1,0 +1,62 @@
+<h3>Terreno &gt; Aggiungi sentiero</h3>
+<div class="comDescr">
+	<div class="field"><strong>Dove posso trovare questo comando?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Tastiera</a>: </div>
+	<div class="value keyboardCommand">laTerrenoAggiungiSentiero</div>
+	
+	<div class="field">Icona: </div>
+	<div class="value icon">Clic con il tasto sinistro su <img src="../images/Icon/laTerrainAddPath.png" alt="Terreno &gt; Aggiungi sentiero"/>
+
+	</div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Modellazione del terreno &gt; Terreno &gt; Aggiungi sentiero</div>
+	
+	<div class="field"><a href="Interface_Panel.html">Pannello di modifica</a>: </div>
+	<div class="value menu">Selezionare un terreno, l'area di modifica del pannello di modifica, quindi scegliere Terreno &gt; Aggiungi sentiero</div>
+</div>
+
+
+<p>Questo comando modifica la geometria del terreno per posizionare un sentiero.</p>
+<p>Questa operazione aggiunge anche una divisione al terreno dalla stessa curva di percorso, come accade con il comando <a href="Commands_laTerrainDivide.html">laTerrenoDividi</a>.</p>
+
+<p><strong>Procedimento:</strong></p>
+
+<ol>
+	<li>Scegliere un <strong>terreno</strong>. Premere Invio o fare clic con il tasto destro al termine.</li>
+	<li>Specificare la <strong>larghezza del sentiero</strong>.</li>
+	<li>Specificare un <strong>angolo</strong> di inclinazione all'interno dell'intervallo (da 5 a 85 gradi).</li>
+    <li>Selezionare la <strong>curva </strong> per definire l'itinerario del sentiero.</li>
+</ol>
+
+<p>Il terreno aggiunge e rimuove il volume del suolo necessario per coincidere con la posizione della curva, in base all'angolo di inclinazione specificato.</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Path 1.jpg" alt="Il terreno prima dell'operazione di aggiunta del sentiero"/><br/>
+Il terreno prima dell'operazione di aggiunta del sentiero.
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Terrain/Add Path 2.jpg" alt="Il terreno dopo dell'operazione di aggiunta del sentiero"/><br/>
+Il terreno dopo dell'operazione di aggiunta del sentiero.
+</p>
+
+<a name="Parameters" />
+<h3>Parametri</h3>
+
+<p>I parametri del sentiero del terreno possono essere modificati dal pannello <em>Dati in input</em> (nella <a href="Interface_Panel.html#Properties">sezione delle proprietà del pannello di modifica</a> o nella <a href="Interface_Properties.html">finestra di dialogo delle proprietà</a>), nell'elenco relativo al <em>movimento della Terra</em>.</p>
+<ul>
+	<li><strong>Punti di controllo</strong>: opzione che consente di attivare o disattivare i punti di controllo della zona del sentiero (e la suddivisione) .</li>
+	<li><strong>Larghezza del sentiero</strong>: la larghezza del sentiero centrata con la curva di percorso.</li>
+	<li><strong>Angolo di inclinazione</strong>: angolo in base a cui viene adattato il terreno attorno al limite del sentiero.</li>
+</ul>
+
+<p>Le opzioni e i parametri di modifica relativi alla suddivisione del terreno creata da questo comando sono gli stessi di quelli creati con il comando <a href="Commands_laTerrainDivide.html">laTerrenoDividi</a>.</p>
+
+
+<a name="ControlPoints" />
+<h3>Punti di controllo <img alt="Punti di controllo" height="26" src="../images/Points on.png" width="26" /></h3>
+<p>I punti di controllo del sentiero del terreno consentono di modificare l'elevazione e l'itinerario del sentiero. I punti di controllo del foro sono gli stessi di quelli delle curve usate per questa operazione. Inoltre, presenta una freccia di controllo dello spostamento per spostare l'intero sentiero.</p>
+<p>I punti di controllo si integrano nel terreno e sono visibili attivandoli.</p>
+<p>I punti di controllo possono essere modificati dal pannello <em>Dati in input</em> (nella <a href="Interface_Panel.html#Properties">sezione delle proprietà del pannello di modifica</a> o nella <a href="Interface_Properties.html">finestra di dialogo delle proprietà</a>), dopo la selezione del sentiero, nell'elenco relativo al <em>movimento della Terra</em>.</p>
+
+
+<p><strong>Nota</strong>: i punti di controllo della suddivisione creata da un sentiero dipendono dai punti di controllo di tali elementi, indipendentemente dalla loro attivazione nelle impostazioni di suddivisione.</p>

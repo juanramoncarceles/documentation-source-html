@@ -1,0 +1,73 @@
+<h3>Propriet&#xE0; del documento</h3>
+<p>Le propriet&#xE0; del documento influenzano solo il documento corrente e sono disponibili da due diverse opzioni:</p>
+
+<ul>
+<li><a href="Interface_Panel.html#Edit">Pannello di modifica &gt; sezione relativa alle propriet&#xE0;</a>, (quando non &#xE8; selezionato nessun oggetto).</li>
+<li>Opzioni di Rhino: Strumenti &gt; Opzioni &gt; Propriet&#xE0; del documento &gt; Lands Design &gt; Livelli.</li>
+</ul>
+
+Le propriet&#xE0; del documento sono organizzate in vari pannelli (pannello di modifica) o sezioni (nelle propriet&#xE0; del documento di Rhino):
+<ul>
+<li><a href="Interface_DocumentProperties.html#Document">Documento.</a></li>
+<li><a href="Interface_DocumentProperties.html#Layers">Livelli.</a></li>
+<li><a href="Interface_DocumentProperties.html#Geolocation">Geolocalizzazione.</a></li>
+<li><a href="Interface_DocumentProperties.html#Render">Rendering.</a></li>
+</ul>
+
+<a name="Document" />
+<h3>Documento</h3>
+
+<p>Questa sezione consente di scegliere le <a href="Commands_laPlant.html#Display">modalit&#xE0; di rappresentazione 2D e 3D delle piante</a> nel modello.</p>
+
+
+<p><strong>Billboard</strong></p>
+<p>Se la rappresentazione 3D della pianta &#xE8; impostata su <em>Realistica</em>, le piante vengono sostituite da rappresentazioni billboard in base alla loro distanza rispetto alla posizione dell'osservatore. La rappresentazione billboard non influenza le viste di rendering.</p>
+
+<p><strong>Stagione</strong></p>
+<p>Definisce la stagione attuale per il documento. Le piante vengono renderizzate in base a questa stagione, a meno che non sia stata selezionata un'impostazione diversa per ciascun elemento.</p>
+
+<p class="figureWithDescription"><img src="../images/Document Properties.png" alt="Propriet&#xE0; del documento"/><br />
+	Propriet&#xE0; del documento nel pannello di modifica.</p>
+<br clear="all" />
+
+
+<a name="Layers" />
+<h3>Livelli</h3>
+
+
+<p>Questo pannello mostra un elenco dei diversi tipi di elementi di Lands e il livello in cui sono stati creati al momento dell'inserimento nel modello. Dal gestore dei livelli, &#xE8; sostituire il livello assegnato con qualsiasi altro livello esistente nel documento.</p>
+<p>&#xC8; possibile cambiare solo il livello in cui viene creato un elemento di Lands, dopo aver inserito questo tipo di elemento per la prima volta in tale documento.</p>
+<p>Quando il livello &#xE8; impostato su <em>Nessuno</em>, l'oggetto viene creato nel livello corrente.</p>
+<p>Il nome dei livelli in cui viene creato ciascun tipo di oggetto pu&#xF2; essere modificato sul <a href="Interface_LandsDesignOptions.html#Layers">pannello dei livelli, nella finestra di dialogo delle opzioni di Lands</a>. </p>
+
+<p class="figureWithDescription"><img src="../images/Layer Properties.png" alt="Propriet&#xE0; dei livelli"/><br />
+	Pannello dei livelli nel pannello di modifica.</p>
+<br clear="all" />
+
+
+<a name="Geolocation" />
+<h3>Geolocalizzazione.</h3>
+
+<p>Questo pannello consente di definire l'origine delle coordinate (0,0,0) per il disegno tecnico del modello, specificando latitudine, longitudine ed elevazione. Pu&#xF2; inoltre essere modificato utilizzando il comando <em>PuntoAncoraggioTerra</em> o nelle  <em> opzioni di Rhino, in Propriet&#xE0; del documento &gt; Posizione</em>.</p>
+<p>I nuovi documenti non presentano una posizione specifica e ne ricevono una durante l'importazione di un terreno con il comando <a href="Commands_laEarthScan.html">laScansioneTerra</a> o quando i valori di geolocalizzazione vengono modificati manualmente.</p>
+
+
+<p class="figureWithDescription"><img src="../images/Geolocation.png" alt="Geolocalizzazione."/><br />
+	Pannello Geolocalizzazione sul pannello di modifica.</p>
+<br clear="all" />
+
+
+<a name="Render" />
+
+<h3>Rendering</h3>
+<p>Le propriet&#xE0; di rendering definiscono il modo in cui vengono renderizzate le specie vegetali.</p>
+<ul>
+<li><strong>Renderizza piante come mostrate nel disegno</strong>: le piante vengono renderizzate in base alla stagione globale impostata nel file o agli elementi vegetali del modello.</li>
+<li><strong>Crea piante molto dettagliate per il rendering</strong>: le piante vengono renderizzate in base all'aspetto legato alla stagione selezionata e in base all'opzione relativa alla <em>crescita</em>. La crescita massima corrisponde all'et&#xE0;/altezza attuale di ciascun esemplare vegetale del modello.</li>
+</ul>
+
+<p><strong>Assegna materiali con texture agli oggetti di Lands durante la loro creazione</strong>: gli oggetti sono pronti a un rendering veloce della scena.</p>
+
+<p class="figureWithDescription"><img src="../images/Render Properties.png" alt="Propriet&#xE0; di rendering"/><br />
+	Pannello delle propriet&#xE0; di rendering nel pannello di modifica.</p>
+<br clear="all" />

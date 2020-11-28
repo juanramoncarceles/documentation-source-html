@@ -1,0 +1,65 @@
+<h3>Plant Label Linking</h3>
+<div class="comDescr">
+	<div class="field"><strong>Where can I find this command?</strong></div>
+	<div class="field"><a href="Interface_Commands.html">Keyboard</a>: </div>
+	<div class="value keyboardCommand">laPlantLabelLinking</div>
+	
+	<div class="field">Icon: </div>
+	<div class="value icon"><img src="../images/Icon/laPlantLabelLinking.png" alt="Tag Plants Linking"/> left click
+
+	</div>
+	
+	<div class="field">Toolbar: <a href="Interface_Toolbars.html#PlantLabelToolbar">Lands Plant Label</a></div>
+	<div class="value toolbar"><img src="../images/Toolbar/Plant Label Toolbar.png" alt="Plant Label commands" usemap ="#PlantLabelToolbarMap" /></div>
+	
+	<div class="field"><a href="Interface_Drop-down.html">Menu</a>: </div>
+	<div class="value menu">Lands Design &gt; Documentation &gt; Plant Label &gt; Label Linking</div>
+</div>
+
+<p>The <strong>laPlantLabelLinking</strong> command inserts a <a href="Commands_laPlantLabel.html">2D plant label</a> displaying the information of a group of plants selected in the model (specimen quantity and plant species ID). A polyline links the plants selected with the label.</p>
+
+
+<p><strong>Steps:</strong></p>
+<ol>
+ <li>Select the <strong>plants</strong> to label in the order you wish to link them. (The plants selected must be of the same species).</li>
+ <li>Specify the <strong>insert point</strong> to place the plant label.</li>
+</ol>
+
+<p>The information in labels is displayed in two values:
+<ul>
+<li><strong>Left value</strong>: quantity of specimen units belonging to the same plant species.</li>
+<li><strong>Right value</strong>: plant species identification code (ID) according to the 
+plant list. This ID can be replaced by the initials of the plant species name by checking the
+<strong>Use Initials</strong> option, in the plant list properties.</li>
+</ul>
+</p>
+
+<p class="figureWithDescription"><img src="../images/commands/Plant Label/Tags Linking.jpg" alt="Plant tags linked"/><br/>
+Plant tags linked.
+</p>
+
+
+<a name="Edit" />
+<h3>Edit options</h3>
+<p>These are the edit options for the Plant label object, available in the <a href="Interface_Panel.html#Edit">Edit area of the Edit 
+panel</a>:</p>
+<ul>
+	<li><img alt="Update" height="24" src="../images/Icon/laUpdate.png" width="24" /> <a href="Commands_laUpdate.html">Update</a></li>
+	<li><a href="Commands_laCopyFrom.html">Copy properties from another object</a></li>
+		<li>Adjust
+		<ul>
+		<li><img alt="laElevate" height="24" src="../images/Icon/laElevate.png" width="24" /> <a href="Commands_laElevate.html">Elevation</a></li>
+		<li><img alt="laElevateToZero" height="24" src="../images/Icon/laElevateToZero.png" width="24" /> <a href="Commands_laElevateToZero.html">To zero elevation</a></li>
+		<li><img alt="laElevateToTerrain" height="24" src="../images/Icon/laElevateToTerrain.png" width="24" /> <a href="Commands_laElevateToTerrain.html">
+		To terrain</a></li>
+		</ul>
+	</li>
+	<li>Don't adjust to terrain</li>
+	<li>Plant label
+	<ul>
+		<li><img src="../images/Icon/laPlantLabelSelectPlants.png" alt="Plant Label Select Plants"/> <a href="Commands_laPlantLabelSelectPlants.html">Identify 
+		plants</a></li>
+		<li><img src="../images/Icon/laPlantLabelAddRemovePlants.png" alt="Add or Remove Plants"/> <a href="Commands_laPlantLabelAddRemovePlants.html">Add or 
+		remove plants to and from a label</a></li>
+	</ul></li>
+</ul>
