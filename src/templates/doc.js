@@ -4,7 +4,10 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const Doc = ({ data: { landsDesignDoc: doc } }) => {
+const Doc = ({
+  data: { landsDesignDoc: doc },
+  pageContext: { translations },
+}) => {
   return (
     <Layout>
       <SEO title={doc.name} />

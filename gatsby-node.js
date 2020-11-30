@@ -1,6 +1,4 @@
 const path = require(`path`);
-const { createContentDigest } = require("gatsby-core-utils");
-const { createFilePath } = require(`gatsby-source-filesystem`);
 const { slugify } = require("./src/utils");
 
 global.indexTree = {};
@@ -26,6 +24,7 @@ exports.onCreateNode = async ({
   createNodeId,
   getNode,
   actions,
+  createContentDigest,
 }) => {
   if (node.internal.type === "IndexXml") {
     const parent = getNode(node.parent);
@@ -120,20 +119,42 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   docs.forEach(doc => {
     const docName = doc.name.toLowerCase();
-    const pathObj = global.indexTree[doc.lang].find(
+    const docLang = doc.lang;
+    // Create an object with the links to the doc translations.
+    //   It would be better to create it above in 'onCreateNode' because it could be added
+    //   to the doc nodes, but to do this all the 'index.xml' nodes would have to be processed
+    //   before the html doc files, and I couldn't find a way to make this happen.
+    const translations = {};
+    for (const langCode in global.indexTree) {
+      if (docLang !== langCode) {
+        const translationPathObj = global.indexTree[langCode].find(
+          pathObj => pathObj.file.toLowerCase() === docName
+        );
+        if (translationPathObj) {
+          translations[langCode] = translationPathObj.path;
+        } else {
+          reporter.warn(
+            `No translation found for file ${docLang} "${doc.name}.html" in ${langCode}`
+          );
+        }
+      }
+    }
+    // The translations data is added to the page context to be used from the page.
+    const pathObj = global.indexTree[docLang].find(
       pathObj => pathObj.file.toLowerCase() === docName
     );
     if (pathObj) {
       createPage({
-        path: doc.lang + "/" + pathObj.path,
+        path: docLang + "/" + pathObj.path,
         component: path.resolve("./src/templates/doc.js"),
         context: {
           id: doc.id,
+          translations,
         },
       });
     } else {
       reporter.warn(
-        `Page "${doc.name}.html" ${doc.lang} could not be created since it doesn't appear in "index.xml" ${doc.lang}`
+        `Page "${doc.name}.html" ${docLang} could not be created since it doesn't appear in "index.xml" ${docLang}`
       );
     }
   });
