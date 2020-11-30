@@ -1,6 +1,4 @@
 const path = require(`path`);
-const { createContentDigest } = require("gatsby-core-utils");
-const { createFilePath } = require(`gatsby-source-filesystem`);
 const { slugify } = require("./src/utils");
 
 global.indexTree = {};
@@ -26,6 +24,7 @@ exports.onCreateNode = async ({
   createNodeId,
   getNode,
   actions,
+  createContentDigest,
 }) => {
   if (node.internal.type === "IndexXml") {
     const parent = getNode(node.parent);
@@ -120,12 +119,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   docs.forEach(doc => {
     const docName = doc.name.toLowerCase();
-    const pathObj = global.indexTree[doc.lang].find(
+    const docLang = doc.lang;
+    const pathObj = global.indexTree[docLang].find(
       pathObj => pathObj.file.toLowerCase() === docName
     );
     if (pathObj) {
       createPage({
-        path: doc.lang + "/" + pathObj.path,
+        path: docLang + "/" + pathObj.path,
         component: path.resolve("./src/templates/doc.js"),
         context: {
           id: doc.id,
@@ -133,7 +133,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
     } else {
       reporter.warn(
-        `Page "${doc.name}.html" ${doc.lang} could not be created since it doesn't appear in "index.xml" ${doc.lang}`
+        `Page "${doc.name}.html" ${docLang} could not be created since it doesn't appear in "index.xml" ${docLang}`
       );
     }
   });
