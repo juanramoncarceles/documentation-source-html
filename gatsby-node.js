@@ -120,6 +120,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   docs.forEach(doc => {
     const docName = doc.name.toLowerCase();
     const docLang = doc.lang;
+    // Create an object with the links to the doc translations.
+    //   It would be better to create it above in 'onCreateNode' because it could be added
+    //   to the doc nodes, but to do this all the 'index.xml' nodes would have to be processed
+    //   before the html doc files, and I couldn't find a way to make this happen.
+    const translations = {};
+    for (const langCode in global.indexTree) {
+      if (docLang !== langCode) {
+        const translationPathObj = global.indexTree[langCode].find(
+          pathObj => pathObj.file.toLowerCase() === docName
+        );
+        if (translationPathObj) {
+          translations[langCode] = translationPathObj.path;
+        } else {
+          reporter.warn(
+            `No translation found for file ${docLang} "${doc.name}.html" in ${langCode}`
+          );
+        }
+      }
+    }
+    // The translations data is added to the page context to be used from the page.
     const pathObj = global.indexTree[docLang].find(
       pathObj => pathObj.file.toLowerCase() === docName
     );
@@ -129,6 +149,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: path.resolve("./src/templates/doc.js"),
         context: {
           id: doc.id,
+          translations,
         },
       });
     } else {
