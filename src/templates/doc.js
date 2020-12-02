@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Index from "../components/index";
 
 const Doc = ({
   data: { landsDesignDoc: doc },
@@ -11,6 +12,7 @@ const Doc = ({
   return (
     <Layout>
       <SEO title={doc.name} />
+      <Index lang={"es-es"} />
       <div dangerouslySetInnerHTML={{ __html: doc.htmlContent }} />
     </Layout>
   );
