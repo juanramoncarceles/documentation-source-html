@@ -3,6 +3,8 @@ const { slugify } = require("./src/utils");
 
 global.indexTree = {};
 
+const docsIndexes = {};
+
 /**
  * @param {Array} arr The original array with the data.
  * @param {string} bPath The base path, if none empty string.
@@ -18,6 +20,26 @@ function createArrayOfPathObjs(arr, bPath, finalArr) {
   }
 }
 
+/**
+ * Creates the tree of items of a pages index.
+ * @param {Array} arr The original array with the data.
+ * @param {string} bPath The base path, if none empty string.
+ * @param {Array} finalArr The array that will store the output.
+ */
+function createStructureOfItems(arr, bPath, finalArr) {
+  for (let i = 0; i < arr.length; i++) {
+    const path = bPath + "/" + slugify(arr[i].attributes.title);
+    finalArr.push({
+      label: arr[i].attributes.title,
+      url: path + "/",
+      items: [],
+    });
+    if (arr[i].children) {
+      createStructureOfItems(arr[i].children, path, finalArr[i].items);
+    }
+  }
+}
+
 exports.onCreateNode = async ({
   node,
   loadNodeContent,
@@ -26,6 +48,8 @@ exports.onCreateNode = async ({
   actions,
   createContentDigest,
 }) => {
+  const { createNode } = actions;
+
   if (node.internal.type === "IndexXml") {
     const parent = getNode(node.parent);
     const langCode = parent.relativeDirectory.toLowerCase();
@@ -61,14 +85,55 @@ exports.onCreateNode = async ({
         global.indexTree[langCode].push(...pathObjects);
       }
     }
+
+    /****************** Creation of the 'docs index' nodes ******************/
+
+    // Creation of a data structure with all the subitems of the current top
+    // level index item (the current node).
+    const indexItemSubitems = [];
+    if (node.xmlChildren.length) {
+      createStructureOfItems(
+        node.xmlChildren,
+        slugify(node.attributes.title),
+        indexItemSubitems
+      );
+    }
+
+    const indexTopLevelItem = {
+      // TODO Pass also the attr.file in lowercase to use as id or react key in the DOM?
+      label: node.attributes.title,
+      url: `${slugify(node.attributes.title)}/`,
+      items: indexItemSubitems,
+    };
+
+    // Temporarily stored until all of the items of the same language have been
+    // processed and are ready to be used to create an index node.
+    if (docsIndexes.hasOwnProperty(langCode)) {
+      docsIndexes[langCode].push(indexTopLevelItem);
+    } else {
+      docsIndexes[langCode] = [indexTopLevelItem];
+    }
+
+    // If all the top level index items for that language have been processed
+    // then create the parent 'docs index' node that will contain them.
+    if (docsIndexes[langCode].length >= parent.children.length) {
+      const docsIndexId = createNodeId(langCode + "docsIndex");
+      createNode({
+        id: docsIndexId,
+        lang: langCode,
+        internal: {
+          type: "docsIndex",
+          contentDigest: createContentDigest(docsIndexes[langCode]),
+        },
+        items: docsIndexes[langCode],
+      });
+    }
   }
 
   // Creation of the HTML doc nodes.
   // TODO Add extra check of sourceInstanceName === 'doc'
   if (node.internal.type !== "File" || node.internal.mediaType !== "text/html")
     return;
-
-  const { createNode } = actions;
 
   // Regular expression to match the lang directory name.
   const langRegexp = /^(?<lang>[^/]+)\//;

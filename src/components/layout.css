@@ -595,3 +595,8 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+/* Temporary style */
+.active-index-item {
+  color: red;
+}
