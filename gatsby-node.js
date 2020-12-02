@@ -62,7 +62,7 @@ exports.onCreateNode = async ({
       // Add the base path object to the existing array.
       global.indexTree[langCode].push(baseNodePathObj);
       // Then add all the children if they exist.
-      if (node.xmlChildren) {
+      if (node.xmlChildren.length) {
         const pathObjects = [];
         createArrayOfPathObjs(
           node.xmlChildren,
@@ -75,7 +75,7 @@ exports.onCreateNode = async ({
       // Create the new array and start adding the base path object.
       global.indexTree[langCode] = [baseNodePathObj];
       // Then add all the children if they exist.
-      if (node.xmlChildren) {
+      if (node.xmlChildren.length) {
         const pathObjects = [];
         createArrayOfPathObjs(
           node.xmlChildren,
