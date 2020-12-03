@@ -13,7 +13,10 @@ const Doc = ({
     <Layout>
       <SEO title={doc.name} />
       <Index lang={"es-es"} />
-      <div dangerouslySetInnerHTML={{ __html: doc.htmlContent }} />
+      <div
+        dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
+        className="p-4"
+      />
     </Layout>
   );
 };

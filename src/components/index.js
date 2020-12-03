@@ -41,7 +41,7 @@ const Index = ({ lang }) => {
   };
 
   return (
-    <nav>
+    <nav className="w-64 border-r">
       <h3>Index</h3>
       {getIndexDataByLang(lang) ? (
         <ul>
