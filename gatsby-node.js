@@ -147,6 +147,9 @@ exports.onCreateNode = async ({
   // Read the raw html content.
   const htmlContent = await loadNodeContent(node);
 
+  // Here could be added the process to look for image src in the htmlContent string with a regex
+  // and look for / query the corresponding image file by relative directory to set the new static url.
+
   // Set up the new Lands Design Doc node.
   const htmlNode = {
     id: createNodeId(node.relativePath),
