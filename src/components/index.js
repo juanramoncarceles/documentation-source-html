@@ -37,7 +37,7 @@ const Index = ({ lang }) => {
 
   const getIndexDataByLang = lang => {
     const indexObj = indexes.find(index => index.lang === lang);
-    return indexObj ? indexObj.items : undefined;
+    return indexObj && indexObj.items;
   };
 
   return (
