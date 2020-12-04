@@ -204,6 +204,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     //   It would be better to create it above in 'onCreateNode' because it could be added
     //   to the doc nodes, but to do this all the 'index.xml' nodes would have to be processed
     //   before the html doc files, and I couldn't find a way to make this happen.
+    //   Maybe it could be done above waiting for the type 'LandsDesignDoc' to pass again at the end.
     const translations = {};
     for (const langCode in global.indexTree) {
       if (docLang !== langCode) {
