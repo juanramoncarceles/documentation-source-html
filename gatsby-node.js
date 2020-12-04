@@ -5,6 +5,8 @@ global.indexTree = {};
 
 const docsIndexes = {};
 
+const imagesData = [];
+
 /**
  * @param {Array} arr The original array with the data.
  * @param {string} bPath The base path, if none empty string.
@@ -49,6 +51,17 @@ exports.onCreateNode = async ({
   createContentDigest,
 }) => {
   const { createNode } = actions;
+  // Add the data about the doc image files to be used later when creating
+  // the html doc nodes.
+  if (
+    node.sourceInstanceName === "docImages" &&
+    node.internal.mediaType?.startsWith("image/")
+  ) {
+    imagesData.push({
+      relativePath: node.relativePath,
+      id: node.children[0], // id of the corresponding imageSharp to use later with getNode(id)
+    });
+  }
 
   if (node.internal.type === "IndexXml") {
     const parent = getNode(node.parent);
@@ -147,8 +160,7 @@ exports.onCreateNode = async ({
   // Read the raw html content.
   const htmlContent = await loadNodeContent(node);
 
-  // Here could be added the process to look for image src in the htmlContent string with a regex
-  // and look for / query the corresponding image file by relative directory to set the new static url.
+  // TODO Here could be added the process to replace the img src.
 
   // Set up the new Lands Design Doc node.
   const htmlNode = {

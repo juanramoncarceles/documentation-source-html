@@ -40,13 +40,6 @@ module.exports = {
     },
     `gatsby-transformer-xml`,
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "doc",
-        path: `${__dirname}/contents`,
-      },
-    },
-    {
       resolve: `gatsby-transformer-rehype`,
       options: {
         filter: node => node.internal.type === `LandsDesignDoc`,
@@ -55,19 +48,15 @@ module.exports = {
         space: `html`,
         emitParseErrors: false,
         verbose: false,
-        plugins: [
-          {
-            resolve: `gatsby-rehype-inline-images`,
-            // all options are optional and can be omitted
-            options: {
-              // all images larger are scaled down to maxWidth (default: maxWidth = imageWidth)
-              // maxWidth: 2000,
-              withWebp: true,
-              // disable, if you need to save memory
-              useImageCache: true,
-            },
-          },
-        ],
+        plugins: [],
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "doc",
+        path: `${__dirname}/contents`,
+        //ignore: [`**/*.jpg`, `**/*.png`, `**/*.gif`, `**/*.xml`],
       },
     },
     `gatsby-plugin-postcss`,
