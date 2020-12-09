@@ -2,7 +2,11 @@ const path = require(`path`);
 const { fluid } = require(`gatsby-plugin-sharp`);
 const { slugify } = require("./src/utils");
 
-global.indexTree = {};
+/**
+ * Stores a key for each lang code, and in each one an array of objects with
+ * file name and its correspongin path for the page url.
+ */
+const indexTree = {};
 
 const docsIndexes = {};
 
@@ -89,9 +93,9 @@ exports.onCreateNode = async ({
       file: node.attributes.file,
       path: `${slugify(node.attributes.title)}/`,
     };
-    if (global.indexTree.hasOwnProperty(langCode)) {
+    if (indexTree.hasOwnProperty(langCode)) {
       // Add the base path object to the existing array.
-      global.indexTree[langCode].push(baseNodePathObj);
+      indexTree[langCode].push(baseNodePathObj);
       // Then add all the children if they exist.
       if (node.xmlChildren.length) {
         const pathObjects = [];
@@ -100,11 +104,11 @@ exports.onCreateNode = async ({
           slugify(node.attributes.title),
           pathObjects
         );
-        global.indexTree[langCode].push(...pathObjects);
+        indexTree[langCode].push(...pathObjects);
       }
     } else {
       // Create the new array and start adding the base path object.
-      global.indexTree[langCode] = [baseNodePathObj];
+      indexTree[langCode] = [baseNodePathObj];
       // Then add all the children if they exist.
       if (node.xmlChildren.length) {
         const pathObjects = [];
@@ -113,7 +117,7 @@ exports.onCreateNode = async ({
           slugify(node.attributes.title),
           pathObjects
         );
-        global.indexTree[langCode].push(...pathObjects);
+        indexTree[langCode].push(...pathObjects);
       }
     }
 
@@ -252,9 +256,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     //   before the html doc files, and I couldn't find a way to make this happen.
     //   Maybe it could be done above waiting for the type 'LandsDesignDoc' to pass again at the end.
     const translations = {};
-    for (const langCode in global.indexTree) {
+    for (const langCode in indexTree) {
       if (docLang !== langCode) {
-        const translationPathObj = global.indexTree[langCode].find(
+        const translationPathObj = indexTree[langCode].find(
           pathObj => pathObj.file.toLowerCase() === docName
         );
         if (translationPathObj) {
@@ -267,7 +271,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
     // The translations data is added to the page context to be used from the page.
-    const pathObj = global.indexTree[docLang].find(
+    const pathObj = indexTree[docLang].find(
       pathObj => pathObj.file.toLowerCase() === docName
     );
     if (pathObj) {
