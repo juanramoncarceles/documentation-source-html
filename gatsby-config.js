@@ -21,7 +21,7 @@ module.exports = {
       options: {
         name: `docImages`,
         path: `${__dirname}/contents`,
-        ignore: [`**/common`, `**/*.html`, `**/*.xml`],
+        ignore: [`**/*.html`, `**/*.xml`],
       },
     },
     `gatsby-transformer-sharp`,
