@@ -1,9 +1,25 @@
 const path = require(`path`);
+const { fluid } = require(`gatsby-plugin-sharp`);
 const { slugify } = require("./src/utils");
 
 global.indexTree = {};
 
 const docsIndexes = {};
+
+const imagesData = [];
+
+// Regexp to match the src attr of images in the original HTML files.
+const imgSrcRegex = /<\s*img\s[^>]*?src\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/gi;
+
+// Image extensions supported by Image Sharp.
+const supportedExtensions = {
+  jpeg: true,
+  jpg: true,
+  png: true,
+  webp: true,
+  tif: true,
+  tiff: true,
+};
 
 /**
  * @param {Array} arr The original array with the data.
@@ -47,8 +63,23 @@ exports.onCreateNode = async ({
   getNode,
   actions,
   createContentDigest,
+  reporter,
+  cache,
 }) => {
   const { createNode } = actions;
+  // Add the data about the doc image files to be used later when creating
+  // the html doc nodes.
+  if (
+    node.sourceInstanceName === "docImages" &&
+    node.internal.mediaType?.startsWith("image/") &&
+    supportedExtensions[node.extension]
+  ) {
+    let fluidResult = await fluid({ file: node, args: {}, reporter, cache });
+    imagesData.push({
+      relativePath: node.relativePath.toLowerCase(),
+      src: fluidResult.src,
+    });
+  }
 
   if (node.internal.type === "IndexXml") {
     const parent = getNode(node.parent);
@@ -147,15 +178,45 @@ exports.onCreateNode = async ({
   // Read the raw html content.
   const htmlContent = await loadNodeContent(node);
 
+  // Process to replace the images src in the source HTML.
+  const processedHtml = htmlContent.replace(imgSrcRegex, (match, p1) => {
+    const lowerCaseSrc = p1.trim().toLowerCase();
+    if (lowerCaseSrc.startsWith("../images/")) {
+      const pathWithLang = lowerCaseSrc.replace("../", lang + "/");
+      const imageData = imagesData.find(
+        image => image.relativePath === pathWithLang
+      );
+      if (imageData) {
+        return match.replace(p1, imageData.src);
+      } else {
+        // If here means that the image is not language specific and could be in the common folder.
+        const pathWithCommon = lowerCaseSrc.replace("../", "common/");
+        const imageData = imagesData.find(
+          image => image.relativePath === pathWithCommon
+        );
+        if (imageData) {
+          return match.replace(p1, imageData.src);
+        } else {
+          reporter.warn(
+            `No src replaced for "${p1}", check the image in ${node.relativePath}`
+          );
+          return match;
+        }
+      }
+    } else {
+      reporter.info("Skiped image with src: " + p1);
+    }
+  });
+
   // Set up the new Lands Design Doc node.
   const htmlNode = {
     id: createNodeId(node.relativePath),
-    htmlContent: htmlContent,
+    htmlContent: processedHtml,
     name: node.name, // The file's name. TODO call this originalName and set name as the name in lang?
     lang,
     internal: {
       type: "LandsDesignDoc",
-      contentDigest: createContentDigest(htmlContent),
+      contentDigest: createContentDigest(processedHtml),
     },
   };
 
@@ -171,7 +232,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allLandsDesignDoc: { nodes: docs },
     },
   } = await graphql(`
-    query MyQuery {
+    query {
       allLandsDesignDoc {
         nodes {
           id

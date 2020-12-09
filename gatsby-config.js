@@ -4,6 +4,9 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -11,6 +14,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `docImages`,
+        path: `${__dirname}/contents`,
+        ignore: [`**/*.html`, `**/*.xml`],
       },
     },
     `gatsby-transformer-sharp`,
@@ -29,10 +40,23 @@ module.exports = {
     },
     `gatsby-transformer-xml`,
     {
+      resolve: `gatsby-transformer-rehype`,
+      options: {
+        filter: node => node.internal.type === `LandsDesignDoc`,
+        source: node => node.htmlContent, // Where the HTML is located in the LandsDesignDoc node.
+        fragment: true,
+        space: `html`,
+        emitParseErrors: false,
+        verbose: false,
+        plugins: [],
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "doc",
         path: `${__dirname}/contents`,
+        //ignore: [`**/*.jpg`, `**/*.png`, `**/*.gif`, `**/*.xml`],
       },
     },
     `gatsby-plugin-postcss`,
