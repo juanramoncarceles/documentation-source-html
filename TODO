@@ -1,75 +1,47 @@
-☐ Process anchor elements in HTML doc files to point to the right urls.
+BUGS:
+  ☐ Process anchor elements in HTML doc files to point to the right urls. @high 
+  ☐ Process 'index.xml' titles to remove HTML entitites?
+    In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
 
-☐ Maybe process 'index.xml' titles to remove HTML entitites?
 
-☐ Add extra check of sourceInstanceName === 'doc' to the nodes processed in gatsby-node.
+CHANGES:
+  ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
+  ☐ Home page should be the same as the doc.js template but with the first item set (which is the Introduction page).
 
-☐ Change the indexTree variable in gatsby-node to not be global but only for that file with const indexTree = {}
 
-☐ Language switcher.
-
-☐ Add search.
-
-☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem.
-
-☐ Add also an index for the page anchor/sections if any. Like in the tailwind docs pages.
-  Use the rehype which gives the 'tableOfContents' based on the headers of the doc.
+FEATURES:
+  ☐ Language switcher. @high
+  ☐ Search bar.
+  ☐ Add an index for the page anchor/sections if any. Like in the Tailwind docs pages.
+    Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
 
 
 IMAGES:
-  ☐ Paths to images are wrong.
+  ☐ For image extensions that are not supported by Sharp like gif they should be just copied into the public folder like in the rehype-images plugin.
 
-  The <img> in the HTML will have a src like: ../images/Toolbar/Civil Work Toolbar.png
-  Or find them in the AST.
+  ☐ Images are working, but currently their sources are replaced using a regular expression, if there are problems use an AST instead.
+    Since the rehype plugin has been added, the replacement could be done in the AST of the HTML that it provides. Similar to its image plugin
+    https://github.com/styxlab/gatsby-theme-try-ghost/blob/master/packages/gatsby-rehype-inline-images/src/gatsby-node.js
 
-  Then also knowing the 'lang' of the HTML it could be used to look for it in the imagesData array.
+    It could be done when the LandsDesignDoc node passes, since it would have the field 'childHtmlRehype.htmlAst'.
+    Another options is to create the LandsDesignDoc nodes from the HtmlRehype nodes instead than the html (the Rehype nodes have a 'htmlAst' field).
 
-  1. Get all the image src in the HTML doc (either with regex or AST)
-  docImagesSrc = []
-  2. Loop through the src and for each one.
-  docImagesSrc.forEach(imageSrc => {
-    if (imageSrc.startsWith("../images/")) {
-      const pathWithLang = imageSrc.replace("../", "langCode/");
-      const imageData = imagesData.find(image => image.relativePath === pathWithLang)
-      if (imageData) {
-        const imageSharp = getNode(imageData.id);
-        const publicSrc = imageSharp.original.src;
-        // replace the original src with this one.
-      }
-    } else {
-      // log something like image with path ... could not be found not processed.
-  }
-  });
-
-  # Try first to render an example AST in React.
-  https://www.npmjs.com/package/react-ast/v/0.0.4
-
-  Es mejor reemplazar en el AST o en el string ?
-  Quizas la diferencia es que renderizar el AST permite usar componentnes de React y de la otra manera ha de ser HTML, lo cual lo complica para crear imágenes avanzadas.
-
-
-
-
-
-Para reemplazar se puede hacer cuando pasa el LandsDesignDoc acceder a su 'childHtmlRehype.htmlAst'
-o sino funciona hacerlo cuando pasa el HtmlRehype en su .htmlAst aunque el problema es que pasan dos veces.
-Quizas la mejor opción es crear los LandsDesignDoc en vez que desde el File text/html desde el HtmlRehype
-
-https://github.com/styxlab/gatsby-theme-try-ghost/blob/master/packages/gatsby-rehype-inline-images/src/gatsby-node.js
-
-Tambien se puede mirar como lo hace el de mdx y el de source wordpress
-  https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-images/src/index.js
-
-En vez de hacer
-  if (node.internal.type === "File" && node.internal.mediaType === "text/html") {
-    //...
-  }
-
-Sería  
-  if (node.internal.type === "HtmlRehype") {
-    const parent = getNode(node.parent);
-    if (parent.sourceInstanceName === doc) {
-      // hacer lo mismo que ahora
-      // y vigilar que no pasen dos veces como ahora...
+    // Instead of doing...
+    if (node.internal.type === "File" && node.internal.mediaType === "text/html") {
+      //...
     }
-  }
+  
+    // It would be...  
+    if (node.internal.type === "HtmlRehype") {
+      const parent = getNode(node.parent);
+      if (parent.sourceInstanceName === doc) {
+        // Same as now... and check that they only pass once...
+      }
+    }
+
+    Also it could be worth to check how the mdx plugin or the source wordpress are doing it, since they also use an AST from which image src are replaced
+    https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-images/src/index.js
+
+
+
+
