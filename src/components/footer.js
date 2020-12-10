@@ -2,10 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      © {new Date().getFullYear()}, Built with
-      {` `}
-      <a href="https://www.gatsbyjs.com">Gatsby</a>
+    <footer className="p-3 text-center text-white bg-gray-500">
+      © {new Date().getFullYear()}, Asuni Soft
     </footer>
   );
 };

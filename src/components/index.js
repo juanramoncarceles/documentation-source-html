@@ -42,7 +42,7 @@ const Index = ({ lang }) => {
 
   return (
     <nav className="w-64 border-r">
-      <h3>Index</h3>
+      {/* <h3 className="text-xl uppercase">Index</h3> */}
       {getIndexDataByLang(lang) ? (
         <ul>
           {getIndexDataByLang(lang).map(item => (

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active-index-item {
+  /* @apply font-bold text-green-600; */
+  font-weight: bold;
+  color: #70b570;
+}
