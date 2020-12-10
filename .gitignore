@@ -70,3 +70,6 @@ yarn-error.log
 
 # The actual source contents.
 contents/
+
+# A file to log.
+log.txt
