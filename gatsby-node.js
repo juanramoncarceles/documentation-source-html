@@ -166,65 +166,66 @@ exports.onCreateNode = async ({
   }
 
   // Creation of the HTML doc nodes.
-  // TODO Add extra check of sourceInstanceName === 'doc'
-  if (node.internal.type !== "File" || node.internal.mediaType !== "text/html")
-    return;
+  if (
+    node.sourceInstanceName === "doc" &&
+    node.internal.mediaType === "text/html"
+  ) {
+    // Regular expression to match the lang directory name.
+    const langRegexp = /^(?<lang>[^/]+)\//;
+    // 'relativeDirectory' would be something like: 'de-DE/html'
+    const match = langRegexp.exec(node.relativeDirectory);
+    let lang = "";
+    if (match && match.groups.lang) {
+      lang = match.groups.lang.toLowerCase();
+    }
 
-  // Regular expression to match the lang directory name.
-  const langRegexp = /^(?<lang>[^/]+)\//;
-  // 'relativeDirectory' would be something like: 'de-DE/html'
-  const match = langRegexp.exec(node.relativeDirectory);
-  let lang = "";
-  if (match && match.groups.lang) {
-    lang = match.groups.lang.toLowerCase();
-  }
+    // Read the raw html content.
+    const htmlContent = await loadNodeContent(node);
 
-  // Read the raw html content.
-  const htmlContent = await loadNodeContent(node);
-
-  // Process to replace the images src in the source HTML.
-  const processedHtml = htmlContent.replace(imgSrcRegex, (match, p1) => {
-    const lowerCaseSrc = p1.trim().toLowerCase();
-    if (lowerCaseSrc.startsWith("../images/")) {
-      const pathWithLang = lowerCaseSrc.replace("../", lang + "/");
-      const imageData = imagesData.find(
-        image => image.relativePath === pathWithLang
-      );
-      if (imageData) {
-        return match.replace(p1, imageData.src);
-      } else {
-        // If here means that the image is not language specific and could be in the common folder.
-        const pathWithCommon = lowerCaseSrc.replace("../", "common/");
+    // Process to replace the images src in the source HTML.
+    const processedHtml = htmlContent.replace(imgSrcRegex, (match, p1) => {
+      const lowerCaseSrc = p1.trim().toLowerCase();
+      if (lowerCaseSrc.startsWith("../images/")) {
+        const pathWithLang = lowerCaseSrc.replace("../", lang + "/");
         const imageData = imagesData.find(
-          image => image.relativePath === pathWithCommon
+          image => image.relativePath === pathWithLang
         );
         if (imageData) {
           return match.replace(p1, imageData.src);
         } else {
-          reporter.warn(
-            `No src replaced for "${p1}", check the image in ${node.relativePath}`
+          // If here means that the image is not language specific and could be in the common folder.
+          const pathWithCommon = lowerCaseSrc.replace("../", "common/");
+          const imageData = imagesData.find(
+            image => image.relativePath === pathWithCommon
           );
-          return match;
+          if (imageData) {
+            return match.replace(p1, imageData.src);
+          } else {
+            reporter.warn(
+              `No src replaced for "${p1}", check the image in ${node.relativePath}`
+            );
+            return match;
+          }
         }
+      } else {
+        reporter.info("Skiped image with src: " + p1);
       }
-    } else {
-      reporter.info("Skiped image with src: " + p1);
-    }
-  });
+    });
 
-  // Set up the new Lands Design Doc node.
-  const htmlNode = {
-    id: createNodeId(node.relativePath),
-    htmlContent: processedHtml,
-    name: node.name, // The file's name. TODO call this originalName and set name as the name in lang?
-    lang,
-    internal: {
-      type: "LandsDesignDoc",
-      contentDigest: createContentDigest(processedHtml),
-    },
-  };
+    // Set up the new Lands Design Doc node.
+    const htmlNode = {
+      id: createNodeId(node.relativePath),
+      htmlContent: processedHtml,
+      name: node.name, // The file's name. TODO call this originalName and set name as the name in lang?
+      lang,
+      internal: {
+        type: "LandsDesignDoc",
+        contentDigest: createContentDigest(processedHtml),
+      },
+    };
 
-  createNode(htmlNode);
+    createNode(htmlNode);
+  }
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
