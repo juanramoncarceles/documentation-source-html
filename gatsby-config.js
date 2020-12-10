@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Lands Design help`,
+    description: `Lands Design is a plugin for landscape design for Rhino and AutoCAD. Lands Design provides tools for producing 2D drawings and 3D models of any landscape project.`,
+    author: `Asuni Soft`,
   },
   flags: {
     PRESERVE_WEBPACK_CACHE: true,
