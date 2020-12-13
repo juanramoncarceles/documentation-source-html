@@ -10,7 +10,6 @@ CHANGES:
 
 
 FEATURES:
-  ☐ Language switcher. @high
   ☐ Search bar.
   ☐ Add an index for the page anchor/sections if any. Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
@@ -44,4 +43,5 @@ IMAGES:
 
 
 
-
+DONE:
+  ✔ Language switcher. @high @done(20-12-13 17:02)
