@@ -252,9 +252,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const docName = doc.name.toLowerCase();
     const docLang = doc.lang;
     // Create an object with the links to the doc translations.
-    //   It would be better to create it above in 'onCreateNode' because it could be added
-    //   to the doc nodes, but to do this all the 'index.xml' nodes would have to be processed
-    //   before the html doc files, and I couldn't find a way to make this happen.
+    //   It would be better to create it above in 'onCreateNode' because it could be added to the doc
+    //   nodes instead of adding it to the page context, but to do this all the 'index.xml' nodes would
+    //   have to be processed before the html doc files, and I couldn't find a way to make this happen.
     //   Maybe it could be done above waiting for the type 'LandsDesignDoc' to pass again at the end.
     const translations = {};
     for (const langCode in indexTree) {
@@ -263,7 +263,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           pathObj => pathObj.file.toLowerCase() === docName
         );
         if (translationPathObj) {
-          translations[langCode] = translationPathObj.path;
+          translations[langCode] = langCode + "/" + translationPathObj.path;
         } else {
           reporter.warn(
             `No translation found for file ${docLang} "${doc.name}.html" in ${langCode}`
@@ -271,13 +271,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     }
-    // The translations data is added to the page context to be used from the page.
+    // Gets the object with data (path and file name) about the current doc.
     const pathObj = indexTree[docLang].find(
       pathObj => pathObj.file.toLowerCase() === docName
     );
     if (pathObj) {
+      // The url for the current doc is first created and added to the translations object.
+      const pagePath = docLang + "/" + pathObj.path;
+      translations[docLang] = pagePath;
       createPage({
-        path: docLang + "/" + pathObj.path,
+        path: pagePath,
         component: path.resolve("./src/templates/doc.js"),
         context: {
           id: doc.id,

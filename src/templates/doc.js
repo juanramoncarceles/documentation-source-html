@@ -1,18 +1,30 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React, { useEffect } from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Index from "../components/index";
 
+import { useIntl } from "../contexts/IntlContext";
+
 const Doc = ({
   data: { landsDesignDoc: doc },
   pageContext: { translations },
 }) => {
+  const { setLang, setTranslations } = useIntl();
+  const lang = doc.lang;
+
+  useEffect(() => {
+    // TODO Those two methods probably will always be used together so could be "merged"
+    setLang(lang);
+    setTranslations(translations);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang, translations]);
+
   return (
     <Layout>
       <SEO title={doc.name} />
-      <Index lang={"es-es"} />
+      <Index lang={lang} />
       <div
         dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
         className="p-4"
