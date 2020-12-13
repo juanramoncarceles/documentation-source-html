@@ -1,21 +1,11 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import { navigate } from "gatsby";
 
-// TODO is it necessary to have an initial state?
-const initialState = {
-  locale: "en-us",
-  storeLang: () => {},
-  translations: {},
-};
-
-const IntlContext = createContext(initialState);
+const IntlContext = createContext();
 
 const IntlContextProvider = ({ children }) => {
-  const [lang, setLang] = useState(initialState.locale);
-  const [translations, setTranslations] = useState(initialState.translations);
-
-  console.log("LANG: ", lang);
-  console.log("TRANSLATIONS: ", translations);
+  const [lang, setLang] = useState("");
+  const [translations, setTranslations] = useState({});
 
   const storeLang = lang => {
     try {
@@ -33,7 +23,6 @@ const IntlContextProvider = ({ children }) => {
     if (Object.keys(translations).length > 0) {
       const lang = localStorage.getItem("lang");
       if (lang) {
-        console.log("EFFECT TRANSLATIONS ", `/${translations[lang]}`);
         navigate(`/${translations[lang]}`);
       } else {
         storeLang(lang);
@@ -54,4 +43,12 @@ const IntlContextProvider = ({ children }) => {
   );
 };
 
-export { IntlContext, IntlContextProvider };
+const useIntl = () => {
+  const context = useContext(IntlContext);
+  if (context === undefined) {
+    throw new Error("useIntl must be used within a IntlContextProvider");
+  }
+  return context;
+};
+
+export { IntlContextProvider, useIntl };

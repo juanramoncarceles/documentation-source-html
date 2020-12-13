@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
+/* eslint-disable jsx-a11y/no-onchange */
+
+import React from "react";
 import { navigate } from "gatsby";
 
-import { IntlContext } from "../contexts/IntlContext";
+import { useIntl } from "../contexts/IntlContext";
 
 // TODO fetch this from somewhere...
 const strings = {
@@ -13,7 +15,7 @@ const strings = {
 };
 
 const Language = () => {
-  const { lang, storeLang, translations } = useContext(IntlContext);
+  const { lang, storeLang, translations } = useIntl();
 
   /**
    * Creates the list of JSX options.

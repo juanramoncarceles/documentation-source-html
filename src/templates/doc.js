@@ -1,17 +1,17 @@
-import React, { useContext, useEffect } from "react";
-import { graphql, Link } from "gatsby";
+import React, { useEffect } from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Index from "../components/index";
 
-import { IntlContext } from "../contexts/IntlContext";
+import { useIntl } from "../contexts/IntlContext";
 
 const Doc = ({
   data: { landsDesignDoc: doc },
   pageContext: { translations },
 }) => {
-  const { setLang, setTranslations } = useContext(IntlContext);
+  const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
 
   useEffect(() => {
