@@ -1,5 +1,6 @@
 BUGS:
   ☐ Process anchor elements in HTML doc files to point to the right urls. @high 
+  ☐ Each page title should be the one translated. Currently it is the file name (which is always in eng and with underscores).
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
 
@@ -14,6 +15,7 @@ FEATURES:
   ☐ Search bar.
   ☐ Add an index for the page anchor/sections if any. Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
+  ☐ Make the index side bar resizable by dragging.
 
 
 IMAGES:
