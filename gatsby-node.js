@@ -2,6 +2,24 @@ const path = require(`path`);
 const { fluid } = require(`gatsby-plugin-sharp`);
 const { slugify } = require("./src/utils");
 
+// Temporary config that may change and be moved out of this file.
+const config = {
+  // homeFile: "Introduction", // Optional. If provided it should be a top level index.xml item, otherwise no page will be created at root url.
+};
+
+let firstAsHome = true;
+
+if (!config.hasOwnProperty("homeFile")) {
+  console.log("[Config] Using first file in index.xml files as home pages.");
+} else {
+  const file = config.homeFile;
+  if (file && typeof file === "string" && file.trim()) {
+    firstAsHome = false;
+  } else {
+    console.log("[Config] Not valid 'homeFile' value.");
+  }
+}
+
 /**
  * Stores a key for each lang code, and in each one an array of objects with
  * file name and its correspongin path for the page url.
@@ -27,15 +45,19 @@ const supportedExtensions = {
 
 /**
  * @param {Array} arr The original array with the data.
- * @param {string} bPath The base path, if none empty string.
  * @param {Array} finalArr A reference to the final array.
+ * @param {string} bPath Optional. Base path, ending slash will be added if not included.
  */
-function createArrayOfPathObjs(arr, bPath, finalArr) {
+function createArrayOfPathObjs(arr, finalArr, bPath = "") {
+  // In case a base path is provided without ending slash add it.
+  if (bPath && !bPath.endsWith("/")) {
+    bPath + "/";
+  }
   for (let i = 0; i < arr.length; i++) {
-    const path = bPath + "/" + slugify(arr[i].attributes.title);
-    finalArr.push({ file: arr[i].attributes.file, path: path + "/" });
+    const path = bPath + slugify(arr[i].attributes.title) + "/";
+    finalArr.push({ file: arr[i].attributes.file, path });
     if (arr[i].children) {
-      createArrayOfPathObjs(arr[i].children, path, finalArr);
+      createArrayOfPathObjs(arr[i].children, finalArr, path);
     }
   }
 }
@@ -43,19 +65,23 @@ function createArrayOfPathObjs(arr, bPath, finalArr) {
 /**
  * Creates the tree of items of a pages index.
  * @param {Array} arr The original array with the data.
- * @param {string} bPath The base path, if none empty string.
  * @param {Array} finalArr The array that will store the output.
+ * @param {string} bPath Optional. Base path, ending slash will be added if not included.
  */
-function createStructureOfItems(arr, bPath, finalArr) {
+function createStructureOfItems(arr, finalArr, bPath) {
+  // In case a base path is provided without ending slash add it.
+  if (bPath && !bPath.endsWith("/")) {
+    bPath + "/";
+  }
   for (let i = 0; i < arr.length; i++) {
-    const path = bPath + "/" + slugify(arr[i].attributes.title);
+    const path = bPath + slugify(arr[i].attributes.title) + "/";
     finalArr.push({
       label: arr[i].attributes.title,
-      url: path + "/",
+      url: path,
       items: [],
     });
     if (arr[i].children) {
-      createStructureOfItems(arr[i].children, path, finalArr[i].items);
+      createStructureOfItems(arr[i].children, finalArr[i].items, path);
     }
   }
 }
@@ -88,10 +114,15 @@ exports.onCreateNode = async ({
   if (node.internal.type === "IndexXml") {
     const parent = getNode(node.parent);
     const langCode = parent.relativeDirectory.toLowerCase();
-    // Create the base path object.
+    // The base path object with the file name and its corresponding url path.
     const baseNodePathObj = {
       file: node.attributes.file,
-      path: `${slugify(node.attributes.title)}/`,
+      // If the current index's item 'file' has been defined as home page in
+      // the config its path is set as the root.
+      path:
+        !firstAsHome && node.attributes.file === config.homeFile
+          ? ""
+          : slugify(node.attributes.title) + "/",
     };
     if (indexTree.hasOwnProperty(langCode)) {
       // Add the base path object to the existing array.
@@ -101,12 +132,16 @@ exports.onCreateNode = async ({
         const pathObjects = [];
         createArrayOfPathObjs(
           node.xmlChildren,
-          slugify(node.attributes.title),
-          pathObjects
+          pathObjects,
+          baseNodePathObj.path
         );
         indexTree[langCode].push(...pathObjects);
       }
     } else {
+      // If true the root/home page is created with the first file mentioned in the index.xml.
+      if (firstAsHome) {
+        baseNodePathObj.path = "";
+      }
       // Create the new array and start adding the base path object.
       indexTree[langCode] = [baseNodePathObj];
       // Then add all the children if they exist.
@@ -114,8 +149,8 @@ exports.onCreateNode = async ({
         const pathObjects = [];
         createArrayOfPathObjs(
           node.xmlChildren,
-          slugify(node.attributes.title),
-          pathObjects
+          pathObjects,
+          baseNodePathObj.path
         );
         indexTree[langCode].push(...pathObjects);
       }
@@ -129,15 +164,15 @@ exports.onCreateNode = async ({
     if (node.xmlChildren.length) {
       createStructureOfItems(
         node.xmlChildren,
-        slugify(node.attributes.title),
-        indexItemSubitems
+        indexItemSubitems,
+        baseNodePathObj.path
       );
     }
 
     const indexTopLevelItem = {
       // TODO Pass also the attr.file in lowercase to use as id or react key in the DOM?
       label: node.attributes.title,
-      url: `${slugify(node.attributes.title)}/`,
+      url: baseNodePathObj.path,
       items: indexItemSubitems,
     };
 
