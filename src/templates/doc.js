@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Index from "../components/index";
+import Footer from "../components/footer";
 
 import { useIntl } from "../contexts/IntlContext";
 
@@ -25,10 +26,13 @@ const Doc = ({
     <Layout>
       <SEO title={doc.name} />
       <Index lang={lang} />
-      <div
-        dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
-        className="p-4"
-      />
+      <div className="flex flex-col">
+        <div
+          dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
+          className="p-4 flex-grow"
+        />
+        <Footer />
+      </div>
     </Layout>
   );
 };

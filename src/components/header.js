@@ -5,7 +5,7 @@ import React from "react";
 import Language from "./language";
 
 const Header = ({ siteTitle }) => (
-  <header className="mb-6 bg-gray-200">
+  <header className="sticky top-0 z-40 h-20 bg-gray-200">
     <div className="mx-auto py-5 lg:w-11/12">
       <h2>
         <Link to="/">{siteTitle}</Link>
