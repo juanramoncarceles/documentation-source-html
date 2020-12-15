@@ -6,7 +6,8 @@ BUGS:
 
 CHANGES:
   ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
-  ☐ Home page should be the same as the doc.js template but with the first item set (which is the Introduction page).
+  ☐ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url.
+    An easy option is to create two identical home pages, one with the locale an another without.
 
 
 FEATURES:
