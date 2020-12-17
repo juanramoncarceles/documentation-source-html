@@ -24,7 +24,7 @@ const Doc = ({
 
   return (
     <Layout>
-      <SEO title={doc.name} />
+      <SEO title={doc.fields.title} />
       <Index lang={lang} />
       <div className="flex flex-col">
         <div
@@ -41,9 +41,11 @@ export const query = graphql`
   query($id: String!) {
     landsDesignDoc(id: { eq: $id }) {
       id
-      name
       lang
       htmlContent
+      fields {
+        title
+      }
     }
   }
 `;

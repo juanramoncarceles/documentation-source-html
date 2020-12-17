@@ -55,7 +55,11 @@ function createArrayOfPathObjs(arr, finalArr, bPath = "") {
   }
   for (let i = 0; i < arr.length; i++) {
     const path = bPath + slugify(arr[i].attributes.title) + "/";
-    finalArr.push({ file: arr[i].attributes.file, path });
+    finalArr.push({
+      file: arr[i].attributes.file,
+      path,
+      name: arr[i].attributes.title,
+    });
     if (arr[i].children) {
       createArrayOfPathObjs(arr[i].children, finalArr, path);
     }
@@ -96,7 +100,7 @@ exports.onCreateNode = async ({
   reporter,
   cache,
 }) => {
-  const { createNode } = actions;
+  const { createNode, createNodeField } = actions;
   // Add the data about the doc image files to be used later when creating
   // the html doc nodes.
   if (
@@ -123,6 +127,8 @@ exports.onCreateNode = async ({
         !firstAsHome && node.attributes.file === config.homeFile
           ? ""
           : slugify(node.attributes.title) + "/",
+      // The name (title) of the file in the corresponding language.
+      name: node.attributes.title,
     };
     if (indexTree.hasOwnProperty(langCode)) {
       // Add the base path object to the existing array.
@@ -251,7 +257,7 @@ exports.onCreateNode = async ({
     const htmlNode = {
       id: createNodeId(node.relativePath),
       htmlContent: processedHtml,
-      name: node.name, // The file's name. TODO call this originalName and set name as the name in lang?
+      name: node.name, // The file's name. TODO call this fileName.
       lang,
       internal: {
         type: "LandsDesignDoc",
@@ -260,6 +266,27 @@ exports.onCreateNode = async ({
     };
 
     createNode(htmlNode);
+  }
+
+  // Since the created LandsDesignDoc nodes are processed at the end, after their corresponding index.xml nodes,
+  // the complete info in indexTree can be used here to add to each one of them a new field with the value of the title.
+  // If the order fails in the future this should be done below in createPages(), and add the field to the pages context.
+  if (node.internal.type === "LandsDesignDoc") {
+    // Adding field with the translated name (the title of the contents of the file).
+    const pathObj = indexTree[node.lang].find(
+      pathObj => pathObj.file.toLowerCase() === node.name.toLowerCase()
+    );
+    if (pathObj) {
+      createNodeField({
+        node,
+        name: "title",
+        value: pathObj.name,
+      });
+    } else {
+      reporter.warn(
+        `No 'title' field added to the doc node created from file: ${node.lang} "${node.name}.html" since it doesn't appear on its index.xml.`
+      );
+    }
   }
 };
 
