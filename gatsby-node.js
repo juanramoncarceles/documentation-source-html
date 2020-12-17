@@ -72,7 +72,7 @@ function createArrayOfPathObjs(arr, finalArr, bPath = "") {
  * @param {Array} finalArr The array that will store the output.
  * @param {string} bPath Optional. Base path, ending slash will be added if not included.
  */
-function createStructureOfItems(arr, finalArr, bPath) {
+function createStructureOfItems(arr, finalArr, bPath = "") {
   // In case a base path is provided without ending slash add it.
   if (bPath && !bPath.endsWith("/")) {
     bPath + "/";
