@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
 import IndexItem from "./indexItem";
 
-const Index = ({ lang }) => {
+const Index = ({ lang, cssClasses }) => {
   // GraphQL requires to be explicit about levels of nested data.
   // So if more levels are added to the docs this query should be updated.
   // It could be written nicer by creating an item type like here:
@@ -41,7 +42,7 @@ const Index = ({ lang }) => {
   };
 
   return (
-    <div className="z-40 w-64">
+    <div className={cssClasses}>
       <nav className="sticky h-(screen-20) top-20 overflow-y-auto border-r">
         {/* <h3 className="text-xl uppercase">Index</h3> */}
         {getIndexDataByLang(lang) ? (
@@ -56,6 +57,16 @@ const Index = ({ lang }) => {
       </nav>
     </div>
   );
+};
+
+Index.defaultProps = {
+  lang: "",
+  cssClasses: "",
+};
+
+Index.propTypes = {
+  lang: PropTypes.string,
+  cssClasses: PropTypes.string,
 };
 
 export default Index;

@@ -25,7 +25,7 @@ const Doc = ({
   return (
     <Layout>
       <SEO title={doc.fields.title} />
-      <Index lang={lang} />
+      <Index lang={lang} cssClasses={"z-40 w-64"} />
       <div className="flex flex-col">
         <div
           dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
