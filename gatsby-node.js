@@ -90,6 +90,29 @@ function createStructureOfItems(arr, finalArr, bPath = "") {
   }
 }
 
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    type LandsDesignDoc implements Node {
+      name: String!
+      lang: String!
+      htmlContent: String!
+    }
+    type DocsIndex implements Node {
+      lang: String!
+      items: [IndexItem]!
+    }
+    type IndexItem {
+      label: String!
+      url: String!
+      items: [IndexItem]
+    }
+  `;
+
+  createTypes(typeDefs);
+};
+
 exports.onCreateNode = async ({
   node,
   loadNodeContent,
@@ -193,12 +216,12 @@ exports.onCreateNode = async ({
     // If all the top level index items for that language have been processed
     // then create the parent 'docs index' node that will contain them.
     if (docsIndexes[langCode].length >= parent.children.length) {
-      const docsIndexId = createNodeId(langCode + "docsIndex");
+      const docsIndexId = createNodeId(langCode + "DocsIndex");
       createNode({
         id: docsIndexId,
         lang: langCode,
         internal: {
-          type: "docsIndex",
+          type: "DocsIndex",
           contentDigest: createContentDigest(docsIndexes[langCode]),
         },
         items: docsIndexes[langCode],
