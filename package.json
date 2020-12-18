@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "documentation-source-html",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Gatsby project that creates a site for documentation sourcing from HTML files in the filesystem.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ramón Cárceles <juanramoncarceles@gmail.com>",
   "dependencies": {
     "autoprefixer": "^10.0.4",
     "gatsby": "^2.27.0",
@@ -29,9 +29,9 @@
     "tailwindcss": "^2.0.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby", "documentation", "html"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -43,9 +43,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/juanramoncarceles/documentation-source-html"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/juanramoncarceles/documentation-source-html/issues"
   }
 }
