@@ -1,5 +1,6 @@
 BUGS:
   ☐ Process anchor elements in HTML doc files to point to the right urls. @high 
+  ☐ When selecting a page from the index it rerenders with scroll top but it should maintain the scroll position.
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
 
@@ -8,13 +9,16 @@ CHANGES:
   ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
   ☐ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url.
     An easy option is to create two identical home pages, one with the locale an another without.
+  ☐ Since pathObj.file in gatsby-node.js is always used with .toLowerCase() it could be stored lower case. It makes sense because file names are case insensitive.
 
 
 FEATURES:
-  ☐ Search bar.
-  ☐ Add an index for the page anchor/sections if any. Like in the Tailwind docs pages.
+  ☐ Use the existing css file (LandsDesign.css) to style the HTML that comes from the source files.
+  ☐ Css and Js for the index of items. Probably they could be folded and expanded.
+  ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
   ☐ Make the index side bar resizable by dragging.
+  ☐ Search bar.
 
 
 IMAGES:
