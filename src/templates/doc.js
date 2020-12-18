@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Index from "../components/index";
 import Footer from "../components/footer";
+import TableOfContents from "../components/tableOfContents";
 
 import { useIntl } from "../contexts/IntlContext";
 
@@ -14,6 +15,7 @@ const Doc = ({
 }) => {
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
+  const { tableOfContents } = doc.childHtmlRehype;
 
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
@@ -26,12 +28,15 @@ const Doc = ({
     <Layout>
       <SEO title={doc.fields.title} />
       <Index lang={lang} />
-      <div className="flex flex-col">
-        <div
-          dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
-          className="p-4 flex-grow"
-        />
-        <Footer />
+      <div className="flex">
+        <div className="flex flex-col">
+          <div
+            dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
+            className="p-4 flex-grow"
+          />
+          <Footer />
+        </div>
+        <TableOfContents data={tableOfContents} cssClasses={"w-64"} />
       </div>
     </Layout>
   );
@@ -45,6 +50,9 @@ export const query = graphql`
       htmlContent
       fields {
         title
+      }
+      childHtmlRehype {
+        tableOfContents
       }
     }
   }
