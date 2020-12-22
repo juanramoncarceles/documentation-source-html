@@ -1,237 +1,123 @@
-body { /* Deletes standard spacings */
-					padding: 0;
-					margin: 0;
-					overflow: auto;
-					background-color: #F5F5F5;
-				}
-				
-div#entire {	/* Makes IE obey nicely */
-					padding: 0px;
-					background-color: #F5F5F5;
-				}
-
-
-div.header
-{
-	border-top: solid 10px #649E35;
-	border-bottom: solid 1px #D0D0D0;
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+  padding-top: 8px;
 }
 
-div.topGraphics  	{ /* Title for LandsDesign */
-					font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
-					font-size: 24px;
-					font-weight: 400;
-					font-variant:small-caps;
-					display: block;
-					color: #000;
-					padding: 10px 6px 6px 12px;
-					overflow: hidden;
-				}
-				
-div.topGraphics div.ARQ { /* The "ARQ" part */
-					display: inline;
-					color: #649E35;
-				}
-				
-span.subTitle { /* The "architectural tools for Rhino" part */
-					display: inline;
-					font-size: 13px;
-					color: #222;
-					padding-left: 10px;
-				}
-				
-h1, h2, h3, h4, h5 {	/* Section titles */
-					font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
-					padding-top: 8px;
+#content h1 {
+  font-size: 24px;
 }
 
-h1 {	/* Section titles */
-					font-size: 24px;
-}
-h2 {	/* Section titles */
-					font-size: 20px;
-}
-h3 {	/* Section titles */
-					font-size: 18px;
-}
-h4 {	/* Section titles */
-					font-size: 14px;
+#content h2 {
+  font-size: 20px;
 }
 
-body, p, td, ul, ol { /* Standard font */
-					font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
-					font-size: 13px;
+#content h3 {
+  font-size: 18px;
 }
 
-li {
-					padding-top: 2px;
+#content h4 {
+  font-size: 14px;
 }
 
-div.content {	 /* enforces the size on IE, which otherwise is a bit *** */
-				float: none;
-				display: block;
-				padding: 12px 18px 14px 18px;
-				width: 100%; /* only way to make IE obey */
-				background-color: #FFF;
+#content div.block {
+  float: left;
+  display: block;
+  margin-bottom: 12px;
 }
 
-div.block {	 /* Makes a floating box */
-				float: left;
-				display: block;
-				margin-bottom: 12px;
+#content div.blockInline {
+  float: left;
+  display: block;
+  padding: 8px 0px 0px 12px;
+  margin-bottom: 8px;
 }
 
-div.blockInline { /* Makes a floating box with extra space top and left*/
-				float: left;
-				display: block;
-				padding: 8px 0px 0px 12px;
-				margin-bottom: 8px;
+#content div.leftBorder {
+  float: left;
+  display: inline-table;
+  border-left: 1px solid #ccc;
+  padding: 0px 0px 0px 12px;
+  margin-top: 8px;
 }
 
-div.leftBorder { /* Adds a left border floating block */
-				float: left;
-				display: inline-table;
-				border-left: 1px solid #ccc;
-				padding: 0px 0px 0px 12px;
-				margin-top: 8px;
+#content div.comVideo {
+  clear: both;
+  width: 300px;
+  float: "right";
+  display: block;
+  border: 0px;
+  margin-top: "10px";
+  padding: 0px;
 }
 
-div.comVideo {
-				clear: both;
-				width: 300px;
-				float: expression(document.body.clientWidth < 600? "none" : "right");
-				display: block;
-				border: 0px;
-				margin-top: expression(document.body.clientWidth < 600? "0px" : "10px");;
-				padding: 0px;
+#content div.comDescr {
+  width: 300px;
+  font-size: 12px;
+  float: right;
+  display: "block";
+  border: 1px solid #bbb;
+  padding: 5px 3px 4px 3px;
 }
 
-div.comDescr {
-				width: 300px;
-				font-size: 12px;
-				float: right;
-				display: expression(document.body.clientWidth < 600? "none" : "block");
-				border:  1px solid #bbb;
-				padding: 5px 3px 4px 3px;
+#content div.comDescrleft {
+  width: 300px;
+  font-size: 12px;
+  float: left;
+  display: block;
+  border: 1px solid #bbb;
+  padding: 5px 3px 4px 3px;
 }
 
-div.comDescrleft {
-				width: 300px;
-				font-size: 12px;
-				float: left;
-				display: block;
-				border:  1px solid #bbb;
-				padding: 5px 3px 4px 3px;
+#content div.comDescr div.field {
+  font-size: 13px;
+  color: #444;
+  border-top: 1px solid #ccc;
+  margin: 2px;
+  background-color: #eee;
 }
 
-div.comDescr div.field {
-				font-size: 13px;
-				color: #444;
-				border-top: 1px solid #ccc;
-				margin: 2px solid #fff;
-				background-color : #eee;
+#content div.comDescr div.value {
+  margin: 1px;
+  padding: 2px 0px 4px 0px;
 }
 
-div.comDescr div.value {
-				margin: 1px;
-				padding: 2px 0px 4px 0px;
+#content div.value.keyboardCommand {
+  color: #333;
+  font-size: 24px;
 }
 
- div.value keyboardCommand  {
-				color: #333;
-				font-size: 24px;
+#content div.comDescr div.toolbar {
+  padding: 0;
 }
 
-div.comDescr div.toolbar  {
-				padding: 0;
+#content div.comDescr div.toolbar img {
+  opacity: 1;
 }
 
-div.comDescr div.toolbar img  {
-				/* IE */
-				filter: alpha(opacity=100);
-				/* CSS3 standard */
-				opacity: 1.0;
+#content div.comDescr div.icon {
+  font-size: 12px;
 }
 
-div.comDescr div.icon {
-				font-size: 12px;
+#content div.editing {
+  margin-top: 12px;
 }
 
-div.editing {
-				margin-top: 12px;
+#content .figureWithDescription {
+  font-size: 12px;
+  color: #444;
+  font-style: italic;
 }
 
-img {
-				border: none;
-				}
-
-picLeft  {
-				float: left;
-				}
-				
-picRight {
-				float: left;
-				}
-
-
-div.endGraphics div.copyright { /* The copyright color */
-					display: inline;
-				}
-
-.figureWithDescription {
-					font-size: 12px;
-					color: #444;
-					font-style: italic;
-				}
-
-a, a:link, a:visited
-{
-	color: #649E35;
-	text-decoration: none;
-}
-a:hover
-{
-	text-decoration: underline;
+#content a,
+#content a:visited {
+  color: #649e35;
+  text-decoration: none;
 }
 
-.blue
-{
-	color: #649E35;
-}
-
-
-
-
-
-
-div.footer
-{
-	border-top: solid 1px #D0D0D0;
-}
-		
-div.endGraphics
-{
-	font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
-	font-size: 0.7em;
-	text-align: center;
-	color: #505050;
-	padding: 6px 6px 6px 12px;
-}
-
-div.topics
-{
-	padding: 0px 18px 10px 18px;
-}
-
-div.topics h4
-{
-	font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	margin: 5px 0px;
-}
-
-div.topics ul
-{
-	font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
-	margin: 0px 30px;
+#content a:hover {
+  text-decoration: underline;
 }

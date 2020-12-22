@@ -28,6 +28,7 @@ const Doc = ({
       <Index lang={lang} cssClasses={"z-40 w-64"} />
       <div className="flex flex-col">
         <div
+          id="content"
           dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
           className="p-4 flex-grow"
         />
