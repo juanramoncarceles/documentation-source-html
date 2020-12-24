@@ -10,10 +10,12 @@ import { useIntl } from "../contexts/IntlContext";
 
 const Doc = ({
   data: { landsDesignDoc: doc },
-  pageContext: { translations },
+  pageContext: { translations, title },
 }) => {
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
+
+  const pageTitle = title; // doc.fields.title
 
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
@@ -24,7 +26,7 @@ const Doc = ({
 
   return (
     <Layout>
-      <SEO title={doc.fields.title} />
+      <SEO title={pageTitle} />
       <Index lang={lang} cssClasses={"z-40 w-64"} />
       <div className="flex flex-col">
         <div
@@ -44,9 +46,9 @@ export const query = graphql`
       id
       lang
       htmlContent
-      fields {
-        title
-      }
+      # fields {
+      #   title
+      # }
     }
   }
 `;

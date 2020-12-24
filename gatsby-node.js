@@ -294,23 +294,23 @@ exports.onCreateNode = async ({
   // Since the created LandsDesignDoc nodes are processed at the end, after their corresponding index.xml nodes,
   // the complete info in indexTree can be used here to add to each one of them a new field with the value of the title.
   // If the order fails in the future this should be done below in createPages(), and add the field to the pages context.
-  if (node.internal.type === "LandsDesignDoc") {
-    // Adding field with the translated name (the title of the contents of the file).
-    const pathObj = indexTree[node.lang].find(
-      pathObj => pathObj.file.toLowerCase() === node.name.toLowerCase()
-    );
-    if (pathObj) {
-      createNodeField({
-        node,
-        name: "title",
-        value: pathObj.name,
-      });
-    } else {
-      reporter.warn(
-        `No 'title' field added to the doc node created from file: ${node.lang} "${node.name}.html" since it doesn't appear on its index.xml.`
-      );
-    }
-  }
+  // if (node.internal.type === "LandsDesignDoc") {
+  //   // Adding field with the translated name (the title of the contents of the file).
+  //   const pathObj = indexTree[node.lang].find(
+  //     pathObj => pathObj.file.toLowerCase() === node.name.toLowerCase()
+  //   );
+  //   if (pathObj) {
+  //     createNodeField({
+  //       node,
+  //       name: "title",
+  //       value: pathObj.name,
+  //     });
+  //   } else {
+  //     reporter.warn(
+  //       `No 'title' field added to the doc node created from file: ${node.lang} "${node.name}.html" since it doesn't appear on its index.xml.`
+  //     );
+  //   }
+  // }
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -370,6 +370,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           id: doc.id,
           translations,
+          title: pathObj.name,
         },
       });
     } else {
