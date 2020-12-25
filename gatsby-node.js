@@ -321,6 +321,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     data: {
       allLandsDesignDoc: { nodes: docs },
     },
+    errors,
   } = await graphql(`
     query {
       allLandsDesignDoc {
@@ -332,6 +333,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
+
+  if (errors) {
+    reporter.panicOnBuild('ERROR: Loading "createPages" query');
+  }
 
   docs.forEach(doc => {
     const docName = doc.name.toLowerCase();
