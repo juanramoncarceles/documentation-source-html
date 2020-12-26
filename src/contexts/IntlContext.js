@@ -8,6 +8,7 @@ const IntlContextProvider = ({ children }) => {
   const [translations, setTranslations] = useState({});
 
   const storeLang = lang => {
+    if (!lang) return;
     try {
       localStorage.setItem("lang", lang);
       console.log(`Stored "${lang}" in Local Storage.`);
