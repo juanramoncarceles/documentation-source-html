@@ -9,16 +9,22 @@ const config = {
 
 let firstAsHome = true;
 
-if (!config.hasOwnProperty("homeFile")) {
-  console.log("[Config] Using first file in index.xml files as home pages.");
-} else {
-  const file = config.homeFile;
-  if (file && typeof file === "string" && file.trim()) {
-    firstAsHome = false;
+exports.onPreInit = ({ reporter }) => {
+  if (!config.hasOwnProperty("homeFile")) {
+    reporter.info(
+      "Using first file item in index.xml files as localized home pages."
+    );
   } else {
-    console.log("[Config] Not valid 'homeFile' value.");
+    const file = config.homeFile;
+    if (file && typeof file === "string" && file.trim()) {
+      firstAsHome = false;
+    } else {
+      reporter.warn(
+        "Invalid 'homeFile' value. Using first file item in index.xml files as home pages. Check the value set for 'homeFile' in the config."
+      );
+    }
   }
-}
+};
 
 /**
  * Stores a key for each lang code, and in each one an array of objects with
