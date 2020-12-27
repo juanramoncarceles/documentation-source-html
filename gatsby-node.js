@@ -316,8 +316,20 @@ exports.onCreateNode = async ({
   }
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+// Called once after the sourcing phase has finished creating nodes.
+exports.sourceNodes = async ({ reporter, cache }) => {
+  // I store the indexTree object in cache because all its data is added in the onCreateNode() phase above which is not always
+  // run, so when I need it later in the createPages() phase, I have to take it from cache, otherwise the object would be empty.
+  if (Object.keys(indexTree).length > 0) {
+    await cache.set("indexTree", indexTree);
+    reporter.info("Added indexTree to cache.");
+  }
+};
+
+exports.createPages = async ({ graphql, actions, reporter, cache }) => {
   const { createPage } = actions;
+
+  const cachedIndexTree = await cache.get("indexTree");
 
   // Fetch all the doc pages with info about its id, name and lang.
   const {
@@ -350,9 +362,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     //   have to be processed before the html doc files, and I couldn't find a way to make this happen.
     //   Maybe it could be done above waiting for the type 'LandsDesignDoc' to pass again at the end.
     const translations = {};
-    for (const langCode in indexTree) {
+    for (const langCode in cachedIndexTree) {
       if (docLang !== langCode) {
-        const translationPathObj = indexTree[langCode].find(
+        const translationPathObj = cachedIndexTree[langCode].find(
           pathObj => pathObj.file.toLowerCase() === docName
         );
         if (translationPathObj) {
@@ -365,7 +377,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
     // Gets the object with data (path and file name) about the current doc.
-    const pathObj = indexTree[docLang].find(
+    const pathObj = cachedIndexTree[docLang].find(
       pathObj => pathObj.file.toLowerCase() === docName
     );
     if (pathObj) {
