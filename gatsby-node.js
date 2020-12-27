@@ -220,6 +220,7 @@ exports.onCreateNode = async ({
       createNode({
         id: docsIndexId,
         lang: langCode,
+        parent: parent.id, // Parent/child relationship should be set when possible otherwise Gatsby will garbage collect the new node.
         internal: {
           type: "DocsIndex",
           contentDigest: createContentDigest(docsIndexes[langCode]),
@@ -282,6 +283,7 @@ exports.onCreateNode = async ({
       htmlContent: processedHtml,
       name: node.name, // The file's name. TODO call this fileName.
       lang,
+      parent: node.id, // Parent/child relationship should be set when possible otherwise Gatsby will garbage collect the new node.
       internal: {
         type: "LandsDesignDoc",
         contentDigest: createContentDigest(processedHtml),
