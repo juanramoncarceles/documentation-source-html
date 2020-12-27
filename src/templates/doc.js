@@ -10,12 +10,12 @@ import { useIntl } from "../contexts/IntlContext";
 
 const Doc = ({
   data: { landsDesignDoc: doc },
-  pageContext: { translations, title },
+  pageContext: { translations },
 }) => {
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
 
-  const pageTitle = title; // doc.fields.title
+  const pageTitle = doc.fields.title;
 
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
@@ -46,9 +46,9 @@ export const query = graphql`
       id
       lang
       htmlContent
-      # fields {
-      #   title
-      # }
+      fields {
+        title
+      }
     }
   }
 `;
