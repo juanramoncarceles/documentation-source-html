@@ -378,7 +378,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         context: {
           id: doc.id,
           translations,
-          title: pathObj.name,
         },
       });
     } else {
