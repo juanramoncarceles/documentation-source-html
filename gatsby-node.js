@@ -9,16 +9,22 @@ const config = {
 
 let firstAsHome = true;
 
-if (!config.hasOwnProperty("homeFile")) {
-  console.log("[Config] Using first file in index.xml files as home pages.");
-} else {
-  const file = config.homeFile;
-  if (file && typeof file === "string" && file.trim()) {
-    firstAsHome = false;
+exports.onPreInit = ({ reporter }) => {
+  if (!config.hasOwnProperty("homeFile")) {
+    reporter.info(
+      "Using first file item in index.xml files as localized home pages."
+    );
   } else {
-    console.log("[Config] Not valid 'homeFile' value.");
+    const file = config.homeFile;
+    if (file && typeof file === "string" && file.trim()) {
+      firstAsHome = false;
+    } else {
+      reporter.warn(
+        "Invalid 'homeFile' value. Using first file item in index.xml files as home pages. Check the value set for 'homeFile' in the config."
+      );
+    }
   }
-}
+};
 
 /**
  * Stores a key for each lang code, and in each one an array of objects with
@@ -220,6 +226,7 @@ exports.onCreateNode = async ({
       createNode({
         id: docsIndexId,
         lang: langCode,
+        parent: parent.id, // Parent/child relationship should be set when possible otherwise Gatsby will garbage collect the new node.
         internal: {
           type: "DocsIndex",
           contentDigest: createContentDigest(docsIndexes[langCode]),
@@ -282,6 +289,7 @@ exports.onCreateNode = async ({
       htmlContent: processedHtml,
       name: node.name, // The file's name. TODO call this fileName.
       lang,
+      parent: node.id, // Parent/child relationship should be set when possible otherwise Gatsby will garbage collect the new node.
       internal: {
         type: "LandsDesignDoc",
         contentDigest: createContentDigest(processedHtml),
@@ -295,11 +303,12 @@ exports.onCreateNode = async ({
   // the complete info in indexTree can be used here to add to each one of them a new field with the value of the title.
   // If the order fails in the future this should be done below in createPages(), and add the field to the pages context.
   if (node.internal.type === "LandsDesignDoc") {
-    // Adding field with the translated name (the title of the contents of the file).
+    // Gets the object with data about the current doc.
     const pathObj = indexTree[node.lang].find(
       pathObj => pathObj.file.toLowerCase() === node.name.toLowerCase()
     );
     if (pathObj) {
+      // Adding field with the translated name (the title of the contents of the file).
       createNodeField({
         node,
         name: "title",
@@ -313,14 +322,27 @@ exports.onCreateNode = async ({
   }
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+// Called once after the sourcing phase has finished creating nodes.
+exports.sourceNodes = async ({ reporter, cache }) => {
+  // I store the indexTree object in cache because all its data is added in the onCreateNode() phase above which is not always
+  // run, so when I need it later in the createPages() phase, I have to take it from cache, otherwise the object would be empty.
+  if (Object.keys(indexTree).length > 0) {
+    await cache.set("indexTree", indexTree);
+    reporter.info("Added indexTree to cache.");
+  }
+};
+
+exports.createPages = async ({ graphql, actions, reporter, cache }) => {
   const { createPage } = actions;
+
+  const cachedIndexTree = await cache.get("indexTree");
 
   // Fetch all the doc pages with info about its id, name and lang.
   const {
     data: {
       allLandsDesignDoc: { nodes: docs },
     },
+    errors,
   } = await graphql(`
     query {
       allLandsDesignDoc {
@@ -333,6 +355,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
 
+  if (errors) {
+    reporter.panicOnBuild('ERROR: Loading "createPages" query');
+  }
+
   docs.forEach(doc => {
     const docName = doc.name.toLowerCase();
     const docLang = doc.lang;
@@ -342,9 +368,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     //   have to be processed before the html doc files, and I couldn't find a way to make this happen.
     //   Maybe it could be done above waiting for the type 'LandsDesignDoc' to pass again at the end.
     const translations = {};
-    for (const langCode in indexTree) {
+    for (const langCode in cachedIndexTree) {
       if (docLang !== langCode) {
-        const translationPathObj = indexTree[langCode].find(
+        const translationPathObj = cachedIndexTree[langCode].find(
           pathObj => pathObj.file.toLowerCase() === docName
         );
         if (translationPathObj) {
@@ -357,7 +383,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
     // Gets the object with data (path and file name) about the current doc.
-    const pathObj = indexTree[docLang].find(
+    const pathObj = cachedIndexTree[docLang].find(
       pathObj => pathObj.file.toLowerCase() === docName
     );
     if (pathObj) {

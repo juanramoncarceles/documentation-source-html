@@ -17,6 +17,8 @@ const Doc = ({
   const lang = doc.lang;
   const { tableOfContents } = doc.childHtmlRehype;
 
+  const pageTitle = doc.fields.title;
+
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
     setLang(lang);
@@ -26,11 +28,12 @@ const Doc = ({
 
   return (
     <Layout>
-      <SEO title={doc.fields.title} />
+      <SEO title={pageTitle} />
       <Index lang={lang} cssClasses={"z-40 w-64"} />
       <div className="flex">
         <div className="flex flex-col">
           <div
+            id="content"
             dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
             className="p-4 flex-grow"
           />
