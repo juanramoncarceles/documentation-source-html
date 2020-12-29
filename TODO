@@ -8,6 +8,7 @@ BUGS:
 
 CHANGES:
   ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
+  ☐ Process only images used in the HTML docs instead of all the images.
   ☐ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url.
     An easy option is to create two identical home pages, one with the locale an another without.
   ☐ Since pathObj.file in gatsby-node.js is always used with .toLowerCase() it could be stored lower case. It makes sense because file names are case insensitive.
@@ -24,6 +25,7 @@ CHANGES:
 
 
 FEATURES:
+  ☐ The anchor elements in the HTML docs should behave like the Gatsby's Link, try to use the gatsby-plugin-catch-links to change their behaviour.
   ☐ Use the existing css file (LandsDesign.css) to style the HTML that comes from the source files.
   ☐ Css and Js for the index of items. Probably they could be folded and expanded.
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
