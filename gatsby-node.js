@@ -96,6 +96,68 @@ function createStructureOfItems(arr, finalArr, bPath = "") {
   }
 }
 
+/**
+ * Replaces anchor's href values that point to HTML files in the same folder.
+ * The new href value is a relative path (without the web origin part).
+ * If the href value contains a page anchor at the end it will be preserved.
+ * @param {string} stringHTML Input HTML as a string.
+ * @param {Object[]} pathObjsArray An array of objects with at least 'path' and 'file' values.
+ * @param {string} lang The lang code of the file.
+ * @param {string} fileName Optional. The name of the HTML file being processed for error reporting purposes.
+ */
+function replaceHTMLAnchorsHref(
+  stringHTML,
+  pathObjsArray,
+  lang,
+  fileName = ""
+) {
+  // Regexp to match the href attr of anchor HTML elements.
+  const anchorHrefRegex = /<\s*a\s[^>]*?href\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/gi;
+
+  return stringHTML.replace(anchorHrefRegex, (match, p1) => {
+    const trimmedHref = p1.trim();
+    // If starts with https:// http:// or www. then skip it.
+    const isExternalHref =
+      /^https?:\/\//.test(trimmedHref) || trimmedHref.startsWith("www.");
+    if (!isExternalHref) {
+      // If contains a '/' then skip because we are only treating same directory files.
+      if (!trimmedHref.includes("/")) {
+        const hrefFileNameAndAnchor = trimmedHref.split("#");
+        const hrefFileName = hrefFileNameAndAnchor[0]
+          .toLowerCase()
+          .replace(".html", "");
+        const pageAnchor =
+          hrefFileNameAndAnchor.length > 1
+            ? `#${hrefFileNameAndAnchor[1]}`
+            : "";
+        const pathObj = pathObjsArray.find(
+          pathObj => pathObj.file.toLowerCase() === hrefFileName
+        );
+        if (pathObj) {
+          const newHref = `/${lang}/${pathObj.path + pageAnchor}`;
+          return match.replace(p1, newHref);
+        } else {
+          console.log(
+            `[HTML anchors replacement] No path object found for "${hrefFileName}"${
+              fileName ? ` in ${lang} - ${fileName}.` : "."
+            }`
+          );
+          return match; // TODO if the file doesn't exist then the anchor should be removed.
+        }
+      } else {
+        console.log(
+          `[HTML anchors replacement] Skipped "${trimmedHref}"${
+            fileName ? ` in ${lang} - ${fileName}.` : "."
+          } It has a '/' and only same directoy files are processed.`
+        );
+        return match; // TODO if the file doesn't exist then the anchor should be removed.
+      }
+    } else {
+      return match;
+    }
+  });
+}
+
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
 
@@ -280,6 +342,7 @@ exports.onCreateNode = async ({
         }
       } else {
         reporter.info("Skiped image with src: " + p1);
+        // TODO Add here also: return match;
       }
     });
 
@@ -330,6 +393,31 @@ exports.sourceNodes = async ({ reporter, cache }) => {
     await cache.set("indexTree", indexTree);
     reporter.info("Added indexTree to cache.");
   }
+};
+
+exports.createResolvers = async ({ createResolvers, cache }) => {
+  // TODO If getting the indexTree from cache causes problems then a node could be created so
+  // it can be fetched here with context.nodeModel.runQuery or context.nodeModel.getNodeById
+  const cachedIndexTree = await cache.get("indexTree");
+
+  const resolvers = {
+    LandsDesignDoc: {
+      // Replaces the current htmlContent after applying the resolver.
+      htmlContent: {
+        type: "String",
+        resolve(source, args, context, info) {
+          // Process to replace the internal anchors href in the source HTML.
+          return replaceHTMLAnchorsHref(
+            source.htmlContent,
+            cachedIndexTree[source.lang],
+            source.lang,
+            source.name
+          );
+        },
+      },
+    },
+  };
+  createResolvers(resolvers);
 };
 
 exports.createPages = async ({ graphql, actions, reporter, cache }) => {

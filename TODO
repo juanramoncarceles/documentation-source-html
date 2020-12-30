@@ -1,5 +1,4 @@
 BUGS:
-  ☐ Process anchor elements in HTML doc files to point to the right urls. @high 
   ☐ When selecting a page from the index it rerenders with scroll top but it should maintain the scroll position.
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
@@ -66,3 +65,4 @@ IMAGES:
 DONE:
   ✔ Language switcher. @high @done(20-12-13 17:02)
   ✔ Each page title should be the one translated. Currently it is the file name (which is always in eng and with underscores). @done(20-12-18 00:12)
+  ✔ Process anchor elements in HTML doc files to point to the right urls. @high @done(20-12-30 13:32)
