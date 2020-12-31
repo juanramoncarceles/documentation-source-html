@@ -27,7 +27,7 @@ const Doc = ({
   return (
     <Layout>
       <SEO title={pageTitle} />
-      <Index lang={lang} cssClasses={"z-40 w-64"} />
+      <Index lang={lang} cssClasses={"z-40 min-w-64"} />
       <div className="flex flex-col">
         <div
           id="content"
