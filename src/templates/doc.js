@@ -15,7 +15,7 @@ const Doc = ({
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
 
-  const pageTitle = doc.fields.title;
+  const pageTitle = doc.title;
 
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
@@ -46,9 +46,7 @@ export const query = graphql`
       id
       lang
       htmlContent
-      fields {
-        title
-      }
+      title
     }
   }
 `;

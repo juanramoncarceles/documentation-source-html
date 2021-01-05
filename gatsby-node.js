@@ -361,28 +361,6 @@ exports.onCreateNode = async ({
 
     createNode(htmlNode);
   }
-
-  // Since the created LandsDesignDoc nodes are processed at the end, after their corresponding index.xml nodes,
-  // the complete info in indexTree can be used here to add to each one of them a new field with the value of the title.
-  // If the order fails in the future this should be done below in createPages(), and add the field to the pages context.
-  if (node.internal.type === "LandsDesignDoc") {
-    // Gets the object with data about the current doc.
-    const pathObj = indexTree[node.lang].find(
-      pathObj => pathObj.file.toLowerCase() === node.name.toLowerCase()
-    );
-    if (pathObj) {
-      // Adding field with the translated name (the title of the contents of the file).
-      createNodeField({
-        node,
-        name: "title",
-        value: pathObj.name,
-      });
-    } else {
-      reporter.warn(
-        `No 'title' field added to the doc node created from file: ${node.lang} "${node.name}.html" since it doesn't appear on its index.xml.`
-      );
-    }
-  }
 };
 
 // Called once after the sourcing phase has finished creating nodes.
@@ -395,13 +373,29 @@ exports.sourceNodes = async ({ reporter, cache }) => {
   }
 };
 
-exports.createResolvers = async ({ createResolvers, cache }) => {
+exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
   // TODO If getting the indexTree from cache causes problems then a node could be created so
   // it can be fetched here with context.nodeModel.runQuery or context.nodeModel.getNodeById
   const cachedIndexTree = await cache.get("indexTree");
 
   const resolvers = {
     LandsDesignDoc: {
+      title: {
+        type: "String",
+        resolve(source, args, context, info) {
+          const pathObj = cachedIndexTree[source.lang].find(
+            pathObj => pathObj.file.toLowerCase() === source.name.toLowerCase()
+          );
+          if (pathObj) {
+            return pathObj.name;
+          } else {
+            reporter.warn(
+              `Can't resolve 'title' of doc node created from file: ${source.lang} "${source.name}.html" since it doesn't appear on its index.xml.`
+            );
+            return "";
+          }
+        },
+      },
       // Replaces the current htmlContent after applying the resolver.
       htmlContent: {
         type: "String",
