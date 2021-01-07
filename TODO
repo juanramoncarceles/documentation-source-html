@@ -3,6 +3,9 @@ BUGS:
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
   ☐ If there is no data about translations the Language switcher component should not appear.
+  ☐ If a file in the contents folder changes, then Gatsby doesn't process it again because it uses cache.
+    The problem is that if html is not processed images and anchors remain unchanged so they are wrong.
+    Solution now is to delete cache and start again.
 
 
 CHANGES:
@@ -21,6 +24,7 @@ CHANGES:
     type CustomFields {
       title: String
     }
+  ☐ Currently languages available are hardcoded in the language component, change to fetch them instead.
 
 
 FEATURES:
@@ -32,6 +36,12 @@ FEATURES:
   ☐ Make the index side bar resizable by dragging.
   ☐ Search bar.
   ☐ Pass a globarl variable to decide if logging the custom warnings about missing traslations and other.
+  ☐ Nested lists change bullet style.
+  ☐ Implement the image map on the toolbar icons? Would it work in responsive? usemap="#VegetationToolbarMap"
+  ☐ When auto scrolling to an anchor use something like:
+    .prose h2 {
+      scroll-margin-top: 6.875rem;
+    }
 
 
 IMAGES:
