@@ -22,7 +22,7 @@ const Index = ({ lang, cssClasses }) => {
 
   return (
     <div className={cssClasses}>
-      <nav className="sticky h-(screen-20) top-20 overflow-y-auto border-r">
+      <nav className="sticky h-(screen-20) pt-10 px-2 top-20 overflow-y-auto border-r">
         {/* <h3 className="text-xl uppercase">Index</h3> */}
         {indexData ? (
           <ul>

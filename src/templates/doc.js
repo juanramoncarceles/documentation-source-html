@@ -15,7 +15,7 @@ const Doc = ({
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
 
-  const pageTitle = doc.fields.title;
+  const pageTitle = doc.title;
 
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
@@ -32,7 +32,7 @@ const Doc = ({
         <div
           id="content"
           dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
-          className="p-4 flex-grow"
+          className="px-8 py-10 flex-grow"
         />
         <Footer />
       </div>
@@ -46,9 +46,7 @@ export const query = graphql`
       id
       lang
       htmlContent
-      fields {
-        title
-      }
+      title
     }
   }
 `;
