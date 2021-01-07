@@ -32,7 +32,7 @@ const Doc = ({
         <div
           id="content"
           dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
-          className="p-4 flex-grow"
+          className="px-8 py-10 flex-grow"
         />
         <Footer />
       </div>
