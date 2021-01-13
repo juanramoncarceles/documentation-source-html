@@ -29,7 +29,6 @@ CHANGES:
 
 FEATURES:
   ☐ The anchor elements in the HTML docs should behave like the Gatsby's Link, try to use the gatsby-plugin-catch-links to change their behaviour.
-  ☐ Use the existing css file (LandsDesign.css) to style the HTML that comes from the source files.
   ☐ Css and Js for the index of items. Probably they could be folded and expanded.
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
@@ -38,10 +37,6 @@ FEATURES:
   ☐ Pass a globarl variable to decide if logging the custom warnings about missing traslations and other.
   ☐ Nested lists change bullet style.
   ☐ Implement the image map on the toolbar icons? Would it work in responsive? usemap="#VegetationToolbarMap"
-  ☐ When auto scrolling to an anchor use something like:
-    .prose h2 {
-      scroll-margin-top: 6.875rem;
-    }
 
 
 IMAGES:
@@ -76,3 +71,5 @@ DONE:
   ✔ Language switcher. @high @done(20-12-13 17:02)
   ✔ Each page title should be the one translated. Currently it is the file name (which is always in eng and with underscores). @done(20-12-18 00:12)
   ✔ Process anchor elements in HTML doc files to point to the right urls. @high @done(20-12-30 13:32)
+  ✔ When auto scrolling to an anchor use something like `scroll-margin-top: 6.875rem;` on the element with the id. @done(21-01-13 11:06)
+  ✔ Use the existing css file (LandsDesign.css) to style the HTML that comes from the source files. @done(21-01-13 11:07)

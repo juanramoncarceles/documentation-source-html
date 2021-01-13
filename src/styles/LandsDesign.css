@@ -39,6 +39,7 @@
 #content h4 {
   margin-top: 1.6em;
   margin-bottom: 1.25em;
+  scroll-margin-top: 6.875rem;
 }
 
 #content p,
@@ -68,9 +69,16 @@
   margin-bottom: 0.4em;
 }
 
+#content .figureWithDescription {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  max-width: max-content;
+}
+
 #content .figureWithDescription > span {
   display: block;
-  margin-top: 0.4em;
+  margin-top: 0.5em;
+  text-align: center;
   font-size: 12px;
   font-style: italic;
   color: #444;
@@ -92,7 +100,9 @@
 
 #content blockquote {
   padding: 20px;
+  max-width: max-content;
   border-left: 5px solid var(--theme-color);
+  overflow-x: auto;
   background-color: #f0f9f1;
 }
 
@@ -101,76 +111,52 @@
   margin-bottom: 0;
 }
 
-/* Revise styles below */
-
-#content div.leftBorder {
-  float: left;
-  display: inline-table;
-  border-left: 1px solid #ccc;
-  padding: 0px 0px 0px 12px;
-  margin-top: 8px;
+#content kbd {
+  padding: 2px 6px;
+  border: 1px solid #bbbbbb;
+  border-radius: 3px;
+  font-family: monospace;
+  background-color: #efefef;
 }
 
-#content div.comVideo {
-  clear: both;
-  width: 300px;
-  float: "right";
-  display: block;
-  border: 0px;
-  margin-top: "10px";
-  padding: 0px;
+#content .images-table td {
+  width: 220px;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
-#content div.comDescr {
-  width: 300px;
-  font-size: 12px;
+#content .images-table tr:not(:first-child) td {
+  padding-top: 10px;
+}
+
+#content .comDescr {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  min-width: 320px;
+  max-width: 450px;
+  font-size: 14px;
   float: right;
-  display: "block";
   border: 1px solid #bbb;
-  padding: 5px 3px 4px 3px;
 }
 
-#content div.comDescrleft {
-  width: 300px;
-  font-size: 12px;
-  float: left;
-  display: block;
-  border: 1px solid #bbb;
-  padding: 5px 3px 4px 3px;
+#content .comDescr .field {
+  background-color: #f3f3f3;
+  padding: 0.3em 0.6em;
 }
 
-#content div.comDescr div.field {
-  font-size: 13px;
-  color: #444;
-  border-top: 1px solid #ccc;
-  margin: 2px;
-  background-color: #eee;
+#content .comDescr .value {
+  padding: 0.4em 0.7em;
+  background-color: #fff;
 }
 
-#content div.comDescr div.value {
-  margin: 1px;
-  padding: 2px 0px 4px 0px;
+#content .comDescr .heading {
+  border-bottom: 1px solid #bbb;
+  background-color: #e1e1e1;
 }
 
-#content div.value.keyboardCommand {
-  color: #333;
-  font-size: 24px;
-}
-
-#content div.comDescr div.toolbar {
-  padding: 0;
-}
-
-#content div.comDescr div.toolbar img {
-  opacity: 1;
-}
-
-#content div.comDescr div.icon {
-  font-size: 12px;
-}
-
-#content div.editing {
-  margin-top: 12px;
+#content .comDescr .keyboardCommand {
+  font-size: 20px;
 }
 
 /* Overridding defaults */
