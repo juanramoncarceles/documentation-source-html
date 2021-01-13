@@ -6,12 +6,14 @@ BUGS:
   ☐ If a file in the contents folder changes, then Gatsby doesn't process it again because it uses cache.
     The problem is that if html is not processed images and anchors remain unchanged so they are wrong.
     Solution now is to delete cache and start again.
+  ☐ It is not responsive.
 
 
 CHANGES:
+  ☐ Currently languages available are hardcoded in the language component, change to fetch them instead. @high 
   ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
-  ☐ Process only images used in the HTML docs instead of all the images.
   ☐ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url.
+  ☐ Process only images used in the HTML docs instead of all the images.
     An easy option is to create two identical home pages, one with the locale an another without.
   ☐ Since pathObj.file in gatsby-node.js is always used with .toLowerCase() it could be stored lower case. It makes sense because file names are case insensitive.
   ☐ Create schema customization also for the custom fields? It would be like:
@@ -24,7 +26,7 @@ CHANGES:
     type CustomFields {
       title: String
     }
-  ☐ Currently languages available are hardcoded in the language component, change to fetch them instead.
+  ☐ Make the logs about the errors with html anchors replacement also with the Gatsby reporter.
 
 
 FEATURES:
@@ -33,7 +35,7 @@ FEATURES:
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
   ☐ Make the index side bar resizable by dragging.
-  ☐ Search bar.
+  ☐ Search bar. At least for the name of the pages / commands / headings.
   ☐ Pass a globarl variable to decide if logging the custom warnings about missing traslations and other.
   ☐ Nested lists change bullet style.
   ☐ Implement the image map on the toolbar icons? Would it work in responsive? usemap="#VegetationToolbarMap"
