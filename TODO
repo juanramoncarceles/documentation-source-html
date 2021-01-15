@@ -7,6 +7,7 @@ BUGS:
     The problem is that if html is not processed images and anchors remain unchanged so they are wrong.
     Solution now is to delete cache and start again.
   ☐ It is not responsive.
+  ☐ 404 page is not language specific.
 
 
 CHANGES:
@@ -38,6 +39,8 @@ FEATURES:
   ☐ Pass a globarl variable to decide if logging the custom warnings about missing traslations and other.
   ☐ Nested lists change bullet style.
   ☐ Implement the image map on the toolbar icons? Would it work in responsive? usemap="#VegetationToolbarMap"
+  ☐ 404 page should display links to the main pages of the site.
+  ☐ Use gatsby image manually to imitate the behaviour of inlining the base64 images by default?
 
 
 IMAGES:
