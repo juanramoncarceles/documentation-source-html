@@ -3,6 +3,7 @@ module.exports = {
     title: `Lands Design help`,
     description: `Lands Design is a plugin for landscape design for Rhino and AutoCAD. Lands Design provides tools for producing 2D drawings and 3D models of any landscape project.`,
     author: `Asuni Soft`,
+    defaultLang: "en-us", // If set, the locale will be hidden from the url. To unset leave as empty string.
   },
   flags: {
     PRESERVE_WEBPACK_CACHE: true,

@@ -12,7 +12,6 @@ BUGS:
 CHANGES:
   ☐ Currently languages available are hardcoded in the language component, change to fetch them instead. @high 
   ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
-  ☐ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url.
   ☐ Process only images used in the HTML docs instead of all the images.
     An easy option is to create two identical home pages, one with the locale an another without.
   ☐ Since pathObj.file in gatsby-node.js is always used with .toLowerCase() it could be stored lower case. It makes sense because file names are case insensitive.
@@ -75,3 +74,4 @@ DONE:
   ✔ Process anchor elements in HTML doc files to point to the right urls. @high @done(20-12-30 13:32)
   ✔ When auto scrolling to an anchor use something like `scroll-margin-top: 6.875rem;` on the element with the id. @done(21-01-13 11:06)
   ✔ Use the existing css file (LandsDesign.css) to style the HTML that comes from the source files. @done(21-01-13 11:07)
+  ✔ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url. @done(21-01-15 15:47)

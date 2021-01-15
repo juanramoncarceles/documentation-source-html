@@ -12,6 +12,9 @@ const Index = ({ lang, cssClasses }) => {
   // with this: https://www.gatsbyjs.com/docs/schema-customization/
   const {
     allDocsIndex: { nodes: indexes },
+    site: {
+      siteMetadata: { defaultLang },
+    },
   } = useStaticQuery(
     graphql`
       query allIndexQuery {
@@ -32,9 +35,16 @@ const Index = ({ lang, cssClasses }) => {
             }
           }
         }
+        site {
+          siteMetadata {
+            defaultLang
+          }
+        }
       }
     `
   );
+  // Getting the lang and defaultLang above could be avoided if the paths were
+  // created already with the lang in gatsby-node's DocsIndex 'baseNodePathObj'
 
   const getIndexDataByLang = lang => {
     const indexObj = indexes.find(index => index.lang === lang);
@@ -48,7 +58,12 @@ const Index = ({ lang, cssClasses }) => {
         {getIndexDataByLang(lang) ? (
           <ul>
             {getIndexDataByLang(lang).map(item => (
-              <IndexItem item={item} lang={lang} key={item.label} />
+              <IndexItem
+                item={item}
+                lang={lang}
+                defaultLang={defaultLang}
+                key={item.label}
+              />
             ))}
           </ul>
         ) : (

@@ -47,7 +47,7 @@ const Language = () => {
         value={lang}
         onChange={e => {
           const lang = e.target.value;
-          navigate(`/${translations[lang]}`);
+          navigate(translations[lang]);
           storeLang(lang);
         }}
       >

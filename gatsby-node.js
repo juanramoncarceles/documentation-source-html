@@ -423,6 +423,9 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
   const {
     data: {
       allLandsDesignDoc: { nodes: docs },
+      site: {
+        siteMetadata: { defaultLang },
+      },
     },
     errors,
   } = await graphql(`
@@ -432,6 +435,11 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
           id
           name
           lang
+        }
+      }
+      site {
+        siteMetadata {
+          defaultLang
         }
       }
     }
@@ -456,7 +464,10 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
           pathObj => pathObj.file.toLowerCase() === docName
         );
         if (translationPathObj) {
-          translations[langCode] = langCode + "/" + translationPathObj.path;
+          translations[langCode] =
+            "/" +
+            (defaultLang !== langCode ? langCode + "/" : "") +
+            translationPathObj.path;
         } else {
           reporter.warn(
             `No translation found for file ${docLang} "${doc.name}.html" in ${langCode}`
@@ -470,7 +481,8 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
     );
     if (pathObj) {
       // The url for the current doc is first created and added to the translations object.
-      const pagePath = docLang + "/" + pathObj.path;
+      const pagePath =
+        "/" + (defaultLang !== docLang ? docLang + "/" : "") + pathObj.path;
       translations[docLang] = pagePath;
       createPage({
         path: pagePath,
@@ -486,4 +498,12 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
       );
     }
   });
+
+  // If no defaultLang has been set then all locales will be visible and a default root page is created to redirect.
+  if (!defaultLang) {
+    createPage({
+      path: "/",
+      component: path.resolve("./src/templates/index.js"),
+    });
+  }
 };

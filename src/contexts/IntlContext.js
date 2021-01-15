@@ -24,7 +24,7 @@ const IntlContextProvider = ({ children }) => {
     if (Object.keys(translations).length > 0) {
       const lang = localStorage.getItem("lang");
       if (lang) {
-        navigate(`/${translations[lang]}`);
+        navigate(translations[lang]);
       } else {
         storeLang(lang);
       }

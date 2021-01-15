@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 
-const IndexItem = ({ item, lang }) => {
+const IndexItem = ({ item, lang, defaultLang }) => {
   // TODO This state maybe should be in the parent to avoid that it closes after rerendering the list.
   const [open, setOpen] = useState(false);
 
@@ -34,7 +34,7 @@ const IndexItem = ({ item, lang }) => {
           </button>
         ) : null}
         <Link
-          to={"/" + lang + "/" + item.url}
+          to={"/" + (defaultLang !== lang ? lang + "/" : "") + item.url}
           activeClassName="active-index-item"
           className="ml-6 break-all"
         >
@@ -44,7 +44,12 @@ const IndexItem = ({ item, lang }) => {
       {subItems && subItems.length && open ? (
         <ul className="pl-2">
           {subItems.map(item => (
-            <IndexItem item={item} lang={lang} key={item.label} />
+            <IndexItem
+              item={item}
+              lang={lang}
+              defaultLang={defaultLang}
+              key={item.label}
+            />
           ))}
         </ul>
       ) : null}
