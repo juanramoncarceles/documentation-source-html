@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import IndexItem from "./indexItem";
 
-const Index = ({ lang, cssClasses }) => {
+const Index = ({ lang, setOpen, cssClasses }) => {
   // GraphQL requires to be explicit about levels of nested data.
   // So if more levels are added to the docs this query should be updated.
   // It could be written nicer by creating an item type like here:
@@ -52,8 +52,11 @@ const Index = ({ lang, cssClasses }) => {
   };
 
   return (
-    <div className={cssClasses}>
-      <nav className="sticky h-(screen-20) pt-10 px-2 top-20 overflow-y-auto border-r">
+    <div
+      className={cssClasses + " bg-black bg-opacity-25 lg:bg-white"}
+      onClick={e => (e.target === e.currentTarget ? setOpen(false) : null)}
+    >
+      <nav className="sticky h-(screen-20) mr-24 pt-10 px-2 top-20 overflow-y-auto border-r bg-white lg:mr-0 lg:bg-transparent">
         {/* <h3 className="text-xl uppercase">Index</h3> */}
         {getIndexDataByLang(lang) ? (
           <ul>
@@ -76,11 +79,13 @@ const Index = ({ lang, cssClasses }) => {
 
 Index.defaultProps = {
   lang: "",
+  setOpen: () => {},
   cssClasses: "",
 };
 
 Index.propTypes = {
   lang: PropTypes.string,
+  setOpen: PropTypes.func,
   cssClasses: PropTypes.string,
 };
 

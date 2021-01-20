@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import ToggleNavButton from "../components/toggle-nav-button";
 import Index from "../components/index";
 import Footer from "../components/footer";
 
@@ -12,6 +13,7 @@ const Doc = ({
   data: { landsDesignDoc: doc },
   pageContext: { translations },
 }) => {
+  const [navIsOpen, setNavIsOpen] = useState(false);
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
 
@@ -27,8 +29,15 @@ const Doc = ({
   return (
     <Layout>
       <SEO title={pageTitle} />
-      <Index lang={lang} cssClasses={"z-40 min-w-64"} />
-      <div className="flex flex-col w-full">
+      <ToggleNavButton open={navIsOpen} setOpen={setNavIsOpen} />
+      <Index
+        lang={lang}
+        setOpen={setNavIsOpen}
+        cssClasses={`fixed min-w-64 inset-0 w-full z-40 lg:static lg:w-auto lg:block ${
+          navIsOpen ? "" : "hidden"
+        }`}
+      />
+      <div className="flex flex-col w-full min-h-(screen-20)">
         <div
           id="content"
           dangerouslySetInnerHTML={{ __html: doc.htmlContent }}

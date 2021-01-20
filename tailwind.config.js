@@ -9,6 +9,9 @@ module.exports = {
       minWidth: {
         64: "16rem",
       },
+      minHeight: {
+        "(screen-20)": "calc(100vh - 5rem)",
+      },
     },
   },
   variants: {

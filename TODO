@@ -8,6 +8,7 @@ BUGS:
     Solution now is to delete cache and start again.
   ☐ It is not responsive.
   ☐ 404 page is not language specific.
+  ☐ Hardcoded interface string in English should be translated.
 
 
 CHANGES:
