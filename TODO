@@ -9,6 +9,9 @@ BUGS:
   ☐ It is not responsive.
   ☐ 404 page is not language specific.
   ☐ Hardcoded interface string in English should be translated.
+  ☐ When navigating from one page to another and the url has a hash, it navigates twice, first OK with the hash, but second without, so the url loses the hash and scroll is top.
+    https://github.com/gatsbyjs/gatsby/issues/25778
+    https://github.com/gatsbyjs/gatsby/pull/28555
 
 
 CHANGES:
@@ -21,7 +24,6 @@ CHANGES:
 
 
 FEATURES:
-  ☐ The anchor elements in the HTML docs should behave like the Gatsby's Link, try to use the gatsby-plugin-catch-links to change their behaviour.
   ☐ Css and Js for the index of items. Probably they could be folded and expanded.
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
@@ -69,6 +71,7 @@ DONE:
   ✔ When auto scrolling to an anchor use something like `scroll-margin-top: 6.875rem;` on the element with the id. @done(21-01-13 11:06)
   ✔ Use the existing css file (LandsDesign.css) to style the HTML that comes from the source files. @done(21-01-13 11:07)
   ✔ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url. @done(21-01-15 15:47)
+  ✔ The anchor elements in the HTML docs should behave like the Gatsby's Link, try to use the gatsby-plugin-catch-links to change their behaviour. @done(21-01-20 16:15)
 
 REJECTED:
   ✘ Create schema customization also for the custom fields? @cancelled(21-01-20 12:02)
