@@ -103,12 +103,14 @@ function createStructureOfItems(arr, finalArr, bPath = "") {
  * @param {string} stringHTML Input HTML as a string.
  * @param {Object[]} pathObjsArray An array of objects with at least 'path' and 'file' values.
  * @param {string} lang The lang code of the file.
+ * @param {string} defaultLang The default lang code set for the site.
  * @param {string} fileName Optional. The name of the HTML file being processed for error reporting purposes.
  */
 function replaceHTMLAnchorsHref(
   stringHTML,
   pathObjsArray,
   lang,
+  defaultLang,
   fileName = ""
 ) {
   // Regexp to match the href attr of anchor HTML elements.
@@ -134,7 +136,11 @@ function replaceHTMLAnchorsHref(
           pathObj => pathObj.file.toLowerCase() === hrefFileName
         );
         if (pathObj) {
-          const newHref = `/${lang}/${pathObj.path + pageAnchor}`;
+          const newHref =
+            "/" +
+            (defaultLang !== lang ? lang + "/" : "") +
+            pathObj.path +
+            pageAnchor;
           return match.replace(p1, newHref);
         } else {
           console.log(
@@ -400,11 +406,15 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
       htmlContent: {
         type: "String",
         resolve(source, args, context, info) {
+          // I use the Site node to get the defaultLang data.
+          const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
+          const defaultLang = site.siteMetadata.defaultLang ?? "";
           // Process to replace the internal anchors href in the source HTML.
           return replaceHTMLAnchorsHref(
             source.htmlContent,
             cachedIndexTree[source.lang],
             source.lang,
+            defaultLang,
             source.name
           );
         },
