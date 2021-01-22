@@ -1,4 +1,5 @@
 BUGS:
+  ☐ In Firefox on small screens the side navigation has an incorrect position. @critical 
   ☐ When selecting a page from the index it rerenders with scroll top but it should maintain the scroll position.
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
@@ -6,9 +7,8 @@ BUGS:
   ☐ If a file in the contents folder changes, then Gatsby doesn't process it again because it uses cache.
     The problem is that if html is not processed images and anchors remain unchanged so they are wrong.
     Solution now is to delete cache and start again.
-  ☐ It is not responsive.
   ☐ 404 page is not language specific.
-  ☐ Hardcoded interface string in English should be translated.
+  ☐ String of the main layout are hardcoded in English and should be translated. @critical 
   ☐ When navigating from one page to another and the url has a hash, it navigates twice, first OK with the hash, but second without, so the url loses the hash and scroll is top.
     https://github.com/gatsbyjs/gatsby/issues/25778
     https://github.com/gatsbyjs/gatsby/pull/28555
@@ -72,6 +72,7 @@ DONE:
   ✔ Use the existing css file (LandsDesign.css) to style the HTML that comes from the source files. @done(21-01-13 11:07)
   ✔ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url. @done(21-01-15 15:47)
   ✔ The anchor elements in the HTML docs should behave like the Gatsby's Link, try to use the gatsby-plugin-catch-links to change their behaviour. @done(21-01-20 16:15)
+  ✔ It is not responsive. @done(21-01-22 18:32)
 
 REJECTED:
   ✘ Create schema customization also for the custom fields? @cancelled(21-01-20 12:02)
