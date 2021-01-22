@@ -36,7 +36,7 @@ const Language = () => {
   };
 
   return (
-    <form className="relative hidden lg:block">
+    <form className="relative">
       <label htmlFor="lang" className="sr-only">
         Lands Design Help language
       </label>
