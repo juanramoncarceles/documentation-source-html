@@ -159,6 +159,15 @@
   font-size: 20px;
 }
 
+@media (max-width: 640px) {
+  #content .comDescr {
+    margin-left: 0;
+    min-width: unset;
+    max-width: unset;
+    float: none;
+  }
+}
+
 /* Overridding defaults */
 
 #content h1 + * {

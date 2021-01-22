@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <main className="flex mx-auto lg:w-11/12">{children}</main>
+      <main className="flex mx-auto max-w-screen-xl px-4">{children}</main>
     </>
   );
 };

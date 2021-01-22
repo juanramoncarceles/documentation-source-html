@@ -26,10 +26,11 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header className="sticky top-0 z-50 bg-gray-100">
-      <div className="mx-auto flex h-20 py-3 lg:w-11/12">
+      <div className="flex mx-auto h-20 max-w-screen-xl py-3 px-4">
         <div className="flex items-center w-64">
           <Link
             to={"/" + (defaultLang !== lang ? lang : "")}
+            className="overflow-hidden w-9 sm:w-auto"
             aria-label="Link to home page"
           >
             <span className="sr-only">{siteTitle}</span>
