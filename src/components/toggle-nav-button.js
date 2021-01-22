@@ -5,7 +5,7 @@ const ToggleNavButton = ({ open, setOpen }) => (
   <button
     type="button"
     aria-expanded={open}
-    className="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 text-white block lg:hidden"
+    className="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-green-dark text-white block lg:hidden"
     onClick={() => setOpen(!open)}
   >
     <span className="sr-only">Open site navigation</span>
