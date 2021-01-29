@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
-const IndexItem = ({ item, lang, defaultLang }) => {
-  // TODO This state maybe should be in the parent to avoid that it closes after rerendering the list.
-  const [open, setOpen] = useState(false);
-
+const IndexItem = ({ item, collapsementState, lang, onClick, defaultLang }) => {
+  const collapsed = collapsementState[item.id];
   const subItems = item.items;
 
   return (
@@ -13,9 +12,9 @@ const IndexItem = ({ item, lang, defaultLang }) => {
         {subItems && subItems.length ? (
           <button
             className="absolute"
-            aria-label={(open ? "Collapse " : "Expand ") + item.label}
-            aria-expanded={open ? "true" : "false"}
-            onClick={() => setOpen(!open)}
+            aria-label={(collapsed ? "Expand " : "Collapse ") + item.label}
+            aria-expanded={collapsed ? "false" : "true"}
+            onClick={() => onClick(item.id)}
           >
             <svg
               stroke="currentColor"
@@ -25,10 +24,10 @@ const IndexItem = ({ item, lang, defaultLang }) => {
               height="1.4em"
               width="1.4em"
             >
-              {open ? (
-                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-              ) : (
+              {collapsed ? (
                 <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+              ) : (
+                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
               )}
             </svg>
           </button>
@@ -41,20 +40,34 @@ const IndexItem = ({ item, lang, defaultLang }) => {
           {item.label}
         </Link>
       </span>
-      {subItems && subItems.length && open ? (
+      {subItems && subItems.length && !collapsed ? (
         <ul className="pl-2">
           {subItems.map(item => (
             <IndexItem
               item={item}
+              collapsementState={collapsementState}
               lang={lang}
               defaultLang={defaultLang}
               key={item.label}
+              onClick={onClick}
             />
           ))}
         </ul>
       ) : null}
     </li>
   );
+};
+
+IndexItem.defaultProps = {
+  lang: "",
+};
+
+IndexItem.propTypes = {
+  lang: PropTypes.string,
+  item: PropTypes.object.isRequired,
+  collapsementState: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
+  defaultLang: PropTypes.string.isRequired,
 };
 
 export default IndexItem;

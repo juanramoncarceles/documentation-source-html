@@ -87,6 +87,7 @@ function createStructureOfItems(arr, finalArr, bPath = "") {
     const path = bPath + slugify(arr[i].attributes.title) + "/";
     finalArr.push({
       label: arr[i].attributes.title,
+      originalFile: arr[i].attributes.file,
       url: path,
       items: [],
     });
@@ -179,6 +180,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     }
     type IndexItem {
       label: String!
+      originalFile: String!
       url: String!
       items: [IndexItem]
     }
@@ -273,8 +275,8 @@ exports.onCreateNode = async ({
     }
 
     const indexTopLevelItem = {
-      // TODO Pass also the attr.file in lowercase to use as id or react key in the DOM?
       label: node.attributes.title,
+      originalFile: node.attributes.file,
       url: baseNodePathObj.path,
       items: indexItemSubitems,
     };
