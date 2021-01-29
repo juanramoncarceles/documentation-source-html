@@ -19,6 +19,13 @@ const Doc = ({
 
   const pageTitle = doc.title;
 
+  // If this becomes problematic put it inside a useEffect()
+  if (navIsOpen) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "auto";
+  }
+
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
     setLang(lang);
@@ -33,7 +40,7 @@ const Doc = ({
       <Index
         lang={lang}
         setOpen={setNavIsOpen}
-        cssClasses={`fixed min-w-64 inset-0 w-full z-40 lg:static lg:w-auto lg:block ${
+        cssClasses={`fixed min-w-64 inset-0 top-20 w-full z-40 lg:static lg:w-auto lg:block ${
           navIsOpen ? "" : "hidden"
         }`}
       />
@@ -41,7 +48,7 @@ const Doc = ({
         <div
           id="content"
           dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
-          className="px-4 sm:px-8 py-10 flex-grow"
+          className="px-4 sm:px-8 py-10 flex-grow break-words"
         />
         <Footer />
       </div>

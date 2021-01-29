@@ -30,10 +30,10 @@ const Index = ({ lang, setOpen, cssClasses }) => {
       className={cssClasses + " bg-black bg-opacity-25 lg:bg-white"}
       onClick={e => (e.target === e.currentTarget ? setOpen(false) : null)}
     >
-      <nav className="sticky h-(screen-20) mr-24 pt-10 px-2 top-20 overflow-y-auto border-r bg-white lg:mr-0 lg:bg-transparent">
+      <nav className="sticky h-(screen-20) mr-24 pt-10 px-2 overflow-y-auto border-r bg-white lg:mr-0 lg:bg-transparent">
         {/* <h3 className="text-xl uppercase">Index</h3> */}
         {indexData ? (
-          <ul>
+          <ul className="mb-10">
             {indexData.map(item => (
               <IndexItem
                 item={item}

@@ -1,5 +1,4 @@
 BUGS:
-  ☐ In Firefox on small screens the side navigation has an incorrect position. @critical 
   ☐ When selecting a page from the index it rerenders with scroll top but it should maintain the scroll position.
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
@@ -73,6 +72,7 @@ DONE:
   ✔ Set in the config which is the locale to be used as main language, mainly to be able to hide it from the url. @done(21-01-15 15:47)
   ✔ The anchor elements in the HTML docs should behave like the Gatsby's Link, try to use the gatsby-plugin-catch-links to change their behaviour. @done(21-01-20 16:15)
   ✔ It is not responsive. @done(21-01-22 18:32)
+  ✔ In Firefox on small screens the side navigation has an incorrect position. @critical @done(21-01-29 18:21)
 
 REJECTED:
   ✘ Create schema customization also for the custom fields? @cancelled(21-01-20 12:02)
