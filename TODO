@@ -15,6 +15,15 @@ BUGS:
 
 CHANGES:
   ☐ Currently languages available are hardcoded in the language component, change to fetch them instead. @high 
+  ☐ Convert to a plugin, even local to make it more modular and access the plugin options this way:
+    exports.onPreInit = function (args, options) {
+      if (options.excludeRegex && !options.excludePattern) {
+        options.excludePattern = options.excludeRegex
+      }
+      if (options.excludePattern) {
+        options.excludePattern = options.excludePattern.source
+      }
+    }
   ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
   ☐ Process only images used in the HTML docs instead of all the images.
     An easy option is to create two identical home pages, one with the locale an another without.
