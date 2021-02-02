@@ -1,12 +1,6 @@
-import React from "react";
+import wrapWithProviders from "./wrap-with-providers";
 
+// TODO probably this could be moved to wrap-with-providers
 import "./src/styles/global.css";
 
-import { IntlContextProvider } from "./src/contexts/IntlContext";
-import { IndexTreeContextProvider } from "./src/contexts/IndexTreeContext";
-
-export const wrapRootElement = ({ element }) => (
-  <IntlContextProvider>
-    <IndexTreeContextProvider>{element}</IndexTreeContextProvider>
-  </IntlContextProvider>
-);
+export const wrapRootElement = wrapWithProviders;

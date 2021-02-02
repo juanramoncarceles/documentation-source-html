@@ -19,12 +19,13 @@ const Doc = ({
 
   const pageTitle = doc.title;
 
-  // If this becomes problematic put it inside a useEffect()
-  if (navIsOpen) {
-    document.body.style.overflowY = "hidden";
-  } else {
-    document.body.style.overflowY = "auto";
-  }
+  useEffect(() => {
+    if (navIsOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [navIsOpen]);
 
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
