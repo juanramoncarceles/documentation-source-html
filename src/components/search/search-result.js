@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "gatsby";
 import {
   connectStateResults,
-  Highlight,
+  connectHighlight,
   Hits,
   Index,
   Snippet,
-  PoweredBy,
+  connectPoweredBy,
 } from "react-instantsearch-dom";
 
-import { useIntl } from "../../contexts/IntlContext";
+import AlgoliaLogo from "./algolia-logo";
 
-import styles from "./search-result.module.css";
+import { useIntl } from "../../contexts/IntlContext";
 
 const HitCount = connectStateResults(({ searchResults }) => {
   const hitCount = searchResults && searchResults.nbHits;
@@ -25,6 +25,42 @@ const HitCount = connectStateResults(({ searchResults }) => {
   );
 });
 
+const CustomHighlight = connectHighlight(({ highlight, attribute, hit }) => {
+  const parsedHit = highlight({
+    highlightProperty: "_highlightResult",
+    attribute,
+    hit,
+  });
+
+  return (
+    <span>
+      {parsedHit.map((part, index) =>
+        part.isHighlighted ? (
+          <mark key={index} className="bg-green-light">
+            {part.value}
+          </mark>
+        ) : (
+          <span key={index}>{part.value}</span>
+        )
+      )}
+    </span>
+  );
+});
+
+const CustomPoweredBy = connectPoweredBy(({ url }) => (
+  <div className="flex justify-end items-center mt-3.5 text-xs">
+    <a
+      href={url}
+      target="_blank"
+      aria-label="Algolia"
+      rel="noopener noreferrer"
+    >
+      <span>Search by</span>
+      <AlgoliaLogo className="w-20 ml-1.5" />
+    </a>
+  </div>
+));
+
 const DocHit = ({ hit }) => {
   // TODO it would be better to call this in the SearchResult once instead than for each Hit, maybe with
   // the connectHits: https://www.algolia.com/doc/api-reference/widgets/hits/react/#create-and-instantiate-your-connected-widget
@@ -32,13 +68,8 @@ const DocHit = ({ hit }) => {
 
   return (
     <div className="mb-2 p-1 hover:bg-gray-100">
-      <Link to={hit[`path_${lang}`]}>
-        <Highlight
-          attribute={`title_${lang}`}
-          hit={hit}
-          tagName="mark"
-          className={styles.highlight}
-        />
+      <Link to={hit[`path_${lang}`]} className="block">
+        <CustomHighlight attribute={`title_${lang}`} hit={hit} />
       </Link>
       {/* <Snippet attribute="htmlContent" hit={hit} tagName="mark" /> */}
     </div>
@@ -54,14 +85,13 @@ const SearchResult = ({ indices, show }) => (
     {indices.map(index => (
       <Index indexName={index.name} key={index.name}>
         <HitCount />
-        <Hits className={styles.hits} hitComponent={DocHit} />
+        <Hits
+          className="max-h-60-screen overflow-y-auto"
+          hitComponent={DocHit}
+        />
       </Index>
     ))}
-    <PoweredBy
-      className={
-        styles.banner + " flex justify-end items-center mt-3.5 text-xs"
-      }
-    />
+    <CustomPoweredBy />
   </div>
 );
 

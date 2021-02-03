@@ -8,8 +8,10 @@
   color: #70b570;
 }
 
+/* Overriding Tailwind's defaults */
 @layer base {
-  img {
+  img,
+  svg {
     display: inline;
   }
 }
