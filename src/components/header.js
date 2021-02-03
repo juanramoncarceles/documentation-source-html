@@ -1,11 +1,14 @@
-import { Link, useStaticQuery, graphql } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
+import PropTypes from "prop-types";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
 import { useIntl } from "../contexts/IntlContext";
 
 import LandsLogo from "./lands-logo";
 import Language from "./language";
+import Search from "./search";
+
+const searchIndices = [{ name: `Docs`, title: `Docs` }];
 
 const Header = ({ siteTitle }) => {
   const { lang } = useIntl();
@@ -38,6 +41,7 @@ const Header = ({ siteTitle }) => {
           </Link>
         </div>
         <div className="flex-auto flex justify-end items-center">
+          <Search indices={searchIndices} />
           <Language />
         </div>
       </div>

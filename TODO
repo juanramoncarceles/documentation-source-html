@@ -36,7 +36,6 @@ FEATURES:
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
   ☐ Make the index side bar resizable by dragging.
-  ☐ Search bar. At least for the name of the pages / commands / headings.
   ☐ Pass a globarl variable to decide if logging the custom warnings about missing traslations and other.
   ☐ Nested lists change bullet style.
   ☐ Implement the image map on the toolbar icons? Would it work in responsive? usemap="#VegetationToolbarMap"
@@ -82,6 +81,7 @@ DONE:
   ✔ The anchor elements in the HTML docs should behave like the Gatsby's Link, try to use the gatsby-plugin-catch-links to change their behaviour. @done(21-01-20 16:15)
   ✔ It is not responsive. @done(21-01-22 18:32)
   ✔ In Firefox on small screens the side navigation has an incorrect position. @critical @done(21-01-29 18:21)
+  ✔ Search bar. At least for the name of the pages / commands / headings. @done(21-02-03 14:42)
 
 REJECTED:
   ✘ Create schema customization also for the custom fields? @cancelled(21-01-20 12:02)

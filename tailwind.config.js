@@ -9,6 +9,9 @@ module.exports = {
           dark: "#618030",
         },
       },
+      width: {
+        "80-screen": "80vw",
+      },
       height: {
         "(screen-20)": "calc(100vh - 5rem)",
       },
@@ -17,6 +20,9 @@ module.exports = {
       },
       minHeight: {
         "(screen-20)": "calc(100vh - 5rem)",
+      },
+      outline: {
+        subtle: "1px solid #6f6f6f",
       },
     },
   },

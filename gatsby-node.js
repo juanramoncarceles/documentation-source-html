@@ -171,6 +171,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const typeDefs = `
     type LandsDesignDoc implements Node {
       name: String!
+      path: String!
       lang: String!
       htmlContent: String!
     }
@@ -388,6 +389,32 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
 
   const resolvers = {
     LandsDesignDoc: {
+      path: {
+        // The doc path is resolved here instead than finding it in createPage()
+        // so it exists in the node and can be queried for example from Algolia.
+        type: "String",
+        resolve(source, args, context, info) {
+          // I use the Site node to get the defaultLang data.
+          const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
+          const defaultLang = site.siteMetadata.defaultLang ?? "";
+          // Get the object with data (path and file name) about the current doc.
+          const pathObj = cachedIndexTree[source.lang].find(
+            pathObj => pathObj.file.toLowerCase() === source.name.toLowerCase()
+          );
+          if (pathObj) {
+            return (
+              "/" +
+              (defaultLang !== source.lang ? source.lang + "/" : "") +
+              pathObj.path
+            );
+          } else {
+            reporter.warn(
+              `Can't resolve 'path' of doc node created from file: ${source.lang} "${source.name}.html" since it doesn't appear on its index.xml.`
+            );
+            return "";
+          }
+        },
+      },
       title: {
         type: "String",
         resolve(source, args, context, info) {
@@ -447,6 +474,7 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
           id
           name
           lang
+          path
         }
       }
       site {
@@ -487,27 +515,17 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
         }
       }
     }
-    // Gets the object with data (path and file name) about the current doc.
-    const pathObj = cachedIndexTree[docLang].find(
-      pathObj => pathObj.file.toLowerCase() === docName
-    );
-    if (pathObj) {
-      // The url for the current doc is first created and added to the translations object.
-      const pagePath =
-        "/" + (defaultLang !== docLang ? docLang + "/" : "") + pathObj.path;
-      translations[docLang] = pagePath;
+    // Path could be empty if the html file was not found in the index tree.
+    if (doc.path !== "") {
+      translations[docLang] = doc.path;
       createPage({
-        path: pagePath,
+        path: doc.path,
         component: path.resolve("./src/templates/doc.js"),
         context: {
           id: doc.id,
           translations,
         },
       });
-    } else {
-      reporter.warn(
-        `Page "${doc.name}.html" ${docLang} could not be created since it doesn't appear in "index.xml" ${docLang}`
-      );
     }
   });
 
