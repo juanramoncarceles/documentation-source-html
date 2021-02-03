@@ -3,10 +3,10 @@ import { Link } from "gatsby";
 import {
   connectStateResults,
   connectHighlight,
-  Hits,
+  connectHits,
+  connectPoweredBy,
   Index,
   Snippet,
-  connectPoweredBy,
 } from "react-instantsearch-dom";
 
 import AlgoliaLogo from "./algolia-logo";
@@ -61,38 +61,39 @@ const CustomPoweredBy = connectPoweredBy(({ url }) => (
   </div>
 ));
 
-const DocHit = ({ hit }) => {
-  // TODO it would be better to call this in the SearchResult once instead than for each Hit, maybe with
-  // the connectHits: https://www.algolia.com/doc/api-reference/widgets/hits/react/#create-and-instantiate-your-connected-widget
+const CustomHits = connectHits(({ hits, lang }) => (
+  <ul className="max-h-60-screen overflow-y-auto">
+    {hits.map(hit => (
+      <li key={hit.objectID}>
+        <div className="mb-2 p-1 hover:bg-gray-100">
+          <Link to={hit[`path_${lang}`]} className="block">
+            <CustomHighlight attribute={`title_${lang}`} hit={hit} />
+          </Link>
+          {/* <Snippet attribute="htmlContent" hit={hit} tagName="mark" /> */}
+        </div>
+      </li>
+    ))}
+  </ul>
+));
+
+const SearchResult = ({ indices, show }) => {
   const { lang } = useIntl();
 
   return (
-    <div className="mb-2 p-1 hover:bg-gray-100">
-      <Link to={hit[`path_${lang}`]} className="block">
-        <CustomHighlight attribute={`title_${lang}`} hit={hit} />
-      </Link>
-      {/* <Snippet attribute="htmlContent" hit={hit} tagName="mark" /> */}
+    <div
+      className={`mt-2 p-4 absolute right-0 top-full z-10 bg-white shadow-lg max-w-lg w-80-screen ${
+        show ? "block" : "hidden"
+      }`}
+    >
+      {indices.map(index => (
+        <Index indexName={index.name} key={index.name}>
+          <HitCount />
+          <CustomHits lang={lang} />
+        </Index>
+      ))}
+      <CustomPoweredBy />
     </div>
   );
 };
-
-const SearchResult = ({ indices, show }) => (
-  <div
-    className={`mt-2 p-4 absolute right-0 top-full z-10 bg-white shadow-lg max-w-lg w-80-screen ${
-      show ? "block" : "hidden"
-    }`}
-  >
-    {indices.map(index => (
-      <Index indexName={index.name} key={index.name}>
-        <HitCount />
-        <Hits
-          className="max-h-60-screen overflow-y-auto"
-          hitComponent={DocHit}
-        />
-      </Index>
-    ))}
-    <CustomPoweredBy />
-  </div>
-);
 
 export default SearchResult;
