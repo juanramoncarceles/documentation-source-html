@@ -1,3 +1,4 @@
+const fs = require(`fs-extra`);
 const path = require(`path`);
 const { fluid } = require(`gatsby-plugin-sharp`);
 const { slugify } = require("./src/utils");
@@ -5,6 +6,7 @@ const { slugify } = require("./src/utils");
 // Temporary config that may change and be moved out of this file.
 const config = {
   // homeFile: "Introduction", // Optional. If provided it should be a top level index.xml item, otherwise no page will be created at root url.
+  processImages: true, // Optional. Set to true to process images by Sharp.
 };
 
 let firstAsHome = true;
@@ -48,6 +50,37 @@ const supportedExtensions = {
   tif: true,
   tiff: true,
 };
+
+/**
+ * Copies the file node to the Gatsby's public/static/ folder and returns the new path.
+ * @param {Object} file The Gatsby's file node.
+ * @param {string} pathPrefix Optional prefix to indicate where to store the files inside the public folder.
+ */
+async function copyFileToStatic(file, pathPrefix = "") {
+  const fileName = `${file.internal.contentDigest}/${file.base}`;
+
+  const publicPath = path.join(process.cwd(), "public", "static", fileName);
+
+  let fileExists;
+  try {
+    fileExists = await fs.stat(publicPath);
+  } catch {
+    fileExists = false;
+  }
+
+  if (!fileExists) {
+    try {
+      await fs.copy(file.absolutePath, publicPath, { dereference: true });
+    } catch (err) {
+      console.error(
+        `Error copying file from ${file.absolutePath} to ${publicPath}`,
+        err
+      );
+    }
+  }
+
+  return `${pathPrefix}/static/${fileName}`;
+}
 
 /**
  * @param {Array} arr The original array with the data.
@@ -206,14 +239,25 @@ exports.onCreateNode = async ({
   // the html doc nodes.
   if (
     node.sourceInstanceName === "docImages" &&
-    node.internal.mediaType?.startsWith("image/") &&
-    supportedExtensions[node.extension]
+    node.internal.mediaType?.startsWith("image/")
   ) {
-    let fluidResult = await fluid({ file: node, args: {}, reporter, cache });
-    imagesData.push({
-      relativePath: node.relativePath.toLowerCase(),
-      src: fluidResult.src,
-    });
+    const imageData = {};
+    // Only if images are set to be processed and their format is supported they
+    // are processed, otherwise they are just copied to the `/static` folder.
+    if (!config?.processImages || !supportedExtensions[node.extension]) {
+      const src = await copyFileToStatic(node);
+      imageData.src = src;
+    } else {
+      const fluidResult = await fluid({
+        file: node,
+        args: {},
+        reporter,
+        cache,
+      });
+      imageData.src = fluidResult.src;
+    }
+    imageData.relativePath = node.relativePath.toLowerCase();
+    imagesData.push(imageData);
   }
 
   if (node.internal.type === "IndexXml") {
