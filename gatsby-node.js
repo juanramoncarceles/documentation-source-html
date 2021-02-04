@@ -171,6 +171,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const typeDefs = `
     type LandsDesignDoc implements Node {
       name: String!
+      title: String!
       path: String!
       lang: String!
       htmlContent: String!
