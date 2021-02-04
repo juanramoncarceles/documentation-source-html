@@ -25,6 +25,7 @@ CHANGES:
       }
     }
   ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
+  ☐ Use a resolver for the translations field so it doesn't have to be passed through page context.
   ☐ Process only images used in the HTML docs instead of all the images.
     An easy option is to create two identical home pages, one with the locale an another without.
   ☐ Since pathObj.file in gatsby-node.js is always used with .toLowerCase() it could be stored lower case. It makes sense because file names are case insensitive.
@@ -32,7 +33,9 @@ CHANGES:
 
 
 FEATURES:
+  ☐ Enable the offline plugin to make it a PWA so it can be installed and use notifications.
   ☐ Css and Js for the index of items. Probably they could be folded and expanded.
+  ☐ Open the index tree automatically according to the current doc. For example after searching.
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
   ☐ Make the index side bar resizable by dragging.
@@ -41,6 +44,7 @@ FEATURES:
   ☐ Implement the image map on the toolbar icons? Would it work in responsive? usemap="#VegetationToolbarMap"
   ☐ 404 page should display links to the main pages of the site.
   ☐ Use gatsby image manually to imitate the behaviour of inlining the base64 images by default?
+  ☐ Allow to always search in english? Maybe this makes sense with different indexes? @low
 
 
 IMAGES:
