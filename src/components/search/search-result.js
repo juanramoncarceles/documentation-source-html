@@ -65,12 +65,14 @@ const CustomHits = connectHits(({ hits, lang }) => (
   <ul className="max-h-60-screen overflow-y-auto">
     {hits.map(hit => (
       <li key={hit.objectID}>
-        <div className="mb-2 p-1 hover:bg-gray-100">
-          <Link to={hit[`path_${lang}`]} className="block">
-            <CustomHighlight attribute={`title_${lang}`} hit={hit} />
-          </Link>
-          {/* <Snippet attribute="htmlContent" hit={hit} tagName="mark" /> */}
-        </div>
+        {hit[`paths_${lang}`].map(path => (
+          <div className="mb-2 p-1 hover:bg-gray-100">
+            <Link to={path} className="block">
+              <CustomHighlight attribute={`title_${lang}`} hit={hit} />
+            </Link>
+            {/* <Snippet attribute="htmlContent" hit={hit} tagName="mark" /> */}
+          </div>
+        ))}
       </li>
     ))}
   </ul>

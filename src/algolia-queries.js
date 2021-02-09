@@ -19,7 +19,7 @@
       edges {
         node {
           id
-          path
+          paths
           title
           # htmlContent
         }
@@ -33,7 +33,7 @@ const docQuery = `{
     group(field: name) {
       nodes {
         id
-        path
+        paths
         lang
         title
         # htmlContent
@@ -45,7 +45,7 @@ const docQuery = `{
 /**
  * Returns an Algolia record.
  * The id used for the record object is the one from the english version of the doc.
- * @param {Object} object object with a field 'nodes' with an array of objects {id, path, lang, title}.
+ * @param {Object} object object with a field 'nodes' with an array of objects {id, paths, lang, title}.
  * @returns {Object} With objectID and a title_<lang> and path_<lang> field for each lang.
  */
 function createAlgoliaRecord({ nodes }) {
@@ -53,7 +53,7 @@ function createAlgoliaRecord({ nodes }) {
   nodes.forEach(n => {
     if (n.lang === "en-us") record.objectID = n.id;
     record[`title_${n.lang}`] = n.title;
-    record[`path_${n.lang}`] = n.path;
+    record[`paths_${n.lang}`] = n.paths;
   });
   return record;
 }

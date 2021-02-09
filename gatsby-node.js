@@ -205,7 +205,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     type LandsDesignDoc implements Node {
       name: String!
       title: String!
-      path: String!
+      paths: [String]!
       lang: String!
       htmlContent: String!
     }
@@ -434,35 +434,42 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
 
   const resolvers = {
     LandsDesignDoc: {
-      path: {
-        // The doc path is resolved here instead than finding it in createPage()
+      paths: {
+        // The doc paths are resolved here instead than finding it in createPage()
         // so it exists in the node and can be queried for example from Algolia.
-        type: "String",
+        type: ["String"],
         resolve(source, args, context, info) {
           // I use the Site node to get the defaultLang data.
           const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
           const defaultLang = site.siteMetadata.defaultLang ?? "";
           // Get the object with data (path and file name) about the current doc.
-          const pathObj = cachedIndexTree[source.lang].find(
+          // I use filter to get all the index items that point to the same doc.
+          const pathObjs = cachedIndexTree[source.lang].filter(
             pathObj => pathObj.file.toLowerCase() === source.name.toLowerCase()
           );
-          if (pathObj) {
-            return (
-              "/" +
-              (defaultLang !== source.lang ? source.lang + "/" : "") +
-              pathObj.path
+          // In case at least one path has been found add them.
+          if (pathObjs.length > 0) {
+            return pathObjs.map(
+              pathObj =>
+                "/" +
+                (defaultLang !== source.lang ? source.lang + "/" : "") +
+                pathObj.path
             );
           } else {
             reporter.warn(
               `Can't resolve 'path' of doc node created from file: ${source.lang} "${source.name}.html" since it doesn't appear on its index.xml.`
             );
-            return "";
+            return [];
           }
         },
       },
       title: {
         type: "String",
         resolve(source, args, context, info) {
+          // If the same file appears more than once in the index.xml with filter() I would get more than one pathObj.
+          // However it's ok to get just the first one with find() because the title attribute is expected to be the always
+          // the same even if the file appears multiple times. In other words, it won't work as expected if a file appears
+          // more than once in the index.xml and each time it has a different title, because it will just pick the first one.
           const pathObj = cachedIndexTree[source.lang].find(
             pathObj => pathObj.file.toLowerCase() === source.name.toLowerCase()
           );
@@ -519,7 +526,7 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
           id
           name
           lang
-          path
+          paths
         }
       }
       site {
@@ -542,17 +549,33 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
     //   nodes instead of adding it to the page context, but to do this all the 'index.xml' nodes would
     //   have to be processed before the html doc files, and I couldn't find a way to make this happen.
     //   Maybe it could be done above waiting for the type 'LandsDesignDoc' to pass again at the end.
-    const translations = {};
+
+    // Stores an object of translations for each doc's path.
+    // The translation objects will be stored in the same order as the order of the paths.
+    const translations = [];
     for (const langCode in cachedIndexTree) {
       if (docLang !== langCode) {
-        const translationPathObj = cachedIndexTree[langCode].find(
+        // For each lang get all that match by file.
+        const translationPathObjArr = cachedIndexTree[langCode].filter(
           pathObj => pathObj.file.toLowerCase() === docName
         );
-        if (translationPathObj) {
-          translations[langCode] =
-            "/" +
-            (defaultLang !== langCode ? langCode + "/" : "") +
-            translationPathObj.path;
+        if (translationPathObjArr.length > 0) {
+          // For each match create a translations object.
+          translationPathObjArr.forEach((pathObj, i) => {
+            if (translations[i] === undefined) {
+              translations[i] = {
+                [langCode]:
+                  "/" +
+                  (defaultLang !== langCode ? langCode + "/" : "") +
+                  pathObj.path,
+              };
+            } else {
+              translations[i][langCode] =
+                "/" +
+                (defaultLang !== langCode ? langCode + "/" : "") +
+                pathObj.path;
+            }
+          });
         } else {
           reporter.warn(
             `No translation found for file ${docLang} "${doc.name}.html" in ${langCode}`
@@ -561,15 +584,24 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
       }
     }
     // Path could be empty if the html file was not found in the index tree.
-    if (doc.path !== "") {
-      translations[docLang] = doc.path;
-      createPage({
-        path: doc.path,
-        component: path.resolve("./src/templates/doc.js"),
-        context: {
-          id: doc.id,
-          translations,
-        },
+    if (doc.paths.length > 0) {
+      doc.paths.forEach((docPath, i) => {
+        if (docPath !== "") {
+          // Maybe this could be added above? Would be more reliable.
+          // In case it has no translations first check.
+          translations[i]
+            ? (translations[i][docLang] = docPath)
+            : (translations[i] = { [docLang]: docPath });
+          // Create the Gatsby page.
+          createPage({
+            path: docPath,
+            component: path.resolve("./src/templates/doc.js"),
+            context: {
+              id: doc.id,
+              translations: translations[i],
+            },
+          });
+        }
       });
     }
   });
