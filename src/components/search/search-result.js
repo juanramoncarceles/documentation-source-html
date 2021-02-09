@@ -66,7 +66,7 @@ const CustomHits = connectHits(({ hits, lang }) => (
     {hits.map(hit => (
       <li key={hit.objectID}>
         {hit[`paths_${lang}`].map(path => (
-          <div className="mb-2 p-1 hover:bg-gray-100">
+          <div key={path} className="mb-2 p-1 hover:bg-gray-100">
             <Link to={path} className="block">
               <CustomHighlight attribute={`title_${lang}`} hit={hit} />
             </Link>
