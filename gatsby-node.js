@@ -1,7 +1,11 @@
 const fs = require(`fs-extra`);
 const path = require(`path`);
 const { fluid } = require(`gatsby-plugin-sharp`);
-const { slugify } = require("./src/utils");
+const {
+  slugify,
+  replaceHTMLImagesSrc,
+  replaceHTMLAnchorsHref,
+} = require("./src/utils");
 
 // Temporary config that may change and be moved out of this file.
 const config = {
@@ -40,10 +44,13 @@ const indexTree = {};
 
 const docsIndexes = {};
 
+/**
+ * Stores all the data about the image files.
+ * Array of objects with:
+ *  'relativePath': original path to the image file in the source.
+ *  'src': final path to the image file to be used.
+ */
 const imagesData = [];
-
-// Regexp to match the src attr of images in the original HTML files.
-const imgSrcRegex = /<\s*img\s[^>]*?src\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/gi;
 
 // Image extensions supported by Image Sharp.
 const supportedExtensions = {
@@ -132,80 +139,6 @@ function createStructureOfItems(arr, finalArr, bPath = "") {
       createStructureOfItems(arr[i].children, finalArr[i].items, path);
     }
   }
-}
-
-/**
- * Replaces anchor's href values that point to HTML files in the same folder.
- * The new href value is a relative path (without the web origin part).
- * If the href value contains a page anchor at the end it will be preserved.
- * If the anchor points to the same page only the anchor will be left.
- * @param {string} stringHTML Input HTML as a string.
- * @param {Object[]} pathObjsArray An array of objects with at least 'path' and 'file' values.
- * @param {string} lang The lang code of the file.
- * @param {string} defaultLang The default lang code set for the site.
- * @param {string} fileName The name of the HTML file being processed.
- */
-function replaceHTMLAnchorsHref(
-  stringHTML,
-  pathObjsArray,
-  lang,
-  defaultLang,
-  fileName = ""
-) {
-  // Regexp to match the href attr of anchor HTML elements.
-  const anchorHrefRegex = /<\s*a\s[^>]*?href\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/gi;
-
-  return stringHTML.replace(anchorHrefRegex, (match, p1) => {
-    const trimmedHref = p1.trim();
-    // If starts with https:// http:// or www. then skip it.
-    const isExternalHref =
-      /^https?:\/\//.test(trimmedHref) || trimmedHref.startsWith("www.");
-    if (!isExternalHref) {
-      // If contains a '/' then skip because we are only treating same directory files.
-      if (!trimmedHref.includes("/")) {
-        const hrefFileNameAndAnchor = trimmedHref.split("#");
-        const hrefFileName = hrefFileNameAndAnchor[0]
-          .toLowerCase()
-          .replace(".html", "");
-        const pageAnchor =
-          hrefFileNameAndAnchor.length > 1
-            ? `#${hrefFileNameAndAnchor[1]}`
-            : "";
-        // If the link is an anchor in the same page only the anchor is left.
-        if (pageAnchor && hrefFileName === fileName.toLowerCase()) {
-          return match.replace(p1, pageAnchor);
-        } else {
-          const pathObj = pathObjsArray.find(
-            pathObj => pathObj.file.toLowerCase() === hrefFileName
-          );
-          if (pathObj) {
-            const newHref =
-              "/" +
-              (defaultLang !== lang ? lang + "/" : "") +
-              pathObj.path +
-              pageAnchor;
-            return match.replace(p1, newHref);
-          } else {
-            console.log(
-              `[HTML anchors replacement] No path object found for "${hrefFileName}"${
-                fileName ? ` in ${lang} - ${fileName}.` : "."
-              }`
-            );
-            return match; // TODO if the file doesn't exist then the anchor should be removed.
-          }
-        }
-      } else {
-        console.log(
-          `[HTML anchors replacement] Skipped "${trimmedHref}"${
-            fileName ? ` in ${lang} - ${fileName}.` : "."
-          } It has a '/' and only same directoy files are processed.`
-        );
-        return match; // TODO if the file doesn't exist then the anchor should be removed.
-      }
-    } else {
-      return match;
-    }
-  });
 }
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
@@ -381,36 +314,13 @@ exports.onCreateNode = async ({
     // Read the raw html content.
     const htmlContent = await loadNodeContent(node);
 
-    // Process to replace the images src in the source HTML.
-    const processedHtml = htmlContent.replace(imgSrcRegex, (match, p1) => {
-      const lowerCaseSrc = p1.trim().toLowerCase();
-      if (lowerCaseSrc.startsWith("../images/")) {
-        const pathWithLang = lowerCaseSrc.replace("../", lang + "/");
-        const imageData = imagesData.find(
-          image => image.relativePath === pathWithLang
-        );
-        if (imageData) {
-          return match.replace(p1, imageData.src);
-        } else {
-          // If here means that the image is not language specific and could be in the common folder.
-          const pathWithCommon = lowerCaseSrc.replace("../", "common/");
-          const imageData = imagesData.find(
-            image => image.relativePath === pathWithCommon
-          );
-          if (imageData) {
-            return match.replace(p1, imageData.src);
-          } else {
-            reporter.warn(
-              `No src replaced for "${p1}", check the image in ${node.relativePath}`
-            );
-            return match;
-          }
-        }
-      } else {
-        reporter.info("Skiped image with src: " + p1);
-        // TODO Add here also: return match;
-      }
-    });
+    // Replace the images' src in the source HTML.
+    const processedHtml = replaceHTMLImagesSrc(
+      htmlContent,
+      imagesData,
+      lang,
+      node.name
+    );
 
     // Set up the new Lands Design Doc node.
     const htmlNode = {

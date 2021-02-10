@@ -30,7 +30,7 @@
 
 const docQuery = `{
   docs: allLandsDesignDoc {
-    group(field: name) {
+    group(field: file) {
       nodes {
         id
         paths
