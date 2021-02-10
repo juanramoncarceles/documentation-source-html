@@ -9,15 +9,14 @@ import Footer from "../components/footer";
 
 import { useIntl } from "../contexts/IntlContext";
 
-const Doc = ({
-  data: { landsDesignDoc: doc },
-  pageContext: { translations },
-}) => {
+const Doc = ({ data: { landsDesignDoc: doc }, path }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
 
   const pageTitle = doc.title;
+
+  const translations = doc.translations.find(t => t[doc.lang] === path) ?? {};
 
   useEffect(() => {
     if (navIsOpen) {
@@ -62,8 +61,9 @@ export const query = graphql`
     landsDesignDoc(id: { eq: $id }) {
       id
       lang
-      htmlContent
       title
+      translations
+      htmlContent
     }
   }
 `;

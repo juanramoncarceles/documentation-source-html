@@ -134,11 +134,12 @@ function createStructureOfItems(arr, finalArr, bPath = "") {
  * Replaces anchor's href values that point to HTML files in the same folder.
  * The new href value is a relative path (without the web origin part).
  * If the href value contains a page anchor at the end it will be preserved.
+ * If the anchor points to the same page only the anchor will be left.
  * @param {string} stringHTML Input HTML as a string.
  * @param {Object[]} pathObjsArray An array of objects with at least 'path' and 'file' values.
  * @param {string} lang The lang code of the file.
  * @param {string} defaultLang The default lang code set for the site.
- * @param {string} fileName Optional. The name of the HTML file being processed for error reporting purposes.
+ * @param {string} fileName The name of the HTML file being processed.
  */
 function replaceHTMLAnchorsHref(
   stringHTML,
@@ -166,23 +167,28 @@ function replaceHTMLAnchorsHref(
           hrefFileNameAndAnchor.length > 1
             ? `#${hrefFileNameAndAnchor[1]}`
             : "";
-        const pathObj = pathObjsArray.find(
-          pathObj => pathObj.file.toLowerCase() === hrefFileName
-        );
-        if (pathObj) {
-          const newHref =
-            "/" +
-            (defaultLang !== lang ? lang + "/" : "") +
-            pathObj.path +
-            pageAnchor;
-          return match.replace(p1, newHref);
+        // If the link is an anchor in the same page only the anchor is left.
+        if (pageAnchor && hrefFileName === fileName.toLowerCase()) {
+          return match.replace(p1, pageAnchor);
         } else {
-          console.log(
-            `[HTML anchors replacement] No path object found for "${hrefFileName}"${
-              fileName ? ` in ${lang} - ${fileName}.` : "."
-            }`
+          const pathObj = pathObjsArray.find(
+            pathObj => pathObj.file.toLowerCase() === hrefFileName
           );
-          return match; // TODO if the file doesn't exist then the anchor should be removed.
+          if (pathObj) {
+            const newHref =
+              "/" +
+              (defaultLang !== lang ? lang + "/" : "") +
+              pathObj.path +
+              pageAnchor;
+            return match.replace(p1, newHref);
+          } else {
+            console.log(
+              `[HTML anchors replacement] No path object found for "${hrefFileName}"${
+                fileName ? ` in ${lang} - ${fileName}.` : "."
+              }`
+            );
+            return match; // TODO if the file doesn't exist then the anchor should be removed.
+          }
         }
       } else {
         console.log(
@@ -207,6 +213,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       title: String!
       paths: [String]!
       lang: String!
+      translations: [JSON]!
       htmlContent: String!
     }
     type DocsIndex implements Node {
@@ -483,6 +490,44 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           }
         },
       },
+      translations: {
+        type: ["JSON"], // Type example: [{"en-us": "/interface/", "es-es": "/es-es/interfaz/"}]
+        resolve(source, args, context, info) {
+          // I use the Site node to get the defaultLang data.
+          const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
+          const defaultLang = site.siteMetadata.defaultLang ?? "";
+          // Loop all indexTree to create the translation objects. There will be a translations object per doc's path.
+          const docName = source.name.toLowerCase();
+          const docLang = source.lang;
+          const translations = [];
+          for (const langCode in cachedIndexTree) {
+            // For each lang get all that match by file.
+            const translationPathObjArr = cachedIndexTree[langCode].filter(
+              pathObj => pathObj.file.toLowerCase() === docName
+            );
+            if (translationPathObjArr.length > 0) {
+              // For each match create a translations object.
+              translationPathObjArr.forEach((pathObj, i) => {
+                const path = `/${
+                  defaultLang !== langCode ? langCode + "/" : ""
+                }${pathObj.path}`;
+                if (!translations[i]) {
+                  translations[i] = {
+                    [langCode]: path,
+                  };
+                } else {
+                  translations[i][langCode] = path;
+                }
+              });
+            } else {
+              reporter.warn(
+                `No translation found for file ${docLang} "${source.name}.html" in ${langCode}`
+              );
+            }
+          }
+          return translations;
+        },
+      },
       // Replaces the current htmlContent after applying the resolver.
       htmlContent: {
         type: "String",
@@ -508,9 +553,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
 exports.createPages = async ({ graphql, actions, reporter, cache }) => {
   const { createPage } = actions;
 
-  const cachedIndexTree = await cache.get("indexTree");
-
-  // Fetch all the doc pages with info about its id, name and lang.
+  // Fetch all the doc pages, and site's defaultLang.
   const {
     data: {
       allLandsDesignDoc: { nodes: docs },
@@ -524,8 +567,6 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
       allLandsDesignDoc {
         nodes {
           id
-          name
-          lang
           paths
         }
       }
@@ -542,63 +583,16 @@ exports.createPages = async ({ graphql, actions, reporter, cache }) => {
   }
 
   docs.forEach(doc => {
-    const docName = doc.name.toLowerCase();
-    const docLang = doc.lang;
-    // Create an object with the links to the doc translations.
-    //   It would be better to create it above in 'onCreateNode' because it could be added to the doc
-    //   nodes instead of adding it to the page context, but to do this all the 'index.xml' nodes would
-    //   have to be processed before the html doc files, and I couldn't find a way to make this happen.
-    //   Maybe it could be done above waiting for the type 'LandsDesignDoc' to pass again at the end.
-
-    // Stores an object of translations for each doc's path.
-    // The translation objects will be stored in the same order as the order of the paths.
-    const translations = [];
-    for (const langCode in cachedIndexTree) {
-      if (docLang !== langCode) {
-        // For each lang get all that match by file.
-        const translationPathObjArr = cachedIndexTree[langCode].filter(
-          pathObj => pathObj.file.toLowerCase() === docName
-        );
-        if (translationPathObjArr.length > 0) {
-          // For each match create a translations object.
-          translationPathObjArr.forEach((pathObj, i) => {
-            if (translations[i] === undefined) {
-              translations[i] = {
-                [langCode]:
-                  "/" +
-                  (defaultLang !== langCode ? langCode + "/" : "") +
-                  pathObj.path,
-              };
-            } else {
-              translations[i][langCode] =
-                "/" +
-                (defaultLang !== langCode ? langCode + "/" : "") +
-                pathObj.path;
-            }
-          });
-        } else {
-          reporter.warn(
-            `No translation found for file ${docLang} "${doc.name}.html" in ${langCode}`
-          );
-        }
-      }
-    }
-    // Path could be empty if the html file was not found in the index tree.
     if (doc.paths.length > 0) {
       doc.paths.forEach((docPath, i) => {
+        // Path could be empty if the html file was not found in the index tree.
         if (docPath !== "") {
-          // Maybe this could be added above? Would be more reliable.
-          // In case it has no translations first check.
-          translations[i]
-            ? (translations[i][docLang] = docPath)
-            : (translations[i] = { [docLang]: docPath });
           // Create the Gatsby page.
           createPage({
             path: docPath,
             component: path.resolve("./src/templates/doc.js"),
             context: {
               id: doc.id,
-              translations: translations[i],
             },
           });
         }
