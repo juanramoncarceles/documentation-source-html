@@ -29,8 +29,12 @@ exports.onPreInit = ({ reporter }) => {
 };
 
 /**
- * Stores a key for each lang code, and in each one an array of objects with
- * file name and its correspongin path for the page url.
+ * Includes all the data of the index.xml files from the source files.
+ * Each index.xml data is stored in an array identified by a key being its locale.
+ * Each array contains an object for each of the 'topic' items in the index.xml,
+ * and each object has a 'file' and 'title' fields which correspond to the item's
+ * attributes, and a 'path' field with the page url.
+ * Example: {lang-code: [{file, title, path}]}
  */
 const indexTree = {};
 
@@ -97,7 +101,7 @@ function createArrayOfPathObjs(arr, finalArr, bPath = "") {
     finalArr.push({
       file: arr[i].attributes.file,
       path,
-      name: arr[i].attributes.title,
+      title: arr[i].attributes.title,
     });
     if (arr[i].children) {
       createArrayOfPathObjs(arr[i].children, finalArr, path);
@@ -209,7 +213,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
   const typeDefs = `
     type LandsDesignDoc implements Node {
-      name: String!
+      file: String!
       title: String!
       paths: [String]!
       lang: String!
@@ -272,6 +276,9 @@ exports.onCreateNode = async ({
     const langCode = parent.relativeDirectory.toLowerCase();
     // The base path object with the file name and its corresponding url path.
     const baseNodePathObj = {
+      // The value of the title attribute, which is language specific.
+      title: node.attributes.title,
+      // The value of the file attribute.
       file: node.attributes.file,
       // If the current index's item 'file' has been defined as home page in
       // the config its path is set as the root.
@@ -279,8 +286,6 @@ exports.onCreateNode = async ({
         !firstAsHome && node.attributes.file === config.homeFile
           ? ""
           : slugify(node.attributes.title) + "/",
-      // The name (title) of the file in the corresponding language.
-      name: node.attributes.title,
     };
     if (indexTree.hasOwnProperty(langCode)) {
       // Add the base path object to the existing array.
@@ -411,7 +416,7 @@ exports.onCreateNode = async ({
     const htmlNode = {
       id: createNodeId(node.relativePath),
       htmlContent: processedHtml,
-      name: node.name, // The file's name. TODO call this fileName.
+      file: node.name,
       lang,
       parent: node.id, // Parent/child relationship should be set when possible otherwise Gatsby will garbage collect the new node.
       internal: {
@@ -452,7 +457,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           // Get the object with data (path and file name) about the current doc.
           // I use filter to get all the index items that point to the same doc.
           const pathObjs = cachedIndexTree[source.lang].filter(
-            pathObj => pathObj.file.toLowerCase() === source.name.toLowerCase()
+            pathObj => pathObj.file.toLowerCase() === source.file.toLowerCase()
           );
           // In case at least one path has been found add them.
           if (pathObjs.length > 0) {
@@ -464,7 +469,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
             );
           } else {
             reporter.warn(
-              `Can't resolve 'path' of doc node created from file: ${source.lang} "${source.name}.html" since it doesn't appear on its index.xml.`
+              `Can't resolve 'path' of doc node created from file: ${source.lang} "${source.file}.html" since it doesn't appear on its index.xml.`
             );
             return [];
           }
@@ -478,13 +483,13 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           // the same even if the file appears multiple times. In other words, it won't work as expected if a file appears
           // more than once in the index.xml and each time it has a different title, because it will just pick the first one.
           const pathObj = cachedIndexTree[source.lang].find(
-            pathObj => pathObj.file.toLowerCase() === source.name.toLowerCase()
+            pathObj => pathObj.file.toLowerCase() === source.file.toLowerCase()
           );
           if (pathObj) {
-            return pathObj.name;
+            return pathObj.title;
           } else {
             reporter.warn(
-              `Can't resolve 'title' of doc node created from file: ${source.lang} "${source.name}.html" since it doesn't appear on its index.xml.`
+              `Can't resolve 'title' of doc node created from file: ${source.lang} "${source.file}.html" since it doesn't appear on its index.xml.`
             );
             return "";
           }
@@ -497,13 +502,13 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
           const defaultLang = site.siteMetadata.defaultLang ?? "";
           // Loop all indexTree to create the translation objects. There will be a translations object per doc's path.
-          const docName = source.name.toLowerCase();
           const docLang = source.lang;
           const translations = [];
           for (const langCode in cachedIndexTree) {
             // For each lang get all that match by file.
             const translationPathObjArr = cachedIndexTree[langCode].filter(
-              pathObj => pathObj.file.toLowerCase() === docName
+              pathObj =>
+                pathObj.file.toLowerCase() === source.file.toLowerCase()
             );
             if (translationPathObjArr.length > 0) {
               // For each match create a translations object.
@@ -521,7 +526,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
               });
             } else {
               reporter.warn(
-                `No translation found for file ${docLang} "${source.name}.html" in ${langCode}`
+                `No translation found for file ${docLang} "${source.file}.html" in ${langCode}`
               );
             }
           }
@@ -541,7 +546,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
             cachedIndexTree[source.lang],
             source.lang,
             defaultLang,
-            source.name
+            source.file
           );
         },
       },
