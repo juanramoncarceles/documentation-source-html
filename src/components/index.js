@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 
 import { useIndexTree } from "../contexts/IndexTreeContext";
@@ -6,12 +6,29 @@ import { useIndexTree } from "../contexts/IndexTreeContext";
 import IndexItem from "./indexItem";
 
 const Index = ({ lang, setOpen, cssClasses }) => {
+  const indexTreeHTMLContainer = useRef(null);
+
   const {
     indexes,
     collapsementState,
     setCollapsementState,
     defaultLang,
   } = useIndexTree();
+
+  useLayoutEffect(() => {
+    if (indexTreeHTMLContainer.current) {
+      const scrollPosition = sessionStorage.getItem("indexTreeYScroll");
+      indexTreeHTMLContainer.current.scrollTo(0, scrollPosition || 0);
+    }
+  }, []);
+
+  const storeYScroll = () => {
+    if (indexTreeHTMLContainer.current)
+      sessionStorage.setItem(
+        "indexTreeYScroll",
+        indexTreeHTMLContainer.current.scrollTop
+      );
+  };
 
   const getIndexDataByLang = lang => {
     const indexObj = indexes.find(index => index.lang === lang);
@@ -30,7 +47,11 @@ const Index = ({ lang, setOpen, cssClasses }) => {
       className={cssClasses + " bg-black bg-opacity-25 lg:bg-white"}
       onClick={e => (e.target === e.currentTarget ? setOpen(false) : null)}
     >
-      <nav className="sticky h-(screen-20) top-20 mr-24 pt-10 px-2 overflow-y-auto border-r bg-white lg:mr-0 lg:bg-transparent">
+      <nav
+        className="sticky h-(screen-20) top-20 mr-24 pt-10 px-2 overflow-y-auto border-r bg-white lg:mr-0 lg:bg-transparent"
+        ref={indexTreeHTMLContainer}
+        onClick={storeYScroll}
+      >
         {/* <h3 className="text-xl uppercase">Index</h3> */}
         {indexData ? (
           <ul className="mb-10">

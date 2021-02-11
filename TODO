@@ -1,5 +1,4 @@
 BUGS:
-  ☐ When selecting a page from the index it rerenders with scroll top but it should maintain the scroll position.
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
   ☐ If there is no data about translations the Language switcher component should not appear.
@@ -86,6 +85,7 @@ DONE:
   ✔ It is not responsive. @done(21-01-22 18:32)
   ✔ In Firefox on small screens the side navigation has an incorrect position. @critical @done(21-01-29 18:21)
   ✔ Search bar. At least for the name of the pages / commands / headings. @done(21-02-03 14:42)
+  ✔ When selecting a page from the index it rerenders with scroll top but it should maintain the scroll position. @done(21-02-11 13:15)
 
 REJECTED:
   ✘ Create schema customization also for the custom fields? @cancelled(21-01-20 12:02)
