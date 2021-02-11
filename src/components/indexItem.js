@@ -11,7 +11,7 @@ const IndexItem = ({ item, collapsementState, lang, onClick, defaultLang }) => {
       <span className="flex items-center">
         {subItems && subItems.length ? (
           <button
-            className="absolute"
+            className="absolute focus:outline-none"
             aria-label={(collapsed ? "Expand " : "Collapse ") + item.label}
             aria-expanded={collapsed ? "false" : "true"}
             onClick={() => onClick(item.id)}
@@ -35,7 +35,7 @@ const IndexItem = ({ item, collapsementState, lang, onClick, defaultLang }) => {
         <Link
           to={"/" + (defaultLang !== lang ? lang + "/" : "") + item.url}
           activeClassName="active-index-item"
-          className="ml-6 break-all"
+          className="w-full ml-6 py-0.5 px-1.5 break-all hover:bg-gray-100"
         >
           {item.label}
         </Link>
