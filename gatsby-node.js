@@ -9,10 +9,13 @@ const {
 
 // Temporary config that may change and be moved out of this file.
 const config = {
-  // homeFile: "Introduction", // Optional. If provided it should be a top level index.xml item, otherwise no page will be created at root url.
+  // homeFile: "Introduction", // Optional. If provided it should be a top level index.xml item, otherwise no page will be created at root url. Make case insensitive.
   processImages: true, // Optional. Set to true to process images by Sharp.
+  defaultLang: "en-us", // TODO take this from gatsby-config instead.
 };
 
+// TODO remove and use only homeFile setting it to empty string or null to indicate to use the first as home,
+// because currently if homeFile is set to true this is ignored, which could be confusing.
 let firstAsHome = true;
 
 exports.onPreInit = ({ reporter }) => {
@@ -42,6 +45,10 @@ exports.onPreInit = ({ reporter }) => {
  */
 const indexTree = {};
 
+/**
+ * An object with a key for each language, and each one with a nested array with
+ * the index.xml items. Each item has 'label', 'originalFile', 'url' and 'items'.
+ */
 const docsIndexes = {};
 
 /**
@@ -205,8 +212,13 @@ exports.onCreateNode = async ({
   }
 
   if (node.internal.type === "IndexXml") {
+    /********************* Creation of the 'index trees' *********************/
+
     const parent = getNode(node.parent);
     const langCode = parent.relativeDirectory.toLowerCase();
+    const pathLocalePrefix = `/${
+      config.defaultLang !== langCode ? langCode + "/" : ""
+    }`;
     // The base path object with the file name and its corresponding url path.
     const baseNodePathObj = {
       // The value of the title attribute, which is language specific.
@@ -216,9 +228,10 @@ exports.onCreateNode = async ({
       // If the current index's item 'file' has been defined as home page in
       // the config its path is set as the root.
       path:
-        !firstAsHome && node.attributes.file === config.homeFile
+        pathLocalePrefix +
+        (!firstAsHome && node.attributes.file === config.homeFile
           ? ""
-          : slugify(node.attributes.title) + "/",
+          : slugify(node.attributes.title) + "/"),
     };
     if (indexTree.hasOwnProperty(langCode)) {
       // Add the base path object to the existing array.
@@ -236,7 +249,7 @@ exports.onCreateNode = async ({
     } else {
       // If true the root/home page is created with the first file mentioned in the index.xml.
       if (firstAsHome) {
-        baseNodePathObj.path = "";
+        baseNodePathObj.path = pathLocalePrefix;
       }
       // Create the new array and start adding the base path object.
       indexTree[langCode] = [baseNodePathObj];
@@ -297,7 +310,8 @@ exports.onCreateNode = async ({
     }
   }
 
-  // Creation of the HTML doc nodes.
+  /******************** Creation of the Doc (HTML) nodes ********************/
+
   if (
     node.sourceInstanceName === "doc" &&
     node.internal.mediaType === "text/html"
@@ -361,9 +375,6 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
         // so it exists in the node and can be queried for example from Algolia.
         type: ["String"],
         resolve(source, args, context, info) {
-          // I use the Site node to get the defaultLang data.
-          const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
-          const defaultLang = site.siteMetadata.defaultLang ?? "";
           // Get the object with data (path and file name) about the current doc.
           // I use filter to get all the index items that point to the same doc.
           const pathObjs = cachedIndexTree[source.lang].filter(
@@ -371,12 +382,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           );
           // In case at least one path has been found add them.
           if (pathObjs.length > 0) {
-            return pathObjs.map(
-              pathObj =>
-                "/" +
-                (defaultLang !== source.lang ? source.lang + "/" : "") +
-                pathObj.path
-            );
+            return pathObjs.map(pathObj => pathObj.path);
           } else {
             reporter.warn(
               `Can't resolve 'path' of doc node created from file: ${source.lang} "${source.file}.html" since it doesn't appear on its index.xml.`
@@ -408,9 +414,6 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
       translations: {
         type: ["JSON"], // Type example: [{"en-us": "/interface/", "es-es": "/es-es/interfaz/"}]
         resolve(source, args, context, info) {
-          // I use the Site node to get the defaultLang data.
-          const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
-          const defaultLang = site.siteMetadata.defaultLang ?? "";
           // Loop all indexTree to create the translation objects. There will be a translations object per doc's path.
           const docLang = source.lang;
           const translations = [];
@@ -423,9 +426,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
             if (translationPathObjArr.length > 0) {
               // For each match create a translations object.
               translationPathObjArr.forEach((pathObj, i) => {
-                const path = `/${
-                  defaultLang !== langCode ? langCode + "/" : ""
-                }${pathObj.path}`;
+                const path = pathObj.path;
                 if (!translations[i]) {
                   translations[i] = {
                     [langCode]: path,
@@ -447,15 +448,11 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
       htmlContent: {
         type: "String",
         resolve(source, args, context, info) {
-          // I use the Site node to get the defaultLang data.
-          const site = context.nodeModel.getAllNodes({ type: "Site" })[0];
-          const defaultLang = site.siteMetadata.defaultLang ?? "";
           // Process to replace the internal anchors href in the source HTML.
           return replaceHTMLAnchorsHref(
             source.htmlContent,
             cachedIndexTree[source.lang],
             source.lang,
-            defaultLang,
             source.file
           );
         },

@@ -64,14 +64,12 @@ exports.replaceHTMLImagesSrc = (stringHTML, imagesData, lang, fileName) => {
  * @param {string} stringHTML Input HTML as a string.
  * @param {Object[]} pathObjsArray An array of objects with at least 'path' and 'file' values.
  * @param {string} lang The lang code of the file.
- * @param {string} defaultLang The default lang code set for the site.
  * @param {string} fileName The name of the HTML file being processed.
  */
 exports.replaceHTMLAnchorsHref = (
   stringHTML,
   pathObjsArray,
   lang,
-  defaultLang,
   fileName
 ) => {
   // Regexp to match the href attr of anchor HTML elements.
@@ -101,11 +99,7 @@ exports.replaceHTMLAnchorsHref = (
             pathObj => pathObj.file.toLowerCase() === hrefFileName
           );
           if (pathObj) {
-            const newHref =
-              "/" +
-              (defaultLang !== lang ? lang + "/" : "") +
-              pathObj.path +
-              pageAnchor;
+            const newHref = pathObj.path + pageAnchor;
             return match.replace(p1, newHref);
           } else {
             console.log(

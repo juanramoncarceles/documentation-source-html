@@ -13,7 +13,6 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
     collapsementState,
     setCollapsementState,
     setCurrentPath,
-    defaultLang,
   } = useIndexTree();
 
   useEffect(() => {
@@ -64,8 +63,6 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
               <IndexItem
                 item={item}
                 collapsementState={collapsementState}
-                lang={lang}
-                defaultLang={defaultLang}
                 key={item.label}
                 onClick={toggleCollapsed}
               />

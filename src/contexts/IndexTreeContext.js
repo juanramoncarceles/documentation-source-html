@@ -11,9 +11,6 @@ const IndexTreeContextProvider = ({ children }) => {
   // with this: https://www.gatsbyjs.com/docs/schema-customization/
   const {
     allDocsIndex: { nodes: indexes },
-    site: {
-      siteMetadata: { defaultLang },
-    },
   } = useStaticQuery(
     graphql`
       query allIndexQuery {
@@ -35,11 +32,6 @@ const IndexTreeContextProvider = ({ children }) => {
                 }
               }
             }
-          }
-        }
-        site {
-          siteMetadata {
-            defaultLang
           }
         }
       }
@@ -95,19 +87,20 @@ const IndexTreeContextProvider = ({ children }) => {
    * @param {Object} outObj An object where all the values will be added.
    * @param {Object[]} itemsArray Array of index items with 'id', 'items' and 'url' fields.
    * @param {string} parentId The name of the key that corresponds to the parent item in the index tree.
-   * @param {string} lang The locale to create the urls.
    */
-  const createIndexCollapsedStateObj = (outObj, itemsArray, parentId, lang) => {
+  const createIndexCollapsedStateObj = (outObj, itemsArray, parentId) => {
     itemsArray.forEach(item => {
-      // TODO url should be already complete instead than creating it here
-      const url = "/" + lang + "/" + item.url;
       if (outObj[item.id]) {
-        outObj[item.id].urls.push(url);
+        outObj[item.id].urls.push(item.url);
       } else {
-        outObj[item.id] = { collapsed: true, urls: [url], parent: parentId };
+        outObj[item.id] = {
+          collapsed: true,
+          urls: [item.url],
+          parent: parentId,
+        };
       }
       if (item.items?.length) {
-        createIndexCollapsedStateObj(outObj, item.items, item.id, lang);
+        createIndexCollapsedStateObj(outObj, item.items, item.id);
       }
     });
   };
@@ -115,8 +108,7 @@ const IndexTreeContextProvider = ({ children }) => {
   const [collapsementState, setCollapsementState] = useState(() => {
     const obj = {};
     indexes.forEach(index => {
-      // TODO url should already include the locale instead of passing it.
-      createIndexCollapsedStateObj(obj, index.items, "", index.lang);
+      createIndexCollapsedStateObj(obj, index.items, "");
     });
     return obj;
   });
@@ -128,7 +120,6 @@ const IndexTreeContextProvider = ({ children }) => {
         collapsementState,
         setCollapsementState,
         setCurrentPath,
-        defaultLang,
       }}
     >
       {children}
