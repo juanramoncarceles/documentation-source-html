@@ -40,6 +40,7 @@ const Doc = ({ data: { landsDesignDoc: doc }, path }) => {
       <Index
         lang={lang}
         setOpen={setNavIsOpen}
+        currentPath={path}
         cssClasses={`fixed min-w-64 inset-0 top-20 w-full z-40 lg:static lg:w-auto lg:block ${
           navIsOpen ? "" : "hidden"
         }`}

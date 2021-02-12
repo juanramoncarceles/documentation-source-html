@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
 const IndexItem = ({ item, collapsementState, lang, onClick, defaultLang }) => {
-  const collapsed = collapsementState[item.id];
+  const collapsed = collapsementState[item.id].collapsed;
   const subItems = item.items;
 
   return (

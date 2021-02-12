@@ -1,19 +1,24 @@
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef, useEffect, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 
 import { useIndexTree } from "../contexts/IndexTreeContext";
 
 import IndexItem from "./indexItem";
 
-const Index = ({ lang, setOpen, cssClasses }) => {
+const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
   const indexTreeHTMLContainer = useRef(null);
 
   const {
     indexes,
     collapsementState,
     setCollapsementState,
+    setCurrentPath,
     defaultLang,
   } = useIndexTree();
+
+  useEffect(() => {
+    setCurrentPath(currentPath);
+  });
 
   useLayoutEffect(() => {
     if (indexTreeHTMLContainer.current) {
@@ -38,7 +43,7 @@ const Index = ({ lang, setOpen, cssClasses }) => {
   const indexData = getIndexDataByLang(lang);
 
   const toggleCollapsed = itemId => {
-    collapsementState[itemId] = !collapsementState[itemId];
+    collapsementState[itemId].collapsed = !collapsementState[itemId].collapsed;
     setCollapsementState({ ...collapsementState });
   };
 
@@ -83,6 +88,7 @@ Index.defaultProps = {
 Index.propTypes = {
   lang: PropTypes.string,
   setOpen: PropTypes.func,
+  currentPath: PropTypes.string.isRequired,
   cssClasses: PropTypes.string,
 };
 
