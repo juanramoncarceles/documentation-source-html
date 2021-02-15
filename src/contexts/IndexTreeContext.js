@@ -20,14 +20,17 @@ const IndexTreeContextProvider = ({ children }) => {
             items {
               label
               originalFile
+              id
               url
               items {
                 label
                 originalFile
+                id
                 url
                 items {
                   label
                   originalFile
+                  id
                   url
                 }
               }
@@ -60,25 +63,6 @@ const IndexTreeContextProvider = ({ children }) => {
   }, [currentPath]);
 
   // TODO useEffect to set/get in localStorage the state of the index?
-
-  // TODO everything related to the index items ids would be better to be handled in gatsby-node
-  // so it can be added to the nodes, and here it would be just taken from the query.
-
-  // Processes an index array to add the id to each index item.
-  // Index strucutre and original file names should be the same for all languages.
-  const addChainedIdToIndexItems = (array, parentLabel = "") => {
-    for (let i = 0; i < array.length; i++) {
-      const id = parentLabel + array[i].originalFile.toLowerCase();
-      array[i].id = id;
-      if (array[i].items) {
-        addChainedIdToIndexItems(array[i].items, id);
-      }
-    }
-  };
-
-  indexes.forEach(index => {
-    addChainedIdToIndexItems(index.items);
-  });
 
   /**
    * Creates an object with a property for each item in the index tree. The property

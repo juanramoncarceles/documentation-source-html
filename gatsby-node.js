@@ -124,26 +124,34 @@ function createArrayOfPathObjs(arr, finalArr, bPath = "") {
 }
 
 /**
- * Creates the tree of items of a pages index.
+ * Recursively creates the tree of links to the pages.
  * @param {Array} arr The original array with the data.
  * @param {Array} finalArr The array that will store the output.
  * @param {string} bPath Optional. Base path, ending slash will be added if not included.
+ * @param {string} parentId Optional. The id of the parent which is used to create the item id.
  */
-function createStructureOfItems(arr, finalArr, bPath = "") {
+function createStructureOfItems(arr, finalArr, bPath = "", parentId = "") {
   // In case a base path is provided without ending slash add it.
   if (bPath && !bPath.endsWith("/")) {
     bPath + "/";
   }
   for (let i = 0; i < arr.length; i++) {
     const path = bPath + slugify(arr[i].attributes.title) + "/";
+    const id = parentId + arr[i].attributes.file.toLowerCase();
     finalArr.push({
       label: arr[i].attributes.title,
       originalFile: arr[i].attributes.file,
+      id,
       url: path,
       items: [],
     });
     if (arr[i].children) {
-      createStructureOfItems(arr[i].children, finalArr[i].items, path);
+      createStructureOfItems(
+        arr[i].children,
+        finalArr[i].items,
+        path,
+        parentId
+      );
     }
   }
 }
@@ -274,13 +282,15 @@ exports.onCreateNode = async ({
       createStructureOfItems(
         node.xmlChildren,
         indexItemSubitems,
-        baseNodePathObj.path
+        baseNodePathObj.path,
+        baseNodePathObj.file
       );
     }
 
     const indexTopLevelItem = {
       label: node.attributes.title,
-      originalFile: node.attributes.file,
+      originalFile: node.attributes.file, // TODO rename to file
+      id: node.attributes.file.toLowerCase(),
       url: baseNodePathObj.path,
       items: indexItemSubitems,
     };
