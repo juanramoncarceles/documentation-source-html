@@ -236,36 +236,29 @@ exports.onCreateNode = async ({
           ? ""
           : slugify(node.attributes.title) + "/"),
     };
+
+    // If the indexTree has that language already push the pathObj to that
+    // array, otherwise create the array with that pathObj.
     if (indexTree.hasOwnProperty(langCode)) {
-      // Add the base path object to the existing array.
       indexTree[langCode].push(baseNodePathObj);
-      // Then add all the children if they exist.
-      if (node.xmlChildren.length) {
-        const pathObjects = [];
-        createArrayOfPathObjs(
-          node.xmlChildren,
-          pathObjects,
-          baseNodePathObj.path
-        );
-        indexTree[langCode].push(...pathObjects);
-      }
     } else {
       // If true the root/home page is created with the first file mentioned in the index.xml.
       if (firstAsHome) {
         baseNodePathObj.path = pathLocalePrefix;
       }
-      // Create the new array and start adding the base path object.
       indexTree[langCode] = [baseNodePathObj];
-      // Then add all the children if they exist.
-      if (node.xmlChildren.length) {
-        const pathObjects = [];
-        createArrayOfPathObjs(
-          node.xmlChildren,
-          pathObjects,
-          baseNodePathObj.path
-        );
-        indexTree[langCode].push(...pathObjects);
-      }
+    }
+
+    // If the top level index.xml item has children create a path object for each child item
+    // and add them to the array for that language in indexTree.
+    if (node.xmlChildren.length) {
+      const pathObjects = [];
+      createArrayOfPathObjs(
+        node.xmlChildren,
+        pathObjects,
+        baseNodePathObj.path
+      );
+      indexTree[langCode].push(...pathObjects);
     }
 
     /****************** Creation of the 'docs index' nodes ******************/
