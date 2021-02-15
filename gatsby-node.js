@@ -146,12 +146,7 @@ function createStructureOfItems(arr, finalArr, bPath = "", parentId = "") {
       items: [],
     });
     if (arr[i].children) {
-      createStructureOfItems(
-        arr[i].children,
-        finalArr[i].items,
-        path,
-        parentId
-      );
+      createStructureOfItems(arr[i].children, finalArr[i].items, path, id);
     }
   }
 }
@@ -283,7 +278,7 @@ exports.onCreateNode = async ({
         node.xmlChildren,
         indexItemSubitems,
         baseNodePathObj.path,
-        baseNodePathObj.file
+        baseNodePathObj.file.toLowerCase()
       );
     }
 
