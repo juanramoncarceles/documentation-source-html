@@ -14,26 +14,24 @@ const strings = {
   "fr-fr": "Français",
 };
 
+/**
+ * Creates the list of JSX options for each language available.
+ * @param {Object} translationsData Keys are the lang codes and value is the path {<lang>: <path>}
+ */
+const createLangOptions = translationsData => {
+  const options = [];
+  for (const key of Object.keys(translationsData)) {
+    options.push(
+      <option value={key} key={key}>
+        {strings[key]}
+      </option>
+    );
+  }
+  return options;
+};
+
 const Language = () => {
   const { lang, storeLang, translations } = useIntl();
-
-  /**
-   * Creates the list of JSX options.
-   * @param {Object} translationsData Keys are the lang codes and values are the urls.
-   */
-  const createLangOptions = translationsData => {
-    const options = [];
-
-    for (const key of Object.keys(translationsData)) {
-      options.push(
-        <option value={key} key={key}>
-          {strings[key]}
-        </option>
-      );
-    }
-
-    return options;
-  };
 
   return (
     <form className="relative">

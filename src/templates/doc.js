@@ -13,10 +13,7 @@ const Doc = ({ data: { landsDesignDoc: doc }, path }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const { setLang, setTranslations } = useIntl();
   const lang = doc.lang;
-
   const pageTitle = doc.title;
-
-  const translations = doc.translations.find(t => t[doc.lang] === path) ?? {};
 
   useEffect(() => {
     if (navIsOpen) {
@@ -29,9 +26,8 @@ const Doc = ({ data: { landsDesignDoc: doc }, path }) => {
   useEffect(() => {
     // TODO Those two methods probably will always be used together so could be "merged"
     setLang(lang);
-    setTranslations(translations);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lang, translations]);
+    setTranslations(doc.translations.find(t => t[lang] === path) ?? {});
+  }, [lang, path]);
 
   return (
     <Layout>

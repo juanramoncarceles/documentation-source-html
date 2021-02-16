@@ -5,6 +5,25 @@ import { useIndexTree } from "../contexts/IndexTreeContext";
 
 import IndexItem from "./indexItem";
 
+/**
+ * Stores the vertical scroll value of the provided element in session storage.
+ * @param {Element} domElement
+ */
+const storeYScroll = domElement => {
+  if (domElement)
+    sessionStorage.setItem("indexTreeYScroll", domElement.scrollTop);
+};
+
+/**
+ * From an array of indexes returns the one for the provided language.
+ * If no index is found undefined is returned.
+ * @param {string} lang en-us, es-es, it-it, etc...
+ */
+const getIndexDataByLang = (indexes, lang) => {
+  const indexObj = indexes.find(index => index.lang === lang);
+  return indexObj && indexObj.items;
+};
+
 const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
   const indexTreeHTMLContainer = useRef(null);
 
@@ -17,7 +36,7 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
 
   useEffect(() => {
     setCurrentPath(currentPath);
-  });
+  }, [setCurrentPath, currentPath]);
 
   useLayoutEffect(() => {
     if (indexTreeHTMLContainer.current) {
@@ -26,20 +45,7 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
     }
   }, []);
 
-  const storeYScroll = () => {
-    if (indexTreeHTMLContainer.current)
-      sessionStorage.setItem(
-        "indexTreeYScroll",
-        indexTreeHTMLContainer.current.scrollTop
-      );
-  };
-
-  const getIndexDataByLang = lang => {
-    const indexObj = indexes.find(index => index.lang === lang);
-    return indexObj && indexObj.items;
-  };
-
-  const indexData = getIndexDataByLang(lang);
+  const indexData = getIndexDataByLang(indexes, lang);
 
   const toggleCollapsed = itemId => {
     collapsementState[itemId].collapsed = !collapsementState[itemId].collapsed;
@@ -54,7 +60,7 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
       <nav
         className="sticky h-(screen-20) top-20 mr-24 pt-10 px-2 overflow-y-auto border-r bg-white lg:mr-0 lg:bg-transparent"
         ref={indexTreeHTMLContainer}
-        onClick={storeYScroll}
+        onClick={() => storeYScroll(indexTreeHTMLContainer.current)}
       >
         {/* <h3 className="text-xl uppercase">Index</h3> */}
         {indexData ? (

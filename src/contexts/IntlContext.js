@@ -3,19 +3,23 @@ import { navigate } from "gatsby";
 
 const IntlContext = createContext();
 
+/**
+ * Stores the locale value in localStorage.
+ * @param {string} lang en-us, es-es, it-it, etc...
+ */
+const storeLang = lang => {
+  if (!lang) return;
+  try {
+    localStorage.setItem("lang", lang);
+    console.log(`Stored "${lang}" in Local Storage.`);
+  } catch (error) {
+    console.error("Error trying to store lang code in Local Storage.", error);
+  }
+};
+
 const IntlContextProvider = ({ children }) => {
   const [lang, setLang] = useState("");
   const [translations, setTranslations] = useState({});
-
-  const storeLang = lang => {
-    if (!lang) return;
-    try {
-      localStorage.setItem("lang", lang);
-      console.log(`Stored "${lang}" in Local Storage.`);
-    } catch (error) {
-      console.error("Error trying to store lang code in Local Storage.", error);
-    }
-  };
 
   // TODO Possible method to check the browser lang.
   // const getBrowerLangIfSupported = () => {};
@@ -33,6 +37,8 @@ const IntlContextProvider = ({ children }) => {
       //   navigate(`/${translations[lang]}`);
       // }
     }
+    // In this case it is ok to have an object as a dependency since every time new
+    // translation values are available a new translations object is created and set.
   }, [translations]);
 
   return (
