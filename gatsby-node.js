@@ -101,6 +101,8 @@ async function copyFileToStatic(file, pathPrefix = "") {
 }
 
 /**
+ * The value of the 'file' property from the original array will be transformed
+ * to lower case.
  * @param {Array} arr The original array with the data.
  * @param {Array} finalArr A reference to the final array.
  * @param {string} bPath Optional. Base path, ending slash will be added if not included.
@@ -113,7 +115,7 @@ function createArrayOfPathObjs(arr, finalArr, bPath = "") {
   for (let i = 0; i < arr.length; i++) {
     const path = bPath + slugify(arr[i].attributes.title) + "/";
     finalArr.push({
-      file: arr[i].attributes.file,
+      file: arr[i].attributes.file.toLowerCase(),
       path,
       title: arr[i].attributes.title,
     });
@@ -227,7 +229,7 @@ exports.onCreateNode = async ({
       // The value of the title attribute, which is language specific.
       title: node.attributes.title,
       // The value of the file attribute.
-      file: node.attributes.file,
+      file: node.attributes.file.toLowerCase(),
       // If the current index's item 'file' has been defined as home page in
       // the config its path is set as the root.
       path:
@@ -271,14 +273,14 @@ exports.onCreateNode = async ({
         node.xmlChildren,
         indexItemSubitems,
         baseNodePathObj.path,
-        baseNodePathObj.file.toLowerCase()
+        baseNodePathObj.file
       );
     }
 
     const indexTopLevelItem = {
       label: node.attributes.title,
       originalFile: node.attributes.file, // TODO rename to file
-      id: node.attributes.file.toLowerCase(),
+      id: baseNodePathObj.file,
       url: baseNodePathObj.path,
       items: indexItemSubitems,
     };
@@ -376,7 +378,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           // Get the object with data (path and file name) about the current doc.
           // I use filter to get all the index items that point to the same doc.
           const pathObjs = cachedIndexTree[source.lang].filter(
-            pathObj => pathObj.file.toLowerCase() === source.file.toLowerCase()
+            pathObj => pathObj.file === source.file.toLowerCase()
           );
           // In case at least one path has been found add them.
           if (pathObjs.length > 0) {
@@ -397,7 +399,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           // the same even if the file appears multiple times. In other words, it won't work as expected if a file appears
           // more than once in the index.xml and each time it has a different title, because it will just pick the first one.
           const pathObj = cachedIndexTree[source.lang].find(
-            pathObj => pathObj.file.toLowerCase() === source.file.toLowerCase()
+            pathObj => pathObj.file === source.file.toLowerCase()
           );
           if (pathObj) {
             return pathObj.title;
@@ -418,8 +420,7 @@ exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
           for (const langCode in cachedIndexTree) {
             // For each lang get all that match by file.
             const translationPathObjArr = cachedIndexTree[langCode].filter(
-              pathObj =>
-                pathObj.file.toLowerCase() === source.file.toLowerCase()
+              pathObj => pathObj.file === source.file.toLowerCase()
             );
             if (translationPathObjArr.length > 0) {
               // For each match create a translations object.
