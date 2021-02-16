@@ -80,20 +80,22 @@ const IndexTreeContextProvider = ({ children }) => {
 
   // TODO maybe useLayoutEffect() ??
   useEffect(() => {
-    // Find in the index tree the item with the currentPath and open all its parents.
-    for (const key in collapsementState) {
-      let item = collapsementState[key];
-      if (item.urls.includes(currentPath)) {
-        // Find recursively the parents and set them to true.
-        while (item.parent !== "") {
-          item = collapsementState[item.parent];
-          item.collapsed = false;
+    setCollapsementState(c => {
+      // Find in the index tree the item with the currentPath and open all its parents.
+      for (const key in c) {
+        let item = c[key];
+        if (item.urls.includes(currentPath)) {
+          // Find recursively the parents and set them to true.
+          while (item.parent !== "") {
+            item = c[item.parent];
+            item.collapsed = false;
+          }
+          break;
         }
-        break;
       }
-    }
-    setCollapsementState(collapsementState);
-  }, [currentPath, collapsementState]);
+      return c;
+    });
+  }, [currentPath]);
 
   // TODO useEffect to set/get in localStorage the state of the index?
 

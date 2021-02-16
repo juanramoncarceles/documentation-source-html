@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useLayoutEffect } from "react";
+import React, { useRef, useEffect, useLayoutEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 
 import { useIndexTree } from "../contexts/IndexTreeContext";
@@ -45,11 +45,17 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
     }
   }, []);
 
-  const indexData = getIndexDataByLang(indexes, lang);
+  // TODO another option instead of useMemo is to pass the index already from context,
+  // to do that the lang should be passed to context to do the calculation there.
+  const indexData = useMemo(() => getIndexDataByLang(indexes, lang), [
+    indexes,
+    lang,
+  ]);
 
   const toggleCollapsed = itemId => {
-    collapsementState[itemId].collapsed = !collapsementState[itemId].collapsed;
-    setCollapsementState({ ...collapsementState });
+    setCollapsementState(
+      c => ((c[itemId].collapsed = !c[itemId].collapsed), { ...c }) // eslint-disable-line no-sequences
+    );
   };
 
   return (
