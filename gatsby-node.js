@@ -353,20 +353,26 @@ exports.onCreateNode = async ({
   }
 };
 
-// Called once after the sourcing phase has finished creating nodes.
-exports.sourceNodes = async ({ reporter, cache }) => {
-  // I store the indexTree object in cache because all its data is added in the onCreateNode() phase above which is not always
-  // run, so when I need it later in the createPages() phase, I have to take it from cache, otherwise the object would be empty.
-  if (Object.keys(indexTree).length > 0) {
-    await cache.set("indexTree", indexTree);
-    reporter.info("Added indexTree to cache.");
-  }
-};
-
 exports.createResolvers = async ({ createResolvers, reporter, cache }) => {
   // TODO If getting the indexTree from cache causes problems then a node could be created so
   // it can be fetched here with context.nodeModel.runQuery or context.nodeModel.getNodeById
-  const cachedIndexTree = await cache.get("indexTree");
+  let cachedIndexTree;
+  if (Object.keys(indexTree).length > 0) {
+    // Using new indexTree.
+    cachedIndexTree = indexTree;
+    // Setting the indexTree to cache.
+    await cache.set("indexTree", indexTree);
+    reporter.info("Using new indexTree and adding it to cache.");
+  } else {
+    // Getting the indexTree from cache.
+    cachedIndexTree = await cache.get("indexTree");
+    // Checking the indexTree.
+    if (cachedIndexTree) {
+      reporter.info("Using cached indexTree.");
+    } else {
+      reporter.panicOnBuild("No indexTree data could be obtained.");
+    }
+  }
 
   const resolvers = {
     LandsDesignDoc: {
