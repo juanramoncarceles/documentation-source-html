@@ -5,12 +5,12 @@ BUGS:
   ☐ If a file in the contents folder changes, then Gatsby doesn't process it again because it uses cache.
     The problem is that if html is not processed images and anchors remain unchanged so they are wrong.
     Solution now is to delete cache and start again.
-  ☐ 404 page is not language specific.
+  ☐ Make 404 page language specific and with better design.
   ☐ String of the main layout are hardcoded in English and should be translated. @critical 
   ☐ When navigating from one page to another and the url has a hash, it navigates twice, first OK with the hash, but second without, so the url loses the hash and scroll is top.
     https://github.com/gatsbyjs/gatsby/issues/25778
     https://github.com/gatsbyjs/gatsby/pull/28555
-
+  ☐ In the search result appear duplicated, add context like: Tool > Animation to each one.
 
 CHANGES:
   ☐ Currently languages available are hardcoded in the language component, change to fetch them instead. @high 
@@ -29,21 +29,25 @@ CHANGES:
     An easy option is to create two identical home pages, one with the locale an another without.
   ☐ Since pathObj.file in gatsby-node.js is always used with .toLowerCase() it could be stored lower case. It makes sense because file names are case insensitive.
   ☐ Make the logs about the errors with html anchors replacement also with the Gatsby reporter.
+  ☐ IndexTree scroll position is stored in sessionStorage, but it could be stored in the indexTreeContext state instead.
 
 
 FEATURES:
+  ☐ Open the index tree section on page load according to the current doc. Useful when selecting a search result.
+  ☐ Better error and warnings reporting. Now missing translations appear several times. Indicate files not being used and avoid that those appear in other warnings, like translations and images src replacement.
   ☐ Enable the offline plugin to make it a PWA so it can be installed and use notifications.
   ☐ Css and Js for the index of items. Probably they could be folded and expanded.
   ☐ Open the index tree automatically according to the current doc. For example after searching.
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
   ☐ Make the index side bar resizable by dragging.
-  ☐ Pass a globarl variable to decide if logging the custom warnings about missing traslations and other.
+  ☐ Pass a global variable to decide if logging the custom warnings about missing traslations and other.
   ☐ Nested lists change bullet style.
-  ☐ Implement the image map on the toolbar icons? Would it work in responsive? usemap="#VegetationToolbarMap"
+  ☐ Implement the image map on the toolbar icons? It is not responsive because works with pixels coordinates. @low 
   ☐ 404 page should display links to the main pages of the site.
   ☐ Use gatsby image manually to imitate the behaviour of inlining the base64 images by default?
   ☐ Allow to always search in english? Maybe this makes sense with different indexes? @low
+  ☐ Use up and down arrow keys in the list of search results.
 
 
 IMAGES:
