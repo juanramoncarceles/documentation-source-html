@@ -1,5 +1,8 @@
 require("dotenv").config();
 
+// Path to the source folder.
+const sourceFolder = `${__dirname}/../help`;
+
 module.exports = {
   siteMetadata: {
     title: `Lands Design help`,
@@ -23,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `docImages`,
-        path: `${__dirname}/contents`,
+        path: sourceFolder,
         ignore: [`**/*.html`, `**/*.xml`],
       },
     },
@@ -58,7 +61,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "doc",
-        path: `${__dirname}/contents`,
+        path: sourceFolder,
         //ignore: [`**/*.jpg`, `**/*.png`, `**/*.gif`, `**/*.xml`],
       },
     },
