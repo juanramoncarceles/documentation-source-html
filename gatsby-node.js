@@ -214,9 +214,7 @@ exports.onCreateNode = async ({
     }
     imageData.relativePath = node.relativePath.toLowerCase();
     imagesData.push(imageData);
-  }
-
-  if (node.internal.type === "IndexXml") {
+  } else if (node.internal.type === "IndexXml") {
     /********************* Creation of the 'index trees' *********************/
 
     const parent = getNode(node.parent);
@@ -308,14 +306,12 @@ exports.onCreateNode = async ({
         items: docsIndexes[langCode],
       });
     }
-  }
-
-  /******************** Creation of the Doc (HTML) nodes ********************/
-
-  if (
+  } else if (
     node.sourceInstanceName === "doc" &&
     node.internal.mediaType === "text/html"
   ) {
+    /******************** Creation of the Doc (HTML) nodes ********************/
+
     // Regular expression to match the lang directory name.
     const langRegexp = /^(?<lang>[^/]+)\//;
     // 'relativeDirectory' would be something like: 'de-DE/html'
