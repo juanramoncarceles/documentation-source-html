@@ -2,16 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-.active-index-item {
-  /* @apply font-bold text-green-600; */
-  font-weight: bold;
-  color: #70b570;
-}
-
 /* Overriding Tailwind's defaults */
+
 @layer base {
   img,
   svg {
     display: inline;
   }
+}
+
+/* Style of the active item in the index */
+
+.active-index-item {
+  font-weight: bold;
+  color: #70b570;
+}
+
+/* Scrollbar styles for webkit and firefox */
+
+.thin-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background-color: rgb(243, 244, 246);
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(209, 213, 219);
+}
+
+.thin-scrollbar {
+  scrollbar-width: thin;
 }

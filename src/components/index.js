@@ -64,7 +64,7 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
       onClick={e => (e.target === e.currentTarget ? setOpen(false) : null)}
     >
       <nav
-        className="sticky h-(screen-20) top-20 mr-24 pt-10 px-2 overflow-y-auto border-r bg-white lg:mr-0 lg:bg-transparent"
+        className="sticky h-(screen-20) top-20 mr-24 pt-10 px-2 overflow-y-auto border-r thin-scrollbar bg-white lg:mr-0 lg:bg-transparent"
         ref={indexTreeHTMLContainer}
         onClick={() => storeYScroll(indexTreeHTMLContainer.current)}
       >
