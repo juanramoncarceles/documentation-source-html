@@ -1,11 +1,11 @@
 BUGS:
+  ☐ Make 404 page language specific and with better design. It should also display links to the main pages of the site.. @high 
   ☐ Process 'index.xml' titles to remove HTML entitites?
     In the index.xml there are title attributes with values that contain HTML entities and should be parsed: "laPlanta &gt; Desde puntos"
   ☐ If there is no data about translations the Language switcher component should not appear.
   ☐ If a file in the contents folder changes, then Gatsby doesn't process it again because it uses cache.
     The problem is that if html is not processed images and anchors remain unchanged so they are wrong.
     Solution now is to delete cache and start again.
-  ☐ Make 404 page language specific and with better design.
   ☐ String of the main layout are hardcoded in English and should be translated. @critical 
   ☐ When navigating from one page to another and the url has a hash, it navigates twice, first OK with the hash, but second without, so the url loses the hash and scroll is top.
     https://github.com/gatsbyjs/gatsby/issues/25778
@@ -23,36 +23,27 @@ CHANGES:
         options.excludePattern = options.excludePattern.source
       }
     }
-  ☐ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low 
-  ☐ Use a resolver for the translations field so it doesn't have to be passed through page context.
   ☐ Process only images used in the HTML docs instead of all the images.
     An easy option is to create two identical home pages, one with the locale an another without.
-  ☐ Since pathObj.file in gatsby-node.js is always used with .toLowerCase() it could be stored lower case. It makes sense because file names are case insensitive.
-  ☐ Make the logs about the errors with html anchors replacement also with the Gatsby reporter.
+  ☐ Make the logs about the errors with html anchors replacement also with the Gatsby reporter? @low
   ☐ IndexTree scroll position is stored in sessionStorage, but it could be stored in the indexTreeContext state instead.
 
 
 FEATURES:
-  ☐ Open the index tree section on page load according to the current doc. Useful when selecting a search result.
   ☐ Better error and warnings reporting. Now missing translations appear several times. Indicate files not being used and avoid that those appear in other warnings, like translations and images src replacement.
   ☐ Enable the offline plugin to make it a PWA so it can be installed and use notifications.
-  ☐ Css and Js for the index of items. Probably they could be folded and expanded.
-  ☐ Open the index tree automatically according to the current doc. For example after searching.
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
     Use the html rehype plugin which gives the 'tableOfContents' based on the headers of the doc.
   ☐ Make the index side bar resizable by dragging.
   ☐ Pass a global variable to decide if logging the custom warnings about missing traslations and other.
   ☐ Nested lists change bullet style.
   ☐ Implement the image map on the toolbar icons? It is not responsive because works with pixels coordinates. @low 
-  ☐ 404 page should display links to the main pages of the site.
   ☐ Use gatsby image manually to imitate the behaviour of inlining the base64 images by default?
   ☐ Allow to always search in english? Maybe this makes sense with different indexes? @low
   ☐ Use up and down arrow keys in the list of search results.
 
 
 IMAGES:
-  ☐ For image extensions that are not supported by Sharp like gif they should be just copied into the public folder like in the rehype-images plugin.
-
   ☐ Images are working, but currently their sources are replaced using a regular expression, if there are problems use an AST instead.
     Since the rehype plugin has been added, the replacement could be done in the AST of the HTML that it provides. Similar to its image plugin
     https://github.com/styxlab/gatsby-theme-try-ghost/blob/master/packages/gatsby-rehype-inline-images/src/gatsby-node.js
@@ -90,6 +81,12 @@ DONE:
   ✔ In Firefox on small screens the side navigation has an incorrect position. @critical @done(21-01-29 18:21)
   ✔ Search bar. At least for the name of the pages / commands / headings. @done(21-02-03 14:42)
   ✔ When selecting a page from the index it rerenders with scroll top but it should maintain the scroll position. @done(21-02-11 13:15)
+  ✔ Add lang code to urls in gatsby-node.js instead than in the IndexItem component. @low @done(21-02-19 11:18)
+  ✔ Open the index tree section on page load according to the current doc. Useful when selecting a search result. @done(21-02-19 11:18)
+  ✔ Use a resolver for the translations field so it doesn't have to be passed through page context. @done(21-02-19 11:19)
+  ✔ Css and Js for the index of items. Probably they could be folded and expanded. @done(21-02-19 11:19)
+  ✔ pathObj.file in gatsby-node.js is stored in lower case. It makes sense because file names are case insensitive. @done(21-02-19 11:21)
+  ✔ For image extensions that are not supported by Sharp like gif they should be just copied into the public folder like in the rehype-images plugin. @done(21-02-19 11:23)
 
 REJECTED:
   ✘ Create schema customization also for the custom fields? @cancelled(21-01-20 12:02)
