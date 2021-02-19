@@ -13,7 +13,6 @@ BUGS:
   ☐ In the search result appear duplicated, add context like: Tool > Animation to each one.
 
 CHANGES:
-  ☐ Currently languages available are hardcoded in the language component, change to fetch them instead. @high 
   ☐ Convert to a plugin, even local to make it more modular and access the plugin options this way:
     exports.onPreInit = function (args, options) {
       if (options.excludeRegex && !options.excludePattern) {
@@ -87,6 +86,7 @@ DONE:
   ✔ Css and Js for the index of items. Probably they could be folded and expanded. @done(21-02-19 11:19)
   ✔ pathObj.file in gatsby-node.js is stored in lower case. It makes sense because file names are case insensitive. @done(21-02-19 11:21)
   ✔ For image extensions that are not supported by Sharp like gif they should be just copied into the public folder like in the rehype-images plugin. @done(21-02-19 11:23)
+  ✔ Currently languages available are hardcoded in the language component, change to fetch them instead. @high @done(21-02-19 11:25)
 
 REJECTED:
   ✘ Create schema customization also for the custom fields? @cancelled(21-01-20 12:02)

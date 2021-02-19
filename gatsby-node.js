@@ -1,5 +1,6 @@
 const fs = require(`fs-extra`);
 const path = require(`path`);
+const parseXml = require(`xml-parser`);
 const { fluid } = require(`gatsby-plugin-sharp`);
 const {
   slugify,
@@ -175,6 +176,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       url: String!
       items: [IndexItem]
     }
+    type Language implements Node {
+      locale: String!
+      name: String!
+    }
   `;
 
   createTypes(typeDefs);
@@ -277,7 +282,7 @@ exports.onCreateNode = async ({
 
     const indexTopLevelItem = {
       label: node.attributes.title,
-      originalFile: node.attributes.file, // TODO rename to file
+      originalFile: node.attributes.file,
       id: baseNodePathObj.file,
       url: baseNodePathObj.path,
       items: indexItemSubitems,
@@ -346,6 +351,37 @@ exports.onCreateNode = async ({
     };
 
     createNode(htmlNode);
+  } else if (
+    node.internal.mediaType === "application/xml" &&
+    node.name === "index"
+  ) {
+    // This is only to get the attributes of the root element of the index.xml
+    // since the plugin gatsby-transformer-xml doesn't provide the root element.
+    // This also means that all the processes related to index.xml files could
+    // be handled here without the need for that plugin.
+    const rawXml = await loadNodeContent(node);
+    const parsedXml = parseXml(rawXml);
+    const language = parsedXml.root.attributes?.language;
+    if (language) {
+      // The directory should have the language locale as name.
+      const langCode = node.relativeDirectory.toLowerCase();
+      // The language node data.
+      const languageNode = {
+        id: createNodeId(node.relativePath),
+        locale: langCode,
+        name: language,
+        parent: node.id, // Parent/child relationship should be set, otherwise Gatsby won't keep the nodes in future runs.
+        internal: {
+          type: "Language",
+          contentDigest: createContentDigest(langCode + language),
+        },
+      };
+      createNode(languageNode);
+    } else {
+      reporter.warn(
+        `${node.internal.description} is missing the "language" attribute on its root element.`
+      );
+    }
   }
 };
 

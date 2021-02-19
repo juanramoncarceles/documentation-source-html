@@ -1,29 +1,21 @@
 /* eslint-disable jsx-a11y/no-onchange */
 
-import React from "react";
-import { navigate } from "gatsby";
+import React, { useMemo } from "react";
+import { navigate, useStaticQuery, graphql } from "gatsby";
 
 import { useIntl } from "../contexts/IntlContext";
 
-// TODO fetch this from somewhere...
-const strings = {
-  "es-es": "Español",
-  "en-us": "English",
-  "it-it": "Italiano",
-  "de-de": "Deutsch",
-  "fr-fr": "Français",
-};
-
 /**
- * Creates the list of JSX options for each language available.
- * @param {Object} translationsData Keys are the lang codes and value is the path {<lang>: <path>}
+ * Creates the list of language options for each translation available.
+ * @param {Object} translationsData Keys are the locales and value is the path {<locale>: <path>}
+ * @param {Object[]} languagesData Each object has a 'locale' ex: en-us, and 'name' ex: English
  */
-const createLangOptions = translationsData => {
+const createLangOptions = (translationsData, languagesData) => {
   const options = [];
   for (const key of Object.keys(translationsData)) {
     options.push(
       <option value={key} key={key}>
-        {strings[key]}
+        {languagesData.find(l => l.locale === key)?.name ?? key}
       </option>
     );
   }
@@ -33,10 +25,27 @@ const createLangOptions = translationsData => {
 const Language = () => {
   const { lang, storeLang, translations } = useIntl();
 
+  const {
+    allLanguage: { nodes: languages },
+  } = useStaticQuery(graphql`
+    query LanguagesQuery {
+      allLanguage {
+        nodes {
+          locale
+          name
+        }
+      }
+    }
+  `);
+
+  const options = useMemo(() => createLangOptions(translations, languages), [
+    translations,
+  ]);
+
   return (
     <form className="relative">
       <label htmlFor="lang" className="sr-only">
-        Lands Design Help language
+        Language picker
       </label>
       <select
         name="lang"
@@ -49,7 +58,7 @@ const Language = () => {
           storeLang(lang);
         }}
       >
-        {createLangOptions(translations)}
+        {options}
       </select>
       <svg
         className="w-5 h-5 text-gray-500 absolute top-1/2 right-0 -mt-2.5 pointer-events-none"
