@@ -7,24 +7,54 @@ Created with [Gatsby](https://www.gatsbyjs.com/).
 ## Set up
 
 [NodeJS should be installed](https://nodejs.org/).
-It has been tested with v14.15.1
+It has been tested with Node v14.15.5
 
 Once Node is installed, from the project directory run:
 `npm install`
 
 ## Gatsby commands
 
-`gatsby build` For creating the production build. Final files will be output in the `public` folder.
+`npm run build` or `gatsby build`: For creating the production build. Final files will be output in the `public` folder.
 
-`gatsby develop` For development. With HMR.
+`npm run develop` or `gatsby develop`: For development. With HMR.
 
-`gatsby serve` For serving the build locally.
+`npm run serve` or `gatsby serve`: For serving the build locally.
 
-`gatsby clean` For deleting the Gatsby cache. If there are weird errors run this and try again.
+`npm run clean` or `gatsby clean`: For deleting the Gatsby cache. **If there are weird errors run this and try again**.
 
-## Configuration
+## Configuration and structure of the source files
 
-In `gatsby-config.js` define the path `sourceFolder` to the source files and the site metadata.
+In `gatsby-config.js` set the path to the source folder with the variable `sourceFolder`.
+
+In that same file some site metadata like title, description and author can be set.
+
+In the source folder there should be a folder for each language version.
+The name of each folder should be the desired language locale.
+Also there may be a folder called `common` with a folder `images` for the common images.
+Inside each language folder there should be:
+
+- A folder named `html` for all the html source files for that language.
+- A folder named `images` for the images specific to that version.
+- An xml file named `index.xml` with the html files' hierarchy for that language.
+
+Example with a source folder named `docs` and only one locale folder for English:
+
+```
+docs
+  ├── common
+  │     └── images
+  │            └── example-image.jpg
+  └── en-us
+        ├── html
+        │    └── example-source.html
+        ├── images
+        │     └── example-image.jpg
+        └── index.xml
+```
+
+It is possible to create subfolders inside the images folders to organize them.
+
+Paths used in the html source files, like in images and anchors, should reflect that folder structure.
 
 ## Index tree nested levels
 
@@ -48,3 +78,7 @@ Copy the `.env.example` file, rename it to `.env` and fill the data.
 ## Other info
 
 Several warnings may appear in the console during development/build indicating HTML files not being used in the `index.xml`.
+
+Styles for the content area of the site are in `src > styles > content-area.css`
+
+Styles for the rest of the layout are with [TailwindCSS](https://tailwindcss.com/docs), so any of its css classes can be applied to the site. Otherwise create your own classes in the `global.css` file.
