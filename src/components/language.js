@@ -43,30 +43,34 @@ const Language = () => {
   ]);
 
   return (
-    <form className="relative">
-      <label htmlFor="lang" className="sr-only">
-        Language picker
-      </label>
-      <select
-        name="lang"
-        id="lang"
-        className="appearance-none block bg-transparent pr-6 py-1 text-gray-500 font-medium focus:outline-none focus:text-gray-900 cursor-pointer transition-colors duration-200"
-        value={lang}
-        onChange={e => {
-          const lang = e.target.value;
-          navigate(translations[lang]);
-          storeLang(lang);
-        }}
-      >
-        {options}
-      </select>
-      <svg
-        className="w-5 h-5 text-gray-500 absolute top-1/2 right-0 -mt-2.5 pointer-events-none"
-        fill="currentColor"
-      >
-        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-      </svg>
-    </form>
+    <>
+      {Object.keys(translations).length > 0 ? (
+        <form className="relative">
+          <label htmlFor="lang" className="sr-only">
+            Language picker
+          </label>
+          <select
+            name="lang"
+            id="lang"
+            className="appearance-none block bg-transparent pr-6 py-1 text-gray-500 font-medium focus:outline-none focus:text-gray-900 cursor-pointer transition-colors duration-200"
+            value={lang}
+            onChange={e => {
+              const lang = e.target.value;
+              navigate(translations[lang]);
+              storeLang(lang);
+            }}
+          >
+            {options}
+          </select>
+          <svg
+            className="w-5 h-5 text-gray-500 absolute top-1/2 right-0 -mt-2.5 pointer-events-none"
+            fill="currentColor"
+          >
+            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+          </svg>
+        </form>
+      ) : null}
+    </>
   );
 };
 

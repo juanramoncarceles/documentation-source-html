@@ -20,20 +20,24 @@ const Search = ({ indices }) => {
   useClickOutside(rootRef, () => setFocus(false));
 
   return (
-    <div className="relative my-2.5 mr-6 ml-0" ref={rootRef}>
-      <InstantSearch
-        searchClient={searchClient}
-        indexName={indices[0].name}
-        onSearchStateChange={({ query }) => setQuery(query)}
-      >
-        <Configure restrictSearchableAttributes={[`title_${lang}`]} />
-        <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
-        <SearchResult
-          show={query && query.length > 0 && hasFocus}
-          indices={indices}
-        />
-      </InstantSearch>
-    </div>
+    <>
+      {lang ? (
+        <div className="relative my-2.5 mr-6 ml-0" ref={rootRef}>
+          <InstantSearch
+            searchClient={searchClient}
+            indexName={indices[0].name}
+            onSearchStateChange={({ query }) => setQuery(query)}
+          >
+            <Configure restrictSearchableAttributes={[`title_${lang}`]} />
+            <SearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
+            <SearchResult
+              show={query && query.length > 0 && hasFocus}
+              indices={indices}
+            />
+          </InstantSearch>
+        </div>
+      ) : null}
+    </>
   );
 };
 
