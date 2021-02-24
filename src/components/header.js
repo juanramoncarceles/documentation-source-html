@@ -32,7 +32,7 @@ const Header = ({ siteTitle }) => {
       <div className="flex mx-auto h-20 max-w-screen-xl py-3 px-4">
         <div className="flex items-center w-64">
           <Link
-            to={"/" + (defaultLang !== lang ? lang : "")}
+            to={"/" + (lang && defaultLang !== lang ? lang : "")}
             className="overflow-hidden w-9 sm:w-auto"
             aria-label="Link to home page"
           >
