@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import { navigate } from "gatsby";
+import { navigate, useStaticQuery, graphql } from "gatsby";
 
 const IntlContext = createContext();
 
@@ -18,32 +18,66 @@ const storeLang = lang => {
 };
 
 const IntlContextProvider = ({ children }) => {
-  const [lang, setLang] = useState("");
+  const [lang, setLang] = useState();
   const [translations, setTranslations] = useState({});
+
+  const {
+    site: {
+      siteMetadata: { defaultLang },
+    },
+    allLanguage: { nodes: locales },
+  } = useStaticQuery(
+    graphql`
+      query siteLanguagesQuery {
+        site {
+          siteMetadata {
+            defaultLang
+          }
+        }
+        allLanguage {
+          nodes {
+            locale
+          }
+        }
+      }
+    `
+  );
 
   // TODO Possible method to check the browser lang.
   // const getBrowerLangIfSupported = () => {};
 
   useEffect(() => {
+    let storedLang = localStorage.getItem("lang");
+    // Check if the stored locale is valid.
+    if (!locales.some(l => l.locale === storedLang)) {
+      storedLang = undefined;
+      localStorage.removeItem("lang");
+    }
+    // If there are translations try to use the stored language on them.
     if (Object.keys(translations).length > 0) {
-      const lang = localStorage.getItem("lang");
-      if (lang) {
-        navigate(translations[lang]);
-      } else {
-        storeLang(lang);
+      if (storedLang) {
+        navigate(translations[storedLang]);
       }
+      // TODO alternatively if there is no stored lang take the one from the browser.
       // else if (getBrowerLangIfSupported()) {
-      //   const lang = getBrowserLangIfSupported();
-      //   navigate(`/${translations[lang]}`);
+      //   const browserLang = getBrowserLangIfSupported();
+      //   navigate(translations[browserLang]);
       // }
     }
     // In this case it is ok to have an object as a dependency since every time new
     // translation values are available a new translations object is created and set.
-  }, [translations]);
+  }, [translations, locales]);
 
   return (
     <IntlContext.Provider
-      value={{ lang, storeLang, setLang, translations, setTranslations }}
+      value={{
+        lang,
+        defaultLang,
+        storeLang,
+        setLang,
+        translations,
+        setTranslations,
+      }}
     >
       {children}
     </IntlContext.Provider>

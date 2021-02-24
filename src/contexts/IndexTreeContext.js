@@ -1,5 +1,13 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useContext,
+  createContext,
+} from "react";
 import { useStaticQuery, graphql } from "gatsby";
+
+import { useIntl } from "./IntlContext";
 
 const IndexTreeContext = createContext();
 
@@ -28,7 +36,20 @@ const createIndexCollapsedStateObj = (outObj, itemsArray, parentId) => {
   });
 };
 
+/**
+ * From an array of indexes returns the one for the provided language.
+ * If no index is found undefined is returned.
+ * @param {Object[]} indexes Array of index objects {lang, items}
+ * @param {string} lang en-us, es-es, it-it, etc...
+ */
+const getIndexDataByLang = (indexes, lang) => {
+  const indexObj = indexes.find(index => index.lang === lang);
+  return indexObj && indexObj.items;
+};
+
 const IndexTreeContextProvider = ({ children }) => {
+  const { lang, defaultLang } = useIntl();
+
   // GraphQL requires to be explicit about levels of nested data.
   // So if more levels are added to the docs this query should be updated.
   // It could be written nicer by creating an item type like here:
@@ -93,16 +114,22 @@ const IndexTreeContextProvider = ({ children }) => {
           break;
         }
       }
-      return c;
+      return { ...c };
     });
   }, [currentPath]);
 
   // TODO useEffect to set/get in localStorage the state of the index?
 
+  // TODO the use of defaultLang here could be an problem?
+  const index = useMemo(
+    () => getIndexDataByLang(indexes, lang ?? defaultLang),
+    [indexes, lang, defaultLang]
+  );
+
   return (
     <IndexTreeContext.Provider
       value={{
-        indexes,
+        index,
         collapsementState,
         setCollapsementState,
         setCurrentPath,

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useLayoutEffect, useMemo } from "react";
+import React, { useRef, useEffect, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 
 import { useIndexTree } from "../contexts/IndexTreeContext";
@@ -14,21 +14,11 @@ const storeYScroll = domElement => {
     sessionStorage.setItem("indexTreeYScroll", domElement.scrollTop);
 };
 
-/**
- * From an array of indexes returns the one for the provided language.
- * If no index is found undefined is returned.
- * @param {string} lang en-us, es-es, it-it, etc...
- */
-const getIndexDataByLang = (indexes, lang) => {
-  const indexObj = indexes.find(index => index.lang === lang);
-  return indexObj && indexObj.items;
-};
-
 const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
   const indexTreeHTMLContainer = useRef(null);
 
   const {
-    indexes,
+    index,
     collapsementState,
     setCollapsementState,
     setCurrentPath,
@@ -44,13 +34,6 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
       indexTreeHTMLContainer.current.scrollTo(0, scrollPosition || 0);
     }
   }, []);
-
-  // TODO another option instead of useMemo is to pass the index already from context,
-  // to do that the lang should be passed to context to do the calculation there.
-  const indexData = useMemo(() => getIndexDataByLang(indexes, lang), [
-    indexes,
-    lang,
-  ]);
 
   const toggleCollapsed = itemId => {
     setCollapsementState(
@@ -69,9 +52,9 @@ const Index = ({ lang, setOpen, currentPath, cssClasses }) => {
         onClick={() => storeYScroll(indexTreeHTMLContainer.current)}
       >
         {/* <h3 className="text-xl uppercase">Index</h3> */}
-        {indexData ? (
+        {index ? (
           <ul className="mb-10">
-            {indexData.map(item => (
+            {index.map(item => (
               <IndexItem
                 item={item}
                 collapsementState={collapsementState}
