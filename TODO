@@ -25,9 +25,15 @@ CHANGES:
     An easy option is to create two identical home pages, one with the locale an another without.
   ☐ Make the logs about the errors with html anchors replacement also with the Gatsby reporter? @low
   ☐ IndexTree scroll position is stored in sessionStorage, but it could be stored in the indexTreeContext state instead.
+  ☐ Get the data from the xml manually doing the same as the xml plugin does since I have to parse it anyway to get the root element data.
+    https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-xml/src/gatsby-node.js
+  ☐ Make it a plugin, for example just a local plugin.
+    https://www.gatsbyjs.com/docs/creating-a-local-plugin/
+  ☐ Use the title attribute in the root element of the index.xml files to set the site title for each language instead of using the one in gatsby-config.js
 
 
 FEATURES:
+  ☐ Keyboard arrows to select the search result?
   ☐ Better error and warnings reporting. Now missing translations appear several times. Indicate files not being used and avoid that those appear in other warnings, like translations and images src replacement.
   ☐ Enable the offline plugin to make it a PWA so it can be installed and use notifications.
   ☐ Add an index for the page anchor/sections if any (Table of contents). Like in the Tailwind docs pages.
@@ -39,6 +45,12 @@ FEATURES:
   ☐ Use gatsby image manually to imitate the behaviour of inlining the base64 images by default?
   ☐ Allow to always search in english? Maybe this makes sense with different indexes? @low
   ☐ Use up and down arrow keys in the list of search results.
+  ☐ Display table of contents conditionally in config.
+  ☐ Create excepts from html source files to use for example in search results.
+    https://www.gatsbyjs.com/plugins/gatsby-plugin-excerpts/
+    https://www.npmjs.com/package/truncate-html
+  ☐ Add DocSearch by Algolia.
+    https://docsearch.algolia.com/
 
 
 IMAGES:
