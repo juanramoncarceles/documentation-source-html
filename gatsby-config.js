@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 // Path to the source folder.
-const sourceFolder = `${__dirname}/../help`;
+const sourceFolder = `${__dirname}/${process.env.SOURCE_FILES_RELATIVE_PATH}`;
 
 module.exports = {
   siteMetadata: {
